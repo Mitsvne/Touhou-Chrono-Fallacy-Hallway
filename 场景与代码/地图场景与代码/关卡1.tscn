@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj4poyfjuw0rg"]
+
+[ext_resource type="Texture2D" uid="uid://bv1llydptxudb" path="res://素材/地图素材/高山/1.png" id="1_uvhnw"]
+[ext_resource type="Texture2D" uid="uid://bnvy2gs5lawdj" path="res://素材/地图素材/高山/2.png" id="2_kyx6h"]
+[ext_resource type="Texture2D" uid="uid://cbtkryinjdmwg" path="res://素材/地图素材/高山/4.png" id="3_smmn0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyx6h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_smmn0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dx6ce"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yaode"]
+
+[node name="关卡1" type="Node2D"]
+
+[node name="背景" type="Node2D" parent="."]
+position = Vector2(0, -50)
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="背景"]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-180, 0)
+
+[node name="1" type="Sprite2D" parent="背景/Parallax2D"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_uvhnw")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="背景"]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-150, 0)
+
+[node name="2" type="Sprite2D" parent="背景/Parallax2D2"]
+position = Vector2(0, -50)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_kyx6h")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D3" type="Parallax2D" parent="背景"]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-250, 0)
+
+[node name="4" type="Sprite2D" parent="背景/Parallax2D3"]
+position = Vector2(0, -30)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_smmn0")
+centered = false
+
+[node name="地图边界" type="Node2D" parent="."]
+
+[node name="空气墙" type="StaticBody2D" parent="地图边界"]
+
+[node name="下" type="CollisionShape2D" parent="地图边界/空气墙"]
+position = Vector2(329, 358)
+shape = SubResource("WorldBoundaryShape2D_kyx6h")
+
+[node name="上" type="CollisionShape2D" parent="地图边界/空气墙"]
+position = Vector2(329, 2)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_smmn0")
+
+[node name="左" type="CollisionShape2D" parent="地图边界/空气墙"]
+position = Vector2(-1, 202)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_dx6ce")
+
+[node name="右" type="CollisionShape2D" parent="地图边界/空气墙"]
+position = Vector2(640, 189)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_yaode")

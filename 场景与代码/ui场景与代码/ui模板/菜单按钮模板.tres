@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dxmcr0wtpybpd"]
+
+[ext_resource type="Texture2D" uid="uid://cewrsdlwbnuhu" path="res://素材/ui素材/ui素材/子按钮框.png" id="2_rspoc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq6yw"]
+texture = ExtResource("2_rspoc")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(74, 13, 262, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rspoc"]
+texture = ExtResource("2_rspoc")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(74, 13, 262, 57)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pwca"]
+texture = ExtResource("2_rspoc")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(74, 13, 262, 57)
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_bq6yw")
+Button/styles/normal = SubResource("StyleBoxTexture_rspoc")
+Button/styles/pressed = SubResource("StyleBoxTexture_3pwca")

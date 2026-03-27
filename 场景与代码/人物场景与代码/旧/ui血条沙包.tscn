@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://tw7tgboi4ltg"]
+
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="1_x1wnp"]
+[ext_resource type="Texture2D" uid="uid://bslp3mg2h4h73" path="res://素材/ui素材/人物头像/铃仙.png" id="2_ffhve"]
+
+[node name="ui血条" instance=ExtResource("1_x1wnp")]
+
+[node name="头像" parent="头像框" index="0"]
+texture = ExtResource("2_ffhve")

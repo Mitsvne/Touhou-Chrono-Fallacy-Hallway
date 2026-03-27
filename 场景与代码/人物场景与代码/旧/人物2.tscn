@@ -1,0 +1,1189 @@
+[gd_scene load_steps=83 format=3 uid="uid://bcbqp8dhvw525"]
+
+[ext_resource type="Texture2D" uid="uid://xjes35jvgo28" path="res://素材/人物素材/拉赫/人物/xem_1000-0.png" id="1_avw4o"]
+[ext_resource type="Script" uid="uid://4rg7vniu2c7v" path="res://场景与代码/人物场景与代码/旧/人物2.gd" id="1_pfdhu"]
+[ext_resource type="Texture2D" uid="uid://ctp5uxp0jorpu" path="res://素材/人物素材/拉赫/人物/xem_1000-1.png" id="2_jynwq"]
+[ext_resource type="Texture2D" uid="uid://d1qbq3d70pkyp" path="res://素材/人物素材/拉赫/人物/xem_1000-2.png" id="3_2av5i"]
+[ext_resource type="Texture2D" uid="uid://ch78v5au2txce" path="res://素材/人物素材/拉赫/人物/xem_1000-3.png" id="4_0ghp6"]
+[ext_resource type="Texture2D" uid="uid://4xds7h3yevll" path="res://素材/人物素材/拉赫/人物/xem_100-1.png" id="4_v3xki"]
+[ext_resource type="Texture2D" uid="uid://bljsnmtpksxye" path="res://素材/人物素材/拉赫/人物/xem_100-2.png" id="5_pu3jv"]
+[ext_resource type="Texture2D" uid="uid://c6khd7wp23p1c" path="res://素材/人物素材/拉赫/人物/xem_1000-4.png" id="5_r0suh"]
+[ext_resource type="Texture2D" uid="uid://d11apxisfcoi7" path="res://素材/人物素材/拉赫/人物/xem_1000-5.png" id="6_oo2d0"]
+[ext_resource type="Texture2D" uid="uid://cawxcpefyw23k" path="res://素材/人物素材/拉赫/人物/xem_100-3.png" id="6_shrrf"]
+[ext_resource type="Texture2D" uid="uid://5lhuayyinvru" path="res://素材/人物素材/拉赫/人物/xem_5300-0.png" id="7_8v3mj"]
+[ext_resource type="Texture2D" uid="uid://dthhptb3pmyy8" path="res://素材/人物素材/拉赫/人物/xem_100-4.png" id="7_e5rl2"]
+[ext_resource type="Texture2D" uid="uid://db5cwmrilkhaf" path="res://素材/人物素材/拉赫/人物/xem_1000-6.png" id="7_w3mwd"]
+[ext_resource type="Texture2D" uid="uid://car36848dj7hx" path="res://素材/人物素材/拉赫/人物/xem_5300-1.png" id="8_m5rkx"]
+[ext_resource type="Texture2D" uid="uid://vbusu26pd1a8" path="res://素材/人物素材/拉赫/人物/xem_0-0.png" id="9_vesi5"]
+[ext_resource type="Texture2D" uid="uid://chvgx7hdf23cg" path="res://素材/人物素材/拉赫/人物/xem_5300-2.png" id="9_yexcw"]
+[ext_resource type="Texture2D" uid="uid://bkbt2y4kjeefx" path="res://素材/人物素材/拉赫/人物/xem_0-1.png" id="10_kecl0"]
+[ext_resource type="Texture2D" uid="uid://bi4poesyhxxkf" path="res://素材/人物素材/拉赫/人物/xem_0-2.png" id="11_tgxpr"]
+[ext_resource type="Texture2D" uid="uid://brifci48tmifu" path="res://素材/人物素材/拉赫/人物/xem_0-3.png" id="12_7bpeb"]
+[ext_resource type="Texture2D" uid="uid://clouscpene4oe" path="res://素材/人物素材/拉赫/人物/xem_0-4.png" id="13_8gf0x"]
+[ext_resource type="Texture2D" uid="uid://lxufrp06oigw" path="res://素材/人物素材/拉赫/人物/xem_0-5.png" id="14_4p4wv"]
+[ext_resource type="Texture2D" uid="uid://2vkqbwfitmr0" path="res://素材/人物素材/拉赫/人物/xem_1500-0.png" id="15_fx2a8"]
+[ext_resource type="Texture2D" uid="uid://clhp7o5qa2xyt" path="res://素材/人物素材/拉赫/人物/xem_0-6.png" id="15_ppx5o"]
+[ext_resource type="Texture2D" uid="uid://dnk58heinr42q" path="res://素材/人物素材/拉赫/人物/xem_20-0.png" id="16_2pyc3"]
+[ext_resource type="Texture2D" uid="uid://bqa6skyh5isab" path="res://素材/人物素材/拉赫/人物/xem_1500-1.png" id="16_km7oj"]
+[ext_resource type="Texture2D" uid="uid://dvijdrvklkla5" path="res://素材/人物素材/拉赫/人物/xem_20-1.png" id="17_en2vr"]
+[ext_resource type="Texture2D" uid="uid://b22a6vn0ia4uc" path="res://素材/人物素材/拉赫/人物/xem_1500-2.png" id="17_kfdak"]
+[ext_resource type="Texture2D" uid="uid://0s8ke7h1s666" path="res://素材/人物素材/拉赫/人物/xem_20-2.png" id="18_27qmt"]
+[ext_resource type="Texture2D" uid="uid://c4pno1ut025gr" path="res://素材/人物素材/拉赫/人物/xem_1500-3.png" id="18_oa2ni"]
+[ext_resource type="Texture2D" uid="uid://e0yc7ivvglt8" path="res://素材/人物素材/拉赫/人物/xem_1500-4.png" id="19_duv6e"]
+[ext_resource type="Texture2D" uid="uid://bofykdef0q6dh" path="res://素材/人物素材/拉赫/人物/xem_20-3.png" id="19_hp4dh"]
+[ext_resource type="Texture2D" uid="uid://4i5gq2a6y8sq" path="res://素材/人物素材/拉赫/人物/xem_1500-5.png" id="20_coe5w"]
+[ext_resource type="Texture2D" uid="uid://d1l6lo7t4fhxo" path="res://素材/人物素材/拉赫/人物/xem_20-4.png" id="20_k1ogr"]
+[ext_resource type="Texture2D" uid="uid://bk4f8euwfjuuq" path="res://素材/人物素材/拉赫/人物/xem_1500-6.png" id="21_8v3mj"]
+[ext_resource type="Texture2D" uid="uid://cttl0dgskdxmr" path="res://素材/人物素材/拉赫/人物/xem_20-5.png" id="21_lpvbt"]
+[ext_resource type="Texture2D" uid="uid://bsr4bg0l1vocb" path="res://素材/人物素材/拉赫/人物/xem_1500-7.png" id="22_m5rkx"]
+[ext_resource type="Texture2D" uid="uid://dkjtpmx401ylk" path="res://素材/人物素材/拉赫/人物/xem_20-6.png" id="22_v3xki"]
+[ext_resource type="Texture2D" uid="uid://cg81bg7j0g23v" path="res://素材/人物素材/拉赫/人物/xem_20-7.png" id="23_pu3jv"]
+[ext_resource type="Texture2D" uid="uid://dw1s6j8saadfo" path="res://素材/人物素材/拉赫/人物/xem_1500-8.png" id="23_yexcw"]
+[ext_resource type="Texture2D" uid="uid://caqb1olfecban" path="res://素材/人物素材/拉赫/人物/xem_41-0.png" id="24_en2vr"]
+[ext_resource type="Texture2D" uid="uid://td36c4unmwvu" path="res://素材/人物素材/拉赫/人物/xem_1500-9.png" id="24_l6erp"]
+[ext_resource type="Texture2D" uid="uid://cugq7cymouirm" path="res://素材/人物素材/拉赫/人物/xem_41-1.png" id="25_27qmt"]
+[ext_resource type="Texture2D" uid="uid://5wwtysh42xa2" path="res://素材/人物素材/拉赫/人物/xem_1500-10.png" id="25_d5nej"]
+[ext_resource type="Texture2D" uid="uid://duswvn8j5y5u5" path="res://素材/人物素材/拉赫/人物/xem_41-2.png" id="26_hp4dh"]
+[ext_resource type="Texture2D" uid="uid://cingpck782bxa" path="res://素材/人物素材/拉赫/人物/xem_1080-0.png" id="26_udyhl"]
+[ext_resource type="Texture2D" uid="uid://dbkn5cee2uoqp" path="res://素材/人物素材/拉赫/人物/xem_41-3.png" id="27_k1ogr"]
+[ext_resource type="Texture2D" uid="uid://pv1mujmpr4au" path="res://素材/人物素材/拉赫/人物/xem_1080-1.png" id="27_l4q0c"]
+[ext_resource type="Texture2D" uid="uid://cxlk3n4ecw4ik" path="res://素材/人物素材/拉赫/人物/xem_1080-2.png" id="28_2jtu2"]
+[ext_resource type="Texture2D" uid="uid://qo0yxwuxi10m" path="res://素材/人物素材/拉赫/人物/xem_41-4.png" id="28_lpvbt"]
+[ext_resource type="Texture2D" uid="uid://1gueldahna0l" path="res://素材/人物素材/拉赫/人物/xem_1080-3.png" id="29_agxk6"]
+[ext_resource type="Texture2D" uid="uid://dmsswyavqfy6h" path="res://素材/人物素材/拉赫/人物/xem_41-5.png" id="29_v3xki"]
+[ext_resource type="Texture2D" uid="uid://b34liajsphp2q" path="res://素材/人物素材/拉赫/人物/xem_1080-5.png" id="30_6835y"]
+[ext_resource type="Texture2D" uid="uid://byv1i6ib5hkq7" path="res://素材/人物素材/拉赫/人物/xem_41-6.png" id="30_pu3jv"]
+[ext_resource type="Texture2D" uid="uid://d0dltosfht304" path="res://素材/人物素材/拉赫/人物/xem_1080-6.png" id="31_s1cwe"]
+[ext_resource type="Texture2D" uid="uid://cmc0l0a7sk86t" path="res://素材/人物素材/拉赫/人物/xem_41-7.png" id="31_shrrf"]
+[ext_resource type="Texture2D" uid="uid://c2r60vt335yag" path="res://素材/人物素材/拉赫/人物/xem_100-0.png" id="32_e5rl2"]
+[ext_resource type="Texture2D" uid="uid://bv013ckgigvqa" path="res://素材/人物素材/拉赫/人物/xem_1080-7.png" id="32_soc4y"]
+[ext_resource type="Texture2D" uid="uid://dyrq0yitl06e7" path="res://素材/人物素材/拉赫/人物/xem_1080-8.png" id="33_4k737"]
+[ext_resource type="Script" uid="uid://djbu4n2loiaw6" path="res://场景与代码/人物场景与代码/旧/状态机.gd" id="33_27qmt"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="56_kfdak"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/攻击面.gd" id="57_oa2ni"]
+[ext_resource type="Script" uid="uid://bxyq00c4uwxea" path="res://场景与代码/人物场景与代码/旧/人物数值.gd" id="59_oa2ni"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="63_m5rkx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xto1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_e5rl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v3xki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pu3jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_shrrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e5rl2")
+}],
+"loop": true,
+"name": &"冲刺",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8v3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m5rkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yexcw")
+}],
+"loop": true,
+"name": &"受击",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_avw4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jynwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2av5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ghp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r0suh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oo2d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w3mwd")
+}],
+"loop": true,
+"name": &"攻击1",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_fx2a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_km7oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kfdak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_oa2ni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_duv6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_coe5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8v3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_m5rkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_yexcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_l6erp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_d5nej")
+}],
+"loop": true,
+"name": &"攻击2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_udyhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l4q0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_2jtu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_agxk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6835y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_s1cwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_soc4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_4k737")
+}],
+"loop": true,
+"name": &"攻击3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vesi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kecl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tgxpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7bpeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8gf0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4p4wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ppx5o")
+}],
+"loop": true,
+"name": &"站立",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"落地",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_2pyc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_en2vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_27qmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hp4dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_k1ogr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lpvbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_v3xki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pu3jv")
+}],
+"loop": true,
+"name": &"走",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_en2vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_27qmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hp4dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_k1ogr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lpvbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_v3xki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_pu3jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_shrrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_e5rl2")
+}],
+"loop": true,
+"name": &"跳跃",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa2ni"]
+size = Vector2(39.5, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfdak"]
+size = Vector2(44.5, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duv6e"]
+size = Vector2(146, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coe5w"]
+size = Vector2(44, 78.5)
+
+[sub_resource type="Animation" id="Animation_r6h1e"]
+resource_name = "RESET"
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"攻击1"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -56)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../动画:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..:can_combo")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../图形/Hitbox/j1:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../图形/Hitbox/j2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../图形/Hitbox/j3:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f4okx"]
+resource_name = "冲刺"
+length = 0.53334004
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"冲刺"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 3, 4, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-1, -45), Vector2(11, -42), Vector2(18, -32), Vector2(18, -32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_l6erp"]
+resource_name = "受击"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"受击"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, -47), Vector2(-12, -45), Vector2(-11, -44)]
+}
+
+[sub_resource type="Animation" id="Animation_dgi8l"]
+resource_name = "攻击1"
+length = 0.46667334
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"攻击1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -47), Vector2(1, -52), Vector2(1, -41), Vector2(1, -38), Vector2(2, -40), Vector2(0, -42), Vector2(0, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.5, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..:can_combo")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../图形/Hitbox/j1:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8m0cc"]
+resource_name = "攻击2"
+length = 0.73334
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"攻击2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-2, -52), Vector2(19, -48), Vector2(18, -44), Vector2(12, -56), Vector2(3, -35), Vector2(18, -24), Vector2(19, -25), Vector2(19, -26), Vector2(19, -26), Vector2(20, -35), Vector2(11, -40), Vector2(11, -40)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.5, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:can_combo")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../图形/Hitbox/j2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_aw8cy"]
+resource_name = "攻击3"
+length = 0.46667334
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"攻击3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -46), Vector2(1, -42), Vector2(-4, -38), Vector2(-4, -38), Vector2(-4, -43), Vector2(-4, -47), Vector2(-4, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, 0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../图形/Hitbox/j3:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_e5rl2"]
+resource_name = "移动"
+length = 0.53334004
+loop_mode = 1
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"走"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -49), Vector2(0, -50), Vector2(0, -49), Vector2(0, -48), Vector2(0, -49), Vector2(0, -50), Vector2(0, -50), Vector2(0, -48)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_shrrf"]
+resource_name = "站立"
+length = 0.46667334
+loop_mode = 1
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"站立"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n1qw1"]
+resource_name = "起跳"
+length = 0.20000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"跳跃"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-8, -52), Vector2(-8, -52), Vector2(-8, -51), Vector2(-8, -51), Vector2(-15, -50), Vector2(-19, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_by8si"]
+resource_name = "跳中"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"跳跃"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_hp4dh"]
+resource_name = "跳落地"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"跳跃"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3.165, -48)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_27qmt"]
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"跳跃"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rejds"]
+_data = {
+&"RESET": SubResource("Animation_r6h1e"),
+&"冲刺": SubResource("Animation_f4okx"),
+&"受击": SubResource("Animation_l6erp"),
+&"攻击1": SubResource("Animation_dgi8l"),
+&"攻击2": SubResource("Animation_8m0cc"),
+&"攻击3": SubResource("Animation_aw8cy"),
+&"移动": SubResource("Animation_e5rl2"),
+&"站立": SubResource("Animation_shrrf"),
+&"起跳": SubResource("Animation_n1qw1"),
+&"跳中循环": SubResource("Animation_by8si"),
+&"跳落地": SubResource("Animation_hp4dh"),
+&"跳落循环": SubResource("Animation_27qmt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adek8"]
+size = Vector2(37, 91)
+
+[node name="人物" type="CharacterBody2D"]
+script = ExtResource("1_pfdhu")
+
+[node name="动画帧数库" type="AnimatedSprite2D" parent="."]
+auto_translate_mode = 1
+position = Vector2(0, -56)
+sprite_frames = SubResource("SpriteFrames_xto1c")
+animation = &"攻击1"
+autoplay = "站立"
+offset = Vector2(0, 2.335)
+
+[node name="图形" type="Node2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="图形"]
+collision_mask = 0
+script = ExtResource("56_kfdak")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面" type="CollisionShape2D" parent="图形/Hurtbox"]
+visibility_layer = 0
+position = Vector2(0, -47)
+shape = SubResource("RectangleShape2D_oa2ni")
+debug_color = Color(0.6003143, 0.3689195, 1, 0.52156866)
+
+[node name="Hitbox" type="Area2D" parent="图形"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("57_oa2ni")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="j1" type="CollisionShape2D" parent="图形/Hitbox"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(40.75, -46.75)
+shape = SubResource("RectangleShape2D_kfdak")
+disabled = true
+debug_color = Color(0.9357279, 0.18411443, 0.44901478, 0.41960785)
+
+[node name="j2" type="CollisionShape2D" parent="图形/Hitbox"]
+position = Vector2(54, -47.5)
+shape = SubResource("RectangleShape2D_duv6e")
+disabled = true
+
+[node name="j3" type="CollisionShape2D" parent="图形/Hitbox"]
+position = Vector2(41, -47)
+shape = SubResource("RectangleShape2D_coe5w")
+disabled = true
+
+[node name="位置参考" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.25765854, 0.25765854, 0.25765854, 1)
+self_modulate = Color(1, 1, 1, 0.21960784)
+position = Vector2(0, -51)
+texture = ExtResource("9_vesi5")
+
+[node name="动画" type="AnimationPlayer" parent="."]
+root_node = NodePath("../动画帧数库")
+libraries = {
+&"": SubResource("AnimationLibrary_rejds")
+}
+speed_scale = 2.0
+
+[node name="碰撞面" type="CollisionShape2D" parent="."]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_adek8")
+
+[node name="郊狼时间" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("33_27qmt")
+metadata/_custom_type_script = "uid://djbu4n2loiaw6"
+
+[node name="受击无敌时间" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("59_oa2ni")
+metadata/_custom_type_script = "uid://bxyq00c4uwxea"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui血条" parent="CanvasLayer" instance=ExtResource("63_m5rkx")]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 130.0
+offset_bottom = 74.0
+
+[connection signal="hurt" from="图形/Hurtbox" to="." method="_on_hurtbox_hurt"]

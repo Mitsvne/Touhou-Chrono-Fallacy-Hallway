@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://belk2vh03n6kd"]
+
+[ext_resource type="Script" uid="uid://dl462y60o47fc" path="res://场景与代码/人物场景与代码/主体类/攻击数字.gd" id="1_g6j7r"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="2_8a8hh"]
+
+[node name="攻击数字" type="Node2D"]
+script = ExtResource("1_g6j7r")
+
+[node name="数字文本" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_8a8hh")
+theme_override_font_sizes/font_size = 32
+text = "999"

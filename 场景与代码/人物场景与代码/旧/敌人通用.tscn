@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5cytqjhye4j"]
+
+[ext_resource type="Script" uid="uid://djbu4n2loiaw6" path="res://场景与代码/人物场景与代码/旧/状态机.gd" id="1_0axy0"]
+[ext_resource type="Script" uid="uid://dltyudxyjs5hy" path="res://场景与代码/人物场景与代码/旧/敌人通用.gd" id="1_82pvq"]
+
+[node name="敌人通用" type="CharacterBody2D"]
+script = ExtResource("1_82pvq")
+
+[node name="图形" type="Node2D" parent="."]
+
+[node name="素材库" type="AnimatedSprite2D" parent="图形"]
+
+[node name="动画" type="AnimationPlayer" parent="."]
+
+[node name="碰撞面" type="CollisionShape2D" parent="."]
+
+[node name="状态机" type="Node" parent="."]
+script = ExtResource("1_0axy0")
+metadata/_custom_type_script = "uid://djbu4n2loiaw6"

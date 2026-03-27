@@ -1,0 +1,229 @@
+[gd_scene load_steps=39 format=3 uid="uid://dhem3wxpj02v8"]
+
+[ext_resource type="Texture2D" uid="uid://onnu8vrykc2m" path="res://素材/ui素材/主菜单背景/人物/xem_105-1.png" id="1_adsnp"]
+[ext_resource type="Script" uid="uid://dxw543k8t5veu" path="res://场景与代码/人物场景与代码/拉赫/拉赫.gd" id="1_v8ol4"]
+[ext_resource type="Texture2D" uid="uid://unyy25wyuwdt" path="res://素材/ui素材/主菜单背景/人物/xem_105-2.png" id="2_2mw65"]
+[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/人物场景与代码/主体类/攻击数字.tscn" id="2_bgnr4"]
+[ext_resource type="PackedScene" uid="uid://dl71ltlxsqtk2" path="res://场景与代码/人物场景与代码/拉赫/拉赫弹幕1.tscn" id="2_udp54"]
+[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="2_xkje0"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="3_xu8tx"]
+[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物主体.gd" id="4_pxy2b"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="5_v8ol4"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物场景与代码/拉赫/光环旋转.gd" id="8_r3d67"]
+[ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/ui素材/主菜单背景/人物/149.png" id="9_bgnr4"]
+[ext_resource type="Script" uid="uid://7yvj52lg2y7t" path="res://场景与代码/人物场景与代码/拉赫/书浮动.gd" id="10_bgrwk"]
+[ext_resource type="Texture2D" uid="uid://boaq146wh5tm5" path="res://素材/ui素材/主菜单背景/人物/96.png" id="11_a0c7d"]
+[ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="12_udp54"]
+[ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/ui素材/主菜单背景/人物/98.png" id="13_10ogm"]
+[ext_resource type="Texture2D" uid="uid://dsjssc4csmyqu" path="res://素材/ui素材/主菜单背景/人物/100.png" id="14_ljw2w"]
+[ext_resource type="Texture2D" uid="uid://c4u2813mepq07" path="res://素材/ui素材/主菜单背景/人物/102.png" id="15_d4dhg"]
+[ext_resource type="Texture2D" uid="uid://3tqftu23441p" path="res://素材/ui素材/主菜单背景/人物/104.png" id="16_enjgw"]
+[ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/ui素材/主菜单背景/人物/106.png" id="17_xvxl8"]
+[ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/ui素材/主菜单背景/人物/108.png" id="18_fynon"]
+[ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/ui素材/主菜单背景/人物/110.png" id="19_d7rcx"]
+[ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/ui素材/主菜单背景/人物/112.png" id="20_woa0f"]
+[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物控制.gd" id="22_udp54"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/特效控制.gd" id="24_ljw2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vjy5"]
+size = Vector2(58, 82)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05ado"]
+shader = ExtResource("2_xkje0")
+shader_parameter/speed_x1 = 0.5
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 0.6
+shader_parameter/speed_y2 = 0.8
+shader_parameter/amplitude = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olaod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_adsnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2mw65")
+}],
+"loop": true,
+"name": &"站立",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8tx"]
+size = Vector2(58, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya7oa"]
+size = Vector2(44, 43.5)
+
+[sub_resource type="Gradient" id="Gradient_r3d67"]
+colors = PackedColorArray(1, 1, 1, 1, 2.1372175, 2.1372175, 2.1372175, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_liacr"]
+gradient = SubResource("Gradient_r3d67")
+
+[sub_resource type="Curve" id="Curve_7g52c"]
+_data = [Vector2(0, 0.5059524), 0.0, 0.0, 0, 0, Vector2(0.2177177, 0.8095239), 0.0, 0.0, 0, 0, Vector2(0.6261261, 0.51190484), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ot8d4"]
+curve = SubResource("Curve_7g52c")
+
+[sub_resource type="Curve" id="Curve_xf4sa"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wbqi"]
+curve = SubResource("Curve_xf4sa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_one88"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(1, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 420.0
+emission_ring_inner_radius = 370.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(-200, 80, 0)
+tangential_accel_curve = SubResource("CurveTexture_0wbqi")
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ot8d4")
+color_ramp = SubResource("GradientTexture1D_liacr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgrwk"]
+shader = ExtResource("12_udp54")
+shader_parameter/gray_intensity = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgnr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_10ogm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ljw2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d4dhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_enjgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xvxl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fynon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_d7rcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_woa0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="拉赫" type="CharacterBody2D"]
+script = ExtResource("1_v8ol4")
+bullet1 = ExtResource("2_udp54")
+damage_number = ExtResource("2_bgnr4")
+
+[node name="Character_mian" type="Node" parent="."]
+script = ExtResource("4_pxy2b")
+metadata/_custom_type_script = "uid://cevyll1q67gg6"
+
+[node name="碰撞箱" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-4, -3)
+shape = SubResource("RectangleShape2D_3vjy5")
+
+[node name="素材库" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_05ado")
+sprite_frames = SubResource("SpriteFrames_olaod")
+animation = &"站立"
+autoplay = "站立"
+frame_progress = 0.9624656
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_xu8tx")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面1" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-4, 19)
+shape = SubResource("RectangleShape2D_xu8tx")
+
+[node name="受击面2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-17, -21.75)
+shape = SubResource("RectangleShape2D_ya7oa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui血条" parent="CanvasLayer" node_paths=PackedStringArray("character", "character_mian") instance=ExtResource("5_v8ol4")]
+offset_left = 625.0
+offset_top = 12.0
+offset_right = 741.0
+offset_bottom = 72.0
+scale = Vector2(-1, 1)
+character = NodePath("../..")
+character_mian = NodePath("../../Character_mian")
+
+[node name="光环" type="Node2D" parent="."]
+position = Vector2(-39, -41)
+
+[node name="倾斜" type="Node2D" parent="光环"]
+rotation = -0.2617994
+skew = 0.87266463
+
+[node name="旋转" type="Node2D" parent="光环/倾斜"]
+script = ExtResource("8_r3d67")
+
+[node name="光环" type="Sprite2D" parent="光环/倾斜/旋转"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_bgnr4")
+
+[node name="粒子" type="GPUParticles2D" parent="光环/倾斜/旋转"]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.070000015, 0.07000001)
+amount = 60
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_one88")
+
+[node name="书" type="Node2D" parent="."]
+
+[node name="书浮动" type="Node2D" parent="书"]
+position = Vector2(39, -38)
+script = ExtResource("10_bgrwk")
+
+[node name="书图片" type="Sprite2D" parent="书/书浮动"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("11_a0c7d")
+
+[node name="书特效" type="AnimatedSprite2D" parent="书/书浮动"]
+self_modulate = Color(1.93715, 1.93715, 1.93715, 1)
+material = SubResource("ShaderMaterial_bgrwk")
+position = Vector2(2, -8)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_bgnr4")
+autoplay = "default"
+
+[node name="class" type="Node" parent="."]
+
+[node name="Character_Ctrler" type="Node" parent="class" node_paths=PackedStringArray("character")]
+script = ExtResource("22_udp54")
+character = NodePath("../..")
+metadata/_custom_type_script = "uid://cabbi4kg28hpl"
+
+[node name="Effect_Ctrler" type="Node" parent="class"]
+script = ExtResource("24_ljw2w")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="hurt" from="Hurtbox" to="Hurtbox" method="_on_hurt"]

@@ -1,0 +1,308 @@
+[gd_scene load_steps=18 format=3 uid="uid://dwm05hjgmvlxs"]
+
+[ext_resource type="Script" uid="uid://doqkfq7hj2g4a" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕2.gd" id="1_lt6e8"]
+[ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="2_a5s7o"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/特效控制.gd" id="2_wymrs"]
+[ext_resource type="Texture2D" uid="uid://ciymm4x3k6ewa" path="res://素材/人物素材/灵梦/特效/spellBulletGa001.png" id="3_btk14"]
+[ext_resource type="Texture2D" uid="uid://d0ump1qo8awpx" path="res://素材/人物素材/灵梦/特效/spellBulletHa000.png" id="4_nn40m"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/攻击面.gd" id="5_wymrs"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/攻击数据.gd" id="6_a5s7o"]
+[ext_resource type="AudioStream" uid="uid://bb72j7hhud64m" path="res://素材/人物素材/灵梦/音效/lm_5-71.wav" id="7_btk14"]
+[ext_resource type="AudioStream" uid="uid://ckw4j0j1t601" path="res://素材/人物素材/灵梦/音效/lm_1-18.wav" id="8_nn40m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v2es"]
+radius = 33.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsngv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a5s7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_btk14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nn40m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gosnm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_vsngv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../动画:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xihrw"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_vsngv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../动画:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_6si61"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_vsngv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7wgds"]
+_data = {
+&"RESET": SubResource("Animation_gosnm"),
+&"hit": SubResource("Animation_xihrw"),
+&"loop": SubResource("Animation_6si61")
+}
+
+[sub_resource type="Resource" id="Resource_btk14"]
+script = ExtResource("6_a5s7o")
+damage = 20.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2nn6"]
+radius = 33.0
+
+[node name="灵梦弹幕2" type="Area2D" groups=["bullet"]]
+script = ExtResource("1_lt6e8")
+
+[node name="Effect_Ctrler" type="Node" parent="."]
+script = ExtResource("2_wymrs")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[node name="碰撞面" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2v2es")
+
+[node name="动画" type="AnimationPlayer" parent="."]
+root_node = NodePath("../素材库")
+libraries = {
+&"": SubResource("AnimationLibrary_7wgds")
+}
+
+[node name="素材库" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vsngv")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("5_wymrs")
+attack_data = SubResource("Resource_btk14")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="碰撞面2" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_w2nn6")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_btk14")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nn40m")
+volume_db = -6.0
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

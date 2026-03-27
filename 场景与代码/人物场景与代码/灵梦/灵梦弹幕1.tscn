@@ -1,0 +1,296 @@
+[gd_scene load_steps=15 format=3 uid="uid://bhtpa5t1ogkki"]
+
+[ext_resource type="Script" uid="uid://o746ii6kllhf" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕1.gd" id="1_1ax1q"]
+[ext_resource type="Texture2D" uid="uid://bi7503dccqr0s" path="res://素材/人物素材/灵梦/特效/bulletEa000.png" id="2_rn2kp"]
+[ext_resource type="Texture2D" uid="uid://dppml02qs5b5t" path="res://素材/人物素材/灵梦/特效/bulletEa001.png" id="3_rn2kp"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/攻击面.gd" id="4_g87nq"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/攻击数据.gd" id="5_2546f"]
+[ext_resource type="AudioStream" uid="uid://l2o417xbwv3y" path="res://素材/人物素材/灵梦/音效/lm_5-70.wav" id="6_ds2uh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfn0"]
+size = Vector2(26, 14)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g87nq"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8djmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rn2kp")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rn2kp")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_g87nq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8djmu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../动画:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_1ax1q"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8djmu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -1), Vector2(4, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 0, 18.892157, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../动画:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_rn2kp"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8djmu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loop"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rn2kp"]
+_data = {
+&"RESET": SubResource("Animation_g87nq"),
+&"hit": SubResource("Animation_1ax1q"),
+&"loop": SubResource("Animation_rn2kp")
+}
+
+[sub_resource type="Resource" id="Resource_ds2uh"]
+script = ExtResource("5_2546f")
+damage = 5.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[node name="灵梦弹幕1" type="Area2D" groups=["bullet"]]
+script = ExtResource("1_1ax1q")
+
+[node name="碰撞箱" type="CollisionShape2D" parent="."]
+position = Vector2(10, -1)
+shape = SubResource("RectangleShape2D_vxfn0")
+
+[node name="素材库" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_g87nq")
+position = Vector2(-1, -1)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_8djmu")
+animation = &"hit"
+
+[node name="动画" type="AnimationPlayer" parent="."]
+root_node = NodePath("../素材库")
+libraries = {
+&"": SubResource("AnimationLibrary_rn2kp")
+}
+autoplay = "loop"
+speed_scale = 2.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("4_g87nq")
+attack_data = SubResource("Resource_ds2uh")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="j1" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(10, -1)
+shape = SubResource("RectangleShape2D_vxfn0")
+
+[node name="音效" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ds2uh")
+volume_db = -6.0
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

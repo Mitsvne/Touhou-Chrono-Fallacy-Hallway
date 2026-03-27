@@ -1,0 +1,581 @@
+[gd_scene load_steps=47 format=3 uid="uid://b82iad0bxqhsp"]
+
+[ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
+[ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物场景与代码/灵梦/灵梦.gd" id="1_ig6o6"]
+[ext_resource type="PackedScene" uid="uid://bhtpa5t1ogkki" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕1.tscn" id="2_g1kd8"]
+[ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="2_ig6o6"]
+[ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕2.tscn" id="3_8vesq"]
+[ext_resource type="PackedScene" uid="uid://b5qska07coqvt" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕3.tscn" id="4_fjrso"]
+[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/人物场景与代码/主体类/攻击数字.tscn" id="5_imqij"]
+[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物主体.gd" id="5_v3c6i"]
+[ext_resource type="Texture2D" uid="uid://1na3wap1p3m0" path="res://素材/人物素材/灵梦/人物/shotB000.png" id="6_7lla3"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="6_jxt28"]
+[ext_resource type="Texture2D" uid="uid://bsavoqinxffk1" path="res://素材/人物素材/灵梦/人物/spellDb000.png" id="6_nhrl1"]
+[ext_resource type="Texture2D" uid="uid://cswh26fqiry2k" path="res://素材/人物素材/灵梦/人物/dashStop000.png" id="6_yh3oc"]
+[ext_resource type="Texture2D" uid="uid://cfhr8ues3cyuk" path="res://素材/人物素材/灵梦/人物/dashStop003.png" id="7_20d74"]
+[ext_resource type="Texture2D" uid="uid://g8liahbqms85" path="res://素材/人物素材/灵梦/人物/spellDb001.png" id="7_fjrso"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="7_n1bbb"]
+[ext_resource type="Texture2D" uid="uid://dqfwth2awnq12" path="res://素材/人物素材/灵梦/人物/shotB001.png" id="7_sinkt"]
+[ext_resource type="Script" uid="uid://djbu4n2loiaw6" path="res://场景与代码/人物场景与代码/旧/状态机.gd" id="7_yvw77"]
+[ext_resource type="Texture2D" uid="uid://boaqo7ctqg27n" path="res://素材/人物素材/灵梦/人物/shotB002.png" id="8_l2f6h"]
+[ext_resource type="Texture2D" uid="uid://4oqwd7nyqmuu" path="res://素材/人物素材/灵梦/人物/spellDb002.png" id="8_tg32o"]
+[ext_resource type="Texture2D" uid="uid://c3k652my7kkgi" path="res://素材/人物素材/灵梦/人物/shotB003.png" id="9_ligu1"]
+[ext_resource type="Texture2D" uid="uid://c6t8s603w6uky" path="res://素材/人物素材/灵梦/人物/spellDb003.png" id="9_rluf1"]
+[ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
+[ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
+[ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
+[ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
+[ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
+[ext_resource type="Texture2D" uid="uid://c7ls5dayredun" path="res://素材/人物素材/灵梦/人物/spellDb006.png" id="12_xq3ko"]
+[ext_resource type="Texture2D" uid="uid://cipq787f7ylr7" path="res://素材/人物素材/灵梦/人物/spellDb007.png" id="13_80c0g"]
+[ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
+[ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
+[ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
+[ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/lm_5-5.wav" id="18_20d74"]
+[ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物场景与代码/灵梦/技能cd.gd" id="22_c73gp"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="22_fc6ke"]
+[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物控制.gd" id="32_tg32o"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/特效控制.gd" id="35_rluf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
+size = Vector2(63, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r340b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1l8ri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ig6o6")
+}],
+"loop": true,
+"name": &"常态",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_nhrl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fjrso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tg32o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rluf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_imqij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_23xpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xq3ko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_80c0g")
+}],
+"loop": true,
+"name": &"必杀",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yh3oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_20d74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7lla3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sinkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l2f6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ligu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p6bjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yh3oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_20d74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fc6ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c73gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x7guv")
+}],
+"loop": true,
+"name": &"技能1",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"飞行",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_lyetf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"飞行"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../动画:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_yvw77"]
+resource_name = "常态"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../动画:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"常态"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_aqga6"]
+resource_name = "必杀1"
+length = 0.8333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"必杀", &"技能1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6333334, 0.70000005, 0.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(24, -26), Vector2(4, -6), Vector2(-2, -4), Vector2(-2, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333367, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../动画:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [ExtResource("4_fjrso"), Vector2(-75, -78)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("4_fjrso"), Vector2(99, 88)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("4_fjrso"), Vector2(-73, 65)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("4_fjrso"), Vector2(-72, 93)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("4_fjrso"), Vector2(30, 92)],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_m1hc4"]
+resource_name = "技能1"
+length = 0.40000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"技能1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.26666668, 0.3, 0.33333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-7, -6), Vector2(-7, -6), Vector2(13, -16), Vector2(10.840908, -14.534091), Vector2(11, -14), Vector2(11, -14), Vector2(18, -18), Vector2(2, -6), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../音效/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_20d74")
+}],
+"times": PackedFloat32Array(0.16666667)
+}
+tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.16666667, 0.2, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [ExtResource("3_8vesq"), Vector2(60, 10)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("3_8vesq"), Vector2(50, 10)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("3_8vesq"), Vector2(40, 10)],
+"method": &"shoot"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../class/Effect_Ctrler")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [NodePath("../../素材库"), Color(1, 1, 1, 0.5), 0.1, 0.5],
+"method": &"start_shadow"
+}, {
+"args": [false],
+"method": &"stop_shadow"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../动画:speed_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.5, 0.25, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wrpc5"]
+_data = {
+&"RESET": SubResource("Animation_lyetf"),
+&"常态": SubResource("Animation_yvw77"),
+&"必杀1": SubResource("Animation_aqga6"),
+&"技能1": SubResource("Animation_m1hc4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
+size = Vector2(51.5, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvw77"]
+size = Vector2(61.5, 47)
+
+[node name="灵梦" type="CharacterBody2D"]
+script = ExtResource("1_ig6o6")
+bullet1 = ExtResource("2_g1kd8")
+bullet2 = ExtResource("3_8vesq")
+bullet3 = ExtResource("4_fjrso")
+damage_number = ExtResource("5_imqij")
+
+[node name="Character_mian" type="Node" parent="."]
+script = ExtResource("5_v3c6i")
+metadata/_custom_type_script = "uid://cevyll1q67gg6"
+
+[node name="碰撞箱" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 13)
+shape = SubResource("RectangleShape2D_256k3")
+
+[node name="动画" type="AnimationPlayer" parent="."]
+root_node = NodePath("../素材库")
+libraries = {
+&"": SubResource("AnimationLibrary_wrpc5")
+}
+autoplay = "常态"
+speed_scale = 2.0
+
+[node name="素材库" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_xftrd")
+position = Vector2(28, -16)
+sprite_frames = SubResource("SpriteFrames_r340b")
+animation = &"飞行"
+autoplay = "常态"
+
+[node name="血条ui" type="CanvasLayer" parent="."]
+
+[node name="ui血条" parent="血条ui" node_paths=PackedStringArray("character", "character_mian") instance=ExtResource("6_jxt28")]
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 131.0
+offset_bottom = 72.0
+character = NodePath("../..")
+character_mian = NodePath("../../Character_mian")
+
+[node name="技能cd" type="HBoxContainer" parent="血条ui"]
+offset_left = 76.0
+offset_top = 43.0
+offset_right = 116.0
+offset_bottom = 83.0
+script = ExtResource("22_c73gp")
+
+[node name="Label" type="Label" parent="血条ui/技能cd"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("22_fc6ke")
+text = "CD:"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(6.5, 13)
+script = ExtResource("7_n1bbb")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面1" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-8.25, 12)
+shape = SubResource("RectangleShape2D_8vesq")
+
+[node name="受击面2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(5.25, -11.5)
+shape = SubResource("RectangleShape2D_yvw77")
+
+[node name="位置参考" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.19607843)
+texture = ExtResource("1_1l8ri")
+
+[node name="音效" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="音效"]
+
+[node name="计时器" type="Node" parent="."]
+
+[node name="弹幕发射间隔" type="Timer" parent="计时器"]
+wait_time = 0.3
+
+[node name="技能1cd" type="Timer" parent="计时器"]
+wait_time = 3.0
+
+[node name="class" type="Node" parent="."]
+
+[node name="Character_Ctrler" type="Node" parent="class" node_paths=PackedStringArray("character")]
+script = ExtResource("32_tg32o")
+character = NodePath("../..")
+metadata/_custom_type_script = "uid://cabbi4kg28hpl"
+
+[node name="StateMachine" type="Node" parent="class"]
+script = ExtResource("7_yvw77")
+metadata/_custom_type_script = "uid://djbu4n2loiaw6"
+
+[node name="Effect_Ctrler" type="Node" parent="class"]
+script = ExtResource("35_rluf1")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="计时器/弹幕发射间隔" to="." method="_on_弹幕发射间隔_timeout"]
+[connection signal="timeout" from="计时器/技能1cd" to="." method="_on_技能1_cd_timeout"]

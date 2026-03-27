@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dl71ltlxsqtk2"]
+
+[ext_resource type="Script" uid="uid://c1c7rvkeif6do" path="res://拉赫弹幕1.gd" id="1_n6i37"]
+[ext_resource type="Texture2D" uid="uid://bsaj1yfllqpww" path="res://素材/人物素材/拉赫/特效/153.png" id="2_31pw3"]
+[ext_resource type="Texture2D" uid="uid://wei0fvj3v8i7" path="res://素材/人物素材/拉赫/特效/156.png" id="3_dupth"]
+[ext_resource type="Texture2D" uid="uid://s5mke0w0d655" path="res://素材/人物素材/拉赫/特效/158.png" id="4_jpp6g"]
+[ext_resource type="Texture2D" uid="uid://g73mqy4hbtt" path="res://素材/人物素材/拉赫/特效/160.png" id="5_ahu11"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/攻击面.gd" id="6_i5dxk"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/攻击数据.gd" id="7_cogoo"]
+[ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/155.wav" id="8_31pw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lllv"]
+size = Vector2(61, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spcgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_31pw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dupth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jpp6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ahu11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Resource" id="Resource_xf4pb"]
+script = ExtResource("7_cogoo")
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[node name="拉赫弹幕1" type="Area2D"]
+script = ExtResource("1_n6i37")
+
+[node name="碰撞面" type="CollisionShape2D" parent="."]
+position = Vector2(14.5, 0.5)
+shape = SubResource("RectangleShape2D_3lllv")
+
+[node name="素材库" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1.4147556, 1.4147556, 1.4147556, 1)
+rotation = -1.5707964
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_spcgt")
+autoplay = "default"
+frame_progress = 0.65587306
+
+[node name="动画" type="AnimationPlayer" parent="."]
+root_node = NodePath("../素材库")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("6_i5dxk")
+attack_data = SubResource("Resource_xf4pb")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="碰撞面2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(14.5, 0.5)
+shape = SubResource("RectangleShape2D_3lllv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_31pw3")
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
