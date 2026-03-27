@@ -1,6 +1,6 @@
 extends Control
-@onready var v_box_container: VBoxContainer = $按钮盒竖状
-@onready var button_1: Button = $按钮盒竖状/Button1
+@onready var v_box_container: VBoxContainer = $按钮深度/按钮盒竖状
+@onready var button_1: Button = $按钮深度/按钮盒竖状/Button1
 @onready var horizontal_blur: ColorRect = $水平模糊效果/水平模糊
 
 # 获取所有按钮组成一个数组
