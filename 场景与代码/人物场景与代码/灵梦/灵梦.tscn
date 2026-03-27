@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b82iad0bxqhsp"]
+[gd_scene format=3 uid="uid://b82iad0bxqhsp"]
 
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
 [ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物场景与代码/灵梦/灵梦.gd" id="1_ig6o6"]
@@ -463,57 +463,55 @@ size = Vector2(51.5, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvw77"]
 size = Vector2(61.5, 47)
 
-[node name="灵梦" type="CharacterBody2D"]
+[node name="灵梦" type="CharacterBody2D" unique_id=886790246]
 script = ExtResource("1_ig6o6")
 attack_bullet = ExtResource("2_g1kd8")
 bullet2 = ExtResource("3_8vesq")
 bullet3 = ExtResource("4_fjrso")
 damage_number = ExtResource("5_imqij")
 
-[node name="class" type="Node" parent="."]
+[node name="class" type="Node" parent="." unique_id=213625171]
 
-[node name="Character_Ctrler" type="Node" parent="class" node_paths=PackedStringArray("character")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Effect_Ctrler" type="Node" parent="class"]
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
 script = ExtResource("35_rluf1")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
-[node name="Character_Data" type="Node" parent="class"]
+[node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Main" type="Node" parent="class" node_paths=PackedStringArray("character", "anplayer")]
+[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character", "anplayer")]
 script = ExtResource("10_23xpx")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
 damage_number = ExtResource("5_imqij")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
-[node name="碰撞箱" type="CollisionShape2D" parent="."]
+[node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=2014086127]
 position = Vector2(6.5, 13)
 shape = SubResource("RectangleShape2D_256k3")
 
-[node name="动画" type="AnimationPlayer" parent="."]
+[node name="动画" type="AnimationPlayer" parent="." unique_id=657560165]
 root_node = NodePath("../素材库")
-libraries = {
-&"": SubResource("AnimationLibrary_wrpc5")
-}
-autoplay = "常态"
+libraries/ = SubResource("AnimationLibrary_wrpc5")
+autoplay = &"常态"
 speed_scale = 2.0
 
-[node name="素材库" type="AnimatedSprite2D" parent="."]
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=7809292]
 material = SubResource("ShaderMaterial_xftrd")
 position = Vector2(28, -16)
 sprite_frames = SubResource("SpriteFrames_r340b")
 animation = &"飞行"
 autoplay = "常态"
 
-[node name="血条ui" type="CanvasLayer" parent="."]
+[node name="血条ui" type="CanvasLayer" parent="." unique_id=715815698]
 
-[node name="ui血条" parent="血条ui" node_paths=PackedStringArray("character", "character_data") instance=ExtResource("6_jxt28")]
+[node name="ui血条" parent="血条ui" unique_id=844805840 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("6_jxt28")]
 offset_left = 15.0
 offset_top = 12.0
 offset_right = 131.0
@@ -521,36 +519,36 @@ offset_bottom = 72.0
 character = NodePath("../..")
 character_data = NodePath("../../class/Character_Data")
 
-[node name="技能cd" type="HBoxContainer" parent="血条ui"]
+[node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=2034803199]
 offset_left = 76.0
 offset_top = 43.0
 offset_right = 116.0
 offset_bottom = 83.0
 script = ExtResource("22_c73gp")
 
-[node name="Label" type="Label" parent="血条ui/技能cd"]
+[node name="Label" type="Label" parent="血条ui/技能cd" unique_id=1552755159]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("22_fc6ke")
 text = "CD:"
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=719264059]
 position = Vector2(6.5, 13)
 script = ExtResource("7_n1bbb")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
-[node name="受击面1" type="CollisionShape2D" parent="Hurtbox"]
+[node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=141437388]
 position = Vector2(-8.25, 12)
 shape = SubResource("RectangleShape2D_8vesq")
 
-[node name="受击面2" type="CollisionShape2D" parent="Hurtbox"]
+[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=507544669]
 position = Vector2(5.25, -11.5)
 shape = SubResource("RectangleShape2D_yvw77")
 
-[node name="位置参考" type="Sprite2D" parent="."]
+[node name="位置参考" type="Sprite2D" parent="." unique_id=1800762608]
 visible = false
 self_modulate = Color(1, 1, 1, 0.19607843)
 texture = ExtResource("1_1l8ri")
 
-[node name="音效" type="Node" parent="."]
+[node name="音效" type="Node" parent="." unique_id=1011238188]
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]
