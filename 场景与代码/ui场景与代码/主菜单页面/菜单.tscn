@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cj7eudfk0rkob"]
+[gd_scene format=3 uid="uid://cj7eudfk0rkob"]
 
 [ext_resource type="Theme" uid="uid://dxmcr0wtpybpd" path="res://场景与代码/ui场景与代码/ui模板/菜单按钮模板.tres" id="1_cuoyu"]
 [ext_resource type="Script" uid="uid://bubomkeicq6yi" path="res://场景与代码/ui场景与代码/主菜单页面/菜单.gd" id="2_ppaiu"]
@@ -207,7 +207,7 @@ shader_parameter/strength = 1.0
 shader = ExtResource("44_hncoa")
 shader_parameter/strength = 1.0
 
-[node name="菜单" type="Control"]
+[node name="菜单" type="Control" unique_id=1553493295]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,103 +218,103 @@ theme = ExtResource("1_cuoyu")
 script = ExtResource("2_ppaiu")
 metadata/_edit_lock_ = true
 
-[node name="视差背景" type="Node2D" parent="."]
+[node name="视差背景" type="Node2D" parent="." unique_id=1190427915]
 position = Vector2(0.17999852, -7.0000134)
 scale = Vector2(0.85, 0.85)
 
-[node name="Parallax2D" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D" type="Parallax2D" parent="视差背景" unique_id=2072161176]
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(768, 0)
 metadata/_edit_lock_ = true
 
-[node name="8" type="Sprite2D" parent="视差背景/Parallax2D"]
+[node name="8" type="Sprite2D" parent="视差背景/Parallax2D" unique_id=316961403]
 position = Vector2(384, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ppaiu")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D2" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D2" type="Parallax2D" parent="视差背景" unique_id=1989285899]
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(150, 0)
 metadata/_edit_lock_ = true
 
-[node name="7" type="Sprite2D" parent="视差背景/Parallax2D2"]
+[node name="7" type="Sprite2D" parent="视差背景/Parallax2D2" unique_id=404278870]
 position = Vector2(384, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("4_iy2mv")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D3" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D3" type="Parallax2D" parent="视差背景" unique_id=1626813984]
 scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(180, 0)
 metadata/_edit_lock_ = true
 
-[node name="6" type="Sprite2D" parent="视差背景/Parallax2D3"]
+[node name="6" type="Sprite2D" parent="视差背景/Parallax2D3" unique_id=1866946130]
 position = Vector2(384, 215)
 scale = Vector2(2, 2)
 texture = ExtResource("5_7s683")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D4" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D4" type="Parallax2D" parent="视差背景" unique_id=800085973]
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(200, 0)
 metadata/_edit_lock_ = true
 
-[node name="5" type="Sprite2D" parent="视差背景/Parallax2D4"]
+[node name="5" type="Sprite2D" parent="视差背景/Parallax2D4" unique_id=64274437]
 position = Vector2(384, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("6_fnar0")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D5" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D5" type="Parallax2D" parent="视差背景" unique_id=816788391]
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(210, 0)
 metadata/_edit_lock_ = true
 
-[node name="4" type="Sprite2D" parent="视差背景/Parallax2D5"]
+[node name="4" type="Sprite2D" parent="视差背景/Parallax2D5" unique_id=1563275778]
 position = Vector2(384, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("7_rwxrr")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D6" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D6" type="Parallax2D" parent="视差背景" unique_id=1863106988]
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(220, 0)
 metadata/_edit_lock_ = true
 
-[node name="3" type="Sprite2D" parent="视差背景/Parallax2D6"]
+[node name="3" type="Sprite2D" parent="视差背景/Parallax2D6" unique_id=1555038284]
 position = Vector2(384, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("8_qvrbl")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D7" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D7" type="Parallax2D" parent="视差背景" unique_id=627226427]
 scroll_offset = Vector2(-740.21173, -5.8823376)
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(270, 0)
 metadata/_edit_lock_ = true
 
-[node name="2" type="Sprite2D" parent="视差背景/Parallax2D7"]
+[node name="2" type="Sprite2D" parent="视差背景/Parallax2D7" unique_id=260547380]
 position = Vector2(384, 221.88232)
 scale = Vector2(2, 2)
 texture = ExtResource("9_y67fw")
 metadata/_edit_lock_ = true
 
-[node name="Parallax2D8" type="Parallax2D" parent="视差背景"]
+[node name="Parallax2D8" type="Parallax2D" parent="视差背景" unique_id=1101256317]
 scroll_offset = Vector2(-210.00002, 0)
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(350, 0)
 repeat_times = 2
 metadata/_edit_lock_ = true
 
-[node name="1" type="Sprite2D" parent="视差背景/Parallax2D8"]
+[node name="1" type="Sprite2D" parent="视差背景/Parallax2D8" unique_id=422439387]
 position = Vector2(594.00006, 216.11108)
 scale = Vector2(2, 2)
 texture = ExtResource("10_1ip7w")
 metadata/_edit_lock_ = true
 
-[node name="标题" type="Label" parent="."]
+[node name="标题" type="Label" parent="." unique_id=1044904669]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -327,20 +327,22 @@ label_settings = SubResource("LabelSettings_fnar0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="按钮盒竖状" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="按钮深度" type="CanvasLayer" parent="." unique_id=421009118]
+
+[node name="按钮盒竖状" type="VBoxContainer" parent="按钮深度" unique_id=1211360716]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 169.0
-offset_top = -115.0
+offset_top = -151.0
 offset_right = -164.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("1_cuoyu")
 
-[node name="Button1" type="Button" parent="按钮盒竖状"]
+[node name="Button1" type="Button" parent="按钮深度/按钮盒竖状" unique_id=752125680]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -348,22 +350,24 @@ theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 开始游戏 "
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="按钮盒竖状"]
+[node name="Button2" type="Button" parent="按钮深度/按钮盒竖状" unique_id=2115133310]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 设置界面 "
 
-[node name="Button3" type="Button" parent="按钮盒竖状"]
+[node name="Button3" type="Button" parent="按钮深度/按钮盒竖状" unique_id=1981884550]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 退出游戏 "
 
-[node name="人物" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=941270607]
+
+[node name="人物" type="Node2D" parent="." unique_id=2075799283]
 script = ExtResource("11_rwsf6")
 
-[node name="灵梦" type="AnimatedSprite2D" parent="人物"]
+[node name="灵梦" type="AnimatedSprite2D" parent="人物" unique_id=1937037683]
 position = Vector2(525, 170)
 rotation = 3.1415927
 scale = Vector2(1, -1)
@@ -372,7 +376,7 @@ autoplay = "default"
 frame_progress = 0.09175949
 script = ExtResource("13_p7hli")
 
-[node name="早苗" type="AnimatedSprite2D" parent="人物"]
+[node name="早苗" type="AnimatedSprite2D" parent="人物" unique_id=599430635]
 position = Vector2(475, 240)
 rotation = -3.1415925
 scale = Vector2(1, -1)
@@ -381,7 +385,7 @@ autoplay = "default"
 frame_progress = 0.716159
 script = ExtResource("17_43m20")
 
-[node name="魔理沙" type="AnimatedSprite2D" parent="人物"]
+[node name="魔理沙" type="AnimatedSprite2D" parent="人物" unique_id=762177395]
 position = Vector2(465, 290)
 rotation = 3.1415927
 scale = Vector2(1, -1)
@@ -390,29 +394,29 @@ autoplay = "default"
 frame_progress = 0.7053279
 script = ExtResource("22_cfmad")
 
-[node name="拉赫" type="AnimatedSprite2D" parent="人物"]
+[node name="拉赫" type="AnimatedSprite2D" parent="人物" unique_id=1154999279]
 position = Vector2(135, 250)
 sprite_frames = SubResource("SpriteFrames_yp23s")
 autoplay = "default"
 frame_progress = 0.54199195
 script = ExtResource("24_lrqhg")
 
-[node name="光环" type="CanvasLayer" parent="人物/拉赫"]
+[node name="光环" type="CanvasLayer" parent="人物/拉赫" unique_id=1241320663]
 
-[node name="光环倾斜" type="Node2D" parent="人物/拉赫/光环"]
+[node name="光环倾斜" type="Node2D" parent="人物/拉赫/光环" unique_id=1999091619]
 position = Vector2(102.999985, 205.99997)
 rotation = -0.2617994
 skew = 0.87266463
 
-[node name="光环旋转" type="Node2D" parent="人物/拉赫/光环/光环倾斜"]
+[node name="光环旋转" type="Node2D" parent="人物/拉赫/光环/光环倾斜" unique_id=2052657626]
 scale = Vector2(0.07, 0.07)
 script = ExtResource("25_yp23s")
 rotation_speed = 4.0
 
-[node name="光环图片" type="Sprite2D" parent="人物/拉赫/光环/光环倾斜/光环旋转"]
+[node name="光环图片" type="Sprite2D" parent="人物/拉赫/光环/光环倾斜/光环旋转" unique_id=560445305]
 texture = ExtResource("11_nsv7r")
 
-[node name="粒子" type="GPUParticles2D" parent="人物/拉赫/光环/光环倾斜/光环旋转"]
+[node name="粒子" type="GPUParticles2D" parent="人物/拉赫/光环/光环倾斜/光环旋转" unique_id=1724151864]
 light_mask = 2
 visibility_layer = 2
 amount = 60
@@ -420,17 +424,17 @@ randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_cfmad")
 
-[node name="书" type="CanvasLayer" parent="人物/拉赫"]
+[node name="书" type="CanvasLayer" parent="人物/拉赫" unique_id=1173098955]
 
-[node name="书浮动" type="Node2D" parent="人物/拉赫/书"]
+[node name="书浮动" type="Node2D" parent="人物/拉赫/书" unique_id=1044417368]
 position = Vector2(163, 201)
 script = ExtResource("30_iahx3")
 
-[node name="书图片" type="Sprite2D" parent="人物/拉赫/书/书浮动"]
+[node name="书图片" type="Sprite2D" parent="人物/拉赫/书/书浮动" unique_id=566325059]
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("31_nmokw")
 
-[node name="书特效" type="AnimatedSprite2D" parent="人物/拉赫/书/书浮动"]
+[node name="书特效" type="AnimatedSprite2D" parent="人物/拉赫/书/书浮动" unique_id=1478310303]
 self_modulate = Color(1.93715, 1.93715, 1.93715, 1)
 material = SubResource("ShaderMaterial_rwsf6")
 position = Vector2(2, -8)
@@ -439,14 +443,14 @@ sprite_frames = SubResource("SpriteFrames_8ac32")
 autoplay = "default"
 frame_progress = 0.5239872
 
-[node name="背景音乐" type="AudioStreamPlayer" parent="."]
+[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1746807027]
 stream = ExtResource("30_43m20")
 autoplay = true
 
-[node name="垂直模糊效果" type="CanvasLayer" parent="."]
+[node name="垂直模糊效果" type="CanvasLayer" parent="." unique_id=400354206]
 visible = false
 
-[node name="垂直模糊" type="ColorRect" parent="垂直模糊效果"]
+[node name="垂直模糊" type="ColorRect" parent="垂直模糊效果" unique_id=2086760662]
 visible = false
 material = SubResource("ShaderMaterial_ib1xl")
 anchors_preset = 15
@@ -455,9 +459,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="水平模糊效果" type="CanvasLayer" parent="."]
+[node name="水平模糊效果" type="CanvasLayer" parent="." unique_id=857373550]
 
-[node name="水平模糊" type="ColorRect" parent="水平模糊效果"]
+[node name="水平模糊" type="ColorRect" parent="水平模糊效果" unique_id=1361624797]
 material = SubResource("ShaderMaterial_x12e2")
 anchors_preset = 15
 anchor_right = 1.0
@@ -467,6 +471,6 @@ grow_vertical = 2
 script = ExtResource("45_x12e2")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="按钮盒竖状/Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="按钮盒竖状/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="按钮盒竖状/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="按钮深度/按钮盒竖状/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="按钮深度/按钮盒竖状/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="按钮深度/按钮盒竖状/Button3" to="." method="_on_button_3_pressed"]
