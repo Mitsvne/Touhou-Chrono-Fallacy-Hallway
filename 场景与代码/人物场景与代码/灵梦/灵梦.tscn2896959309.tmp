@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b82iad0bxqhsp"]
+[gd_scene load_steps=48 format=3 uid="uid://b82iad0bxqhsp"]
 
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
 [ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物场景与代码/灵梦/灵梦.gd" id="1_ig6o6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://g8liahbqms85" path="res://素材/人物素材/灵梦/人物/spellDb001.png" id="7_fjrso"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="7_n1bbb"]
 [ext_resource type="Texture2D" uid="uid://dqfwth2awnq12" path="res://素材/人物素材/灵梦/人物/shotB001.png" id="7_sinkt"]
+[ext_resource type="Script" uid="uid://djbu4n2loiaw6" path="res://场景与代码/人物场景与代码/旧/状态机.gd" id="7_yvw77"]
 [ext_resource type="Texture2D" uid="uid://boaqo7ctqg27n" path="res://素材/人物素材/灵梦/人物/shotB002.png" id="8_l2f6h"]
 [ext_resource type="Texture2D" uid="uid://4oqwd7nyqmuu" path="res://素材/人物素材/灵梦/人物/spellDb002.png" id="8_tg32o"]
 [ext_resource type="Texture2D" uid="uid://c3k652my7kkgi" path="res://素材/人物素材/灵梦/人物/shotB003.png" id="9_ligu1"]
@@ -31,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
+[ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/lm_5-5.wav" id="18_20d74"]
 [ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物场景与代码/灵梦/技能cd.gd" id="22_c73gp"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="22_fc6ke"]
 [ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物控制.gd" id="32_tg32o"]
@@ -397,13 +399,28 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
-tracks/4/type = "method"
+tracks/4/type = "audio"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../音效/AudioStreamPlayer")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_20d74")
+}],
+"times": PackedFloat32Array(0.16666667)
+}
+tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.16666667, 0.2, 0.23333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
@@ -417,13 +434,13 @@ tracks/4/keys = {
 "method": &"shoot"
 }]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../class/Effect_Ctrler")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../class/Effect_Ctrler")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.16666667, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -434,13 +451,13 @@ tracks/5/keys = {
 "method": &"stop_shadow"
 }]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../动画:speed_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../动画:speed_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.16666667, 0.26666668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -465,7 +482,7 @@ size = Vector2(61.5, 47)
 
 [node name="灵梦" type="CharacterBody2D"]
 script = ExtResource("1_ig6o6")
-attack_bullet = ExtResource("2_g1kd8")
+bullet1 = ExtResource("2_g1kd8")
 bullet2 = ExtResource("3_8vesq")
 bullet3 = ExtResource("4_fjrso")
 damage_number = ExtResource("5_imqij")
@@ -476,6 +493,10 @@ damage_number = ExtResource("5_imqij")
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
+
+[node name="StateMachine" type="Node" parent="class"]
+script = ExtResource("7_yvw77")
+metadata/_custom_type_script = "uid://djbu4n2loiaw6"
 
 [node name="Effect_Ctrler" type="Node" parent="class"]
 script = ExtResource("35_rluf1")
@@ -489,7 +510,6 @@ metadata/_custom_type_script = "uid://cevyll1q67gg6"
 script = ExtResource("10_23xpx")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
-damage_number = ExtResource("5_imqij")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="."]
@@ -553,4 +573,16 @@ texture = ExtResource("1_1l8ri")
 
 [node name="音效" type="Node" parent="."]
 
-[connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="音效"]
+
+[node name="计时器" type="Node" parent="."]
+
+[node name="弹幕发射间隔" type="Timer" parent="计时器"]
+wait_time = 0.3
+
+[node name="技能1cd" type="Timer" parent="计时器"]
+wait_time = 3.0
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="计时器/弹幕发射间隔" to="." method="_on_弹幕发射间隔_timeout"]
+[connection signal="timeout" from="计时器/技能1cd" to="." method="_on_技能1_cd_timeout"]

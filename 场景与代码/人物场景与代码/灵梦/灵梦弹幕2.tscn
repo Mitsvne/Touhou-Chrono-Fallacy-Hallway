@@ -264,7 +264,6 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_wymrs"]
 script = ExtResource("6_a5s7o")
-damage = 20.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [node name="灵梦弹幕2" type="Area2D" groups=["bullet"]]

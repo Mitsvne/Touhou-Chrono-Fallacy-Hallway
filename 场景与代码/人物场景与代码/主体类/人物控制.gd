@@ -1,11 +1,12 @@
 extends Node
 class_name Character_Ctrler
 @export var character:CharacterBody2D
-@export var character_mian:Character_mian
 
 
 
 func shoot(Bullet,offset:Vector2):
+	if not Bullet:
+		return
 	var bullet_instance = Bullet.instantiate()
 	# 将子弹添加到当前场景的父节点下，使其独立于人物移动
 	get_parent().add_child(bullet_instance)

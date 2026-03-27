@@ -1,5 +1,7 @@
 extends Node
 class_name StateMachine
+@onready var character_main: Character_Main = $"../Character_Main"
+"""
 const KEEP_CURRENT:=-1
 var current_state:int=-1:
 	set(v):
@@ -16,4 +18,5 @@ func _physics_process(delta: float) -> void:
 		if next_state==current_state:
 			break
 		current_state=next_state
-	owner.tick_physics(current_state,delta)
+	character_main.tick_physics(current_state,delta)
+"""

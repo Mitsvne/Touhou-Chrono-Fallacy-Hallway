@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=3 uid="uid://lmo1rknygdh6"]
+
+[ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui素材/GUI.png" id="1_11osk"]
+[ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/人物场景与代码/旧/ui血条.gd" id="1_mkvpl"]
+[ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="2_mkvpl"]
+[ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="3_dj1n2"]
+[ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="4_dk7xt"]
+[ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="5_7hfcq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4w3d"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_11osk")
+region_rect = Rect2(81, 97, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkvpl"]
+atlas = ExtResource("1_11osk")
+region = Rect2(72, 22, 49, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4w3d"]
+atlas = ExtResource("1_11osk")
+region = Rect2(135, 20, 52, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80y3d"]
+atlas = ExtResource("1_11osk")
+region = Rect2(6, 22, 49, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_albyq"]
+atlas = ExtResource("1_11osk")
+region = Rect2(135, 4, 45, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h73pq"]
+atlas = ExtResource("1_11osk")
+region = Rect2(72, 6, 42, 3)
+
+[node name="ui血条" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mkvpl")
+
+[node name="头像框" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_a4w3d")
+
+[node name="博丽灵梦" type="TextureRect" parent="头像框"]
+layout_mode = 2
+texture = ExtResource("3_dj1n2")
+stretch_mode = 5
+
+[node name="雾雨魔理沙" type="TextureRect" parent="头像框"]
+layout_mode = 2
+texture = ExtResource("4_dk7xt")
+stretch_mode = 5
+
+[node name="东风谷早苗" type="TextureRect" parent="头像框"]
+layout_mode = 2
+texture = ExtResource("5_7hfcq")
+stretch_mode = 5
+
+[node name="拉赫莱蒂" type="TextureRect" parent="头像框"]
+layout_mode = 2
+texture = ExtResource("2_mkvpl")
+stretch_mode = 5
+
+[node name="血条耐力条" type="VSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="血条" type="TextureProgressBar" parent="血条耐力条"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="血条" type="TextureProgressBar" parent="血条耐力条/血条"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 14.999999
+offset_right = 47.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_mkvpl")
+
+[node name="延迟红血" type="TextureProgressBar" parent="血条耐力条/血条"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.000004
+offset_top = 8.999997
+offset_right = 46.999996
+offset_bottom = 14.999997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_a4w3d")
+texture_progress = SubResource("AtlasTexture_80y3d")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="耐力条" type="TextureProgressBar" parent="血条耐力条"]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+
+[node name="耐力条" type="TextureProgressBar" parent="血条耐力条/耐力条"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 17.0
+offset_right = 41.0
+offset_bottom = 57.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.1
+value = 1.0
+texture_under = SubResource("AtlasTexture_albyq")
+texture_progress = SubResource("AtlasTexture_h73pq")
+texture_progress_offset = Vector2(1, 2)

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl71ltlxsqtk2" path="res://场景与代码/人物场景与代码/拉赫/拉赫弹幕1.tscn" id="2_udp54"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="2_xkje0"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="3_xu8tx"]
-[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物主体.gd" id="4_pxy2b"]
+[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物数据.gd" id="4_pxy2b"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="5_v8ol4"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物场景与代码/拉赫/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/ui素材/主菜单背景/人物/149.png" id="9_bgnr4"]
@@ -134,9 +134,20 @@ script = ExtResource("1_v8ol4")
 bullet1 = ExtResource("2_udp54")
 damage_number = ExtResource("2_bgnr4")
 
-[node name="Character_mian" type="Node" parent="."]
+[node name="class" type="Node" parent="."]
+
+[node name="Character_Data" type="Node" parent="class"]
 script = ExtResource("4_pxy2b")
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
+
+[node name="Character_Ctrler" type="Node" parent="class" node_paths=PackedStringArray("character")]
+script = ExtResource("22_udp54")
+character = NodePath("../..")
+metadata/_custom_type_script = "uid://cabbi4kg28hpl"
+
+[node name="Effect_Ctrler" type="Node" parent="class"]
+script = ExtResource("24_ljw2w")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="."]
 visible = false
@@ -164,14 +175,14 @@ shape = SubResource("RectangleShape2D_ya7oa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ui血条" parent="CanvasLayer" node_paths=PackedStringArray("character", "character_mian") instance=ExtResource("5_v8ol4")]
+[node name="ui血条" parent="CanvasLayer" node_paths=PackedStringArray("character", "character_data") instance=ExtResource("5_v8ol4")]
 offset_left = 625.0
 offset_top = 12.0
 offset_right = 741.0
 offset_bottom = 72.0
 scale = Vector2(-1, 1)
 character = NodePath("../..")
-character_mian = NodePath("../../Character_mian")
+character_data = NodePath("../../class/Character_Data")
 
 [node name="光环" type="Node2D" parent="."]
 position = Vector2(-39, -41)
@@ -213,17 +224,6 @@ position = Vector2(2, -8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_bgnr4")
 autoplay = "default"
-
-[node name="class" type="Node" parent="."]
-
-[node name="Character_Ctrler" type="Node" parent="class" node_paths=PackedStringArray("character")]
-script = ExtResource("22_udp54")
-character = NodePath("../..")
-metadata/_custom_type_script = "uid://cabbi4kg28hpl"
-
-[node name="Effect_Ctrler" type="Node" parent="class"]
-script = ExtResource("24_ljw2w")
-metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="hurt" from="Hurtbox" to="Hurtbox" method="_on_hurt"]
