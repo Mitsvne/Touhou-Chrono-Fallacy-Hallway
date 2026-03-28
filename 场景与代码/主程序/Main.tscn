@@ -1,20 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://do4vla6wati0b"]
+[gd_scene format=3 uid="uid://do4vla6wati0b"]
 
 [ext_resource type="PackedScene" uid="uid://bj4poyfjuw0rg" path="res://场景与代码/地图场景与代码/关卡1.tscn" id="1_3nwfj"]
 [ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/main.gd" id="1_w1jva"]
 [ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物场景与代码/灵梦/灵梦.tscn" id="2_w1jva"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物场景与代码/拉赫/拉赫.tscn" id="3_gtwc4"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=676586633]
 script = ExtResource("1_w1jva")
 
-[node name="关卡1" parent="." instance=ExtResource("1_3nwfj")]
+[node name="关卡1" parent="." unique_id=157989525 instance=ExtResource("1_3nwfj")]
 z_index = -99
 
-[node name="灵梦" parent="." instance=ExtResource("2_w1jva")]
+[node name="灵梦" parent="." unique_id=226542507 instance=ExtResource("2_w1jva")]
 position = Vector2(73, 199)
 
-[node name="拉赫" parent="." instance=ExtResource("3_gtwc4")]
-position = Vector2(380, 200)
-rotation = -3.1415927
-scale = Vector2(1, -1)
+[node name="拉赫" parent="." unique_id=2034340444 instance=ExtResource("3_gtwc4")]
+position = Vector2(513, 233)
+scale = Vector2(-1, 1)

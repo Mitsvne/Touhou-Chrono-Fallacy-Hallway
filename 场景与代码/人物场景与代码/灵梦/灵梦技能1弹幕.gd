@@ -8,14 +8,12 @@ var team:String
 @onready var Sprite: AnimatedSprite2D = $素材库
 @onready var an: AnimationPlayer = $动画
 @onready var audio: AudioStreamPlayer = $命中音效
+@onready var hitarea: CollisionShape2D = $Hitbox/碰撞面
 @onready var effect_ctrler: Effect_Ctrler = $Effect_Ctrler
 
 func _ready():
 	launch_with_angle(velocity,200,500)
 	effect_ctrler.start_shadow(Sprite)
-	await get_tree().create_timer(2).timeout
-	effect_ctrler.stop_shadow()
-	queue_free()#超出时间删除自身
 
 func _process(delta: float) -> void:
 	if(not ishit):
@@ -41,8 +39,9 @@ func launch_with_angle(start_pos: Vector2, angle: float, speed: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(team):
 		ishit=true
+		hitarea.set_deferred("disabled", true)
 		an.play(&"hit")
 		audio.play()
 		effect_ctrler.stop_shadow()
-		if not an.is_playing():
-			queue_free()
+		await an.animation_finished
+		queue_free()

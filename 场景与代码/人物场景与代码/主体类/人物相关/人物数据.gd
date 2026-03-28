@@ -3,7 +3,7 @@ class_name Character_Data
 signal hp_changed
 signal mp_changed
 signal energy_changed
-var team:String="1P"
+var team:String
 
 @export var hp_max:float=100#血量上限
 @onready var hp:float=hp_max:#血量
@@ -12,7 +12,7 @@ var team:String="1P"
 		if hp==v:
 			return
 		hp=v
-		hp_changed.emit()
+		hp_changed.emit(hp,hp_max)
 
 @export var energy_max:float=100#耐力上限
 @export var energy_regen:float=10#耐力恢复速度
@@ -22,7 +22,7 @@ var team:String="1P"
 		if energy==v:
 			return
 		energy=v
-		energy_changed.emit()
+		energy_changed.emit(energy,energy_max)
 
 @export var mp_max:float=100#魔力值上限
 @onready var mp:float=mp_max:#魔力值
@@ -31,8 +31,9 @@ var team:String="1P"
 		if mp==v:
 			return
 		mp=v
-		mp_changed.emit()
-
+		mp_changed.emit(mp,mp_max)
+func _ready() -> void:
+	print("Character_Data初始化完成")
 
 func _process(delta: float) -> void:
 	#时刻恢复耐力

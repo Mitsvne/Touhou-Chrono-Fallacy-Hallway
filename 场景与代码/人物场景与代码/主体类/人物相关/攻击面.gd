@@ -9,7 +9,7 @@ func _ready():
 func _on_area_entered(area: Area2D):
 	team=owner.team
 	if area is Hurtbox and not area.owner.is_in_group(team):
-		#print("攻击面主人： %s 队伍： %s" % [owner, team])
+		print("自身 %s" % [self])
 		print("[hit] %s => %s [attack_damage] %s" % [owner.name, area.owner.name,attack_data.damage])
 		hit.emit(area)
 		area.hurt.emit(self, attack_data)

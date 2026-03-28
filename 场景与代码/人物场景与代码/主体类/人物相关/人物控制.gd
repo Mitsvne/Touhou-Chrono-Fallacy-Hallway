@@ -2,7 +2,8 @@ extends Node
 class_name Character_Ctrler
 @export var character:CharacterBody2D
 
-
+func _ready() -> void:
+	print("Character_Ctrler初始化完成")
 
 func shoot(Bullet,offset:Vector2):
 	if not Bullet:

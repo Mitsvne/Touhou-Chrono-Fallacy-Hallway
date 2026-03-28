@@ -2,25 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
 [ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物场景与代码/灵梦/灵梦.gd" id="1_ig6o6"]
-[ext_resource type="PackedScene" uid="uid://bhtpa5t1ogkki" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕1.tscn" id="2_g1kd8"]
+[ext_resource type="PackedScene" uid="uid://bhtpa5t1ogkki" path="res://场景与代码/人物场景与代码/灵梦/灵梦普攻弹幕.tscn" id="2_g1kd8"]
 [ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="2_ig6o6"]
-[ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕2.tscn" id="3_8vesq"]
-[ext_resource type="PackedScene" uid="uid://b5qska07coqvt" path="res://场景与代码/人物场景与代码/灵梦/灵梦弹幕3.tscn" id="4_fjrso"]
-[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/人物场景与代码/主体类/攻击数字.tscn" id="5_imqij"]
-[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物数据.gd" id="5_v3c6i"]
+[ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物场景与代码/灵梦/灵梦技能1弹幕.tscn" id="3_8vesq"]
+[ext_resource type="PackedScene" uid="uid://b5qska07coqvt" path="res://场景与代码/人物场景与代码/灵梦/灵梦必杀1弹幕.tscn" id="4_fjrso"]
+[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/人物场景与代码/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
+[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物数据.gd" id="5_v3c6i"]
 [ext_resource type="Texture2D" uid="uid://1na3wap1p3m0" path="res://素材/人物素材/灵梦/人物/shotB000.png" id="6_7lla3"]
-[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/旧/ui血条.tscn" id="6_jxt28"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/主体类/效果相关/ui血条.tscn" id="6_jxt28"]
 [ext_resource type="Texture2D" uid="uid://bsavoqinxffk1" path="res://素材/人物素材/灵梦/人物/spellDb000.png" id="6_nhrl1"]
 [ext_resource type="Texture2D" uid="uid://cswh26fqiry2k" path="res://素材/人物素材/灵梦/人物/dashStop000.png" id="6_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://cfhr8ues3cyuk" path="res://素材/人物素材/灵梦/人物/dashStop003.png" id="7_20d74"]
 [ext_resource type="Texture2D" uid="uid://g8liahbqms85" path="res://素材/人物素材/灵梦/人物/spellDb001.png" id="7_fjrso"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/受击面.gd" id="7_n1bbb"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/人物相关/受击面.gd" id="7_n1bbb"]
 [ext_resource type="Texture2D" uid="uid://dqfwth2awnq12" path="res://素材/人物素材/灵梦/人物/shotB001.png" id="7_sinkt"]
 [ext_resource type="Texture2D" uid="uid://boaqo7ctqg27n" path="res://素材/人物素材/灵梦/人物/shotB002.png" id="8_l2f6h"]
 [ext_resource type="Texture2D" uid="uid://4oqwd7nyqmuu" path="res://素材/人物素材/灵梦/人物/spellDb002.png" id="8_tg32o"]
 [ext_resource type="Texture2D" uid="uid://c3k652my7kkgi" path="res://素材/人物素材/灵梦/人物/shotB003.png" id="9_ligu1"]
 [ext_resource type="Texture2D" uid="uid://c6t8s603w6uky" path="res://素材/人物素材/灵梦/人物/spellDb003.png" id="9_rluf1"]
-[ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/人物场景与代码/主体类/人物主体.gd" id="10_23xpx"]
+[ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物主体.gd" id="10_23xpx"]
 [ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
 [ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
 [ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
@@ -33,11 +33,11 @@
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
 [ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物场景与代码/灵梦/技能cd.gd" id="22_c73gp"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="22_fc6ke"]
-[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物控制.gd" id="32_tg32o"]
-[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/特效控制.gd" id="35_rluf1"]
+[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物控制.gd" id="32_tg32o"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/效果相关/特效控制.gd" id="35_rluf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
-size = Vector2(63, 66)
+size = Vector2(39, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r340b"]
 animations = [{
@@ -472,6 +472,20 @@ damage_number = ExtResource("5_imqij")
 
 [node name="class" type="Node" parent="." unique_id=213625171]
 
+[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer")]
+script = ExtResource("10_23xpx")
+character_data = NodePath("../Character_Data")
+character_ctrler = NodePath("../Character_Ctrler")
+character = NodePath("../..")
+anplayer = NodePath("../../动画")
+damage_number = ExtResource("5_imqij")
+attack_bullet = ExtResource("2_g1kd8")
+metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
+script = ExtResource("5_v3c6i")
+metadata/_custom_type_script = "uid://cevyll1q67gg6"
+
 [node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
@@ -481,19 +495,8 @@ metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 script = ExtResource("35_rluf1")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
-[node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
-script = ExtResource("5_v3c6i")
-metadata/_custom_type_script = "uid://cevyll1q67gg6"
-
-[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character", "anplayer")]
-script = ExtResource("10_23xpx")
-character = NodePath("../..")
-anplayer = NodePath("../../动画")
-damage_number = ExtResource("5_imqij")
-metadata/_custom_type_script = "uid://jclrroyodlts"
-
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=2014086127]
-position = Vector2(6.5, 13)
+position = Vector2(4.5, 12.5)
 shape = SubResource("RectangleShape2D_256k3")
 
 [node name="动画" type="AnimationPlayer" parent="." unique_id=657560165]
@@ -510,26 +513,26 @@ animation = &"飞行"
 autoplay = "常态"
 
 [node name="血条ui" type="CanvasLayer" parent="." unique_id=715815698]
-
-[node name="ui血条" parent="血条ui" unique_id=844805840 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("6_jxt28")]
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 131.0
-offset_bottom = 72.0
-character = NodePath("../..")
-character_data = NodePath("../../class/Character_Data")
+offset = Vector2(10, 10)
+transform = Transform2D(1, 0, 0, 1, 10, 10)
 
 [node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=2034803199]
-offset_left = 76.0
-offset_top = 43.0
-offset_right = 116.0
-offset_bottom = 83.0
+offset_left = 63.0
+offset_top = 32.0
+offset_right = 103.0
+offset_bottom = 72.0
 script = ExtResource("22_c73gp")
 
 [node name="Label" type="Label" parent="血条ui/技能cd" unique_id=1552755159]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("22_fc6ke")
 text = "CD:"
+
+[node name="ui血条" parent="血条ui" unique_id=1721267738 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("6_jxt28")]
+offset_right = 65.0
+offset_bottom = 60.0
+character = NodePath("../..")
+character_data = NodePath("../../class/Character_Data")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=719264059]
 position = Vector2(6.5, 13)
