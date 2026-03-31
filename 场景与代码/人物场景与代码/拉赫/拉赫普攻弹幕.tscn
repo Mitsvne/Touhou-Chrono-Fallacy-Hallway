@@ -334,6 +334,7 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_xf4pb"]
 script = ExtResource("7_4p6cs")
+damage = 100.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084]

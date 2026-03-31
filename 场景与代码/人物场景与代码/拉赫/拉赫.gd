@@ -11,15 +11,18 @@ var team:String
 @export var attack_bullet:PackedScene
 @export var bullet2:PackedScene
 @export var bullet3:PackedScene
-@export var damage_number:PackedScene
-
-@onready var anplayer: AnimationPlayer = $动画
 
 #控制器导入
-@onready var character_main: Character_Main = $class/Character_Main
-@onready var character_data: Character_Data = $class/Character_Data
-@onready var character_ctrler: Character_Ctrler = $class/Character_Ctrler
-@onready var effect_ctrler: Effect_Ctrler = $class/Effect_Ctrler
+@export var character_main: Character_Main
+@export var character_data: Character_Data
+@export var character_ctrler: Character_Ctrler
+@export var effect_ctrler: Effect_Ctrler
+@onready var magic_array: Node2D = $法阵
+@onready var book: Node2D = $书
+@onready var halo: Node2D = $光环
+
+
+
 
 func _ready():
 	character_data.hp_max=1000
@@ -27,4 +30,9 @@ func _ready():
 	print(character_name,"character初始化完成")
 
 func _process(_delta: float) -> void:
-	pass
+	if character_data.hp<=0:
+		magic_array.modulate.a=0.0
+		effect_ctrler.fade_to_alpha(book,0,0.4)
+		effect_ctrler.fade_to_alpha(halo,0,0.4)
+		#book.modulate.a=0.0
+		#halo.modulate.a=0.0

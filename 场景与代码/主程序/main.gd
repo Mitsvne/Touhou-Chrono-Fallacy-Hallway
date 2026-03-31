@@ -28,3 +28,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+
+func _on_button_pressed() -> void:
+	await get_tree().process_frame
+	get_tree().reload_current_scene()

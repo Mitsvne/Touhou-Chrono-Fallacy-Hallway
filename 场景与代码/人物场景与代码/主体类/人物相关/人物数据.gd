@@ -32,6 +32,8 @@ var team:String
 			return
 		mp=v
 		mp_changed.emit(mp,mp_max)
+
+
 func _ready() -> void:
 	print("Character_Data初始化完成")
 

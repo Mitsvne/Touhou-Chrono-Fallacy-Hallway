@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cbi6w30rsiwhf"
-path="res://.godot/imported/lm_5-73.wav-8de8302a4f5d6d5b78fc86e052bd2b01.sample"
+path="res://.godot/imported/lm_5-73.wav-64fc4d744fcbdaaf3456ef52a84e60e0.sample"
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/特效/lm_5-73.wav"
-dest_files=["res://.godot/imported/lm_5-73.wav-8de8302a4f5d6d5b78fc86e052bd2b01.sample"]
+source_file="res://素材/人物素材/灵梦/音效/lm_5-73.wav"
+dest_files=["res://.godot/imported/lm_5-73.wav-64fc4d744fcbdaaf3456ef52a84e60e0.sample"]
 
 [params]
 

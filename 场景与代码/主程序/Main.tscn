@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/main.gd" id="1_w1jva"]
 [ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物场景与代码/灵梦/灵梦.tscn" id="2_w1jva"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物场景与代码/拉赫/拉赫.tscn" id="3_gtwc4"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="5_gtwc4"]
 
 [node name="Main" type="Node" unique_id=676586633]
 script = ExtResource("1_w1jva")
@@ -17,3 +18,13 @@ position = Vector2(73, 199)
 [node name="拉赫" parent="." unique_id=2034340444 instance=ExtResource("3_gtwc4")]
 position = Vector2(513, 233)
 scale = Vector2(-1, 1)
+
+[node name="Button" type="Button" parent="." unique_id=1570851647]
+offset_left = 309.0
+offset_top = 16.0
+offset_right = 349.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("5_gtwc4")
+text = "重置"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

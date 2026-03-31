@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://onnu8vrykc2m"
-path="res://.godot/imported/xem_105-1.png-c4ce4cf85ab536c7d9487e608924248c.ctex"
+uid="uid://doi5e1mcobqf8"
+path="res://.godot/imported/m09.png-5f6e7f612c70319253c81bf6a307962e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/ui素材/主菜单背景/人物/xem_105-1.png"
-dest_files=["res://.godot/imported/xem_105-1.png-c4ce4cf85ab536c7d9487e608924248c.ctex"]
+source_file="res://素材/人物素材/灵梦/特效/m09.png"
+dest_files=["res://.godot/imported/m09.png-5f6e7f612c70319253c81bf6a307962e.ctex"]
 
 [params]
 

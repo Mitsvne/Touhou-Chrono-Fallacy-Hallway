@@ -118,3 +118,11 @@ func _create_shadow_instance(target: Node2D, color: Color, duration: float) -> N
 	tween.tween_property(shadow, "modulate:a", 0.0, duration)
 	tween.finished.connect(shadow.queue_free)
 	return shadow
+
+
+##纹理逐渐透明化
+func fade_to_alpha(node: CanvasItem, target_alpha: float, duration: float = 1.0, on_completed: Callable = Callable()):
+	var tween = create_tween()
+	tween.tween_property(node, "modulate:a", target_alpha, duration)
+	if on_completed:
+		tween.finished.connect(on_completed)
