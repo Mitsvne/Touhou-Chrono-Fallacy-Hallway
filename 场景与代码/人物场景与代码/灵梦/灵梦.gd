@@ -23,7 +23,7 @@ var team:String
 func _ready():
 	character_data.hp_max=200
 	character_data.hp=200
-	print(character_name,"character初始化完成")
+	#print(character_name,"character初始化完成")
 	
 	
 func _process(_delta: float) -> void:

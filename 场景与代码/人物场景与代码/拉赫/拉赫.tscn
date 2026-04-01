@@ -313,7 +313,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.06666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(200, -100), 0.0, 0.0],
+"args": [Vector2(-200, -100), Vector2(0, 0)],
 "method": &"move"
 }]
 }
@@ -410,9 +410,10 @@ metadata/_custom_type_script = "uid://jclrroyodlts"
 script = ExtResource("4_pxy2b")
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character", "character_data")]
 script = ExtResource("22_udp54")
 character = NodePath("../..")
+character_data = NodePath("../Character_Data")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]

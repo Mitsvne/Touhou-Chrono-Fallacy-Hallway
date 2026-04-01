@@ -488,9 +488,18 @@ tracks/7/path = NodePath("../class/Character_Ctrler")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.03333333, 0.13333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [Vector2(-200, -200), Vector2(10, 10)],
+"method": &"start_move"
+}, {
+"args": [Vector2(10, 10)],
+"method": &"set_drag"
+}, {
+"args": [],
+"method": &"stop_move"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5jvom"]
@@ -565,8 +574,8 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.06666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(-200, -100), Vector2(10, 10)],
-"method": &"start_move"
+"args": [Vector2(-200, -100), Vector2(0, 0)],
+"method": &"move"
 }]
 }
 tracks/6/type = "method"

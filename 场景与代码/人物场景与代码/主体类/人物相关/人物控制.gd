@@ -1,62 +1,82 @@
 extends Node
 class_name Character_Ctrler
 @export var character:CharacterBody2D
+@export var character_data: Character_Data
 
+var is_moving:bool=false
 var is_gravity:bool=false
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
+var x_max_speed: float = 200.0
+var y_max_speed: float = 200.0
+var current_velocity: Vector2 = Vector2.ZERO  # 当前速度
+var current_drag: Vector2 = Vector2.ZERO  # 当前阻力/加速度
+
 
 func _ready() -> void:
 	print("Character_Ctrler初始化完成")
+	pass
 
+func _physics_process(_delta: float) -> void:
+	#current_velocity.y += gravity * delta
+	pass
 
-
-
-##私有：根据阻力和加速度更新速度
-static func _update_velocity(velocity: Vector2, drag_x: float, drag_y: float, delta: float) -> Vector2:
-	if drag_x >= 0:
-		var factor = max(0.0, 1 - drag_x * delta)
-		velocity.x *= factor
+##私有：根据阻力和加速度更新速度,drag为正数时是阻力，为负数时是加速度
+func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2:
+	if drag.x >= 0:
+		velocity.x *= max(0.0, 1 - drag.x * delta)
 	else:
-		velocity.x += -drag_x * delta
-	if drag_y >= 0:
-		var factor = max(0.0, 1 - drag_y * delta)
-		velocity.y *= factor
+		velocity.x += sign(velocity.x) * abs(drag.x) * delta if velocity.x != 0 else 0
+	if drag.y >= 0:
+		velocity.y *= max(0.0, 1 - drag.y * delta)
 	else:
-		velocity.y += -drag_y * delta
+		velocity.y += sign(velocity.y) * abs(drag.y) * delta if velocity.y != 0 else 0
 	return velocity
 
-
-##移动函数
-func move(velocity: Vector2=Vector2(0,0),drag_x: float=0.0,drag_y: float=0.0):
-	while true:
-		# 检查节点是否仍然有效（避免场景重置后继续运行）
-		if not is_instance_valid(self) or not is_instance_valid(character):
-			break
+##私有：持续移动
+func _move_loop():
+	while is_moving and is_instance_valid(self) and is_instance_valid(character):
 		var delta = get_process_delta_time()
 		if is_gravity:
-			velocity.y += gravity * delta
-		velocity = _update_velocity(velocity, drag_x, drag_y, delta)
-		character.position += velocity * delta
-		# 检查树是否有效，避免 get_tree() 返回 null
-		var tree = get_tree()
-		if not tree:
+			current_velocity.y += gravity * delta
+		current_velocity = _update_velocity(current_velocity, current_drag, delta)
+		current_velocity.x = clamp(current_velocity.x, -x_max_speed, x_max_speed)
+		current_velocity.y = clamp(current_velocity.y, -y_max_speed, y_max_speed)
+		var world_velocity = Vector2(current_velocity.x * character_data.direction, current_velocity.y)
+		if world_velocity.length() < 0.01:
+			stop_move()
 			break
-		await tree.process_frame
+		print(world_velocity)
+		character.position += world_velocity * delta
+		await get_tree().process_frame
+	current_velocity = Vector2.ZERO
+	current_drag = Vector2.ZERO
 
+##开始移动函数
+func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector2.ZERO):
+	if is_moving:
+		return
+	current_velocity = initial_velocity
+	current_drag = drag
+	is_moving = true
+	_move_loop()
+
+##设置阻力/加速度函数
+func set_drag(drag: Vector2):
+	current_drag = drag
 
 ##停止移动函数
 func stop_move():
-	character.velocity=Vector2.ZERO
-
+	is_moving=false
+	current_drag=Vector2.ZERO
+	current_velocity = Vector2.ZERO
 
 ##是否启动重力
 func apply_gravity(value:bool):
 	is_gravity=value
-	
 
-
-	
-	
+##设置朝向
+func set_direction(value:int):
+	character_data.direction=value
 
 
 ##发射弹幕函数

@@ -3,7 +3,17 @@ class_name Character_Data
 signal hp_changed
 signal mp_changed
 signal energy_changed
-var team:String
+signal direction_changed
+@onready var team:String
+@onready var direction:float=1.0:
+	set(v):
+		if (v==1 or v==-1) and direction!=v:
+			direction=v
+			#print("朝向改变")
+			direction_changed.emit(direction)
+		else:
+			push_warning("direction 只能赋值为 1 或 -1，当前值不变")
+			return
 
 @export var hp_max:float=100#血量上限
 @onready var hp:float=hp_max:#血量
@@ -34,8 +44,12 @@ var team:String
 		mp_changed.emit(mp,mp_max)
 
 
+
+
 func _ready() -> void:
 	print("Character_Data初始化完成")
+	pass
+	
 
 func _process(delta: float) -> void:
 	#时刻恢复耐力

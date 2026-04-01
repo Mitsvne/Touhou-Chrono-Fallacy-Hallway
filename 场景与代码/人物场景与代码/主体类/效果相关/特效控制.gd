@@ -3,7 +3,8 @@ class_name Effect_Ctrler
 
 var _active_timer: Timer = null   # 保存当前活动的定时器
 func _ready() -> void:
-	print("Effect_Ctrler初始化完成")
+	pass
+	#print("Effect_Ctrler初始化完成")
 ## 开始产生残影效果
 func start_shadow(target: Variant, color: Color = Color(1, 1, 1, 0.5), interval: float = 0.1, duration: float = 0.5):
 	# 停止已有的残影效果

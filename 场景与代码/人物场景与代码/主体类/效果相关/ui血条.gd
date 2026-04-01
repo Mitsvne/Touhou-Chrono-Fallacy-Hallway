@@ -22,7 +22,7 @@ func _ready() -> void:
 	update_hp(character_data.hp,character_data.hp_max)
 	update_energy(character_data.energy,character_data.energy)
 	update_avatar()
-	print("血条ui初始化完成 血量：%s 耐力：%s 魔力：%s"%[character_data.hp,character_data.energy,character_data.mp])
+	#print("血条ui初始化完成 血量：%s 耐力：%s 魔力：%s"%[character_data.hp,character_data.energy,character_data.mp])
 
 func update_hp(hp:float,hp_max:float):
 	var percentage:=character_data.hp/float(character_data.hp_max)

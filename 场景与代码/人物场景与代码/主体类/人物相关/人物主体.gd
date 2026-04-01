@@ -15,7 +15,7 @@ var move_speed:int
 var current_velocity: Vector2 = Vector2.ZERO
 var acceleration: float   # 加速度（像素/秒²）
 var friction: float       # 减速度（像素/秒²）
-var direct:float
+var direction:float
 var is_allow_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
@@ -46,7 +46,9 @@ func _ready() -> void:
 	friction=character.friction
 	#状态，朝向，队伍
 	current_state=0
-	direct=character.scale.x if character.team=="1P" else -character.scale.x
+	direction=character_data.direction
+	character_data.direction_changed.connect(update_direction)
+	update_direction(direction)
 	team=character.team
 	is_alive=true
 	#计时器
@@ -59,7 +61,7 @@ func _ready() -> void:
 	add_child(skill_timer)
 	#控制按键
 	set_control_key()
-	print("Character_Main初始化完成")
+	#print("Character_Main初始化完成")
 
 
 ##每帧效果函数
@@ -96,16 +98,16 @@ func move(max_speed:float,delta):
 
 
 ##状态每帧的效果函数
-func tick_physics(state:State,_delta: float) -> void:
+func tick_physics(state:State,delta: float) -> void:
 	match  state:
 		State.常态:
 			if Input.is_action_pressed(attack):
 				if attack_timer.is_stopped():
 					attack_timer.start() # 如果按住且计时器未运行，则启动
-					character_ctrler.shoot(attack_bullet,Vector2(50*direct,0))
+					character_ctrler.shoot(attack_bullet,Vector2(50*direction,0))
 				elif is_attack_timer_timeout:
 					is_attack_timer_timeout=false
-					character_ctrler.shoot(attack_bullet,Vector2(50*direct,0))
+					character_ctrler.shoot(attack_bullet,Vector2(50*direction,0))
 			else:
 				if not attack_timer.is_stopped() and is_attack_timer_timeout:
 					is_attack_timer_timeout=false
@@ -115,6 +117,7 @@ func tick_physics(state:State,_delta: float) -> void:
 		State.必杀1:
 			pass
 		State.死亡:
+			character.velocity.y += gravity * delta
 			is_alive=false
 
 
@@ -169,6 +172,12 @@ func _on_hurtbox_hurt(_hitbox: Variant, attack_data: AttackData) -> void:
 	var damage_node = damage_number.instantiate()
 	get_tree().current_scene.add_child(damage_node)   # 添加到场景树（例如主场景）
 	damage_node.set_damage(damage, character.position, Color.WHITE)
+
+func update_direction(direct:float):
+	direction=direct
+	character.scale.x=direction
+	#print("当前朝向：",direction)
+
 
 
 func is_dead():
