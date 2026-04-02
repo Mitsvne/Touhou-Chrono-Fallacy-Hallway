@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmrkocv50drp4"
-path="res://.godot/imported/hitAir005.png-79f37243809f41aad111fe33be899b26.ctex"
+uid="uid://b015xkeojppwo"
+path="res://.godot/imported/hitAir006.png-ab76f779884c0bb260c688badc864b87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/hitAir005.png"
-dest_files=["res://.godot/imported/hitAir005.png-79f37243809f41aad111fe33be899b26.ctex"]
+source_file="res://素材/人物素材/灵梦/人物/hitAir006.png"
+dest_files=["res://.godot/imported/hitAir006.png-ab76f779884c0bb260c688badc864b87.ctex"]
 
 [params]
 

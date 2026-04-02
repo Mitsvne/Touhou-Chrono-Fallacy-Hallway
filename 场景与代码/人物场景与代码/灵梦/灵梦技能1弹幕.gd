@@ -22,12 +22,10 @@ func _process(delta: float) -> void:
 		velocity.y += bullet_gravity * delta
 		# 更新位置
 		position += velocity * delta
-		# 超出屏幕则销毁（可选，根据游戏需求调整）
-		var view_rect := get_viewport_rect()
-		if position.x < -100 or position.x > view_rect.size.x + 100 or \
-		   position.y < -100 or position.y > view_rect.size.y + 100:
-			effect_ctrler.stop_shadow()
-			queue_free()
+	# 超时删除自身
+	await get_tree().create_timer(2).timeout
+	effect_ctrler.stop_shadow()
+	queue_free()
 
 # 另一种发射方式：角度（弧度）和初速度
 func launch_with_angle(start_pos: Vector2, angle: float, speed: float) -> void:
@@ -44,4 +42,5 @@ func _on_area_entered(area: Area2D) -> void:
 		audio.play()
 		effect_ctrler.stop_shadow()
 		await an.animation_finished
+		await audio.finished
 		queue_free()

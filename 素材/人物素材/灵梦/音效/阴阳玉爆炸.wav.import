@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bb72j7hhud64m"
-path="res://.godot/imported/lm_5-71.wav-4fdd73bd18372735e3182bade27fa8ee.sample"
+path="res://.godot/imported/阴阳玉爆炸.wav-dce874a95fb2af79ae86fb41c84fdf8a.sample"
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/音效/lm_5-71.wav"
-dest_files=["res://.godot/imported/lm_5-71.wav-4fdd73bd18372735e3182bade27fa8ee.sample"]
+source_file="res://素材/人物素材/灵梦/音效/阴阳玉爆炸.wav"
+dest_files=["res://.godot/imported/阴阳玉爆炸.wav-dce874a95fb2af79ae86fb41c84fdf8a.sample"]
 
 [params]
 

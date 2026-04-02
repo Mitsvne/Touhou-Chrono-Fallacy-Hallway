@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cx5vyyq5mh486"
-path="res://.godot/imported/155.wav-7d8c666fcf99a6a2b8fca15159d04a08.sample"
+path="res://.godot/imported/弹幕发射1.wav-86077ff716640ba05f1f85b3e5aed6bb.sample"
 
 [deps]
 
-source_file="res://素材/人物素材/拉赫/音效/155.wav"
-dest_files=["res://.godot/imported/155.wav-7d8c666fcf99a6a2b8fca15159d04a08.sample"]
+source_file="res://素材/人物素材/拉赫/音效/弹幕发射1.wav"
+dest_files=["res://.godot/imported/弹幕发射1.wav-86077ff716640ba05f1f85b3e5aed6bb.sample"]
 
 [params]
 

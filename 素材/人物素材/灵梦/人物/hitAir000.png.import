@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beh618wwrsgrh"
-path="res://.godot/imported/xem_5030-50.png-a5da262a12a441ae536d555d7defcbc5.ctex"
+uid="uid://cid431akxh8ag"
+path="res://.godot/imported/hitAir000.png-4a2699ceead507eb7c991b5e6a345b5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/拉赫/xem_5030-50.png"
-dest_files=["res://.godot/imported/xem_5030-50.png-a5da262a12a441ae536d555d7defcbc5.ctex"]
+source_file="res://素材/人物素材/灵梦/人物/hitAir000.png"
+dest_files=["res://.godot/imported/hitAir000.png-4a2699ceead507eb7c991b5e6a345b5d.ctex"]
 
 [params]
 

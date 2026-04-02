@@ -3,7 +3,7 @@ extends CharacterBody2D
 var move_speed:int=400
 var acceleration: float = 1600.0   # 加速度（像素/秒²）
 var friction: float = 1200.0      # 减速度（像素/秒²）
-var attack_interval:float=0.5
+var attack_interval:float=0.1
 var skill_cd:float=15.0
 var character_name:String="拉赫莱蒂"
 var team:String

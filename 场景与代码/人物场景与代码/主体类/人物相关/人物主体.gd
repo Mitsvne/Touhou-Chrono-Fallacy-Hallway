@@ -8,7 +8,7 @@ class_name Character_Main
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 
-enum State{常态,技能1,必杀1,死亡}
+enum State{常态,技能1,必杀1,冲刺,死亡}
 var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
 var move_speed:int
@@ -16,7 +16,7 @@ var current_velocity: Vector2 = Vector2.ZERO
 var acceleration: float   # 加速度（像素/秒²）
 var friction: float       # 减速度（像素/秒²）
 var direction:float
-var is_allow_move:bool=true
+var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
 var skill_timer = Timer.new()
@@ -32,6 +32,7 @@ var move_left:String="move_left_1p"
 var move_right:String="move_right_1p"
 var move_up:String="move_up_1p"
 var move_down:String="move_down_1p"
+var dash:String="dash_1p"
 var attack:String="attack_1p"
 var skill:String="skill_1p"
 var ultimate:String="ultimate_1p"
@@ -72,16 +73,18 @@ func _physics_process(delta: float) -> void:
 			break
 		current_state=next_state
 	tick_physics(current_state,delta)
-	if is_allow_move and not is_dead():
+	if character_ctrler.is_gravity:
+		current_velocity.y += gravity * delta
+	is_allow_key_move=false if character_ctrler.get_is_moving() else true
+	if is_allow_key_move and not is_dead():
 		move(move_speed,delta)
+		#print(character.velocity)
 		#character.velocity=Input.get_vector(move_left,move_right,move_up,move_down)*move_speed
 		#character.move_and_slide()
 
 
 ##惯性移动函数
 func move(max_speed:float,delta):
-	if character_ctrler.is_gravity:
-		current_velocity.y += gravity * delta
 	var input_dir = Input.get_vector(move_left,move_right,move_up,move_down)
 	var target_direction = input_dir.normalized()
 	if input_dir != Vector2.ZERO:
@@ -112,11 +115,14 @@ func tick_physics(state:State,delta: float) -> void:
 				if not attack_timer.is_stopped() and is_attack_timer_timeout:
 					is_attack_timer_timeout=false
 					attack_timer.stop() # 松开按键且计时归零，停止计时器
+		State.冲刺:
+			pass
 		State.技能1:
 			pass
 		State.必杀1:
 			pass
 		State.死亡:
+			character_ctrler.set_invincible(true)
 			character.velocity.y += gravity * delta
 			is_alive=false
 
@@ -134,12 +140,19 @@ func get_next_state(state:State)->State:
 				return State.技能1
 			if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
 				return State.必杀1
+			if Input.is_action_just_pressed(dash) and character_data.energy>=25:
+				character_data.energy-=25
+				return State.冲刺
+		State.冲刺:
+			if not anplayer.is_playing():
+				return State.常态
 		State.技能1:
 			if not anplayer.is_playing():
 				return State.常态
 		State.必杀1:
 			if not anplayer.is_playing():
 				return State.常态
+		
 	return state
 
 
@@ -152,6 +165,8 @@ func transition_state(_from:State,to:State) -> void:
 			an_paly("技能1")
 		State.必杀1:
 			an_paly("必杀1")
+		State.冲刺:
+			an_paly("冲刺")
 		State.死亡:
 			an_paly("死亡")
 
@@ -167,11 +182,14 @@ func an_paly(an_name:String):
 
 ##受击处理函数
 func _on_hurtbox_hurt(_hitbox: Variant, attack_data: AttackData) -> void:
-	var damage:float = attack_data.damage
-	character_data.hp-=damage
-	var damage_node = damage_number.instantiate()
-	get_tree().current_scene.add_child(damage_node)   # 添加到场景树（例如主场景）
-	damage_node.set_damage(damage, character.position, Color.WHITE)
+	if character_ctrler.get_is_allow_behit():
+		var damage:float = attack_data.damage
+		character_data.hp-=damage
+		var damage_node = damage_number.instantiate()
+		get_tree().current_scene.add_child(damage_node)   # 添加到场景树（例如主场景）
+		damage_node.set_damage(damage, character.position, Color.WHITE)
+	else:
+		print("不可受击状态")
 
 func update_direction(direct:float):
 	direction=direct
@@ -195,6 +213,7 @@ func set_control_key() -> void:
 	move_right="move_right_1p" if character.team=="1P" else "move_right_2p"
 	move_up="move_up_1p" if character.team=="1P" else "move_up_2p"
 	move_down="move_down_1p" if character.team=="1P" else "move_down_2p"
+	dash="dash_1p" if character.team=="1P" else "dash_2p"
 	attack="attack_1p" if character.team=="1P" else "attack_2p"
 	skill="skill_1p" if character.team=="1P" else "skill_2p"
 	ultimate="ultimate_1p" if character.team=="1P" else "ultimate_2p"

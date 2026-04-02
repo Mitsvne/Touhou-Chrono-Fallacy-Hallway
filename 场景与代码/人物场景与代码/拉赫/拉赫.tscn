@@ -21,16 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/ui素材/主菜单背景/人物/106.png" id="17_xvxl8"]
 [ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/ui素材/主菜单背景/人物/108.png" id="18_fynon"]
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/ui素材/主菜单背景/人物/110.png" id="19_d7rcx"]
-[ext_resource type="Texture2D" uid="uid://cvodqm3wchkq6" path="res://素材/人物素材/拉赫/xem_5030-0.png" id="19_l5qgk"]
-[ext_resource type="Texture2D" uid="uid://3xn0ldtx5d7x" path="res://素材/人物素材/拉赫/xem_5030-10.png" id="20_rjgm0"]
+[ext_resource type="Texture2D" uid="uid://cvodqm3wchkq6" path="res://素材/人物素材/拉赫/人物/xem_5030-0.png" id="19_l5qgk"]
+[ext_resource type="Texture2D" uid="uid://3xn0ldtx5d7x" path="res://素材/人物素材/拉赫/人物/xem_5030-10.png" id="20_rjgm0"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/ui素材/主菜单背景/人物/112.png" id="20_woa0f"]
-[ext_resource type="Texture2D" uid="uid://bqohqmir7mcnt" path="res://素材/人物素材/拉赫/xem_5030-20.png" id="21_bkafo"]
-[ext_resource type="Texture2D" uid="uid://bc5tlvwxys8i1" path="res://素材/人物素材/拉赫/xem_5030-30.png" id="22_twuqv"]
+[ext_resource type="Texture2D" uid="uid://bqohqmir7mcnt" path="res://素材/人物素材/拉赫/人物/xem_5030-20.png" id="21_bkafo"]
+[ext_resource type="Texture2D" uid="uid://bc5tlvwxys8i1" path="res://素材/人物素材/拉赫/人物/xem_5030-30.png" id="22_twuqv"]
 [ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物控制.gd" id="22_udp54"]
-[ext_resource type="Texture2D" uid="uid://c4xwragri55ta" path="res://素材/人物素材/拉赫/xem_5030-40.png" id="23_63txo"]
+[ext_resource type="Texture2D" uid="uid://c4xwragri55ta" path="res://素材/人物素材/拉赫/人物/xem_5030-40.png" id="23_63txo"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/效果相关/特效控制.gd" id="24_ljw2w"]
-[ext_resource type="Texture2D" uid="uid://beh618wwrsgrh" path="res://素材/人物素材/拉赫/xem_5030-50.png" id="24_wkuci"]
-[ext_resource type="Texture2D" uid="uid://67xy0c1hdwse" path="res://素材/人物素材/拉赫/xem_5030-60.png" id="25_bjaop"]
+[ext_resource type="Texture2D" uid="uid://beh618wwrsgrh" path="res://素材/人物素材/拉赫/人物/xem_5030-50.png" id="24_wkuci"]
+[ext_resource type="Texture2D" uid="uid://67xy0c1hdwse" path="res://素材/人物素材/拉赫/人物/xem_5030-60.png" id="25_bjaop"]
 [ext_resource type="Script" uid="uid://c2ycy640qjc46" path="res://场景与代码/人物场景与代码/拉赫/法阵旋转.gd" id="26_enjgw"]
 [ext_resource type="Texture2D" uid="uid://cvn8q6lcgw1wp" path="res://素材/人物素材/拉赫/特效/151.png" id="27_xvxl8"]
 [ext_resource type="Texture2D" uid="uid://74rg2u13xj8m" path="res://素材/人物素材/拉赫/特效/149.png" id="28_fynon"]
@@ -98,7 +98,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_bjaop")
 }],
-"loop": true,
+"loop": false,
 "name": &"死亡",
 "speed": 5.0
 }, {
@@ -310,11 +310,14 @@ tracks/5/path = NodePath("class/Character_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.06666667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [Vector2(-200, -100), Vector2(0, 0)],
-"method": &"move"
+"method": &"start_move"
+}, {
+"args": [],
+"method": &"stop_move"
 }]
 }
 tracks/6/type = "method"
@@ -484,6 +487,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_one88")
 
 [node name="法阵" type="Node2D" parent="." unique_id=515981281]
+visible = false
 position = Vector2(40.916, 0)
 scale = Vector2(0.4, 1)
 

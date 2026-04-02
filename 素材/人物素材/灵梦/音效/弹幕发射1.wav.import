@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://l2o417xbwv3y"
-path="res://.godot/imported/lm_5-70.wav-ee3d64b3e52e74342ffdf037d53e3739.sample"
+path="res://.godot/imported/弹幕发射1.wav-b7817291a2c69b114f1174895dc78f47.sample"
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/音效/lm_5-70.wav"
-dest_files=["res://.godot/imported/lm_5-70.wav-ee3d64b3e52e74342ffdf037d53e3739.sample"]
+source_file="res://素材/人物素材/灵梦/音效/弹幕发射1.wav"
+dest_files=["res://.godot/imported/弹幕发射1.wav-b7817291a2c69b114f1174895dc78f47.sample"]
 
 [params]
 
