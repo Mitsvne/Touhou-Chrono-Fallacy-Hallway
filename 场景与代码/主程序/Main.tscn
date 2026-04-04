@@ -10,8 +10,14 @@
 [node name="Main" type="Node" unique_id=676586633]
 script = ExtResource("1_w1jva")
 
-[node name="镜头" type="Camera2D" parent="." unique_id=55027781]
-position = Vector2(339, 210)
+[node name="关卡1" parent="." unique_id=157989525 instance=ExtResource("1_3nwfj")]
+z_index = -99
+
+[node name="灵梦" parent="." unique_id=226542507 groups=["player"] instance=ExtResource("2_w1jva")]
+position = Vector2(119, 213)
+
+[node name="镜头" type="Camera2D" parent="灵梦" unique_id=55027781]
+position = Vector2(220, -3)
 process_callback = 0
 limit_left = 0
 limit_top = -50
@@ -23,12 +29,6 @@ position_smoothing_speed = 8.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("2_avk0m")
-
-[node name="关卡1" parent="." unique_id=157989525 instance=ExtResource("1_3nwfj")]
-z_index = -99
-
-[node name="灵梦" parent="." unique_id=226542507 groups=["player"] instance=ExtResource("2_w1jva")]
-position = Vector2(119, 213)
 
 [node name="拉赫" parent="." unique_id=2034340444 groups=["player"] instance=ExtResource("3_gtwc4")]
 position = Vector2(527, 216)

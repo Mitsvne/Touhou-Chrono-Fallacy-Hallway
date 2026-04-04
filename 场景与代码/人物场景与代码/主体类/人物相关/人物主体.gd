@@ -3,6 +3,7 @@ class_name Character_Main
 
 @export var character_data: Character_Data
 @export var character_ctrler: Character_Ctrler
+@export var character_input: Character_Input
 @export var character:CharacterBody2D
 @export var anplayer: AnimationPlayer
 @export var damage_number:PackedScene
@@ -61,7 +62,16 @@ func _ready() -> void:
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
 	#控制按键
-	set_control_key()
+	character_input.set_control_key(character.team)
+	move_left=character_input.move_left
+	move_right=character_input.move_right
+	move_up=character_input.move_up
+	move_down=character_input.move_down
+	dash=character_input.dash
+	attack=character_input.attack
+	skill=character_input.skill
+	ultimate=character_input.ultimate
+	
 	#print("Character_Main初始化完成")
 
 
@@ -123,6 +133,8 @@ func tick_physics(state:State,delta: float) -> void:
 			pass
 		State.死亡:
 			character_ctrler.set_invincible(true)
+			#character_ctrler.stop_move()
+			character_ctrler.apply_gravity(true)
 			character.velocity.y += gravity * delta
 			is_alive=false
 
@@ -203,10 +215,7 @@ func is_dead():
 		return true
 
 
-
-
-
-
+"""
 ##根据队伍设置控制按键
 func set_control_key() -> void:
 	move_left="move_left_1p" if character.team=="1P" else "move_left_2p"
@@ -217,6 +226,8 @@ func set_control_key() -> void:
 	attack="attack_1p" if character.team=="1P" else "attack_2p"
 	skill="skill_1p" if character.team=="1P" else "skill_2p"
 	ultimate="ultimate_1p" if character.team=="1P" else "ultimate_2p"
+"""
+
 
 ##计时结束的回调函数
 func _on_attack_timer_timeout():

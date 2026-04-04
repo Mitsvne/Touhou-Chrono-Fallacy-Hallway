@@ -1,5 +1,5 @@
 extends Camera2D
-
+'''
 # --- 配置参数 ---
 @export var zoom_limit_min: float = 1.0   # 最小缩放值（镜头最远，数值越小视野越大）
 @export var zoom_limit_max: float = 1.5  # 最大缩放值（镜头最近，数值越大视野越小）
@@ -31,7 +31,7 @@ func _process(delta: float):
 	#var new_zoom = Vector2(target_zoom_value, target_zoom_value)
 	#zoom = zoom.lerp(new_zoom, zoom_speed * delta)
 
-'''
+
 # 计算使所有玩家都能保持在屏幕内的理想缩放值
 func _get_desired_zoom() -> float:
 	var players = get_tree().get_nodes_in_group("player")

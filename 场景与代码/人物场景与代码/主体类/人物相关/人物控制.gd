@@ -1,7 +1,8 @@
 extends Node
 class_name Character_Ctrler
-@export var character:CharacterBody2D
+@export var character:CharacterBody2D #角色节点
 @export var character_data: Character_Data
+@export var character_input: Character_Input
 
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
@@ -12,9 +13,10 @@ var x_max_speed: float = 99999.0  # x轴最大速度
 var y_max_speed: float = 99999.0  # y轴最大速度
 var current_velocity: Vector2 = Vector2.ZERO  # 当前速度
 var current_drag: Vector2 = Vector2.ZERO  # 当前阻力/加速度
-
+var motion_ray: RayCast2D
 
 func _ready() -> void:
+	_create_motion_ray()
 	print("Character_Ctrler初始化完成")
 	pass
 
@@ -46,11 +48,49 @@ func _move_loop():
 		if world_velocity.length() < 1:
 			stop_move()
 			break
-		character.position += world_velocity * delta
-		#print("当前速度：%s，阻力/加速度:%s"%[current_velocity,current_drag])
+		var movement = world_velocity * delta
+		# ---- 射线防穿透检测----
+		if movement.length() > 0:
+			motion_ray.target_position = movement
+			motion_ray.force_raycast_update()
+			if motion_ray.is_colliding():
+				var collision_point = motion_ray.get_collision_point()  # 全局坐标
+				var collision_normal = motion_ray.get_collision_normal()
+				# 计算新位置：碰撞点往回退一小段距离（全局坐标）
+				var new_global_pos = collision_point - movement.normalized() * 1.0
+				character.global_position = new_global_pos
+				# 根据碰撞法线调整速度（取消法线方向的分量，保留切向）
+				if collision_normal.length() > 0:
+					var velocity_dot_normal = current_velocity.dot(collision_normal)
+					if velocity_dot_normal < 0:  # 只有朝向法线方向的速度才需要取消
+						current_velocity -= velocity_dot_normal * collision_normal
+				# 如果速度几乎为零，停止移动循环awdaw
+				if current_velocity.length() < 1:
+					stop_move()
+					break
+				# 注意：不跳出循环，而是继续下一帧（速度可能还有切向分量）
+			else:
+				character.global_position += movement
+		else:
+			character.global_position += movement
 		await get_tree().process_frame
 	current_velocity = Vector2.ZERO
 	current_drag = Vector2.ZERO
+
+##移动方向
+func _move_direction():
+	var move_dir = Input.get_vector(character_input.move_left,character_input.move_right,character_input.move_up, character_input.move_down)
+	return move_dir
+
+##创建运动射线
+func _create_motion_ray():
+	motion_ray = RayCast2D.new()
+	motion_ray.name = "MotionRay"
+	motion_ray.enabled = true
+	motion_ray.hit_from_inside = true
+	motion_ray.target_position = Vector2(1000, 0)
+	motion_ray.collision_mask = character.collision_mask
+	character.add_child.call_deferred(motion_ray)
 
 ##开始移动函数
 func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector2.ZERO):
@@ -79,7 +119,7 @@ func get_is_moving():
 
 ##开始冲刺函数
 func start_dash(speed: float = 0.0, drag: float = 0.0):
-	var dash_dir = Input.get_vector(&"move_left_1p", &"move_right_1p", &"move_up_1p", &"move_down_1p")
+	var dash_dir = _move_direction()
 	if dash_dir == Vector2.ZERO:
 		dash_dir=Vector2(1.0,0.0)
 	var c_velocity = dash_dir.normalized() * speed

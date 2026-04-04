@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c6t8s603w6uky" path="res://素材/人物素材/灵梦/人物/spellDb003.png" id="9_rluf1"]
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物主体.gd" id="10_23xpx"]
 [ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
+[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://人物输入.gd" id="10_kcrgq"]
 [ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
 [ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
@@ -756,10 +757,11 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="class" type="Node" parent="." unique_id=213625171]
 
-[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer")]
+[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
 script = ExtResource("10_23xpx")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
+character_input = NodePath("../Character_Input")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
 damage_number = ExtResource("5_imqij")
@@ -771,10 +773,15 @@ script = ExtResource("5_v3c6i")
 energy_regen = 20.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data")]
+[node name="Character_Input" type="Node" parent="class" unique_id=1488286937]
+script = ExtResource("10_kcrgq")
+metadata/_custom_type_script = "uid://dcg22r72w0xss"
+
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "character_input")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
+character_input = NodePath("../Character_Input")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
