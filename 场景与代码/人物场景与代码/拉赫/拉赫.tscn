@@ -10,8 +10,9 @@
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/主体类/效果相关/ui血条.tscn" id="5_v8ol4"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物场景与代码/拉赫/光环旋转.gd" id="8_r3d67"]
-[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://人物输入.gd" id="8_rjgm0"]
+[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/ui素材/主菜单背景/人物/149.png" id="9_bgnr4"]
+[ext_resource type="Script" uid="uid://1mwvyjwyx7ep" path="res://场景与代码/人物场景与代码/主体类/人物相关/目标控制.gd" id="9_bkafo"]
 [ext_resource type="Script" uid="uid://7yvj52lg2y7t" path="res://场景与代码/人物场景与代码/拉赫/书浮动.gd" id="10_bgrwk"]
 [ext_resource type="Texture2D" uid="uid://boaq146wh5tm5" path="res://素材/ui素材/主菜单背景/人物/96.png" id="11_a0c7d"]
 [ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="12_udp54"]
@@ -400,16 +401,9 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="class" type="Node" parent="." unique_id=519233685]
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1495318083 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
-script = ExtResource("4_10ogm")
-character_data = NodePath("../Character_Data")
-character_ctrler = NodePath("../Character_Ctrler")
-character_input = NodePath("../Character_Input")
-character = NodePath("../..")
-anplayer = NodePath("../../动画")
-damage_number = ExtResource("2_bgnr4")
-attack_bullet = ExtResource("2_udp54")
-metadata/_custom_type_script = "uid://jclrroyodlts"
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]
+script = ExtResource("24_ljw2w")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="Character_Data" type="Node" parent="class" unique_id=592698125]
 script = ExtResource("4_pxy2b")
@@ -426,9 +420,20 @@ character_data = NodePath("../Character_Data")
 character_input = NodePath("../Character_Input")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]
-script = ExtResource("24_ljw2w")
-metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+[node name="Character_Main" type="Node" parent="class" unique_id=1495318083 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
+script = ExtResource("4_10ogm")
+character_data = NodePath("../Character_Data")
+character_ctrler = NodePath("../Character_Ctrler")
+character_input = NodePath("../Character_Input")
+character = NodePath("../..")
+anplayer = NodePath("../../动画")
+damage_number = ExtResource("2_bgnr4")
+attack_bullet = ExtResource("2_udp54")
+metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="Target_Ctrler" type="Node" parent="class" unique_id=1722470884]
+script = ExtResource("9_bkafo")
+metadata/_custom_type_script = "uid://1mwvyjwyx7ep"
 
 [node name="书" type="Node2D" parent="." unique_id=1761425926]
 position = Vector2(20, -38)

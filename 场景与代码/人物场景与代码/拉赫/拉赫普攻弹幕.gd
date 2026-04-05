@@ -4,6 +4,8 @@ var ishit=false
 var team:String
 @onready var an: AnimationPlayer = $动画
 @onready var hitarea: CollisionShape2D = $Hitbox/碰撞面
+@onready var bullet_ctrler: Bullet_Ctrler = $class/Bullet_Ctrler
+
 func _ready():
 	pass
 

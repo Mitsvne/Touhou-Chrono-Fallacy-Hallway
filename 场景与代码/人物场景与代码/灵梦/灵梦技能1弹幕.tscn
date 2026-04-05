@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ckw4j0j1t601" path="res://素材/人物素材/灵梦/音效/弹幕发射2.wav" id="7_c10u1"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="8_08j7y"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="9_ika7d"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="10_k06hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v2es"]
 radius = 33.0
@@ -266,7 +267,7 @@ _data = {
 script = ExtResource("9_ika7d")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 groups=["bullet"]]
+[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 groups=["bullets"]]
 script = ExtResource("1_ej0t6")
 
 [node name="Effect_Ctrler" type="Node" parent="." unique_id=849701786]
@@ -298,5 +299,12 @@ metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1627393161]
 shape = SubResource("CircleShape2D_2v2es")
+
+[node name="class" type="Node" parent="." unique_id=2071462844]
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=1131777314 node_paths=PackedStringArray("bullet")]
+script = ExtResource("10_k06hx")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

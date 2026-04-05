@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="6_yguo1"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="7_4p6cs"]
 [ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="8_eet54"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="15_eet54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lllv"]
 size = Vector2(61, 17)
@@ -336,7 +337,7 @@ _data = {
 script = ExtResource("7_4p6cs")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084]
+[node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 groups=["bullets"]]
 script = ExtResource("1_b1c2s")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=644983073]
@@ -367,5 +368,12 @@ shape = SubResource("RectangleShape2D_3lllv")
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=867426146]
 stream = ExtResource("8_eet54")
 autoplay = true
+
+[node name="class" type="Node" parent="." unique_id=1838317957]
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=438632784 node_paths=PackedStringArray("bullet")]
+script = ExtResource("15_eet54")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

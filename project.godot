@@ -34,6 +34,8 @@ enabled=PackedStringArray()
 
 1P=""
 2P=""
+characters=""
+bullets=""
 player=""
 
 [input]

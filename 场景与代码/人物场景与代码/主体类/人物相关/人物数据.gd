@@ -12,7 +12,7 @@ signal direction_changed
 			#print("朝向改变")
 			direction_changed.emit(direction)
 		else:
-			push_warning("direction 只能赋值为 1 或 -1，当前值不变")
+			#push_warning("direction 只能赋值为 1 或 -1，当前值不变")
 			return
 
 @export var hp_max:float=100#血量上限
@@ -47,7 +47,7 @@ signal direction_changed
 
 
 func _ready() -> void:
-	print("Character_Data初始化完成")
+	print("2.Character_Data初始化完成")
 	pass
 	
 

@@ -24,7 +24,7 @@ func _ready():
 		#print(players[1].character_data.direction)
 		#print(players[1].team)
 		#print("第二个角色:%s加入%s"%[players[1].character_name,players[1].get_groups()[1]])
-	#print("main初始化完成")
+	print("main初始化完成")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

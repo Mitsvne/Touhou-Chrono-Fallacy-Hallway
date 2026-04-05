@@ -22,8 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://c6t8s603w6uky" path="res://素材/人物素材/灵梦/人物/spellDb003.png" id="9_rluf1"]
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物主体.gd" id="10_23xpx"]
 [ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
-[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://人物输入.gd" id="10_kcrgq"]
+[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物输入.gd" id="10_kcrgq"]
 [ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
+[ext_resource type="Script" uid="uid://1mwvyjwyx7ep" path="res://场景与代码/人物场景与代码/主体类/人物相关/目标控制.gd" id="10_xiqw3"]
 [ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
@@ -494,26 +495,26 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("..")
+tracks/5/path = NodePath("../class/Character_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
-"args": [ExtResource("4_fjrso"), Vector2(-75, -78)],
+"args": [ExtResource("4_fjrso"), Vector2(0, 0)],
 "method": &"shoot"
 }, {
-"args": [ExtResource("4_fjrso"), Vector2(99, 88)],
+"args": [ExtResource("4_fjrso"), Vector2(0, 0)],
 "method": &"shoot"
 }, {
-"args": [ExtResource("4_fjrso"), Vector2(-73, 65)],
+"args": [ExtResource("4_fjrso"), Vector2(0, 0)],
 "method": &"shoot"
 }, {
-"args": [ExtResource("4_fjrso"), Vector2(-72, 93)],
+"args": [ExtResource("4_fjrso"), Vector2(0, 0)],
 "method": &"shoot"
 }, {
-"args": [ExtResource("4_fjrso"), Vector2(30, 92)],
+"args": [ExtResource("4_fjrso"), Vector2(0, 0)],
 "method": &"shoot"
 }]
 }
@@ -757,16 +758,9 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="class" type="Node" parent="." unique_id=213625171]
 
-[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
-script = ExtResource("10_23xpx")
-character_data = NodePath("../Character_Data")
-character_ctrler = NodePath("../Character_Ctrler")
-character_input = NodePath("../Character_Input")
-character = NodePath("../..")
-anplayer = NodePath("../../动画")
-damage_number = ExtResource("5_imqij")
-attack_bullet = ExtResource("2_g1kd8")
-metadata/_custom_type_script = "uid://jclrroyodlts"
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
+script = ExtResource("35_rluf1")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
@@ -784,9 +778,20 @@ character_data = NodePath("../Character_Data")
 character_input = NodePath("../Character_Input")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
-script = ExtResource("35_rluf1")
-metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
+script = ExtResource("10_23xpx")
+character_data = NodePath("../Character_Data")
+character_ctrler = NodePath("../Character_Ctrler")
+character_input = NodePath("../Character_Input")
+character = NodePath("../..")
+anplayer = NodePath("../../动画")
+damage_number = ExtResource("5_imqij")
+attack_bullet = ExtResource("2_g1kd8")
+metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="Target_Ctrler" type="Node" parent="class" unique_id=1332750841]
+script = ExtResource("10_xiqw3")
+metadata/_custom_type_script = "uid://1mwvyjwyx7ep"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=2014086127]
 position = Vector2(4.5, 12.5)

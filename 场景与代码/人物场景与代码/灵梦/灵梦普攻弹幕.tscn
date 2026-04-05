@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="4_g87nq"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="5_2546f"]
 [ext_resource type="AudioStream" uid="uid://l2o417xbwv3y" path="res://素材/人物素材/灵梦/音效/弹幕发射1.wav" id="6_ds2uh"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="7_7fhjk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfn0"]
 size = Vector2(26, 14)
@@ -257,8 +258,11 @@ script = ExtResource("5_2546f")
 damage = 5.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦普攻弹幕" type="Area2D" unique_id=81166135 groups=["bullet"]]
+[node name="灵梦普攻弹幕" type="Area2D" unique_id=81166135 node_paths=PackedStringArray("an", "hitarea", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_1ax1q")
+an = NodePath("动画")
+hitarea = NodePath("Hitbox/碰撞面")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=35290016]
 position = Vector2(10, -1)
@@ -290,5 +294,12 @@ shape = SubResource("RectangleShape2D_vxfn0")
 stream = ExtResource("6_ds2uh")
 volume_db = -6.0
 autoplay = true
+
+[node name="class" type="Node" parent="." unique_id=936898298]
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=760172629 node_paths=PackedStringArray("bullet")]
+script = ExtResource("7_7fhjk")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -17,7 +17,7 @@ var motion_ray: RayCast2D
 
 func _ready() -> void:
 	_create_motion_ray()
-	print("Character_Ctrler初始化完成")
+	print("4.Character_Ctrler初始化完成")
 	pass
 
 func _physics_process(_delta: float) -> void:
@@ -54,21 +54,17 @@ func _move_loop():
 			motion_ray.target_position = movement
 			motion_ray.force_raycast_update()
 			if motion_ray.is_colliding():
-				var collision_point = motion_ray.get_collision_point()  # 全局坐标
+				var collision_point = motion_ray.get_collision_point()
 				var collision_normal = motion_ray.get_collision_normal()
-				# 计算新位置：碰撞点往回退一小段距离（全局坐标）
 				var new_global_pos = collision_point - movement.normalized() * 1.0
 				character.global_position = new_global_pos
-				# 根据碰撞法线调整速度（取消法线方向的分量，保留切向）
 				if collision_normal.length() > 0:
 					var velocity_dot_normal = current_velocity.dot(collision_normal)
-					if velocity_dot_normal < 0:  # 只有朝向法线方向的速度才需要取消
+					if velocity_dot_normal < 0:
 						current_velocity -= velocity_dot_normal * collision_normal
-				# 如果速度几乎为零，停止移动循环awdaw
 				if current_velocity.length() < 1:
 					stop_move()
 					break
-				# 注意：不跳出循环，而是继续下一帧（速度可能还有切向分量）
 			else:
 				character.global_position += movement
 		else:
@@ -180,10 +176,14 @@ func shoot(Bullet,offset:Vector2):
 	# 将子弹添加到当前场景的父节点下，使其独立于人物移动
 	get_parent().add_child(bullet_instance)
 	#子弹队伍设置为主人所在的队伍
-	bullet_instance.team=owner.team
 	bullet_instance.add_to_group(owner.team)
-	#print("飞行物队伍："+bullet_instance.team)
+	bullet_instance.team=character_data.team
+	bullet_instance.bullet_ctrler.bullet_team=character_data.team
+	bullet_instance.bullet_ctrler.bullet_owner=character
+	bullet_instance.bullet_ctrler.bullet_direction=character_data.direction
 	#print("飞行物所在组：",bullet_instance.get_groups())
+	#print("飞行物队伍："+bullet_instance.bullet_ctrler.bullet_team)
+	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
 	# 设置子弹的初始位置为人物当前位置
 	bullet_instance.position = character.position + offset
 	# 设置子弹的旋转方向为人物面向的方向

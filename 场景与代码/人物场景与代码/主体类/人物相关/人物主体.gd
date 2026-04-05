@@ -38,21 +38,18 @@ var attack:String="attack_1p"
 var skill:String="skill_1p"
 var ultimate:String="ultimate_1p"
 
-
 ##初始化函数
 func _ready() -> void:
-	await get_tree().process_frame
-	#移动参数传递
-	move_speed=character.move_speed
-	acceleration=character.acceleration
-	friction=character.friction
-	#状态，朝向，队伍
-	current_state=0
-	direction=character_data.direction
+	await get_tree().process_frame #等一帧，其他类初始完成
+	move_speed=character.move_speed #移速
+	acceleration=character.acceleration #加速度
+	friction=character.friction #减速度
+	direction=character_data.direction #朝向
 	character_data.direction_changed.connect(update_direction)
 	update_direction(direction)
-	team=character.team
-	is_alive=true
+	current_state=0 #初始状态值
+	team=character_data.team #队伍
+	is_alive=true #是否活着
 	#计时器
 	attack_timer.wait_time = character.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
@@ -71,8 +68,7 @@ func _ready() -> void:
 	attack=character_input.attack
 	skill=character_input.skill
 	ultimate=character_input.ultimate
-	
-	#print("Character_Main初始化完成")
+	print("6.Character_Main初始化完成:",character)
 
 
 ##每帧效果函数
@@ -208,26 +204,9 @@ func update_direction(direct:float):
 	character.scale.x=direction
 	#print("当前朝向：",direction)
 
-
-
 func is_dead():
 	if character_data.hp<=0 or not is_alive:
 		return true
-
-
-"""
-##根据队伍设置控制按键
-func set_control_key() -> void:
-	move_left="move_left_1p" if character.team=="1P" else "move_left_2p"
-	move_right="move_right_1p" if character.team=="1P" else "move_right_2p"
-	move_up="move_up_1p" if character.team=="1P" else "move_up_2p"
-	move_down="move_down_1p" if character.team=="1P" else "move_down_2p"
-	dash="dash_1p" if character.team=="1P" else "dash_2p"
-	attack="attack_1p" if character.team=="1P" else "attack_2p"
-	skill="skill_1p" if character.team=="1P" else "skill_2p"
-	ultimate="ultimate_1p" if character.team=="1P" else "ultimate_2p"
-"""
-
 
 ##计时结束的回调函数
 func _on_attack_timer_timeout():

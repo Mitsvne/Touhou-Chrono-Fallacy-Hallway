@@ -13,7 +13,7 @@ script = ExtResource("1_w1jva")
 [node name="关卡1" parent="." unique_id=157989525 instance=ExtResource("1_3nwfj")]
 z_index = -99
 
-[node name="灵梦" parent="." unique_id=226542507 groups=["player"] instance=ExtResource("2_w1jva")]
+[node name="灵梦" parent="." unique_id=226542507 groups=["characters", "player"] instance=ExtResource("2_w1jva")]
 position = Vector2(119, 213)
 
 [node name="镜头" type="Camera2D" parent="灵梦" unique_id=55027781]
@@ -30,9 +30,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("2_avk0m")
 
-[node name="拉赫" parent="." unique_id=2034340444 groups=["player"] instance=ExtResource("3_gtwc4")]
-position = Vector2(527, 216)
-
 [node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
 
 [node name="Button" type="Button" parent="ui" unique_id=1570851647]
@@ -47,5 +44,8 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("5_gtwc4")
 text = "重置"
+
+[node name="拉赫" parent="." unique_id=2034340444 groups=["characters", "player"] instance=ExtResource("3_gtwc4")]
+position = Vector2(494, 210)
 
 [connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
