@@ -189,4 +189,4 @@ func shoot(Bullet,offset:Vector2):
 	# 设置子弹的旋转方向为人物面向的方向
 	bullet_instance.rotation = character.rotation
 	# 根据人物方向调整子弹速度向量
-	bullet_instance.velocity = bullet_instance.velocity.rotated(character.rotation)
+	#bullet_instance.velocity = bullet_instance.velocity.rotated(character.rotation)

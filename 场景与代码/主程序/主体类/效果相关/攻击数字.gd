@@ -1,7 +1,6 @@
 extends Node2D
 
-# 显示伤害数字的 Label 节点引用
-@onready var label: Label = $数字文本
+@export var label: Label
 # 漂浮参数
 @export var float_speed: float = 50.0      # 每秒上升像素
 @export var fade_duration: float = 0.8     # 淡出总时长
@@ -12,7 +11,7 @@ func set_damage(value: int, position1: Vector2, color: Color = Color.RED) -> voi
 	# 设置文本和颜色
 	label.text = str(value)
 	label.modulate = color
-	global_position = position1 + Vector2(randf_range(-10, 10), randf_range(-5, 5))
+	global_position = position1 + Vector2(randf_range(-20, 20), randf_range(-20, 20))
 	scale = Vector2(start_scale, start_scale)
 	# 启动动画
 	_animate()

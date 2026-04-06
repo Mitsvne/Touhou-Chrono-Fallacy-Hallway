@@ -3,7 +3,7 @@ class_name Effect_Ctrler
 
 var _active_timer: Timer = null   # 保存当前活动的定时器
 func _ready() -> void:
-	print("1.Effect_Ctrler初始化完成")
+	#print("1.Effect_Ctrler初始化完成")
 	pass
 	
 ## 开始产生残影效果

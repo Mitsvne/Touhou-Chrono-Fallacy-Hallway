@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://belk2vh03n6kd"]
 
-[ext_resource type="Script" uid="uid://dl462y60o47fc" path="res://场景与代码/人物场景与代码/主体类/效果相关/攻击数字.gd" id="1_g6j7r"]
+[ext_resource type="Script" uid="uid://dl462y60o47fc" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.gd" id="1_g6j7r"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="2_8a8hh"]
 
-[node name="攻击数字" type="Node2D"]
+[node name="攻击数字" type="Node2D" unique_id=1306715176 node_paths=PackedStringArray("label")]
 script = ExtResource("1_g6j7r")
+label = NodePath("数字文本")
 
-[node name="数字文本" type="Label" parent="."]
+[node name="数字文本" type="Label" parent="." unique_id=2050774527]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_8a8hh")

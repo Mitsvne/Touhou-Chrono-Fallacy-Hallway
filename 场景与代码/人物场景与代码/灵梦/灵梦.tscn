@@ -6,25 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="2_ig6o6"]
 [ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物场景与代码/灵梦/灵梦技能1弹幕.tscn" id="3_8vesq"]
 [ext_resource type="PackedScene" uid="uid://b5qska07coqvt" path="res://场景与代码/人物场景与代码/灵梦/灵梦必杀1弹幕.tscn" id="4_fjrso"]
-[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/人物场景与代码/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
-[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物数据.gd" id="5_v3c6i"]
+[ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
+[ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="5_v3c6i"]
 [ext_resource type="Texture2D" uid="uid://1na3wap1p3m0" path="res://素材/人物素材/灵梦/人物/shotB000.png" id="6_7lla3"]
-[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/人物场景与代码/主体类/效果相关/ui血条.tscn" id="6_jxt28"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/主程序/主体类/效果相关/ui血条.tscn" id="6_jxt28"]
 [ext_resource type="Texture2D" uid="uid://bsavoqinxffk1" path="res://素材/人物素材/灵梦/人物/spellDb000.png" id="6_nhrl1"]
 [ext_resource type="Texture2D" uid="uid://cswh26fqiry2k" path="res://素材/人物素材/灵梦/人物/dashStop000.png" id="6_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://cfhr8ues3cyuk" path="res://素材/人物素材/灵梦/人物/dashStop003.png" id="7_20d74"]
 [ext_resource type="Texture2D" uid="uid://g8liahbqms85" path="res://素材/人物素材/灵梦/人物/spellDb001.png" id="7_fjrso"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/人物场景与代码/主体类/人物相关/受击面.gd" id="7_n1bbb"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/人物相关/受击面.gd" id="7_n1bbb"]
 [ext_resource type="Texture2D" uid="uid://dqfwth2awnq12" path="res://素材/人物素材/灵梦/人物/shotB001.png" id="7_sinkt"]
 [ext_resource type="Texture2D" uid="uid://boaqo7ctqg27n" path="res://素材/人物素材/灵梦/人物/shotB002.png" id="8_l2f6h"]
 [ext_resource type="Texture2D" uid="uid://4oqwd7nyqmuu" path="res://素材/人物素材/灵梦/人物/spellDb002.png" id="8_tg32o"]
 [ext_resource type="Texture2D" uid="uid://c3k652my7kkgi" path="res://素材/人物素材/灵梦/人物/shotB003.png" id="9_ligu1"]
 [ext_resource type="Texture2D" uid="uid://c6t8s603w6uky" path="res://素材/人物素材/灵梦/人物/spellDb003.png" id="9_rluf1"]
-[ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物主体.gd" id="10_23xpx"]
+[ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="10_23xpx"]
 [ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
-[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物输入.gd" id="10_kcrgq"]
+[ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="10_kcrgq"]
 [ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
-[ext_resource type="Script" uid="uid://1mwvyjwyx7ep" path="res://场景与代码/人物场景与代码/主体类/人物相关/目标控制.gd" id="10_xiqw3"]
+[ext_resource type="Script" uid="uid://1mwvyjwyx7ep" path="res://场景与代码/主程序/主体类/人物相关/目标控制.gd" id="10_xiqw3"]
 [ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
@@ -35,11 +35,17 @@
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
 [ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物场景与代码/灵梦/技能cd.gd" id="22_c73gp"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景与代码/ui模板/优设标题黑.ttf" id="22_fc6ke"]
+[ext_resource type="Texture2D" uid="uid://1g0g5p1l2uky" path="res://素材/人物素材/灵梦/人物/attackS000.png" id="24_ktvnh"]
+[ext_resource type="Texture2D" uid="uid://b1e1rgppsr2ik" path="res://素材/人物素材/灵梦/人物/attackS001.png" id="25_xn1ji"]
+[ext_resource type="Texture2D" uid="uid://bfp53vlvy1dx2" path="res://素材/人物素材/灵梦/人物/attackS002.png" id="26_b0bj7"]
+[ext_resource type="Texture2D" uid="uid://tscr87gadow8" path="res://素材/人物素材/灵梦/人物/attackS003.png" id="27_k2bsk"]
+[ext_resource type="Texture2D" uid="uid://ytu3ejfjr1ws" path="res://素材/人物素材/灵梦/人物/attackS004.png" id="28_gndyu"]
+[ext_resource type="Texture2D" uid="uid://brth6vyarpmt6" path="res://素材/人物素材/灵梦/人物/attackS005.png" id="29_358j6"]
 [ext_resource type="Texture2D" uid="uid://cid431akxh8ag" path="res://素材/人物素材/灵梦/人物/hitAir000.png" id="32_3568u"]
-[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/人物场景与代码/主体类/人物相关/人物控制.gd" id="32_tg32o"]
+[ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/主程序/主体类/人物相关/人物控制.gd" id="32_tg32o"]
 [ext_resource type="Texture2D" uid="uid://b3e13bbys7pi7" path="res://素材/人物素材/灵梦/人物/hitAir001.png" id="33_kcrgq"]
 [ext_resource type="Texture2D" uid="uid://bldk558qhrv4t" path="res://素材/人物素材/灵梦/人物/hitAir002.png" id="34_xiqw3"]
-[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/效果相关/特效控制.gd" id="35_rluf1"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="35_rluf1"]
 [ext_resource type="Texture2D" uid="uid://dn0a5pj14au0y" path="res://素材/人物素材/灵梦/人物/hitAir003.png" id="35_u7bb4"]
 [ext_resource type="Texture2D" uid="uid://cl4ctcty67irh" path="res://素材/人物素材/灵梦/人物/hitAir004.png" id="36_ca0co"]
 [ext_resource type="Texture2D" uid="uid://doi5e1mcobqf8" path="res://素材/人物素材/灵梦/特效/m09.png" id="37_80c0g"]
@@ -47,6 +53,7 @@
 [ext_resource type="Script" uid="uid://b6tusl47vvtnm" path="res://场景与代码/人物场景与代码/灵梦/法阵旋转.gd" id="38_aqga6"]
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
+[ext_resource type="PackedScene" uid="uid://dp28jkqlodc1s" path="res://场景与代码/人物场景与代码/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
 size = Vector2(39, 39)
@@ -103,6 +110,47 @@ animations = [{
 "loop": false,
 "name": &"必杀",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yh3oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_20d74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ktvnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xn1ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_b0bj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_k2bsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_gndyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_358j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ktvnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fc6ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c73gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x7guv")
+}],
+"loop": true,
+"name": &"必杀2",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -429,6 +477,84 @@ tracks/4/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_uvb8v"]
+resource_name = "必杀2"
+length = 0.80000335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"必杀2"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(4, -6), Vector2(23, -2), Vector2(4, -10), Vector2(3, -17), Vector2(2, -22), Vector2(4, -16), Vector2(24, 1), Vector2(3, -6), Vector2(3, -4), Vector2(0, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.40000004, 0.43333337, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../动画:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("48_xn1ji"), Vector2(70, 50)],
+"method": &"shoot"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_aqga6"]
 resource_name = "必杀1"
 length = 0.8333367
@@ -730,7 +856,8 @@ _data = {
 &"RESET": SubResource("Animation_lyetf"),
 &"冲刺": SubResource("Animation_3568u"),
 &"常态": SubResource("Animation_yvw77"),
-&"必杀1": SubResource("Animation_aqga6"),
+&"必杀1": SubResource("Animation_uvb8v"),
+&"必杀12": SubResource("Animation_aqga6"),
 &"技能1": SubResource("Animation_m1hc4"),
 &"死亡": SubResource("Animation_5jvom")
 }

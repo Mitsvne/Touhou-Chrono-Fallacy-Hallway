@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bxk7dep80ik80" path="res://素材/人物素材/灵梦/特效/spellBulletA000.png" id="2_7x5eg"]
 [ext_resource type="Texture2D" uid="uid://csw6swlb34x3w" path="res://素材/人物素材/灵梦/特效/spellBulletA002.png" id="3_sur7m"]
 [ext_resource type="Texture2D" uid="uid://bp24iivn5tqkm" path="res://素材/人物素材/灵梦/特效/spellBulletA001.png" id="4_vcs1m"]
-[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="5_5id5f"]
-[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="6_1hxvv"]
-[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="7_1d3hc"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/人物相关/攻击面.gd" id="5_5id5f"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/人物相关/攻击数据.gd" id="6_1hxvv"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="7_1d3hc"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="8_jc8f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjtsk"]
 radius = 19.0
@@ -474,9 +475,12 @@ script = ExtResource("6_1hxvv")
 damage = 20.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦必杀1弹幕" type="Area2D" unique_id=1301000134 node_paths=PackedStringArray("bullet_ctrler") groups=["bullets"]]
-visible = false
+[node name="灵梦必杀1弹幕" type="Area2D" unique_id=1301000134 node_paths=PackedStringArray("Sprite", "an", "hitarea", "effect_ctrler", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_m8wny")
+Sprite = NodePath("素材库")
+an = NodePath("动画")
+hitarea = NodePath("Hitbox/碰撞面")
+effect_ctrler = NodePath("class/Effect_Ctrler")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1665247555]
@@ -490,6 +494,7 @@ libraries/ = SubResource("AnimationLibrary_2dtg5")
 material = SubResource("CanvasItemMaterial_vcs1m")
 sprite_frames = SubResource("SpriteFrames_pk2xr")
 animation = &"红"
+autoplay = "红"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=924007214]
 script = ExtResource("5_5id5f")
@@ -505,5 +510,9 @@ shape = SubResource("CircleShape2D_jjtsk")
 script = ExtResource("7_1d3hc")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=2107935024]
+script = ExtResource("8_jc8f0")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dwm05hjgmvlxs"]
 
 [ext_resource type="Script" uid="uid://doqkfq7hj2g4a" path="res://场景与代码/人物场景与代码/灵梦/灵梦技能1弹幕.gd" id="1_ej0t6"]
-[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/人物场景与代码/主体类/效果相关/特效控制.gd" id="2_k06hx"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="2_k06hx"]
 [ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="3_ry8f1"]
 [ext_resource type="Texture2D" uid="uid://ciymm4x3k6ewa" path="res://素材/人物素材/灵梦/特效/spellBulletGa001.png" id="4_yjhwv"]
 [ext_resource type="Texture2D" uid="uid://d0ump1qo8awpx" path="res://素材/人物素材/灵梦/特效/spellBulletHa000.png" id="5_0mcc7"]
 [ext_resource type="AudioStream" uid="uid://bb72j7hhud64m" path="res://素材/人物素材/灵梦/音效/阴阳玉爆炸.wav" id="6_yt1m0"]
 [ext_resource type="AudioStream" uid="uid://ckw4j0j1t601" path="res://素材/人物素材/灵梦/音效/弹幕发射2.wav" id="7_c10u1"]
-[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="8_08j7y"]
-[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="9_ika7d"]
-[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="10_k06hx"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/人物相关/攻击面.gd" id="8_08j7y"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/人物相关/攻击数据.gd" id="9_ika7d"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="10_k06hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v2es"]
 radius = 33.0
@@ -267,22 +267,24 @@ _data = {
 script = ExtResource("9_ika7d")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 groups=["bullets"]]
+[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 node_paths=PackedStringArray("Sprite", "an", "audio", "hitarea", "effect_ctrler", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_ej0t6")
-
-[node name="Effect_Ctrler" type="Node" parent="." unique_id=849701786]
-script = ExtResource("2_k06hx")
-metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+Sprite = NodePath("素材库")
+an = NodePath("动画")
+audio = NodePath("命中音效")
+hitarea = NodePath("Hitbox/碰撞面")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=2044055847]
 shape = SubResource("CircleShape2D_2v2es")
 
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1401489138]
+sprite_frames = SubResource("SpriteFrames_vsngv")
+
 [node name="动画" type="AnimationPlayer" parent="." unique_id=352211302]
 root_node = NodePath("../素材库")
 libraries/ = SubResource("AnimationLibrary_7wgds")
-
-[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1401489138]
-sprite_frames = SubResource("SpriteFrames_vsngv")
 
 [node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1123507937]
 stream = ExtResource("6_yt1m0")
@@ -306,5 +308,9 @@ shape = SubResource("CircleShape2D_2v2es")
 script = ExtResource("10_k06hx")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=849701786]
+script = ExtResource("2_k06hx")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

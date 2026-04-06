@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://g73mqy4hbtt" path="res://素材/人物素材/拉赫/特效/160.png" id="5_fsb1k"]
 [ext_resource type="Texture2D" uid="uid://dqg1wffukq4he" path="res://素材/人物素材/拉赫/特效/168.png" id="5_phyu5"]
 [ext_resource type="Texture2D" uid="uid://b1t2kkne4j74j" path="res://素材/人物素材/拉赫/特效/170.png" id="6_goq3u"]
-[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击面.gd" id="6_yguo1"]
-[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/人物场景与代码/主体类/人物相关/攻击数据.gd" id="7_4p6cs"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/人物相关/攻击面.gd" id="6_yguo1"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/人物相关/攻击数据.gd" id="7_4p6cs"]
 [ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="8_eet54"]
-[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://飞行物控制.gd" id="15_eet54"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="15_eet54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lllv"]
 size = Vector2(61, 17)
@@ -337,8 +337,11 @@ _data = {
 script = ExtResource("7_4p6cs")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 groups=["bullets"]]
+[node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 node_paths=PackedStringArray("an", "hitarea", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_b1c2s")
+an = NodePath("动画")
+hitarea = NodePath("Hitbox/碰撞面")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=644983073]
 position = Vector2(14.5, 0.5)
@@ -359,7 +362,6 @@ libraries/ = SubResource("AnimationLibrary_lupqp")
 [node name="Hitbox" type="Area2D" parent="." unique_id=772372855]
 script = ExtResource("6_yguo1")
 attack_data = SubResource("Resource_xf4pb")
-metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1486490914]
 position = Vector2(14.5, 0.5)
@@ -374,6 +376,5 @@ autoplay = true
 [node name="Bullet_Ctrler" type="Node" parent="class" unique_id=438632784 node_paths=PackedStringArray("bullet")]
 script = ExtResource("15_eet54")
 bullet = NodePath("../..")
-metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

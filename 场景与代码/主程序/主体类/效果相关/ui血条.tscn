@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lmo1rknygdh6"]
 
 [ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui素材/GUI.png" id="1_11osk"]
-[ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/人物场景与代码/主体类/效果相关/ui血条.gd" id="1_mkvpl"]
+[ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/主程序/主体类/效果相关/ui血条.gd" id="1_mkvpl"]
 [ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="2_mkvpl"]
 [ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="3_dj1n2"]
 [ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="4_dk7xt"]
