@@ -36,7 +36,7 @@ enabled=PackedStringArray()
 2P=""
 characters=""
 bullets=""
-player=""
+players=""
 
 [input]
 

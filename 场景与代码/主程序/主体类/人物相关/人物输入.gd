@@ -54,7 +54,7 @@ var input_arry=["move_left_1p","move_right_1p","move_up_1p","move_down_1p",
 			ultimate=v
 
 func _ready() -> void:
-	print("3.Character_Input初始化完成")
+	print("2.Character_Input初始化完成")
 	pass
 
 func _process(_delta: float) -> void:

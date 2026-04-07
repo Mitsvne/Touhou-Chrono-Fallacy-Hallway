@@ -1,10 +1,10 @@
 extends Node
 class_name Bullet_Ctrler
 
+@export var bullet_data: Bullet_Data
 @export var bullet: Area2D
+
 var bullet_owner: CharacterBody2D
-var bullet_team: String
-var bullet_direction: float
 var is_moving: bool = false          # 是否移动
 var is_gravity: bool = false         # 是否受重力
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")  # 重力数值
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		current_velocity.y += gravity * delta
 	current_velocity = _update_velocity(current_velocity, current_drag, delta)
 	current_velocity.x = clamp(current_velocity.x, -x_max_speed, x_max_speed)
-	var world_velocity = Vector2(current_velocity.x * bullet_direction, current_velocity.y)
+	var world_velocity = Vector2(current_velocity.x * bullet_data.bullet_direction, current_velocity.y)
 	if world_velocity.length() < 1:
 		stop_move()
 		return
@@ -78,7 +78,7 @@ func apply_gravity(value: bool):
 
 ## 设置朝向（1=右，-1=左）
 func set_direction(value: int):
-	bullet_direction = value
+	bullet_data.bullet_direction = value
 
 func get_Target():
 	var team = owner.team

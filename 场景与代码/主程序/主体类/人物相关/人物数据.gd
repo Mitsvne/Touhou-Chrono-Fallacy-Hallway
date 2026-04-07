@@ -47,7 +47,7 @@ signal direction_changed
 
 
 func _ready() -> void:
-	print("2.Character_Data初始化完成")
+	print("1.Character_Data初始化完成")
 	pass
 	
 

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://clf8r3s5kgf3k"]
+
+[ext_resource type="Texture2D" uid="uid://nnmbwpfkanxc" path="res://素材/地图素材/平原/1.png" id="1_d430e"]
+[ext_resource type="Texture2D" uid="uid://crfi61e14lbdk" path="res://素材/地图素材/平原/2.png" id="2_hl4vn"]
+[ext_resource type="Texture2D" uid="uid://ko5wa6jp2aa4" path="res://素材/地图素材/平原/3.png" id="3_smcg8"]
+[ext_resource type="Texture2D" uid="uid://yr32c837w11d" path="res://素材/地图素材/平原/4.png" id="4_fhmfv"]
+[ext_resource type="Texture2D" uid="uid://ccnthxmslxmy1" path="res://素材/地图素材/平原/5.png" id="5_njy0t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d430e"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hl4vn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_smcg8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fhmfv"]
+
+[node name="平原" type="Node2D" unique_id=336795962]
+
+[node name="背景" type="Node2D" parent="." unique_id=1161090485]
+
+[node name="蓝天" type="Parallax2D" parent="背景" unique_id=1049048258]
+repeat_size = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/蓝天" unique_id=1888553669]
+position = Vector2(432, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_d430e")
+
+[node name="云" type="Parallax2D" parent="背景" unique_id=1981429878]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/云" unique_id=1037845040]
+position = Vector2(432, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hl4vn")
+
+[node name="远景平原" type="Parallax2D" parent="背景" unique_id=367324328]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/远景平原" unique_id=1876939495]
+position = Vector2(432, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_smcg8")
+
+[node name="近景平原" type="Parallax2D" parent="背景" unique_id=1106228888]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/近景平原" unique_id=713763698]
+position = Vector2(432, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_fhmfv")
+
+[node name="鸟" type="Parallax2D" parent="背景" unique_id=930945913]
+repeat_size = Vector2(864, 0)
+autoscroll = Vector2(-120, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/鸟" unique_id=1617833261]
+position = Vector2(432, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_njy0t")
+
+[node name="地图边界" type="Node2D" parent="." unique_id=413617757]
+
+[node name="空气墙" type="StaticBody2D" parent="地图边界" unique_id=2026754754]
+
+[node name="下" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1489637446]
+position = Vector2(329, 422)
+shape = SubResource("WorldBoundaryShape2D_d430e")
+
+[node name="上" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1057991120]
+position = Vector2(329, -66)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_hl4vn")
+
+[node name="左" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1996297503]
+position = Vector2(-1, 202)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_smcg8")
+
+[node name="右" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=468894559]
+position = Vector2(864, 189)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_fhmfv")

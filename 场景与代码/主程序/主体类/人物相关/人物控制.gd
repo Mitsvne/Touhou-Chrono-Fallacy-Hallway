@@ -17,7 +17,7 @@ var motion_ray: RayCast2D
 
 func _ready() -> void:
 	_create_motion_ray()
-	print("4.Character_Ctrler初始化完成")
+	print("3.Character_Ctrler初始化完成")
 	pass
 
 func _physics_process(_delta: float) -> void:
@@ -168,25 +168,34 @@ func set_invincible(value:bool):
 func get_invincible():
 	return is_invincible
 
+func get_Target():
+	var team=character_data.team
+	var characters = get_tree().get_nodes_in_group("characters")
+	for _character in characters:
+		if _character is CharacterBody2D and not _character.is_in_group(team):
+			return _character
+	return null
+
+
+
+
+
 ##发射弹幕函数
-func shoot(Bullet,offset:Vector2):
+func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	if not Bullet:
 		return
 	var bullet_instance = Bullet.instantiate()
 	# 将子弹添加到当前场景的父节点下，使其独立于人物移动
 	get_parent().add_child(bullet_instance)
 	#子弹队伍设置为主人所在的队伍
-	bullet_instance.add_to_group(owner.team)
-	bullet_instance.team=character_data.team
-	bullet_instance.bullet_ctrler.bullet_team=character_data.team
+	bullet_instance.add_to_group(character_data.team)
+	bullet_instance.bullet_data.bullet_team=character_data.team
 	bullet_instance.bullet_ctrler.bullet_owner=character
-	bullet_instance.bullet_ctrler.bullet_direction=character_data.direction
+	bullet_instance.bullet_data.bullet_direction=character_data.direction
 	#print("飞行物所在组：",bullet_instance.get_groups())
 	#print("飞行物队伍："+bullet_instance.bullet_ctrler.bullet_team)
 	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
 	# 设置子弹的初始位置为人物当前位置
 	bullet_instance.position = character.position + offset
 	# 设置子弹的旋转方向为人物面向的方向
-	bullet_instance.rotation = character.rotation
-	# 根据人物方向调整子弹速度向量
-	#bullet_instance.velocity = bullet_instance.velocity.rotated(character.rotation)
+	bullet_instance.rotation = character.rotation + offset_rotation

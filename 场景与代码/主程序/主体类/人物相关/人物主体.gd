@@ -59,7 +59,7 @@ func _ready() -> void:
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
 	#控制按键
-	character_input.set_control_key(character.team)
+	character_input.set_control_key(character_data.team)
 	move_left=character_input.move_left
 	move_right=character_input.move_right
 	move_up=character_input.move_up
@@ -68,7 +68,7 @@ func _ready() -> void:
 	attack=character_input.attack
 	skill=character_input.skill
 	ultimate=character_input.ultimate
-	print("6.Character_Main初始化完成:",character)
+	print("5.Character_Main初始化完成:",character)
 
 
 ##每帧效果函数

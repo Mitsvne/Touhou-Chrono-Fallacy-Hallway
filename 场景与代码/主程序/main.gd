@@ -8,22 +8,16 @@ func _ready():
 		if child is CharacterBody2D:
 			players.append(child)
 	# 按顺序分配组
-	if players.size() > 0:
+	if players.size() > 0 and players[0].is_in_group("players"):
 		players[0].add_to_group("1P")
-		players[0].team="1P"
 		players[0].character_data.team="1P"
 		players[0].character_data.direction=1
-		#print(players[0].character_data.direction)
-		#print(players[0].character_data.team)
-		#print("第一个角色:%s加入%s"%[players[0].character_name,players[0].get_groups()[1]])
-	if players.size() > 1:
+		print("第一个角色:%s加入:%s"%[players[0].character_name,players[0].character_data.team])
+	if players.size() > 1 and players[1].is_in_group("players"):
 		players[1].add_to_group("2P")
-		players[1].team="2P"
 		players[1].character_data.team="2P"
 		players[1].character_data.direction=-1
-		#print(players[1].character_data.direction)
-		#print(players[1].team)
-		#print("第二个角色:%s加入%s"%[players[1].character_name,players[1].get_groups()[1]])
+		print("第二个角色:%s加入:%s"%[players[1].character_name,players[1].character_data.team])
 	print("main初始化完成")
 
 
