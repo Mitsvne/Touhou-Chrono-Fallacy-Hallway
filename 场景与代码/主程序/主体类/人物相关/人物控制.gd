@@ -177,9 +177,6 @@ func get_Target():
 	return null
 
 
-
-
-
 ##发射弹幕函数
 func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	if not Bullet:
@@ -188,14 +185,31 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	# 将子弹添加到当前场景的父节点下，使其独立于人物移动
 	get_parent().add_child(bullet_instance)
 	#子弹队伍设置为主人所在的队伍
+	bullet_instance.add_to_group("bullets")
 	bullet_instance.add_to_group(character_data.team)
 	bullet_instance.bullet_data.bullet_team=character_data.team
-	bullet_instance.bullet_ctrler.bullet_owner=character
+	bullet_instance.bullet_data.bullet_owner=character
 	bullet_instance.bullet_data.bullet_direction=character_data.direction
 	#print("飞行物所在组：",bullet_instance.get_groups())
-	#print("飞行物队伍："+bullet_instance.bullet_ctrler.bullet_team)
+	#print("飞行物队伍："+bullet_instance.bullet_data.bullet_team)
 	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
 	# 设置子弹的初始位置为人物当前位置
 	bullet_instance.position = character.position + offset
 	# 设置子弹的旋转方向为人物面向的方向
 	bullet_instance.rotation = character.rotation + offset_rotation
+	
+func add_independent_prop(prop,offset:Vector2,offset_rotation:float=0.0):
+	if not prop:
+		return
+	var prop_instance = prop.instantiate()
+	get_parent().add_child(prop_instance)
+	prop_instance.add_to_group("props")
+	prop_instance.add_to_group(character_data.team)
+	prop_instance.prop_data.prop_team=character_data.team
+	prop_instance.prop_data.prop_owner=character
+	prop_instance.prop_data.prop_direction=character_data.direction
+	#print("道具所在组：",prop_instance.get_groups())
+	#print("道具队伍："+prop_instance.prop_data.bullet_team)
+	#print("道具主人：",prop_instance.prop_data.prop_owner)
+	prop_instance.position = character.position + offset
+	prop_instance.rotation = character.rotation + offset_rotation

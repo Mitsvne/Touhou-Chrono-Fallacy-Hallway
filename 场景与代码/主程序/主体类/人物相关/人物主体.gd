@@ -9,7 +9,7 @@ class_name Character_Main
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 
-enum State{常态,技能1,必杀1,冲刺,死亡}
+enum State{常态,移动,技能1,必杀1,冲刺,死亡}
 var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
 var move_speed:int
@@ -40,7 +40,7 @@ var ultimate:String="ultimate_1p"
 
 ##初始化函数
 func _ready() -> void:
-	await get_tree().process_frame #等一帧，其他类初始完成
+	await character.ready #等人物先加载
 	move_speed=character.move_speed #移速
 	acceleration=character.acceleration #加速度
 	friction=character.friction #减速度
@@ -79,6 +79,7 @@ func _physics_process(delta: float) -> void:
 			break
 		current_state=next_state
 	tick_physics(current_state,delta)
+	#print(current_state)
 	if character_ctrler.is_gravity:
 		current_velocity.y += gravity * delta
 	is_allow_key_move=false if character_ctrler.get_is_moving() else true
@@ -109,7 +110,7 @@ func move(max_speed:float,delta):
 ##状态每帧的效果函数
 func tick_physics(state:State,delta: float) -> void:
 	match  state:
-		State.常态:
+		State.常态,State.移动:
 			if Input.is_action_pressed(attack):
 				if attack_timer.is_stopped():
 					attack_timer.start() # 如果按住且计时器未运行，则启动
@@ -121,11 +122,7 @@ func tick_physics(state:State,delta: float) -> void:
 				if not attack_timer.is_stopped() and is_attack_timer_timeout:
 					is_attack_timer_timeout=false
 					attack_timer.stop() # 松开按键且计时归零，停止计时器
-		State.冲刺:
-			pass
-		State.技能1:
-			pass
-		State.必杀1:
+		State.冲刺,State.技能1,State.必杀1:
 			pass
 		State.死亡:
 			character_ctrler.set_invincible(true)
@@ -141,6 +138,21 @@ func get_next_state(state:State)->State:
 			return State.死亡
 	match state:
 		State.常态:
+			if Input.is_action_pressed(move_left) or Input.is_action_pressed(move_right):
+				return State.移动
+			if Input.is_action_just_pressed(skill) and is_skill_timer_timeout:
+				if skill_timer.is_stopped():
+					skill_timer.start()
+				is_skill_timer_timeout=false
+				return State.技能1
+			if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
+				return State.必杀1
+			if Input.is_action_just_pressed(dash) and character_data.energy>=25:
+				character_data.energy-=25
+				return State.冲刺
+		State.移动:
+			if not Input.is_action_pressed(move_left) and not Input.is_action_pressed(move_right):
+				return State.常态
 			if Input.is_action_just_pressed(skill) and is_skill_timer_timeout:
 				if skill_timer.is_stopped():
 					skill_timer.start()
@@ -166,9 +178,16 @@ func get_next_state(state:State)->State:
 
 ##状态动画播放函数
 func transition_state(_from:State,to:State) -> void:
+	var dir:=Input.get_axis(move_left,move_right)
 	match to:
 		State.常态:
 			an_paly("常态")
+		State.移动:
+			#print(dir)
+			if dir*direction>0:
+				an_paly("前进")
+			else:
+				an_paly("后退")
 		State.技能1:
 			an_paly("技能1")
 		State.必杀1:

@@ -26,6 +26,7 @@ func _physics_process(_delta: float):
 func _on_area_entered(area: Area2D):
 	team=owner.bullet_data.bullet_team 
 	if area is Hurtbox and not area.owner.is_in_group(team):
+		
 		if not hurtboxes.has(area):
 			hurtboxes.append(area)
 

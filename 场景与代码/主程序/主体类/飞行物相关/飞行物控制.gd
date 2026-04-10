@@ -14,6 +14,7 @@ var current_velocity: Vector2 = Vector2.ZERO   # 当前速度
 var current_drag: Vector2 = Vector2.ZERO       # 当前阻力/加速度
 
 func _ready() -> void:
+	bullet_owner=bullet_data.bullet_owner
 	set_process(false)
 
 func _physics_process(delta: float) -> void:
@@ -80,7 +81,15 @@ func apply_gravity(value: bool):
 func set_direction(value: int):
 	bullet_data.bullet_direction = value
 
-func get_Target():
+func get_target():
+	var team = owner.team
+	var characters = get_tree().get_nodes_in_group("characters")
+	for character in characters:
+		if character is CharacterBody2D and not character.is_in_group(team):
+			return character
+	return null
+	
+func get_owner1():
 	var team = owner.team
 	var characters = get_tree().get_nodes_in_group("characters")
 	for character in characters:

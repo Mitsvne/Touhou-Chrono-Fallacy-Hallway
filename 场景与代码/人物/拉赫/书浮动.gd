@@ -1,5 +1,5 @@
 extends Node2D
-@onready var 拉赫: CharacterBody2D = $".."
+#@onready var 拉赫: CharacterBody2D = $".."
 @export var move_target: Vector2 = Vector2(163, 201)
 @export var float_strength: float = 4.0      
 @export var float_speed: float = 3.0         

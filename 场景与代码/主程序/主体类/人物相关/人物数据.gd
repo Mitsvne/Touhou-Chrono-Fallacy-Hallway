@@ -9,7 +9,6 @@ signal direction_changed
 	set(v):
 		if (v==1 or v==-1) and direction!=v:
 			direction=v
-			#print("朝向改变")
 			direction_changed.emit(direction)
 		else:
 			#push_warning("direction 只能赋值为 1 或 -1，当前值不变")
@@ -43,13 +42,13 @@ signal direction_changed
 		mp=v
 		mp_changed.emit(mp,mp_max)
 
-
-
-
 func _ready() -> void:
+	if team=="1P": #owner.is_in_group("1P"):
+		direction=1.0
+	else:
+		direction=-1.0
 	print("1.Character_Data初始化完成")
 	pass
-	
 
 func _process(delta: float) -> void:
 	#时刻恢复耐力

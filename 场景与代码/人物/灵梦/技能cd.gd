@@ -1,6 +1,6 @@
 extends HBoxContainer
-@onready var cd_label: Label = $Label
-@onready var character_main: Character_Main = $"../../class/Character_Main"
+@export var cd_label: Label
+@export var character_main: Character_Main
 
 var skill1_cd:Timer
 var cooldown_total = 1         # 总冷却时间（秒）

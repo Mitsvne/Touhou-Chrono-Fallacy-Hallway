@@ -37,6 +37,8 @@ enabled=PackedStringArray()
 characters=""
 bullets=""
 players=""
+bosses=""
+props=""
 
 [input]
 

@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://ciepcq6kv1jvf"]
+
+[ext_resource type="Texture2D" uid="uid://daj3biffqqw54" path="res://素材/人物素材/拉赫/书/4.png" id="1_20hkb"]
+[ext_resource type="Script" uid="uid://c8ii6didyejdy" path="res://场景与代码/人物/拉赫/刻印之卷.gd" id="1_rn5ax"]
+[ext_resource type="Texture2D" uid="uid://bhgky1fq3i5gg" path="res://素材/人物素材/拉赫/书/5.png" id="2_rn5ax"]
+[ext_resource type="Texture2D" uid="uid://dqg8jf64bdj03" path="res://素材/人物素材/拉赫/书/6.png" id="3_3syw1"]
+[ext_resource type="Script" uid="uid://cpwddaunx5ft8" path="res://场景与代码/主程序/主体类/道具相关/道具控制.gd" id="3_wyqjl"]
+[ext_resource type="Script" uid="uid://dwbij1a12ixg4" path="res://场景与代码/主程序/主体类/道具相关/道具数据.gd" id="4_enmuj"]
+[ext_resource type="Texture2D" uid="uid://d1ivgqbq087e1" path="res://素材/人物素材/拉赫/书/3.png" id="4_penrh"]
+[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="4_wyqjl"]
+[ext_resource type="Texture2D" uid="uid://wsb24vg1uen4" path="res://素材/人物素材/拉赫/书/2.png" id="5_wyqjl"]
+[ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="6_enmuj"]
+[ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/人物素材/拉赫/特效/98.png" id="7_twclx"]
+[ext_resource type="Texture2D" uid="uid://dsjssc4csmyqu" path="res://素材/人物素材/拉赫/特效/100.png" id="8_7uht8"]
+[ext_resource type="Texture2D" uid="uid://c4u2813mepq07" path="res://素材/人物素材/拉赫/特效/102.png" id="9_fnqti"]
+[ext_resource type="Texture2D" uid="uid://3tqftu23441p" path="res://素材/人物素材/拉赫/特效/104.png" id="10_pxx5e"]
+[ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/人物素材/拉赫/特效/106.png" id="11_pgv4q"]
+[ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/人物素材/拉赫/特效/108.png" id="12_5xo0i"]
+[ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/110.png" id="13_nidan"]
+[ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/112.png" id="14_vub1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_penrh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enmuj"]
+shader = ExtResource("4_wyqjl")
+shader_parameter/speed_x1 = 0.0
+shader_parameter/speed_x2 = 0.0
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 5.0000002375
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yi13e"]
+load_path = "res://.godot/imported/1.png-034deab7540045d7a82e3e32f31a8579.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ml3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_20hkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rn5ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3syw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_penrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wyqjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_yi13e")
+}],
+"loop": false,
+"name": &"close",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_yi13e")
+}],
+"loop": false,
+"name": &"idea",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wyqjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_penrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_20hkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rn5ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3syw1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_20hkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rn5ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3syw1")
+}],
+"loop": true,
+"name": &"openloop",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dkra"]
+shader = ExtResource("6_enmuj")
+shader_parameter/gray_intensity = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40dgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_twclx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7uht8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fnqti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pxx5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pgv4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5xo0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nidan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vub1i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler") groups=["props"]]
+script = ExtResource("1_rn5ax")
+prop_data = NodePath("class/Prop_Data")
+prop_ctrler = NodePath("class/Prop_Ctrler")
+
+[node name="class" type="Node" parent="." unique_id=1263035583]
+
+[node name="Prop_Data" type="Node" parent="class" unique_id=602318771]
+script = ExtResource("4_enmuj")
+metadata/_custom_type_script = "uid://dwbij1a12ixg4"
+
+[node name="Prop_Ctrler" type="Node" parent="class" unique_id=1950980972 node_paths=PackedStringArray("prop_data", "prop")]
+script = ExtResource("3_wyqjl")
+prop_data = NodePath("../Prop_Data")
+prop = NodePath("../..")
+metadata/_custom_type_script = "uid://cpwddaunx5ft8"
+
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=757008451]
+shape = SubResource("RectangleShape2D_penrh")
+disabled = true
+
+[node name="图像" type="Node2D" parent="." unique_id=378101441]
+
+[node name="书图片" type="AnimatedSprite2D" parent="图像" unique_id=2075205217]
+material = SubResource("ShaderMaterial_enmuj")
+position = Vector2(0, 2)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_8ml3j")
+animation = &"idea"
+autoplay = "idea"
+
+[node name="书特效" type="AnimatedSprite2D" parent="图像" unique_id=667068883]
+self_modulate = Color(1.93715, 1.93715, 1.93715, 1)
+material = SubResource("ShaderMaterial_4dkra")
+position = Vector2(2, -8)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_40dgd")
+autoplay = "default"

@@ -28,7 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
 [ext_resource type="Texture2D" uid="uid://c7ls5dayredun" path="res://素材/人物素材/灵梦/人物/spellDb006.png" id="12_xq3ko"]
+[ext_resource type="Texture2D" uid="uid://bap1po8ebqv1j" path="res://素材/人物素材/灵梦/dashBack001.png" id="13_7e6rl"]
 [ext_resource type="Texture2D" uid="uid://cipq787f7ylr7" path="res://素材/人物素材/灵梦/人物/spellDb007.png" id="13_80c0g"]
+[ext_resource type="Texture2D" uid="uid://qfh7n002lcmc" path="res://素材/人物素材/灵梦/dashBack002.png" id="14_n72kb"]
 [ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
@@ -50,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrkocv50drp4" path="res://素材/人物素材/灵梦/人物/hitAir005.png" id="37_pje2i"]
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
+[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="48_86i42"]
 [ext_resource type="PackedScene" uid="uid://dp28jkqlodc1s" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
@@ -66,6 +69,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"冲刺",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_7e6rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_n72kb")
+}],
+"loop": true,
+"name": &"后退",
 "speed": 5.0
 }, {
 "frames": [{
@@ -407,6 +421,136 @@ tracks/7/keys = {
 "args": [false],
 "method": &"set_invincible"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_0i5hr"]
+resource_name = "前进"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../动画:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"常态"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_wmq54"]
+resource_name = "后退"
+length = 0.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../动画:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_r340b")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"后退"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(27, 9)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_yvw77"]
@@ -852,6 +996,8 @@ tracks/6/keys = {
 _data = {
 &"RESET": SubResource("Animation_lyetf"),
 &"冲刺": SubResource("Animation_3568u"),
+&"前进": SubResource("Animation_0i5hr"),
+&"后退": SubResource("Animation_wmq54"),
 &"常态": SubResource("Animation_yvw77"),
 &"必杀1": SubResource("Animation_uvb8v"),
 &"必杀12": SubResource("Animation_aqga6"),
@@ -860,6 +1006,12 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
+shader = ExtResource("48_86i42")
+shader_parameter/speed_x1 = 0.5
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
 size = Vector2(51.5, 42)
@@ -868,6 +1020,7 @@ size = Vector2(51.5, 42)
 size = Vector2(61.5, 47)
 
 [node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
+motion_mode = 1
 script = ExtResource("1_ig6o6")
 attack_bullet = ExtResource("2_g1kd8")
 bullet2 = ExtResource("3_8vesq")
@@ -931,12 +1084,14 @@ autoplay = "常态"
 offset = Vector2(10, 10)
 transform = Transform2D(1, 0, 0, 1, 10, 10)
 
-[node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=2034803199]
+[node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=2034803199 node_paths=PackedStringArray("cd_label", "character_main")]
 offset_left = 63.0
 offset_top = 32.0
 offset_right = 103.0
 offset_bottom = 72.0
 script = ExtResource("22_c73gp")
+cd_label = NodePath("Label")
+character_main = NodePath("../../class/Character_Main")
 
 [node name="Label" type="Label" parent="血条ui/技能cd" unique_id=1552755159]
 layout_mode = 2

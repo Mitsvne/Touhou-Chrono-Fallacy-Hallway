@@ -5,6 +5,7 @@ class_name Bullet_Data
 #signal bullet_direction_changed
 
 var bullet_team: String
+var bullet_owner: CharacterBody2D
 
 @onready var bullet_direction:float=1.0:
 	set(v):
