@@ -3,7 +3,7 @@ class_name Character_Ctrler
 @export var character:CharacterBody2D #角色节点
 @export var character_data: Character_Data
 @export var character_input: Character_Input
-
+@export var anplayer: AnimationPlayer
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
 var is_allow_behit:bool=true  # 是否可以受击
@@ -175,6 +175,21 @@ func get_Target():
 		if _character is CharacterBody2D and not _character.is_in_group(team):
 			return _character
 	return null
+
+##跳转到动画的指定时间点（秒）
+func jump_to_time(anim_name: String, time: float, play_after: bool = false) -> void:
+	if not anplayer.has_animation(anim_name):
+		print("错误：动画 '", anim_name, "' 不存在。")
+		return
+	anplayer.play(anim_name)
+	anplayer.seek(time, true)
+	if not play_after:
+		anplayer.pause()
+
+##跳转到动画的指定帧（需提供动画的帧率）
+func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = false) -> void:
+	var time = frame / fps
+	jump_to_time(anim_name, time, play_after)
 
 
 ##发射弹幕函数

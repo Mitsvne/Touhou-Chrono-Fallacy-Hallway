@@ -12,9 +12,18 @@
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="9_ocnon"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="9_tl8t1"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="10_k06hx"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/灵梦/气流拖尾.gd" id="13_6cdl8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v2es"]
 radius = 33.0
+
+[sub_resource type="Curve" id="Curve_6cdl8"]
+_data = [Vector2(0, 0), 0.0, 1.0456276, 0, 0, Vector2(0.9985837, 1), 0.9830758, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_q5ldj"]
+offsets = PackedFloat32Array(0, 0.1704918, 0.41967213, 0.6786885, 0.852459, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.98039216, 1, 1, 0.5882353, 0.76862746, 0.9764706, 0.9843137, 0.5882353, 0.1764706, 0.33333334, 0.79607844, 0.5882353, 0.09803922, 0.1254902, 0.6392157, 0.5882353, 0, 0, 0, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsngv"]
 animations = [{
@@ -281,7 +290,18 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=2044055847]
+visible = false
 shape = SubResource("CircleShape2D_2v2es")
+
+[node name="拖尾" type="Node2D" parent="." unique_id=1642825163 node_paths=PackedStringArray("line2d")]
+script = ExtResource("13_6cdl8")
+line2d = NodePath("线")
+
+[node name="线" type="Line2D" parent="拖尾" unique_id=1618971214]
+top_level = true
+width = 60.0
+width_curve = SubResource("Curve_6cdl8")
+gradient = SubResource("Gradient_q5ldj")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1401489138]
 sprite_frames = SubResource("SpriteFrames_vsngv")
@@ -299,6 +319,7 @@ volume_db = -6.0
 autoplay = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=716851145]
+visible = false
 script = ExtResource("8_08j7y")
 attack_data = SubResource("Resource_wymrs")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
@@ -307,6 +328,7 @@ metadata/_custom_type_script = "uid://dtwddbmde8lh"
 shape = SubResource("CircleShape2D_2v2es")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=228085960]
+visible = false
 script = ExtResource("9_tl8t1")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 

@@ -6,6 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_w1jva"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/拉赫.tscn" id="3_gtwc4"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="5_gtwc4"]
+[ext_resource type="Script" uid="uid://b545866670hjw" path="res://场景与代码/主程序/光源.gd" id="7_073jx"]
+
+[sub_resource type="Gradient" id="Gradient_avk0m"]
+offsets = PackedFloat32Array(0, 0.9935484)
+colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_073jx"]
+gradient = SubResource("Gradient_avk0m")
+width = 864
+height = 486
+fill = 1
+fill_from = Vector2(0.5205128, 0.015954416)
+fill_to = Vector2(0.4923077, 1)
 
 [node name="Main" type="Node" unique_id=676586633]
 script = ExtResource("1_w1jva")
@@ -30,7 +43,7 @@ text = "重置"
 [node name="山脉" parent="." unique_id=160434654 instance=ExtResource("1_3nwfj")]
 
 [node name="镜头" type="Camera2D" parent="." unique_id=55027781]
-position = Vector2(339, 210)
+position = Vector2(306, 255)
 process_callback = 0
 limit_left = 0
 limit_top = -50
@@ -48,5 +61,16 @@ position = Vector2(189, 205)
 
 [node name="2P位置" type="Node2D" parent="." unique_id=1923647600]
 position = Vector2(467, 208)
+
+[node name="光源" type="PointLight2D" parent="." unique_id=393667408]
+position = Vector2(432, 193)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_073jx")
+script = ExtResource("7_073jx")
+
+[node name="阴影幕布" type="CanvasModulate" parent="." unique_id=1873196507]
+color = Color(0.48, 0.48, 0.48, 1)
 
 [connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]

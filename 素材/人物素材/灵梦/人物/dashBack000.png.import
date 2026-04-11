@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bap1po8ebqv1j"
-path="res://.godot/imported/dashBack001.png-c5058a86484bf3c93dacffaf929c3f9f.ctex"
+uid="uid://biut32ypbggjo"
+path="res://.godot/imported/dashBack000.png-25e1b8d9f283eacf671bf420e4e893c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/dashBack001.png"
-dest_files=["res://.godot/imported/dashBack001.png-c5058a86484bf3c93dacffaf929c3f9f.ctex"]
+source_file="res://素材/人物素材/灵梦/人物/dashBack000.png"
+dest_files=["res://.godot/imported/dashBack000.png-25e1b8d9f283eacf671bf420e4e893c3.ctex"]
 
 [params]
 

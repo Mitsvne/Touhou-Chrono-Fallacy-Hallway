@@ -28,9 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
 [ext_resource type="Texture2D" uid="uid://c7ls5dayredun" path="res://素材/人物素材/灵梦/人物/spellDb006.png" id="12_xq3ko"]
-[ext_resource type="Texture2D" uid="uid://bap1po8ebqv1j" path="res://素材/人物素材/灵梦/dashBack001.png" id="13_7e6rl"]
+[ext_resource type="Texture2D" uid="uid://bap1po8ebqv1j" path="res://素材/人物素材/灵梦/人物/dashBack001.png" id="13_7e6rl"]
 [ext_resource type="Texture2D" uid="uid://cipq787f7ylr7" path="res://素材/人物素材/灵梦/人物/spellDb007.png" id="13_80c0g"]
-[ext_resource type="Texture2D" uid="uid://qfh7n002lcmc" path="res://素材/人物素材/灵梦/dashBack002.png" id="14_n72kb"]
+[ext_resource type="Texture2D" uid="uid://biut32ypbggjo" path="res://素材/人物素材/灵梦/人物/dashBack000.png" id="13_n72kb"]
+[ext_resource type="Texture2D" uid="uid://qfh7n002lcmc" path="res://素材/人物素材/灵梦/人物/dashBack002.png" id="14_n72kb"]
 [ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
@@ -52,7 +53,6 @@
 [ext_resource type="Texture2D" uid="uid://dmrkocv50drp4" path="res://素材/人物素材/灵梦/人物/hitAir005.png" id="37_pje2i"]
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
-[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="48_86i42"]
 [ext_resource type="PackedScene" uid="uid://dp28jkqlodc1s" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
@@ -73,12 +73,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_n72kb")
+}, {
+"duration": 1.0,
 "texture": ExtResource("13_7e6rl")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_n72kb")
 }],
-"loop": true,
+"loop": false,
 "name": &"后退",
 "speed": 5.0
 }, {
@@ -490,7 +493,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_wmq54"]
 resource_name = "后退"
-length = 0.06667
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -499,10 +502,10 @@ tracks/0/path = NodePath("../动画:speed_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.25]
+"values": [0.5, 0.25]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -547,10 +550,24 @@ tracks/4/path = NodePath(".:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["后退", 1, 30.0, true],
+"method": &"jump_to_frame"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_yvw77"]
@@ -1006,12 +1023,6 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
-shader = ExtResource("48_86i42")
-shader_parameter/speed_x1 = 0.5
-shader_parameter/speed_x2 = 0.7
-shader_parameter/speed_y1 = 1.0
-shader_parameter/speed_y2 = 1.0
-shader_parameter/amplitude = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
 size = Vector2(51.5, 42)
@@ -1042,11 +1053,12 @@ metadata/_custom_type_script = "uid://cevyll1q67gg6"
 script = ExtResource("10_kcrgq")
 metadata/_custom_type_script = "uid://dcg22r72w0xss"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "character_input")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "character_input", "anplayer")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
 character_input = NodePath("../Character_Input")
+anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
 [node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]

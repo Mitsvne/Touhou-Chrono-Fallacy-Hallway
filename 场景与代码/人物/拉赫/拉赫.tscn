@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dhem3wxpj02v8"]
 
-[ext_resource type="Texture2D" uid="uid://onnu8vrykc2m" path="res://素材/人物素材/拉赫/人物/xem_105-1.png" id="1_adsnp"]
+[ext_resource type="Texture2D" uid="uid://cbyhks14i8bi5" path="res://素材/人物素材/拉赫/人物/xem_105-1.png" id="1_adsnp"]
 [ext_resource type="Script" uid="uid://dxw543k8t5veu" path="res://场景与代码/人物/拉赫/拉赫.gd" id="1_v8ol4"]
-[ext_resource type="Texture2D" uid="uid://unyy25wyuwdt" path="res://素材/人物素材/拉赫/人物/xem_105-2.png" id="2_2mw65"]
+[ext_resource type="Texture2D" uid="uid://1hjashb3vsb1" path="res://素材/人物素材/拉赫/人物/xem_105-2.png" id="2_2mw65"]
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="2_bgnr4"]
 [ext_resource type="PackedScene" uid="uid://dl71ltlxsqtk2" path="res://场景与代码/人物/拉赫/拉赫普攻弹幕.tscn" id="2_udp54"]
 [ext_resource type="PackedScene" uid="uid://ciepcq6kv1jvf" path="res://场景与代码/人物/拉赫/刻印之卷.tscn" id="3_wrct2"]
@@ -13,9 +13,12 @@
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/149.png" id="9_bgnr4"]
-[ext_resource type="Texture2D" uid="uid://bmilxpxe2wjq7" path="res://素材/人物素材/拉赫/人物/xem_100-3.png" id="10_ukv3x"]
-[ext_resource type="Texture2D" uid="uid://d3qfttxupgt5u" path="res://素材/人物素材/拉赫/人物/xem_100-4.png" id="11_573nv"]
+[ext_resource type="Texture2D" uid="uid://jeprym35tyjf" path="res://素材/人物素材/拉赫/人物/xem_100-1.png" id="10_gfiyh"]
+[ext_resource type="Texture2D" uid="uid://b3x0c51budwnn" path="res://素材/人物素材/拉赫/人物/xem_100-3.png" id="10_ukv3x"]
+[ext_resource type="Texture2D" uid="uid://cxw3sjpjw4xw7" path="res://素材/人物素材/拉赫/人物/xem_100-2.png" id="11_6estm"]
+[ext_resource type="Texture2D" uid="uid://doi4gn5kafeud" path="res://素材/人物素材/拉赫/人物/xem_100-4.png" id="11_573nv"]
 [ext_resource type="Texture2D" uid="uid://gwjiau2uakj3" path="res://素材/人物素材/拉赫/人物/xem_2080-0.png" id="14_bhcb1"]
+[ext_resource type="Texture2D" uid="uid://slwqh22o02af" path="res://素材/人物素材/拉赫/人物/xem_105-0.png" id="14_i3xqp"]
 [ext_resource type="Texture2D" uid="uid://bwe4mxi1xq4nt" path="res://素材/人物素材/拉赫/人物/xem_2080-1.png" id="15_vivdl"]
 [ext_resource type="Texture2D" uid="uid://drourle1w7gc0" path="res://素材/人物素材/拉赫/人物/xem_2080-2.png" id="16_wrct2"]
 [ext_resource type="Texture2D" uid="uid://3c5exntb7opy" path="res://素材/人物素材/拉赫/人物/xem_2080-3.png" id="17_5an7b"]
@@ -67,23 +70,32 @@ size = Vector2(36, 49)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_gfiyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6estm")
+}, {
+"duration": 1.0,
 "texture": ExtResource("10_ukv3x")
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_573nv")
 }],
-"loop": true,
+"loop": false,
 "name": &"前进",
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_i3xqp")
+}, {
 "duration": 1.0,
 "texture": ExtResource("1_adsnp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_2mw65")
 }],
-"loop": true,
+"loop": false,
 "name": &"后退",
 "speed": 8.0
 }, {
@@ -329,7 +341,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_pmn05"]
 resource_name = "前进"
-length = 0.06666667
+length = 0.13333334
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -362,10 +374,10 @@ tracks/2/path = NodePath("素材库:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, 9)]
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-12, 3), Vector2(-2.5, 6), Vector2(-3, 9), Vector2(-3.5, 9)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -374,10 +386,10 @@ tracks/3/path = NodePath("素材库:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2, 3]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -386,10 +398,10 @@ tracks/4/path = NodePath("动画:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.25]
+"values": [0.5, 0.25]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -427,10 +439,24 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.8726646]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("class/Character_Ctrler")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["前进", 2, 30.0, true],
+"method": &"jump_to_frame"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_bhcb1"]
 resource_name = "后退"
-length = 0.06667
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -463,10 +489,10 @@ tracks/2/path = NodePath("素材库:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 3)]
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-3, -1), Vector2(2, 3)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -475,10 +501,10 @@ tracks/3/path = NodePath("素材库:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.033333335),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -487,10 +513,10 @@ tracks/4/path = NodePath("动画:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.25]
+"values": [0.5, 0.25]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -527,6 +553,20 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.8726646]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("class/Character_Ctrler")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["后退", 1, 30.0, true],
+"method": &"jump_to_frame"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ljw2w"]
@@ -865,11 +905,12 @@ metadata/_custom_type_script = "uid://cevyll1q67gg6"
 script = ExtResource("8_rjgm0")
 metadata/_custom_type_script = "uid://dcg22r72w0xss"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character", "character_data", "character_input")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character", "character_data", "character_input", "anplayer")]
 script = ExtResource("22_udp54")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
 character_input = NodePath("../Character_Input")
+anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
 [node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
@@ -888,7 +929,6 @@ script = ExtResource("24_ljw2w")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
-visible = false
 position = Vector2(-3, -1.5)
 shape = SubResource("RectangleShape2D_3vjy5")
 
@@ -929,7 +969,6 @@ theme_override_fonts/font = ExtResource("55_wrct2")
 text = "CD:"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
-visible = false
 script = ExtResource("3_xu8tx")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
@@ -961,8 +1000,7 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("9_bgnr4")
 
 [node name="粒子" type="GPUParticles2D" parent="光环/光环旋转" unique_id=2026317443]
-light_mask = 2
-visibility_layer = 2
+show_behind_parent = true
 scale = Vector2(0.070000015, 0.07000001)
 amount = 60
 randomness = 1.0
