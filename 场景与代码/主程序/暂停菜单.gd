@@ -3,6 +3,9 @@ extends Control
 var is_paused = false
 var custom_time: float = 0.0
 
+@export var continue_button: Button
+
+
 func _input(event):
 	if event.is_action_pressed(&"pause"):
 		pause()
@@ -11,6 +14,7 @@ func pause():
 	is_paused = not is_paused
 	get_tree().paused = is_paused
 	visible = is_paused
+	continue_button.grab_focus()
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS

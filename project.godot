@@ -18,6 +18,10 @@ config/name="幻想谬时回廊"
 run/main_scene="uid://cj7eudfk0rkob"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://baegi2k84mouo"
+
 [display]
 
 window/size/viewport_width=640

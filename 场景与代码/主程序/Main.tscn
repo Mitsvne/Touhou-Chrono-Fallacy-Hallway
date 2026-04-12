@@ -7,18 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/拉赫.tscn" id="3_gtwc4"]
 [ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/主程序/暂停菜单.gd" id="4_wfpim"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="5_gtwc4"]
-[ext_resource type="Script" uid="uid://b545866670hjw" path="res://场景与代码/主程序/光源.gd" id="7_073jx"]
 
-[sub_resource type="Gradient" id="Gradient_avk0m"]
+[sub_resource type="Gradient" id="Gradient_073jx"]
 offsets = PackedFloat32Array(0, 0.9935484)
 colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_073jx"]
-gradient = SubResource("Gradient_avk0m")
+gradient = SubResource("Gradient_073jx")
 width = 2592
 height = 486
 fill = 1
-fill_from = Vector2(0.47619048, 0)
+fill_from = Vector2(0.64444447, 0)
 fill_to = Vector2(0.4923077, 1)
 
 [sub_resource type="Environment" id="Environment_073jx"]
@@ -34,7 +33,7 @@ character2 = ExtResource("3_gtwc4")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
 
-[node name="暂停菜单" type="Control" parent="ui" unique_id=1436569818]
+[node name="暂停菜单" type="Control" parent="ui" unique_id=1436569818 node_paths=PackedStringArray("continue_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,6 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_wfpim")
+continue_button = NodePath("垂直容器/继续游戏")
 
 [node name="垂直容器" type="VBoxContainer" parent="ui/暂停菜单" unique_id=565067573]
 layout_mode = 1
@@ -110,7 +110,6 @@ position = Vector2(0, 195)
 energy = 1.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_073jx")
-script = ExtResource("7_073jx")
 metadata/_edit_lock_ = true
 
 [node name="阴影幕布" type="CanvasModulate" parent="." unique_id=1873196507]

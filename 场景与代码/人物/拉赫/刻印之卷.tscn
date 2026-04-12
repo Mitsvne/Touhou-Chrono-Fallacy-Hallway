@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cpwddaunx5ft8" path="res://场景与代码/主程序/主体类/道具相关/道具控制.gd" id="3_wyqjl"]
 [ext_resource type="Script" uid="uid://dwbij1a12ixg4" path="res://场景与代码/主程序/主体类/道具相关/道具数据.gd" id="4_enmuj"]
 [ext_resource type="Texture2D" uid="uid://d1ivgqbq087e1" path="res://素材/人物素材/拉赫/书/3.png" id="4_penrh"]
-[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="4_wyqjl"]
+[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="4_wyqjl"]
 [ext_resource type="Texture2D" uid="uid://wsb24vg1uen4" path="res://素材/人物素材/拉赫/书/2.png" id="5_wyqjl"]
 [ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="6_enmuj"]
 [ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/人物素材/拉赫/特效/98.png" id="7_twclx"]

@@ -1,8 +1,8 @@
 extends Node2D
-@onready var 灵梦: AnimatedSprite2D = $灵梦
-@onready var 早苗: AnimatedSprite2D = $早苗
-@onready var 魔理沙: AnimatedSprite2D = $魔理沙
-@onready var 拉赫: AnimatedSprite2D = $拉赫
+@export var 灵梦: AnimatedSprite2D
+@export var 早苗: AnimatedSprite2D
+@export var 魔理沙: AnimatedSprite2D
+@export var 拉赫: AnimatedSprite2D
 var delay:float=0.2
 
 func _ready():
@@ -29,4 +29,3 @@ func move_character_with_float(character: AnimatedSprite2D, initial_position: Ve
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(character, "position", target_position, animation_length)
 	tween.tween_property(character, "modulate:a", 1.0, animation_length * 0.5)
-	tween.tween_callback(character.start_floating.bind(target_position))

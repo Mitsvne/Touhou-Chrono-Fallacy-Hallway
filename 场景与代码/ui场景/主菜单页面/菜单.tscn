@@ -19,20 +19,15 @@
 [ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="12_t5lg7"]
 [ext_resource type="Texture2D" uid="uid://dhe16fbpqra4h" path="res://素材/人物素材/魔理沙/spellEc002.png" id="13_4fbm4"]
 [ext_resource type="Texture2D" uid="uid://bmcum23oobn3w" path="res://素材/人物素材/早苗/dashFront004.png" id="13_gt8ep"]
-[ext_resource type="Script" uid="uid://cnavqxfqxfolu" path="res://场景与代码/ui场景/主菜单页面/灵梦浮动.gd" id="13_p7hli"]
 [ext_resource type="Texture2D" uid="uid://d17ie24w3kl4a" path="res://素材/人物素材/魔理沙/spellEc003.png" id="14_e7toc"]
 [ext_resource type="Texture2D" uid="uid://d3em13ljvmxsb" path="res://素材/人物素材/早苗/dashFront005.png" id="14_nsv7r"]
 [ext_resource type="Texture2D" uid="uid://ca0v1x5ueiq5w" path="res://素材/人物素材/魔理沙/spellEc004.png" id="15_0vbwn"]
 [ext_resource type="Texture2D" uid="uid://c23qdjiju3xi5" path="res://素材/人物素材/早苗/dashFront006.png" id="15_yp23s"]
 [ext_resource type="Texture2D" uid="uid://cqgg5v35wnfq3" path="res://素材/人物素材/魔理沙/spellEc005.png" id="16_jkb0e"]
-[ext_resource type="Script" uid="uid://de8wkp65ncsnq" path="res://场景与代码/ui场景/主菜单页面/早苗浮动.gd" id="17_43m20"]
-[ext_resource type="Script" uid="uid://cvb2rjbycm0nb" path="res://场景与代码/ui场景/主菜单页面/魔理沙浮动.gd" id="22_cfmad"]
 [ext_resource type="Texture2D" uid="uid://cbyhks14i8bi5" path="res://素材/人物素材/拉赫/人物/xem_105-1.png" id="22_gt8ep"]
 [ext_resource type="Texture2D" uid="uid://1hjashb3vsb1" path="res://素材/人物素材/拉赫/人物/xem_105-2.png" id="23_nsv7r"]
-[ext_resource type="Script" uid="uid://we0xpbucrajg" path="res://场景与代码/ui场景/主菜单页面/拉赫浮动.gd" id="24_lrqhg"]
-[ext_resource type="Script" uid="uid://bsxc2dsbaluif" path="res://场景与代码/ui场景/主菜单页面/光环.gd" id="25_yp23s"]
+[ext_resource type="Shader" uid="uid://c38fs1dinr3eb" path="res://场景与代码/着色器/浮动效果非全局.gdshader" id="27_8elxy"]
 [ext_resource type="AudioStream" uid="uid://2rve6o257uxd" path="res://素材/音频素材/bgm/op.mp3" id="30_43m20"]
-[ext_resource type="Script" uid="uid://tgwmr7ub55nb" path="res://场景与代码/ui场景/主菜单页面/书浮动.gd" id="30_iahx3"]
 [ext_resource type="Texture2D" uid="uid://boaq146wh5tm5" path="res://素材/人物素材/拉赫/书/1.png" id="31_nmokw"]
 [ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="32_4cd10"]
 [ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/人物素材/拉赫/特效/98.png" id="32_ftsww"]
@@ -42,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/人物素材/拉赫/特效/106.png" id="36_nnsn4"]
 [ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/人物素材/拉赫/特效/108.png" id="37_emcid"]
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/110.png" id="38_e5alu"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/光环旋转.gd" id="38_mby1k"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/112.png" id="39_qjmqn"]
 [ext_resource type="Shader" uid="uid://dasvlfyphcha3" path="res://场景与代码/着色器/水平模糊.gdshader" id="44_hncoa"]
 [ext_resource type="Script" uid="uid://c8ebemjti840t" path="res://场景与代码/ui场景/主菜单页面/水平模糊.gd" id="45_x12e2"]
@@ -54,6 +50,14 @@ outline_size = 6
 outline_color = Color(0.9337247, 0.7301069, 0.26497868, 1)
 shadow_size = 6
 shadow_color = Color(0.9254902, 0.7254902, 0.26666668, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxrj1"]
+shader = ExtResource("27_8elxy")
+shader_parameter/speed_x1 = 0.5
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lrqhg"]
 animations = [{
@@ -68,6 +72,14 @@ animations = [{
 "name": &"default",
 "speed": 6.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_135dm"]
+shader = ExtResource("27_8elxy")
+shader_parameter/speed_x1 = 0.70000003325
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 0.800000038
+shader_parameter/speed_y2 = 0.800000038
+shader_parameter/amplitude = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cfmad"]
 animations = [{
@@ -85,6 +97,14 @@ animations = [{
 "name": &"default",
 "speed": 9.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mby1k"]
+shader = ExtResource("27_8elxy")
+shader_parameter/speed_x1 = 1.0000000475
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 0.50000002375
+shader_parameter/speed_y2 = 0.50000002375
+shader_parameter/amplitude = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sske6"]
 animations = [{
@@ -112,6 +132,14 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xbfv"]
+shader = ExtResource("27_8elxy")
+shader_parameter/speed_x1 = 0.5
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 15.0000007125
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yp23s"]
 animations = [{
 "frames": [{
@@ -126,42 +154,50 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_cfmad"]
+[sub_resource type="Gradient" id="Gradient_uxrj1"]
 colors = PackedColorArray(1, 1, 1, 1, 2.1372175, 2.1372175, 2.1372175, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s6i4g"]
-gradient = SubResource("Gradient_cfmad")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_liacr"]
+gradient = SubResource("Gradient_uxrj1")
 
-[sub_resource type="Curve" id="Curve_p7hli"]
+[sub_resource type="Curve" id="Curve_135dm"]
 _data = [Vector2(0, 0.5059524), 0.0, 0.0, 0, 0, Vector2(0.2177177, 0.8095239), 0.0, 0.0, 0, 0, Vector2(0.6261261, 0.51190484), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 metadata/_snap_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ib1xl"]
-curve = SubResource("Curve_p7hli")
+[sub_resource type="CurveTexture" id="CurveTexture_ot8d4"]
+curve = SubResource("Curve_135dm")
 
-[sub_resource type="Curve" id="Curve_43gdj"]
+[sub_resource type="Curve" id="Curve_nktwd"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_d6xrb"]
-curve = SubResource("Curve_43gdj")
+[sub_resource type="CurveTexture" id="CurveTexture_0wbqi"]
+curve = SubResource("Curve_nktwd")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cfmad"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8elxy"]
 particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(1, 0, 1)
-emission_ring_height = 1.0
+emission_ring_height = 0.0
 emission_ring_radius = 420.0
 emission_ring_inner_radius = 370.0
 emission_ring_cone_angle = 90.0
-gravity = Vector3(200, 80, 0)
-tangential_accel_curve = SubResource("CurveTexture_d6xrb")
+gravity = Vector3(100, 50, 0)
+tangential_accel_curve = SubResource("CurveTexture_0wbqi")
 scale_min = 0.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_ib1xl")
-color_ramp = SubResource("GradientTexture1D_s6i4g")
+scale_curve = SubResource("CurveTexture_ot8d4")
+color_ramp = SubResource("GradientTexture1D_liacr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwgso"]
+shader = ExtResource("27_8elxy")
+shader_parameter/speed_x1 = 0.0
+shader_parameter/speed_x2 = 0.0
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 5.0000002375
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rwsf6"]
 shader = ExtResource("32_4cd10")
@@ -207,7 +243,7 @@ shader_parameter/strength = 1.0
 shader = ExtResource("44_hncoa")
 shader_parameter/strength = 1.0
 
-[node name="菜单" type="Control" unique_id=1553493295]
+[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "button_1", "horizontal_blur")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,6 +252,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cuoyu")
 script = ExtResource("2_ppaiu")
+v_box_container = NodePath("ui/按钮盒竖状")
+button_1 = NodePath("ui/按钮盒竖状/开始")
+horizontal_blur = NodePath("水平模糊效果/水平模糊")
 metadata/_edit_lock_ = true
 
 [node name="视差背景" type="Node2D" parent="." unique_id=1190427915]
@@ -314,11 +353,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_1ip7w")
 metadata/_edit_lock_ = true
 
-[node name="标题" type="Label" parent="." unique_id=1044904669]
-layout_mode = 1
+[node name="ui" type="CanvasLayer" parent="." unique_id=421009118]
+
+[node name="标题" type="Label" parent="ui" unique_id=1044904669]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 95.0
+offset_bottom = 104.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("11_fevhn")
 theme_override_font_sizes/font_size = 70
@@ -327,9 +367,7 @@ label_settings = SubResource("LabelSettings_fnar0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="按钮深度" type="CanvasLayer" parent="." unique_id=421009118]
-
-[node name="按钮盒竖状" type="VBoxContainer" parent="按钮深度" unique_id=1211360716]
+[node name="按钮盒竖状" type="VBoxContainer" parent="ui" unique_id=1211360716]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -342,7 +380,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_cuoyu")
 
-[node name="Button1" type="Button" parent="按钮深度/按钮盒竖状" unique_id=752125680]
+[node name="开始" type="Button" parent="ui/按钮盒竖状" unique_id=752125680]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -350,91 +388,90 @@ theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 开始游戏 "
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="按钮深度/按钮盒竖状" unique_id=2115133310]
+[node name="设置" type="Button" parent="ui/按钮盒竖状" unique_id=2115133310]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 设置界面 "
 
-[node name="Button3" type="Button" parent="按钮深度/按钮盒竖状" unique_id=1981884550]
+[node name="退出" type="Button" parent="ui/按钮盒竖状" unique_id=1981884550]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("11_fevhn")
 text = " 退出游戏 "
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=941270607]
-
-[node name="人物" type="Node2D" parent="." unique_id=2075799283]
+[node name="人物" type="Node2D" parent="." unique_id=2075799283 node_paths=PackedStringArray("灵梦", "早苗", "魔理沙", "拉赫")]
 script = ExtResource("11_rwsf6")
+"灵梦" = NodePath("灵梦")
+"早苗" = NodePath("早苗")
+"魔理沙" = NodePath("魔理沙")
+"拉赫" = NodePath("拉赫")
 
 [node name="灵梦" type="AnimatedSprite2D" parent="人物" unique_id=1937037683]
+material = SubResource("ShaderMaterial_uxrj1")
 position = Vector2(525, 170)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_lrqhg")
 autoplay = "default"
 frame_progress = 0.09175949
-script = ExtResource("13_p7hli")
 
 [node name="早苗" type="AnimatedSprite2D" parent="人物" unique_id=599430635]
+material = SubResource("ShaderMaterial_135dm")
 position = Vector2(475, 240)
 rotation = -3.1415925
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_cfmad")
 autoplay = "default"
 frame_progress = 0.716159
-script = ExtResource("17_43m20")
 
 [node name="魔理沙" type="AnimatedSprite2D" parent="人物" unique_id=762177395]
+material = SubResource("ShaderMaterial_mby1k")
 position = Vector2(465, 290)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_sske6")
 autoplay = "default"
 frame_progress = 0.7053279
-script = ExtResource("22_cfmad")
 
 [node name="拉赫" type="AnimatedSprite2D" parent="人物" unique_id=1154999279]
+material = SubResource("ShaderMaterial_3xbfv")
 position = Vector2(135, 250)
 sprite_frames = SubResource("SpriteFrames_yp23s")
 autoplay = "default"
 frame_progress = 0.54199195
-script = ExtResource("24_lrqhg")
 
-[node name="光环" type="CanvasLayer" parent="人物/拉赫" unique_id=1241320663]
+[node name="光环" type="Node2D" parent="人物/拉赫" unique_id=1772824912]
+position = Vector2(-39, -48.999985)
+rotation = -0.34906584
+scale = Vector2(0.9999999, 0.99999994)
+skew = 0.8726646
 
-[node name="光环倾斜" type="Node2D" parent="人物/拉赫/光环" unique_id=1999091619]
-position = Vector2(102.999985, 205.99997)
-rotation = -0.2617994
-skew = 0.87266463
+[node name="光环旋转" type="Node2D" parent="人物/拉赫/光环" unique_id=1585282353]
+script = ExtResource("38_mby1k")
 
-[node name="光环旋转" type="Node2D" parent="人物/拉赫/光环/光环倾斜" unique_id=2052657626]
-scale = Vector2(0.07, 0.07)
-script = ExtResource("25_yp23s")
-rotation_speed = 4.0
-
-[node name="光环图片" type="Sprite2D" parent="人物/拉赫/光环/光环倾斜/光环旋转" unique_id=560445305]
+[node name="光环" type="Sprite2D" parent="人物/拉赫/光环/光环旋转" unique_id=137967598]
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("11_nsv7r")
 
-[node name="粒子" type="GPUParticles2D" parent="人物/拉赫/光环/光环倾斜/光环旋转" unique_id=1724151864]
-light_mask = 2
-visibility_layer = 2
+[node name="粒子" type="GPUParticles2D" parent="人物/拉赫/光环/光环旋转" unique_id=688193733]
+show_behind_parent = true
+scale = Vector2(0.070000015, 0.07000001)
 amount = 60
 randomness = 1.0
 fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_cfmad")
+process_material = SubResource("ParticleProcessMaterial_8elxy")
 
-[node name="书" type="CanvasLayer" parent="人物/拉赫" unique_id=1173098955]
+[node name="书" type="Node2D" parent="人物/拉赫" unique_id=1044417368]
+position = Vector2(28, -49)
 
-[node name="书浮动" type="Node2D" parent="人物/拉赫/书" unique_id=1044417368]
-position = Vector2(163, 201)
-script = ExtResource("30_iahx3")
-
-[node name="书图片" type="Sprite2D" parent="人物/拉赫/书/书浮动" unique_id=566325059]
+[node name="书图片" type="Sprite2D" parent="人物/拉赫/书" unique_id=566325059]
+material = SubResource("ShaderMaterial_mwgso")
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("31_nmokw")
 
-[node name="书特效" type="AnimatedSprite2D" parent="人物/拉赫/书/书浮动" unique_id=1478310303]
+[node name="书特效" type="AnimatedSprite2D" parent="人物/拉赫/书" unique_id=1478310303]
 self_modulate = Color(1.93715, 1.93715, 1.93715, 1)
 material = SubResource("ShaderMaterial_rwsf6")
 position = Vector2(2, -8)
@@ -446,6 +483,7 @@ frame_progress = 0.5239872
 [node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1746807027]
 stream = ExtResource("30_43m20")
 autoplay = true
+bus = &"Bgm"
 
 [node name="垂直模糊效果" type="CanvasLayer" parent="." unique_id=400354206]
 visible = false
@@ -472,6 +510,6 @@ grow_vertical = 2
 script = ExtResource("45_x12e2")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="按钮深度/按钮盒竖状/Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="按钮深度/按钮盒竖状/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="按钮深度/按钮盒竖状/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ui/按钮盒竖状/开始" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ui/按钮盒竖状/设置" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ui/按钮盒竖状/退出" to="." method="_on_exit_pressed"]

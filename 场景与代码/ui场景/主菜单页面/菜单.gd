@@ -1,7 +1,10 @@
 extends Control
-@onready var v_box_container: VBoxContainer = $按钮深度/按钮盒竖状
-@onready var button_1: Button = $按钮深度/按钮盒竖状/Button1
-@onready var horizontal_blur: ColorRect = $水平模糊效果/水平模糊
+
+signal settings_pressed
+
+@export var v_box_container: VBoxContainer
+@export var button_1: Button
+@export var horizontal_blur: ColorRect
 
 # 获取所有按钮组成一个数组
 func get_all_buttons(node: Node) -> Array:
@@ -14,7 +17,7 @@ func get_all_buttons(node: Node) -> Array:
 			buttons += get_all_buttons(child)
 	return buttons
 
-# 排序2个按钮
+# 排序按钮
 func buttons_array_sorting(a: Button, b: Button) -> bool:
 	if a.global_position.y == b.global_position.y:
 		return a.global_position.x < b.global_position.x
@@ -62,17 +65,18 @@ func _ready() -> void:
 	button_1.grab_focus()
 	for button:Button in v_box_container.get_children():
 		button.mouse_entered.connect(button.grab_focus)
+
 #开始按钮
-func _on_button_1_pressed() -> void:
+func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://场景与代码/主程序/Main.tscn")
+
 #设置按钮
-signal _button_2_pressed
-func _on_button_2_pressed() -> void:
-	emit_signal("_button_2_pressed")
+func _on_settings_pressed() -> void:
+	emit_signal("settings_pressed")
 	horizontal_blur.start_blur_transition()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://场景与代码/ui场景与代码/设置页面/设置页面.tscn")
-	
+	get_tree().change_scene_to_file("res://场景与代码/ui场景/设置页面/设置页面.tscn")
+
 #退出按钮
-func _on_button_3_pressed() -> void:
+func _on_exit_pressed() -> void:
 	get_tree().quit()
