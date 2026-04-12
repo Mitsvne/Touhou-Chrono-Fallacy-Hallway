@@ -9,7 +9,7 @@ var ishit=false
 @export var bullet_ctrler: Bullet_Ctrler
 
 func _ready():
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2, false).timeout
 	queue_free()
 
 func _physics_process(_delta):

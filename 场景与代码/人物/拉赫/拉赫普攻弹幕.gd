@@ -9,7 +9,7 @@ var ishit=false
 @export var bullet_ctrler: Bullet_Ctrler
 
 func _ready():
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2, false).timeout
 	queue_free()
 
 func _physics_process(_delta):
@@ -25,6 +25,7 @@ func _on_area_entered(area: Area2D) -> void:
 		hurtarea.set_deferred("disabled", true)
 		an.play(&"hit")
 		await an.animation_finished
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
 

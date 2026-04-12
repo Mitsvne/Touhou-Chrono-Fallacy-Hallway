@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
 [ext_resource type="PackedScene" uid="uid://dp28jkqlodc1s" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
+[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果.gdshader" id="51_0i5hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
 size = Vector2(39, 39)
@@ -305,7 +306,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(28, -16)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3568u"]
@@ -1023,6 +1024,12 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
+shader = ExtResource("51_0i5hr")
+shader_parameter/speed_x1 = 0.5
+shader_parameter/speed_x2 = 0.7
+shader_parameter/speed_y1 = 1.0
+shader_parameter/speed_y2 = 1.0
+shader_parameter/amplitude = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
 size = Vector2(51.5, 42)
@@ -1087,7 +1094,6 @@ speed_scale = 2.0
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=7809292]
 material = SubResource("ShaderMaterial_xftrd")
-position = Vector2(28, -16)
 sprite_frames = SubResource("SpriteFrames_r340b")
 animation = &"飞行"
 autoplay = "常态"

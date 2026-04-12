@@ -154,6 +154,7 @@ prop = NodePath("../..")
 metadata/_custom_type_script = "uid://cpwddaunx5ft8"
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=757008451]
+visible = false
 shape = SubResource("RectangleShape2D_penrh")
 disabled = true
 
@@ -168,7 +169,7 @@ animation = &"idea"
 autoplay = "idea"
 
 [node name="书特效" type="AnimatedSprite2D" parent="图像" unique_id=667068883]
-self_modulate = Color(1.93715, 1.93715, 1.93715, 1)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 material = SubResource("ShaderMaterial_4dkra")
 position = Vector2(2, -8)
 scale = Vector2(0.5, 0.5)

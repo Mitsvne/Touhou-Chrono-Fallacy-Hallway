@@ -85,9 +85,6 @@ func _physics_process(delta: float) -> void:
 	is_allow_key_move=false if character_ctrler.get_is_moving() else true
 	if is_allow_key_move and not is_dead():
 		move(move_speed,delta)
-		#print(character.velocity)
-		#character.velocity=Input.get_vector(move_left,move_right,move_up,move_down)*move_speed
-		#character.move_and_slide()
 
 
 ##惯性移动函数
@@ -151,6 +148,7 @@ func get_next_state(state:State)->State:
 				character_data.energy-=25
 				return State.冲刺
 		State.移动:
+			transition_state(State.常态, State.移动)
 			if not Input.is_action_pressed(move_left) and not Input.is_action_pressed(move_right):
 				return State.常态
 			if Input.is_action_just_pressed(skill) and is_skill_timer_timeout:

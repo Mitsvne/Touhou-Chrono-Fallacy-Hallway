@@ -152,10 +152,22 @@ tracks/6/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_noypq"]
 resource_name = "hit"
-length = 0.16667001
+length = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -239,6 +251,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.5]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1yl6a"]
@@ -346,7 +370,7 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_v40bc"]
 offsets = PackedFloat32Array(0, 0.27868852, 0.757377, 1)
-colors = PackedColorArray(1, 1, 1, 0, 0.58, 0.58, 0.58, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
 
 [node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_b1c2s")

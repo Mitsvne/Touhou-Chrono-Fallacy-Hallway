@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://cqgg5v35wnfq3" path="res://素材/人物素材/魔理沙/spellEc005.png" id="16_jkb0e"]
 [ext_resource type="Script" uid="uid://de8wkp65ncsnq" path="res://场景与代码/ui场景/主菜单页面/早苗浮动.gd" id="17_43m20"]
 [ext_resource type="Script" uid="uid://cvb2rjbycm0nb" path="res://场景与代码/ui场景/主菜单页面/魔理沙浮动.gd" id="22_cfmad"]
-[ext_resource type="Texture2D" uid="uid://onnu8vrykc2m" path="res://素材/人物素材/拉赫/人物/xem_105-1.png" id="22_gt8ep"]
-[ext_resource type="Texture2D" uid="uid://unyy25wyuwdt" path="res://素材/人物素材/拉赫/人物/xem_105-2.png" id="23_nsv7r"]
+[ext_resource type="Texture2D" uid="uid://cbyhks14i8bi5" path="res://素材/人物素材/拉赫/人物/xem_105-1.png" id="22_gt8ep"]
+[ext_resource type="Texture2D" uid="uid://1hjashb3vsb1" path="res://素材/人物素材/拉赫/人物/xem_105-2.png" id="23_nsv7r"]
 [ext_resource type="Script" uid="uid://we0xpbucrajg" path="res://场景与代码/ui场景/主菜单页面/拉赫浮动.gd" id="24_lrqhg"]
 [ext_resource type="Script" uid="uid://bsxc2dsbaluif" path="res://场景与代码/ui场景/主菜单页面/光环.gd" id="25_yp23s"]
 [ext_resource type="AudioStream" uid="uid://2rve6o257uxd" path="res://素材/音频素材/bgm/op.mp3" id="30_43m20"]
@@ -460,6 +460,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="水平模糊效果" type="CanvasLayer" parent="." unique_id=857373550]
+visible = false
 
 [node name="水平模糊" type="ColorRect" parent="水平模糊效果" unique_id=1361624797]
 material = SubResource("ShaderMaterial_x12e2")

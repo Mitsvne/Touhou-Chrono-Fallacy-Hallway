@@ -288,7 +288,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4, 14)]
+"values": [Vector2(-7, -9)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -312,7 +312,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-24.999994, -46.999992)]
+"values": [Vector2(-17.999994, -43.999985)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -324,7 +324,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.26179937]
+"values": [-0.34906584]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -410,10 +410,10 @@ tracks/5/path = NodePath("光环:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 0.3789291, 1),
 "update": 0,
-"values": [Vector2(7.0000057, -32.999992)]
+"values": [Vector2(-17.999994, -43.999985), Vector2(14.000006, -27.999994), Vector2(14, -28)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -422,10 +422,10 @@ tracks/6/path = NodePath("光环:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 0.35355353, 1),
 "update": 0,
-"values": [-0.013962634]
+"values": [-0.34906584, -0.013962634, 0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -434,10 +434,10 @@ tracks/7/path = NodePath("光环:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 0.34151018, 1),
 "update": 0,
-"values": [0.8726646]
+"values": [0.8726646, 0.8726646, 0.8726646]
 }
 tracks/8/type = "method"
 tracks/8/imported = false
@@ -525,10 +525,10 @@ tracks/5/path = NodePath("光环:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.34151018, 1),
 "update": 0,
-"values": [Vector2(-33.999996, -38.999992)]
+"values": [Vector2(-17.999994, -43.999985), Vector2(-31.999992, -34.999992), Vector2(-32, -35)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -537,10 +537,10 @@ tracks/6/path = NodePath("光环:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.4204483, 1),
 "update": 0,
-"values": [-0.42760566]
+"values": [-0.34906584, -0.4886922, -0.4886921905584123]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -549,10 +549,10 @@ tracks/7/path = NodePath("光环:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.40612632, 1),
 "update": 0,
-"values": [0.8726646]
+"values": [0.8726646, 0.8726646, 0.8726646]
 }
 tracks/8/type = "method"
 tracks/8/imported = false
@@ -643,7 +643,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-24.999994, -46.999992)]
+"values": [Vector2(-17.999994, -43.999985)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -655,7 +655,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.26179937]
+"values": [-0.34906584]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -929,6 +929,7 @@ script = ExtResource("24_ljw2w")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
+visible = false
 position = Vector2(-3, -1.5)
 shape = SubResource("RectangleShape2D_3vjy5")
 
@@ -938,7 +939,7 @@ autoplay = &"常态"
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=387672024]
 material = SubResource("ShaderMaterial_vivdl")
-position = Vector2(4, 14)
+position = Vector2(-7, -9)
 sprite_frames = SubResource("SpriteFrames_olaod")
 animation = &"站立"
 autoplay = "站立"
@@ -969,6 +970,7 @@ theme_override_fonts/font = ExtResource("55_wrct2")
 text = "CD:"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
+visible = false
 script = ExtResource("3_xu8tx")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
@@ -987,8 +989,8 @@ position = Vector2(-7, -9)
 texture = ExtResource("19_qui84")
 
 [node name="光环" type="Node2D" parent="." unique_id=2090684682]
-position = Vector2(-24.999994, -46.999992)
-rotation = -0.26179937
+position = Vector2(-17.999994, -43.999985)
+rotation = -0.34906584
 scale = Vector2(0.9999999, 0.99999994)
 skew = 0.8726646
 
@@ -996,7 +998,8 @@ skew = 0.8726646
 script = ExtResource("8_r3d67")
 
 [node name="光环" type="Sprite2D" parent="光环/光环旋转" unique_id=331775359]
-scale = Vector2(0.07, 0.07)
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("9_bgnr4")
 
 [node name="粒子" type="GPUParticles2D" parent="光环/光环旋转" unique_id=2026317443]

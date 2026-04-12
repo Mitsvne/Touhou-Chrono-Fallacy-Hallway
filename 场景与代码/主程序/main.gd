@@ -5,6 +5,8 @@ extends Node
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
+@onready var map: Node2D = $山脉
+
 
 func _ready():
 	var character1_instance = character1.instantiate()
@@ -13,7 +15,7 @@ func _ready():
 	character2_instance.position=_2p_pos.position
 	camera.reparent(character1_instance)
 	camera.position = Vector2.ZERO
-	
+	map.z_index = -1
 	var players = [character1_instance,character2_instance]
 	# 按顺序分配组
 	if players.size() > 0 and players[0].is_in_group("players"):
@@ -35,8 +37,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-
-
-func _on_button_pressed() -> void:
-	await get_tree().process_frame
-	get_tree().reload_current_scene()
