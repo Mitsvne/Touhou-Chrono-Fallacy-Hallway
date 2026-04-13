@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://cgc4odp24r0aj"]
+
+[ext_resource type="Script" uid="uid://rx42iq7xppwb" path="res://场景与代码/ui场景/关卡选择页面/关卡选择.gd" id="1_0xtt7"]
+[ext_resource type="AudioStream" uid="uid://n1p3x148ua80" path="res://素材/音频素材/bgm/19 - Where The Winds Roam.mp3" id="1_6nj48"]
+[ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="2_uyobv"]
+[ext_resource type="Texture2D" uid="uid://elatdupqfgas" path="res://素材/地图素材/丘原/orig.png" id="2_wvhtr"]
+[ext_resource type="Script" uid="uid://l5mwguom4fb0" path="res://场景与代码/ui场景/关卡选择页面/轮播菜单.gd" id="3_wvhtr"]
+[ext_resource type="Texture2D" uid="uid://c5j8iglpqledq" path="res://素材/地图素材/山脉/orig.png" id="4_weqc4"]
+[ext_resource type="Texture2D" uid="uid://2us8rgnwduo0" path="res://素材/地图素材/平原/orig.png" id="6_s83rs"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="8_cqui6"]
+[ext_resource type="Texture2D" uid="uid://l04jbcvwl7dr" path="res://素材/地图素材/小径/orig.png" id="9_a5if0"]
+[ext_resource type="Texture2D" uid="uid://43dw8p4183bc" path="res://素材/地图素材/极光/orig.png" id="10_34e8d"]
+
+[node name="关卡选择" type="Control" unique_id=1910587026]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xtt7")
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1338872240]
+stream = ExtResource("1_6nj48")
+autoplay = true
+bus = &"Bgm"
+
+[node name="平原" parent="." unique_id=336795962 instance=ExtResource("2_uyobv")]
+
+[node name="关卡选择" type="Label" parent="." unique_id=2106543495]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_top = 28.0
+offset_right = 66.5
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_cqui6")
+theme_override_font_sizes/font_size = 36
+text = "关卡选择"
+
+[node name="轮播菜单" type="Control" parent="." unique_id=465676596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_wvhtr")
+
+[node name="丘原" type="Button" parent="轮播菜单" unique_id=785272908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -82.0
+offset_right = 442.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("2_wvhtr")
+
+[node name="平原" type="Button" parent="轮播菜单" unique_id=1080602271]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -82.0
+offset_right = 442.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("6_s83rs")
+
+[node name="山脉" type="Button" parent="轮播菜单" unique_id=1405624635]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -82.0
+offset_right = 442.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("4_weqc4")
+
+[node name="小径" type="Button" parent="轮播菜单" unique_id=871962727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -82.0
+offset_right = 442.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("9_a5if0")
+
+[node name="极光" type="Button" parent="轮播菜单" unique_id=1802271843]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -82.0
+offset_right = 442.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("10_34e8d")
+
+[node name="返回" type="Button" parent="." unique_id=1948500099]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = 38.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_cqui6")
+text = "返回
+"
+
+[connection signal="pressed" from="轮播菜单/山脉" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="返回" to="." method="_on_back_pressed"]

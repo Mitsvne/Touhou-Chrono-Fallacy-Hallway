@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/拉赫.tscn" id="3_gtwc4"]
 [ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/主程序/暂停菜单.gd" id="4_wfpim"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="5_gtwc4"]
+[ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_wfpim"]
 
 [sub_resource type="Gradient" id="Gradient_073jx"]
 offsets = PackedFloat32Array(0, 0.9935484)
@@ -118,6 +119,10 @@ metadata/_edit_lock_ = true
 
 [node name="世界环境光" type="WorldEnvironment" parent="." unique_id=99965680]
 environment = SubResource("Environment_073jx")
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=880136600]
+stream = ExtResource("8_wfpim")
+bus = &"Bgm"
 
 [connection signal="pressed" from="ui/暂停菜单/垂直容器/继续游戏" to="ui/暂停菜单" method="_on_continue_pressed"]
 [connection signal="pressed" from="ui/暂停菜单/垂直容器/游戏重置" to="ui/暂停菜单" method="_on_reset_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://n1p3x148ua80"
+path="res://.godot/imported/19 - Where The Winds Roam.mp3-d94f5248e2ed74f1d8f6c3160ffc2afd.mp3str"
+
+[deps]
+
+source_file="res://素材/音频素材/bgm/19 - Where The Winds Roam.mp3"
+dest_files=["res://.godot/imported/19 - Where The Winds Roam.mp3-d94f5248e2ed74f1d8f6c3160ffc2afd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
