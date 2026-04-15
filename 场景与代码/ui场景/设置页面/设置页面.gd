@@ -21,4 +21,5 @@ func move_character_with_float(character: AnimatedSprite2D, initial_position: Ve
 	tween.tween_property(character, "modulate:a", 1.0, animation_length * 0.5)
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+	#get_tree().change_scene_to_file("res://场景与代码/ui场景/主菜单页面/菜单.tscn")

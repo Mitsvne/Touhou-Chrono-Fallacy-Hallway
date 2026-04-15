@@ -22,6 +22,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 buses/default_bus_layout="uid://baegi2k84mouo"
 
+[autoload]
+
+SceneTransition="*uid://bbent1xa1kwxr"
+
 [display]
 
 window/size/viewport_width=640

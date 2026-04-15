@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bbent1xa1kwxr"]
+
+[ext_resource type="Script" uid="uid://co5aklnjkfghv" path="res://场景与代码/ui场景/页面切换/页面切换.gd" id="1_j4xas"]
+
+[sub_resource type="Animation" id="Animation_po0xu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("黑屏:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wr6yt"]
+resource_name = "淡出"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("黑屏:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j4xas"]
+resource_name = "淡入"
+length = 0.50000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("黑屏:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsd1c"]
+_data = {
+&"RESET": SubResource("Animation_po0xu"),
+&"淡入": SubResource("Animation_wr6yt"),
+&"淡出": SubResource("Animation_j4xas")
+}
+
+[node name="SceneTransition" type="CanvasLayer" unique_id=1267821369]
+script = ExtResource("1_j4xas")
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=535028101]
+libraries/ = SubResource("AnimationLibrary_fsd1c")
+
+[node name="黑屏" type="ColorRect" parent="." unique_id=1534776918]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

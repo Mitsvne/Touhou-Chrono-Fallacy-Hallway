@@ -1,6 +1,6 @@
 extends Control
 
-signal settings_pressed
+#signal settings_pressed
 
 @export var v_box_container: VBoxContainer
 @export var button_1: Button
@@ -68,14 +68,16 @@ func _ready() -> void:
 
 #开始按钮
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
+	#get_tree().change_scene_to_file("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
 #设置按钮
 func _on_settings_pressed() -> void:
-	emit_signal("settings_pressed")
-	horizontal_blur.start_blur_transition()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://场景与代码/ui场景/设置页面/设置页面.tscn")
+	#emit_signal("settings_pressed")
+	#horizontal_blur.start_blur_transition()
+	#await get_tree().create_timer(0.5).timeout
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/设置页面/设置页面.tscn")
+	#get_tree().change_scene_to_file("res://场景与代码/ui场景/设置页面/设置页面.tscn")
 
 #退出按钮
 func _on_exit_pressed() -> void:
