@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1dwh5a4mwew"
-path="res://.godot/imported/bz12_ (2).png-fbc470ffaba39c4362d49024c957f513.ctex"
+uid="uid://cdkqc2jmdmtv2"
+path="res://.godot/imported/hitAc003.png-14e8e5413701fea58ec6f30e938bbd44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/特效素材/轻击1/bz12_ (2).png"
-dest_files=["res://.godot/imported/bz12_ (2).png-fbc470ffaba39c4362d49024c957f513.ctex"]
+source_file="res://素材/特效素材/重击1/hitAc003.png"
+dest_files=["res://.godot/imported/hitAc003.png-14e8e5413701fea58ec6f30e938bbd44.ctex"]
 
 [params]
 

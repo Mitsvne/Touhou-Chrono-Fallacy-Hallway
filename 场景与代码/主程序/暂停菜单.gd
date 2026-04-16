@@ -36,4 +36,5 @@ func _on_continue_pressed() -> void:
 
 func _on_return_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+	#get_tree().change_scene_to_file("res://场景与代码/ui场景/主菜单页面/菜单.tscn")

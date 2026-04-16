@@ -1,15 +1,7 @@
 extends Control
 
-
-
 func _ready() -> void:
 	pass
-
-
-
-
-
-
 
 func _on_level1_pressed() -> void:
 	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/Main.tscn")

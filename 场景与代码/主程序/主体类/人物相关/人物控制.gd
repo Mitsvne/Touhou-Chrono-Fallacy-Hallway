@@ -21,6 +21,8 @@ func _ready() -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
+	if anplayer.current_animation == "常态":
+		is_moving=false
 	pass
 
 ##私有：根据阻力和加速度更新速度,drag为正数时是阻力，为负数时是加速度
@@ -112,6 +114,10 @@ func stop_move():
 ##是否在move移动中
 func get_is_moving():
 	return is_moving
+
+##设置按键移动
+func set_key_move(value:bool):
+	is_moving=not value
 
 ##开始冲刺函数
 func start_dash(speed: float = 0.0, drag: float = 0.0):

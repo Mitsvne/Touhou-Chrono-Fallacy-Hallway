@@ -6,8 +6,10 @@ class_name Character_Main
 @export var character_input: Character_Input
 @export var character:CharacterBody2D
 @export var anplayer: AnimationPlayer
+@export var hurtbox: Hurtbox
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
+@export var attack_effect:PackedScene
 
 enum State{常态,移动,技能1,必杀1,冲刺,死亡}
 var team:String
@@ -206,15 +208,21 @@ func an_paly(an_name:String):
 
 
 ##受击处理函数
-func _on_hurtbox_hurt(_hitbox: Variant, attack_data: AttackData) -> void:
-	if character_ctrler.get_is_allow_behit():
-		var damage:float = attack_data.damage
-		character_data.hp-=damage
-		var damage_node = damage_number.instantiate()
-		get_tree().current_scene.add_child(damage_node)   # 添加到场景树（例如主场景）
-		damage_node.set_damage(damage, character.position, Color.WHITE)
-	else:
+func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
+	if not character_ctrler.get_is_allow_behit():
 		print("不可受击状态")
+		return
+	var damage:float = attack_data.damage
+	var attack_type:int =  attack_data.attack_type
+	var attack_effect_node = attack_effect.instantiate()
+	var damage_node = damage_number.instantiate()
+	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
+	character_data.hp-=damage
+	get_tree().current_scene.add_child(attack_effect_node)
+	attack_effect_node.set_attack_effect(attack_type,attack_effect_position)
+	get_tree().current_scene.add_child(damage_node)
+	damage_node.set_damage(damage, character.position, Color.WHITE)
+
 
 func update_direction(direct:float):
 	direction=direct

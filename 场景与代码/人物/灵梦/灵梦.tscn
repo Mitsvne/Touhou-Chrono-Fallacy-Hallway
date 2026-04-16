@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://2p5l4whcqrju" path="res://素材/人物素材/灵梦/人物/spellDb004.png" id="10_imqij"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="10_kcrgq"]
 [ext_resource type="Texture2D" uid="uid://7bmk32e71bpa" path="res://素材/人物素材/灵梦/人物/shotB004.png" id="10_p6bjn"]
+[ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="10_wmq54"]
 [ext_resource type="Texture2D" uid="uid://b4yp4gmox14ym" path="res://素材/人物素材/灵梦/人物/spellDb005.png" id="11_23xpx"]
 [ext_resource type="Texture2D" uid="uid://bogk7g005j5bn" path="res://素材/人物素材/灵梦/人物/shotB005.png" id="11_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://ba40q8hr1hdue" path="res://素材/人物素材/灵梦/人物/shotB006.png" id="12_20d74"]
@@ -53,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrkocv50drp4" path="res://素材/人物素材/灵梦/人物/hitAir005.png" id="37_pje2i"]
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
-[ext_resource type="PackedScene" uid="uid://dp28jkqlodc1s" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
+[ext_resource type="PackedScene" uid="uid://c3rabsfr17fmj" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="51_0i5hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
@@ -638,7 +639,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_uvb8v"]
 resource_name = "必杀2"
-length = 0.80000335
+length = 2.0000033
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -670,10 +671,10 @@ tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666667, 0.73333335),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.20000002, 0.26666668, 1.8, 1.8666668, 1.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(4, -6), Vector2(23, -2), Vector2(4, -10), Vector2(3, -17), Vector2(2, -22), Vector2(4, -16), Vector2(24, 1), Vector2(3, -6), Vector2(3, -4), Vector2(0, -2)]
+"values": [Vector2(4, -6), Vector2(23, -2), Vector2(23, -9), Vector2(23, -15), Vector2(3, -6), Vector2(1, -4), Vector2(0, -2)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -682,10 +683,10 @@ tracks/3/path = NodePath(".:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.40000004, 0.43333337, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.7666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.40000004, 0.43333337, 0.46666667, 0.5, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8000001, 0.8333334, 0.8666667, 0.9, 0.9333334, 0.96666676, 1.0000001, 1.0333334, 1.0666667, 1.1, 1.1333334, 1.1666667, 1.2000002, 1.2333335, 1.2666668, 1.3000001, 1.3333334, 1.3666668, 1.4000001, 1.4333334, 1.4666667, 1.5, 1.5333334, 1.5666668, 1.6000001, 1.6333334, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333333, 1.8666667, 1.9, 1.9333334, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]
+"values": [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -694,10 +695,10 @@ tracks/4/path = NodePath("../动画:speed_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
+"times": PackedFloat32Array(0, 0.26666668, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.75, 0.5, 1.0]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
@@ -709,8 +710,25 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.33333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [ExtResource("48_xn1ji"), Vector2(70, 50)],
+"args": [ExtResource("48_xn1ji"), Vector2(30, 10)],
 "method": &"shoot"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../class/Character_Ctrler")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.33333334, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_key_move"
+}, {
+"args": [true],
+"method": &"set_key_move"
 }]
 }
 
@@ -1068,15 +1086,17 @@ character_input = NodePath("../Character_Input")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
+[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox")]
 script = ExtResource("10_23xpx")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
 character_input = NodePath("../Character_Input")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
+hurtbox = NodePath("../../Hurtbox")
 damage_number = ExtResource("5_imqij")
 attack_bullet = ExtResource("2_g1kd8")
+attack_effect = ExtResource("10_wmq54")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
@@ -1084,6 +1104,7 @@ script = ExtResource("35_rluf1")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=2014086127]
+visible = false
 position = Vector2(4.5, 12.5)
 shape = SubResource("RectangleShape2D_256k3")
 
@@ -1123,6 +1144,7 @@ character = NodePath("../..")
 character_data = NodePath("../../class/Character_Data")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=719264059]
+visible = false
 position = Vector2(6.5, 13)
 script = ExtResource("7_n1bbb")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"

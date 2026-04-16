@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/主程序/主体类/效果相关/ui血条.tscn" id="5_v8ol4"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
+[ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/149.png" id="9_bgnr4"]
 [ext_resource type="Texture2D" uid="uid://jeprym35tyjf" path="res://素材/人物素材/拉赫/人物/xem_100-1.png" id="10_gfiyh"]
 [ext_resource type="Texture2D" uid="uid://b3x0c51budwnn" path="res://素材/人物素材/拉赫/人物/xem_100-3.png" id="10_ukv3x"]
@@ -913,15 +914,17 @@ character_input = NodePath("../Character_Input")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer")]
+[node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox")]
 script = ExtResource("4_10ogm")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
 character_input = NodePath("../Character_Input")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
+hurtbox = NodePath("../../Hurtbox")
 damage_number = ExtResource("2_bgnr4")
 attack_bullet = ExtResource("2_udp54")
+attack_effect = ExtResource("9_6estm")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]

@@ -4,42 +4,48 @@
 [ext_resource type="Script" uid="uid://cmdfqtufh2td3" path="res://场景与代码/人物/模板/弹幕模板.gd" id="1_iolgs"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_iolgs"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="3_kqj1d"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="4_5nk83"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="4_h7bpb"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="4_sudlh"]
 
 [sub_resource type="Resource" id="Resource_37vm4"]
 script = ExtResource("2_iolgs")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="弹幕模板" type="Area2D" unique_id=256754848 node_paths=PackedStringArray("an", "hitarea", "bullet_ctrler", "effect_ctrler")]
+[node name="弹幕模板" type="Area2D" unique_id=256754848 node_paths=PackedStringArray("an", "bullet_data", "bullet_ctrler")]
 script = ExtResource("1_iolgs")
 an = NodePath("动画")
-hitarea = NodePath("Hitbox/攻击面")
+bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
-
-[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1375347370]
-
-[node name="动画" type="AnimationPlayer" parent="." unique_id=943798430]
-root_node = NodePath("../碰撞面")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=2145647031]
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=943798430]
+root_node = NodePath("")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=234097381]
 script = ExtResource("1_ifqcg")
 attack_data = SubResource("Resource_37vm4")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
-[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=164127625]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1110565936]
+script = ExtResource("4_sudlh")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=142179356]
 
 [node name="class" type="Node" parent="." unique_id=935622526]
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=1695619308 node_paths=PackedStringArray("bullet")]
+[node name="Bullet_Data" type="Node" parent="class" unique_id=604662415]
+script = ExtResource("4_5nk83")
+metadata/_custom_type_script = "uid://df5xa5fby1rqi"
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=1695619308 node_paths=PackedStringArray("bullet_data", "bullet")]
 script = ExtResource("3_kqj1d")
+bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1560363514]
 script = ExtResource("4_h7bpb")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
-
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=142179356]

@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://bqlqtdnxufhrh"]
+
+[ext_resource type="Script" uid="uid://e7vv6xr8mtn6" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.gd" id="1_fp2xu"]
+[ext_resource type="Texture2D" uid="uid://d0aus7blcrryt" path="res://素材/特效素材/轻击1/hitAa000.png" id="3_77uoa"]
+[ext_resource type="Texture2D" uid="uid://do00b5uyw2lp4" path="res://素材/特效素材/轻击1/hitAa001.png" id="4_3plv0"]
+[ext_resource type="Texture2D" uid="uid://btf2g84rcx01w" path="res://素材/特效素材/轻击1/hitAa002.png" id="5_j2xki"]
+[ext_resource type="Texture2D" uid="uid://bhutkbtv6xvtt" path="res://素材/特效素材/轻击1/hitAa003.png" id="6_233o8"]
+[ext_resource type="Texture2D" uid="uid://duhn627in3lhd" path="res://素材/特效素材/轻击1/hitAa004.png" id="7_aybbl"]
+[ext_resource type="Texture2D" uid="uid://crky5r7anv6n5" path="res://素材/特效素材/轻击1/hitAa005.png" id="8_nk51l"]
+[ext_resource type="Texture2D" uid="uid://b4po51n768xlg" path="res://素材/特效素材/轻击1/hitAa006.png" id="9_ehuyh"]
+[ext_resource type="Texture2D" uid="uid://oj63eddhsmf8" path="res://素材/特效素材/重击1/hitAc001.png" id="10_lwcs4"]
+[ext_resource type="Texture2D" uid="uid://7pdmmwfqkae2" path="res://素材/特效素材/轻击1/hitAa007.png" id="10_sntao"]
+[ext_resource type="Texture2D" uid="uid://b5rasjydygfsg" path="res://素材/特效素材/重击1/hitAc002.png" id="11_ybwtl"]
+[ext_resource type="Texture2D" uid="uid://cdkqc2jmdmtv2" path="res://素材/特效素材/重击1/hitAc003.png" id="12_cpq7e"]
+[ext_resource type="Texture2D" uid="uid://dunrliagl3l8r" path="res://素材/特效素材/重击1/hitAc004.png" id="13_eq0g4"]
+[ext_resource type="Texture2D" uid="uid://br33j7m85uay5" path="res://素材/特效素材/重击1/hitAc005.png" id="14_dl3kt"]
+[ext_resource type="Texture2D" uid="uid://rkpjdxk3xcqi" path="res://素材/特效素材/重击1/hitAc006.png" id="15_bjouf"]
+[ext_resource type="Texture2D" uid="uid://bk8sotbhhxde0" path="res://素材/特效素材/重击1/hitAc007.png" id="16_4em5b"]
+[ext_resource type="Texture2D" uid="uid://bx0jtttrdincv" path="res://素材/特效素材/重击1/hitAc008.png" id="17_3jirg"]
+[ext_resource type="Texture2D" uid="uid://devfkfkv5vf48" path="res://素材/特效素材/重击1/hitAc009.png" id="18_tjmem"]
+[ext_resource type="Texture2D" uid="uid://b3njfa66yjiaf" path="res://素材/特效素材/重击1/hitAc010.png" id="19_oun1q"]
+[ext_resource type="Texture2D" uid="uid://bvjw0g3b143jy" path="res://素材/特效素材/重击1/hitAc011.png" id="20_3l38a"]
+[ext_resource type="Texture2D" uid="uid://bemaqqod5uhfn" path="res://素材/特效素材/重击1/hitAc012.png" id="21_foxkx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3rgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_77uoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3plv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j2xki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_233o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aybbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nk51l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ehuyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sntao")
+}],
+"loop": false,
+"name": &"轻击1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lwcs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ybwtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cpq7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eq0g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dl3kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bjouf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4em5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3jirg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tjmem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_oun1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3l38a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_foxkx")
+}],
+"loop": false,
+"name": &"重击1",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_fp2xu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_q3rgq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"轻击1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fbkhx"]
+resource_name = "轻击1"
+length = 0.23333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_q3rgq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"轻击1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_lwcs4"]
+resource_name = "重击1"
+length = 0.43333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_q3rgq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"重击1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77uoa"]
+_data = {
+&"RESET": SubResource("Animation_fp2xu"),
+&"轻击1": SubResource("Animation_fbkhx"),
+&"重击1": SubResource("Animation_lwcs4")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nil7c"]
+blend_mode = 1
+
+[node name="攻击命中特效" type="Node2D" unique_id=1609489005 node_paths=PackedStringArray("ansprite", "anplayer")]
+script = ExtResource("1_fp2xu")
+ansprite = NodePath("素材库")
+anplayer = NodePath("动画")
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=439348661]
+libraries/ = SubResource("AnimationLibrary_77uoa")
+
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1588258803]
+material = SubResource("CanvasItemMaterial_nil7c")
+sprite_frames = SubResource("SpriteFrames_q3rgq")
+animation = &"轻击1"

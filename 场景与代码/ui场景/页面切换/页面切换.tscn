@@ -56,7 +56,7 @@ _data = {
 &"淡出": SubResource("Animation_j4xas")
 }
 
-[node name="SceneTransition" type="CanvasLayer" unique_id=1267821369]
+[node name="页面切换" type="CanvasLayer" unique_id=1267821369]
 script = ExtResource("1_j4xas")
 
 [node name="动画" type="AnimationPlayer" parent="." unique_id=535028101]
