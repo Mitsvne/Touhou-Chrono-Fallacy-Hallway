@@ -277,6 +277,7 @@ _data = {
 [sub_resource type="Resource" id="Resource_wymrs"]
 script = ExtResource("9_ika7d")
 attack_type = 2
+hitstop = 0.01
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 node_paths=PackedStringArray("Sprite", "an", "audio", "hitarea", "hurtarea", "bullet_data", "effect_ctrler", "bullet_ctrler") groups=["bullets"]]
@@ -313,6 +314,7 @@ libraries/ = SubResource("AnimationLibrary_7wgds")
 
 [node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1123507937]
 stream = ExtResource("6_yt1m0")
+volume_db = -5.0
 
 [node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=1222591856]
 stream = ExtResource("7_c10u1")

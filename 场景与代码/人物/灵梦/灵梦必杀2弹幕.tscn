@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://doyfs4727poc1" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.gd" id="2_y1qt7"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_7pc5l"]
 [ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="4_dimyu"]
+[ext_resource type="AudioStream" uid="uid://damlr2mkxskqf" path="res://素材/人物素材/灵梦/音效/阴阳玉生成.wav" id="4_xdlkq"]
+[ext_resource type="Texture2D" uid="uid://dyh8ud21s86qf" path="res://素材/人物素材/灵梦/bulletEf000.png" id="4_xdoa6"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="5_875fk"]
+[ext_resource type="AudioStream" uid="uid://bcg5l1w8mw7pu" path="res://素材/人物素材/灵梦/音效/阴阳玉爆炸2.wav" id="5_xdlkq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxgal"]
 radius = 39.012817
@@ -165,10 +169,82 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Hitbox2/碰撞面:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("特效:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xdoa6")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("特效:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 30)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("特效:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12695313, 0.12695313)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("特效:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("特效:self_modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hxgal"]
 resource_name = "hit"
-length = 3.0000036
+length = 3.1666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -212,7 +288,7 @@ tracks/3/path = NodePath("素材库:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2, 2.6666667),
+"times": PackedFloat32Array(0, 1, 2, 2.0666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(30, 30), Vector2(60, 60), Vector2(72, 72), Vector2(85, 85)]
@@ -224,10 +300,10 @@ tracks/4/path = NodePath("素材库:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3.0000002),
+"times": PackedFloat32Array(0, 1, 2, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -6.2831855, -12.566371, -18.849556]
+"values": [0.0, -6.2831855, -12.566371, -15.707963267948966]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -236,7 +312,7 @@ tracks/5/path = NodePath("素材库:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 1, 2, 2.6666667, 3.0000002),
+"times": PackedFloat32Array(0, 0.33333334, 1, 2, 2.0666666, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(1, 1), Vector2(2, 2), Vector2(2.5, 2.5), Vector2(3, 3), Vector2(4, 4)]
@@ -248,7 +324,7 @@ tracks/6/path = NodePath("素材库:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 2.6666667, 3.0000002),
+"times": PackedFloat32Array(0, 0.33333334, 2.0666666, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.46666667), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -284,7 +360,7 @@ tracks/9/path = NodePath("Hitbox/碰撞面:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 1, 2, 2.6666667),
+"times": PackedFloat32Array(0, 0.33333334, 1, 2, 2.0666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(30, 30), Vector2(40, 40), Vector2(60, 60), Vector2(72, 72), Vector2(89, 82)]
@@ -296,7 +372,7 @@ tracks/10/path = NodePath("Hitbox/碰撞面:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 1, 2, 2.6666667),
+"times": PackedFloat32Array(0, 1, 2, 2.0666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(2, 2), Vector2(2.5, 2.5), Vector2(3, 3)]
@@ -308,10 +384,101 @@ tracks/11/path = NodePath("Hitbox/碰撞面:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(2.6666667),
+"times": PackedFloat32Array(2.0666666),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Hitbox2/碰撞面:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 2.0666668, 2.1333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("音效")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_xdlkq")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_xdlkq")
+}],
+"times": PackedFloat32Array(0, 2)
+}
+tracks/13/use_blend = true
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("特效:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xdoa6")]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("特效:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(30, 30), Vector2(60, 60), Vector2(75, 75)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("特效:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.12695313, 0.12695313), Vector2(1.8, 1.8), Vector2(2.3, 2.3), Vector2(3.5, 3.5)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("特效:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586, 12.566370614359172, 15.707963267948966]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("特效:self_modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8gky8"]
@@ -323,13 +490,28 @@ _data = {
 [sub_resource type="Resource" id="Resource_875fk"]
 script = ExtResource("4_7pc5l")
 attack_type = 2
-attack_interval = 0.1
+attack_interval = 0.2
+hitstop = 0.01
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦必杀2弹幕" unique_id=256754848 node_paths=PackedStringArray("hitarea", "hurtarea") instance=ExtResource("1_5jbs4")]
+[sub_resource type="Resource" id="Resource_8gky8"]
+script = ExtResource("4_7pc5l")
+damage = 30.0
+attack_type = 3
+hitstop = 0.3
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdlkq"]
+radius = 1210.165
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c1epb"]
+blend_mode = 1
+
+[node name="灵梦必杀2弹幕" unique_id=256754848 node_paths=PackedStringArray("hitarea", "hurtarea", "audio") instance=ExtResource("1_5jbs4")]
 script = ExtResource("2_y1qt7")
 hitarea = NodePath("Hitbox/碰撞面")
 hurtarea = NodePath("Hurtbox/碰撞面")
+audio = NodePath("音效")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." index="0" unique_id=1889569170]
 visible = false
@@ -349,13 +531,26 @@ libraries/ = SubResource("AnimationLibrary_8gky8")
 autoplay = &"hit"
 
 [node name="Hitbox" parent="." index="3" unique_id=234097381]
+visible = false
 attack_data = SubResource("Resource_875fk")
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1929849455]
 position = Vector2(31, 32)
 shape = SubResource("CircleShape2D_hxgal")
 
-[node name="Hurtbox" parent="." index="4" unique_id=1110565936]
+[node name="Hitbox2" type="Area2D" parent="." index="4" unique_id=301495821]
+visible = false
+script = ExtResource("5_875fk")
+attack_data = SubResource("Resource_8gky8")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="碰撞面" type="CollisionShape2D" parent="Hitbox2" index="0" unique_id=1024501482]
+position = Vector2(83, 86)
+scale = Vector2(0.100000024, 0.100000024)
+shape = SubResource("CircleShape2D_xdlkq")
+disabled = true
+
+[node name="Hurtbox" parent="." index="5" unique_id=1110565936]
 visible = false
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hurtbox" index="0" unique_id=463974006]
@@ -363,8 +558,16 @@ visible = false
 position = Vector2(31, 32)
 shape = SubResource("CircleShape2D_hxgal")
 
-[node name="音效" parent="." index="5" unique_id=142179356]
+[node name="音效" parent="." index="6" unique_id=142179356]
 bus = &"Se"
 
 [node name="Bullet_Data" parent="class" parent_id_path=PackedInt32Array(935622526) index="0" unique_id=604662415]
 bullet_hp_max = 100.0
+
+[node name="特效" type="Sprite2D" parent="." index="8" unique_id=996654314]
+visible = false
+material = SubResource("CanvasItemMaterial_c1epb")
+position = Vector2(30, 30)
+scale = Vector2(0.12695313, 0.12695313)
+texture = ExtResource("4_xdoa6")
+flip_v = true

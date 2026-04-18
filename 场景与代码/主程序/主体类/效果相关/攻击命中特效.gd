@@ -5,7 +5,8 @@ extends Node2D
 
 var attack_anim_map := {
 	1: "轻击1",
-	2: "重击1"
+	2: "中击1",
+	3: "重击1"
 	# 可继续扩展
 }
 
@@ -20,13 +21,19 @@ func set_attack_effect(attack_type:int,target: Vector2):
 	else:
 		push_warning("未找到 attack_type ", attack_type, " 对应的攻击动画")
 		
+##攻击停顿函数
+func set_hitstop(T: float = 0.1):
+	Engine.time_scale = 0.1
+	await get_tree().create_timer(T, true, false, true).timeout
+	Engine.time_scale = 1.0
+
 # 获取两个 Area2D 相交区域内的一个随机点（均匀分布）
 func get_random_point_in_overlap(area_a: Area2D, area_b: Area2D) -> Variant:
 	# 获取两个区域的多边形表示（全局坐标）
 	var polys_a = _get_area_polygons(area_a)
 	var polys_b = _get_area_polygons(area_b)
 	if polys_a.is_empty() or polys_b.is_empty():
-		return null
+		return area_b.global_position
 	# 计算所有多边形对之间的交集
 	var intersection_polygons: Array[PackedVector2Array] = []
 	for pa in polys_a:
@@ -35,7 +42,7 @@ func get_random_point_in_overlap(area_a: Area2D, area_b: Area2D) -> Variant:
 			if not inter.is_empty():
 				intersection_polygons.append_array(inter)
 	if intersection_polygons.is_empty():
-		return null
+		return area_b.global_position
 	# 从所有相交多边形中随机选一个（如果多个不相连的区域）
 	var target_poly = intersection_polygons[randi() % intersection_polygons.size()]
 	# 在该多边形内生成随机点（简单实现：包围盒内采样 + 点包含测试）

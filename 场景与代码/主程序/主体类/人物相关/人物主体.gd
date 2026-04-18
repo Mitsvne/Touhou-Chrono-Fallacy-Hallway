@@ -145,6 +145,7 @@ func get_next_state(state:State)->State:
 				is_skill_timer_timeout=false
 				return State.技能1
 			if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
+				character_data.mp-=100
 				return State.必杀1
 			if Input.is_action_just_pressed(dash) and character_data.energy>=25:
 				character_data.energy-=25
@@ -159,6 +160,7 @@ func get_next_state(state:State)->State:
 				is_skill_timer_timeout=false
 				return State.技能1
 			if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
+				character_data.mp-=100
 				return State.必杀1
 			if Input.is_action_just_pressed(dash) and character_data.energy>=25:
 				character_data.energy-=25
@@ -214,14 +216,20 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 		return
 	var damage:float = attack_data.damage
 	var attack_type:int =  attack_data.attack_type
+	var hitstop:float =  attack_data.hitstop
 	var attack_effect_node = attack_effect.instantiate()
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
 	character_data.hp-=damage
-	get_tree().current_scene.add_child(attack_effect_node)
-	attack_effect_node.set_attack_effect(attack_type,attack_effect_position)
 	get_tree().current_scene.add_child(damage_node)
 	damage_node.set_damage(damage, character.position, Color.WHITE)
+	get_tree().current_scene.add_child(attack_effect_node)
+	if attack_effect_position != null:
+		attack_effect_node.set_attack_effect(attack_type,attack_effect_position)
+	else:
+		attack_effect_node.set_attack_effect(attack_type,hitbox.global_position)
+	attack_effect_node.set_hitstop(hitstop)
+	
 
 
 func update_direction(direct:float):

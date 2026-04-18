@@ -339,6 +339,42 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.8726646]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("碰撞箱:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("素材库:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("光环:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_pmn05"]
 resource_name = "前进"
@@ -804,9 +840,12 @@ tracks/5/path = NodePath("class/Character_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.06666667, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": [],
+"method": &"stop_move"
+}, {
 "args": [Vector2(-200, -100), Vector2(0, 0)],
 "method": &"start_move"
 }, {
@@ -828,6 +867,66 @@ tracks/6/keys = {
 "method": &"apply_gravity"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("碰撞箱:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("素材库:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("光环:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-17.999994, -43.999985), Vector2(-41.000008, -22.999979), Vector2(-38.000008, -15.999981), Vector2(-34.000008, 10.000018), Vector2(-5.0000043, 36.000023), Vector2(4.999998, 40.000023)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("光环:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.34906584, -0.87266463, -1.3962634, -2.268928, -3.3161256, -3.6651914]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("光环:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4dhg"]
 _data = {
@@ -841,11 +940,14 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vivdl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8tx"]
-size = Vector2(54, 45)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya7oa"]
-size = Vector2(44, 43.5)
+size = Vector2(35, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8tx"]
+size = Vector2(54, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6estm"]
+size = Vector2(15, 12)
 
 [sub_resource type="Gradient" id="Gradient_r3d67"]
 colors = PackedColorArray(1, 1, 1, 1, 2.1372175, 2.1372175, 2.1372175, 0)
@@ -973,17 +1075,20 @@ theme_override_fonts/font = ExtResource("55_wrct2")
 text = "CD:"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
-visible = false
 script = ExtResource("3_xu8tx")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
-[node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=1080348351]
-position = Vector2(-3, 19.5)
+[node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=1261900093]
+position = Vector2(-3.5, -20.5)
+shape = SubResource("RectangleShape2D_ya7oa")
+
+[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=1080348351]
+position = Vector2(-3, 22)
 shape = SubResource("RectangleShape2D_xu8tx")
 
-[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=1261900093]
-position = Vector2(-3, -25)
-shape = SubResource("RectangleShape2D_ya7oa")
+[node name="受击面3" type="CollisionShape2D" parent="Hurtbox" unique_id=1507684036]
+position = Vector2(-1.5, 42)
+shape = SubResource("RectangleShape2D_6estm")
 
 [node name="位置参考" type="Sprite2D" parent="." unique_id=330518769]
 visible = false

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="3_dj1n2"]
 [ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="4_dk7xt"]
 [ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="5_7hfcq"]
+[ext_resource type="Texture2D" uid="uid://cvxuume5awqse" path="res://素材/ui素材/ui素材/耐力条.png" id="7_nc0p2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4w3d"]
 content_margin_left = 5.0
@@ -27,18 +28,41 @@ region = Rect2(135, 20, 52, 7)
 atlas = ExtResource("1_11osk")
 region = Rect2(6, 22, 49, 3)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdrj"]
+atlas = ExtResource("7_nc0p2")
+region = Rect2(1, 2, 39, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4iqy"]
+atlas = ExtResource("7_nc0p2")
+region = Rect2(0, 7, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7nph"]
+atlas = ExtResource("7_nc0p2")
+region = Rect2(1, 16, 39, 3)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_albyq"]
 atlas = ExtResource("1_11osk")
 region = Rect2(135, 4, 45, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uw24"]
+atlas = ExtResource("1_11osk")
+region = Rect2(8, 6, 42, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h73pq"]
 atlas = ExtResource("1_11osk")
 region = Rect2(72, 6, 42, 3)
 
-[node name="ui血条" type="HBoxContainer" unique_id=1721267738]
+[node name="ui血条" type="HBoxContainer" unique_id=1721267738 node_paths=PackedStringArray("hp_bar", "delay_hp_bar", "mp_bar", "delay_mp_bar", "energy_bar", "delay_energy_bar", "avatars")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_mkvpl")
+hp_bar = NodePath("血条蓝条耐力条/血量条/血量条")
+delay_hp_bar = NodePath("血条蓝条耐力条/血量条/延迟血量")
+mp_bar = NodePath("血条蓝条耐力条/魔力条/魔力条")
+delay_mp_bar = NodePath("血条蓝条耐力条/魔力条/延迟魔力")
+energy_bar = NodePath("血条蓝条耐力条/耐力条/耐力条")
+delay_energy_bar = NodePath("血条蓝条耐力条/耐力条/延迟耐力")
+avatars = NodePath("头像框")
 
 [node name="头像框" type="PanelContainer" parent="." unique_id=378296762]
 custom_minimum_size = Vector2(20, 20)
@@ -67,28 +91,34 @@ layout_mode = 2
 texture = ExtResource("2_mkvpl")
 stretch_mode = 5
 
-[node name="血条耐力条" type="VSplitContainer" parent="." unique_id=1783261977]
+[node name="血条蓝条耐力条" type="VSplitContainer" parent="." unique_id=1783261977]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+split_offsets = PackedInt32Array(1, 14)
+split_offset = 1
 
-[node name="血条" type="TextureProgressBar" parent="血条耐力条" unique_id=1045250746]
+[node name="血量条" type="TextureProgressBar" parent="血条蓝条耐力条" unique_id=1045250746]
 layout_mode = 2
-size_flags_vertical = 4
 max_value = 1.0
 step = 0.0
 value = 1.0
+metadata/_edit_lock_ = true
 
-[node name="血条" type="TextureProgressBar" parent="血条耐力条/血条" unique_id=266841937]
+[node name="血量条" type="TextureProgressBar" parent="血条蓝条耐力条/血量条" unique_id=266841937]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 14.999999
-offset_right = 47.0
-offset_bottom = 17.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 0.5
+offset_right = 1.0
+offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 1.0
@@ -96,19 +126,20 @@ step = 0.0
 value = 1.0
 texture_progress = SubResource("AtlasTexture_mkvpl")
 
-[node name="延迟红血" type="TextureProgressBar" parent="血条耐力条/血条" unique_id=716941940]
+[node name="延迟血量" type="TextureProgressBar" parent="血条蓝条耐力条/血量条" unique_id=716941940]
 show_behind_parent = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -4.000004
-offset_top = 8.999997
-offset_right = 46.999996
-offset_bottom = 14.999997
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -7.5000005
+offset_right = -3.0
+offset_bottom = -0.5000005
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 1.0
@@ -118,21 +149,74 @@ texture_under = SubResource("AtlasTexture_a4w3d")
 texture_progress = SubResource("AtlasTexture_80y3d")
 texture_progress_offset = Vector2(1, 2)
 
-[node name="耐力条" type="TextureProgressBar" parent="血条耐力条" unique_id=105426201]
+[node name="耐力条" type="TextureProgressBar" parent="血条蓝条耐力条" unique_id=10358998]
 layout_mode = 2
 max_value = 1.0
+step = 0.0
 value = 1.0
+metadata/_edit_lock_ = true
 
-[node name="耐力条" type="TextureProgressBar" parent="血条耐力条/耐力条" unique_id=266859493]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 17.0
-offset_right = 41.0
-offset_bottom = 57.0
+[node name="耐力条" type="TextureProgressBar" parent="血条蓝条耐力条/耐力条" unique_id=1692344903]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 9.0
+offset_right = 38.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_grdrj")
+
+[node name="延迟耐力" type="TextureProgressBar" parent="血条蓝条耐力条/耐力条" unique_id=1657956882]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -3.0
+offset_top = 5.0
+offset_right = 38.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_i4iqy")
+texture_progress = SubResource("AtlasTexture_y7nph")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="魔力条" type="TextureProgressBar" parent="血条蓝条耐力条" unique_id=105426201]
+layout_mode = 2
+size_flags_vertical = 0
+max_value = 1.0
+value = 1.0
+metadata/_edit_lock_ = true
+
+[node name="延迟魔力" type="TextureProgressBar" parent="血条蓝条耐力条/魔力条" unique_id=1751933167]
+layout_mode = 1
+offset_left = 79.0
+offset_top = -8.0
+offset_right = 124.0
+offset_bottom = -1.0
 scale = Vector2(2, 2)
 max_value = 1.0
-step = 0.1
+step = 0.0
 value = 1.0
 texture_under = SubResource("AtlasTexture_albyq")
+texture_progress = SubResource("AtlasTexture_0uw24")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="魔力条" type="TextureProgressBar" parent="血条蓝条耐力条/魔力条" unique_id=266859493]
+layout_mode = 0
+offset_left = 79.0
+offset_top = -8.0
+offset_right = 122.0
+offset_bottom = -4.5
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.0
+value = 1.0
 texture_progress = SubResource("AtlasTexture_h73pq")
 texture_progress_offset = Vector2(1, 2)

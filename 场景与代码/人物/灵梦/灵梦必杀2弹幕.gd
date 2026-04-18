@@ -5,12 +5,14 @@ var ishit=false
 @export var an: AnimationPlayer
 @export var hitarea: CollisionShape2D
 @export var hurtarea: CollisionShape2D
+@export var audio: AudioStreamPlayer
 @export var bullet_data: Bullet_Data
 @export var bullet_ctrler: Bullet_Ctrler
 
 
+
 func _ready():
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(4).timeout
 	queue_free()
 
 func _physics_process(_delta):
@@ -26,4 +28,5 @@ func _on_hurtbox_hurt(hitbox: Hitbox, attack_data: AttackData) -> void:
 			hurtarea.set_deferred("disabled", true)
 			an.play(&"hit")
 			await an.animation_finished
+			await audio.finished
 			queue_free()
