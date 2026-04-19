@@ -14,6 +14,7 @@ var character_name:String="博丽灵梦"
 #控制器导入
 @export var character_main: Character_Main
 @export var character_data: Character_Data
+@export var character_input: Character_Input
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
 
@@ -23,4 +24,9 @@ func _ready():
 	
 	
 func _process(_delta: float) -> void:
+	pass
+
+func jumpto():
+	if Input.is_action_pressed(character_input.move_left):
+		character_ctrler.jump_to_frame("后退",1)
 	pass

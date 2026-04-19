@@ -183,7 +183,7 @@ func get_Target():
 	return null
 
 ##跳转到动画的指定时间点（秒）
-func jump_to_time(anim_name: String, time: float, play_after: bool = false) -> void:
+func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:
 	if not anplayer.has_animation(anim_name):
 		print("错误：动画 '", anim_name, "' 不存在。")
 		return
@@ -193,7 +193,7 @@ func jump_to_time(anim_name: String, time: float, play_after: bool = false) -> v
 		anplayer.pause()
 
 ##跳转到动画的指定帧（需提供动画的帧率）
-func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = false) -> void:
+func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = true) -> void:
 	var time = frame / fps
 	jump_to_time(anim_name, time, play_after)
 

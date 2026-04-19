@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyh8ud21s86qf"
-path="res://.godot/imported/bulletEf000.png-a0fd665e06802ab37743cdc9832a8cac.ctex"
+path="res://.godot/imported/bulletEf000.png-f01f25a24289b04288b631d4ccb5cd35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/灵梦/bulletEf000.png"
-dest_files=["res://.godot/imported/bulletEf000.png-a0fd665e06802ab37743cdc9832a8cac.ctex"]
+source_file="res://素材/人物素材/灵梦/特效/bulletEf000.png"
+dest_files=["res://.godot/imported/bulletEf000.png-f01f25a24289b04288b631d4ccb5cd35.ctex"]
 
 [params]
 

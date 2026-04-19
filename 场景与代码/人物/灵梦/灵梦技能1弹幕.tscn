@@ -276,6 +276,7 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_wymrs"]
 script = ExtResource("9_ika7d")
+damage = 15.0
 attack_type = 2
 hitstop = 0.01
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"

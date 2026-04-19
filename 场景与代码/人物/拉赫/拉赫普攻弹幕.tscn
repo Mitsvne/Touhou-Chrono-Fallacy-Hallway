@@ -362,6 +362,7 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_xf4pb"]
 script = ExtResource("7_4p6cs")
+damage = 20.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Curve" id="Curve_03l7r"]

@@ -185,7 +185,6 @@ func transition_state(_from:State,to:State) -> void:
 		State.常态:
 			an_paly("常态")
 		State.移动:
-			#print(dir)
 			if dir*direction>0:
 				an_paly("前进")
 			else:
@@ -195,7 +194,10 @@ func transition_state(_from:State,to:State) -> void:
 		State.必杀1:
 			an_paly("必杀1")
 		State.冲刺:
-			an_paly("冲刺")
+			if Input.is_action_pressed(move_left):
+				an_paly("冲刺后")
+			else:
+				an_paly("冲刺前")
 		State.死亡:
 			an_paly("死亡")
 

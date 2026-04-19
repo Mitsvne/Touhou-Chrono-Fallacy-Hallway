@@ -12,7 +12,7 @@ var ishit=false
 
 
 func _ready():
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(4, false).timeout
 	queue_free()
 
 func _physics_process(_delta):

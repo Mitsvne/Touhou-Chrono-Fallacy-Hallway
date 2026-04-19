@@ -14,9 +14,7 @@ var angle:int=200
 
 func _ready():
 	bullet_ctrler.apply_gravity(true)
-	#effect_ctrler.start_shadow(Sprite)
 	await get_tree().create_timer(2, false).timeout
-	#effect_ctrler.stop_shadow()
 	queue_free()
 
 func _process(_delta: float) -> void:
@@ -29,11 +27,12 @@ func _process(_delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):
 		ishit=true
+		effect_ctrler.shake_once(2,2)
+		bullet_data.get_bullet_owner().character_data.mp+=10
 		hitarea.set_deferred("disabled", true)
 		hurtarea.set_deferred("disabled", true)
 		an.play(&"hit")
 		audio.play()
-		#effect_ctrler.stop_shadow()
 		await an.animation_finished
 		await audio.finished
 		queue_free()
@@ -48,7 +47,6 @@ func _on_hurtbox_hurt(hitbox: Hitbox, attack_data: AttackData) -> void:
 			hurtarea.set_deferred("disabled", true)
 			an.play(&"hit")
 			audio.play()
-			#effect_ctrler.stop_shadow()
 			await an.animation_finished
 			await audio.finished
 			queue_free()

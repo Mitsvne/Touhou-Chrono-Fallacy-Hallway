@@ -1,9 +1,11 @@
 extends Node
 class_name Character_Data
+
 signal hp_changed
 signal mp_changed
 signal energy_changed
 signal direction_changed
+
 @onready var team:String
 @onready var direction:float=1.0:
 	set(v):
@@ -51,5 +53,4 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	#时刻恢复耐力
-	energy+=energy_regen*delta
+	energy+=energy_regen*delta #时刻恢复耐力

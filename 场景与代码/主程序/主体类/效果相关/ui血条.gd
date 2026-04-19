@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 @export var character:CharacterBody2D
 @export var character_data:Character_Data
 
@@ -26,7 +26,6 @@ func _ready() -> void:
 	update_hp(character_data.hp,character_data.hp_max)
 	update_mp(character_data.mp,character_data.hp_max)
 	update_energy(character_data.energy,character_data.energy_max)
-	
 	update_avatar()
 	#print("血条ui初始化完成 血量：%s 耐力：%s 魔力：%s"%[character_data.hp,character_data.energy,character_data.mp])
 
