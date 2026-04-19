@@ -243,7 +243,7 @@ shader_parameter/strength = 1.0
 shader = ExtResource("44_hncoa")
 shader_parameter/strength = 1.0
 
-[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "button_1", "horizontal_blur")]
+[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "bgm")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -253,8 +253,9 @@ grow_vertical = 2
 theme = ExtResource("1_cuoyu")
 script = ExtResource("2_ppaiu")
 v_box_container = NodePath("ui/按钮盒竖状")
-button_1 = NodePath("ui/按钮盒竖状/开始")
+start_button = NodePath("ui/按钮盒竖状/开始")
 horizontal_blur = NodePath("水平模糊效果/水平模糊")
+bgm = NodePath("背景音乐")
 metadata/_edit_lock_ = true
 
 [node name="视差背景" type="Node2D" parent="." unique_id=1190427915]
@@ -494,7 +495,6 @@ frame_progress = 0.5239872
 
 [node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1746807027]
 stream = ExtResource("30_43m20")
-autoplay = true
 bus = &"Bgm"
 
 [node name="垂直模糊效果" type="CanvasLayer" parent="." unique_id=400354206]

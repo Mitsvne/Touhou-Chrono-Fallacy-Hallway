@@ -1,11 +1,12 @@
 extends Control
 @export var 拉赫: AnimatedSprite2D
-
+@export var back_button:Button
 
 
 func _ready() -> void:
 	拉赫.modulate.a = 0
 	move_character_with_float(拉赫, Vector2(96, -62), Vector2(96, 219), 1.5)
+	back_button.grab_focus()
 	pass
 
 

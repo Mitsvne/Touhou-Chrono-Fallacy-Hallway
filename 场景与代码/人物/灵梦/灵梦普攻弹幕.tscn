@@ -306,6 +306,7 @@ shape = SubResource("RectangleShape2D_vxfn0")
 stream = ExtResource("6_ds2uh")
 volume_db = -6.0
 autoplay = true
+bus = &"Se"
 
 [node name="class" type="Node" parent="." unique_id=936898298]
 

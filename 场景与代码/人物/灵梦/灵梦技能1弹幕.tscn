@@ -316,11 +316,13 @@ libraries/ = SubResource("AnimationLibrary_7wgds")
 [node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1123507937]
 stream = ExtResource("6_yt1m0")
 volume_db = -5.0
+bus = &"Se"
 
 [node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=1222591856]
 stream = ExtResource("7_c10u1")
 volume_db = -6.0
 autoplay = true
+bus = &"Se"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=716851145]
 visible = false

@@ -3,8 +3,10 @@ extends Control
 #signal settings_pressed
 
 @export var v_box_container: VBoxContainer
-@export var button_1: Button
+@export var start_button: Button
 @export var horizontal_blur: ColorRect
+@export var bgm: AudioStreamPlayer
+
 
 # 获取所有按钮组成一个数组
 func get_all_buttons(node: Node) -> Array:
@@ -55,6 +57,9 @@ func animate_buttons(buttons: Array, forward := true, delay_between_buttons := 0
 		await get_tree().create_timer(delay_between_buttons).timeout
 
 func _ready() -> void:
+	#加载设置
+	load_settings()
+	bgm.play()
 	#出场动画
 	var buttons: Array = get_all_buttons(self)
 	await get_tree().create_timer(0.5).timeout
@@ -62,22 +67,25 @@ func _ready() -> void:
 	buttons.sort_custom(buttons_array_sorting)
 	animate_buttons(buttons.duplicate(), true,0.2,Vector2(0,0),Vector2(0,0),0.5)
 	#鼠标控制焦点
-	button_1.grab_focus()
+	start_button.grab_focus()
 	for button:Button in v_box_container.get_children():
 		button.mouse_entered.connect(button.grab_focus)
+	
+	
+
+func load_settings():
+	var settings_scene = load("res://场景与代码/ui场景/设置页面/设置页面.tscn")
+	var settings_instance = settings_scene.instantiate()
+	settings_instance.get_node("书页背景/设置功能").load_audio_settings()
+
 
 #开始按钮
 func _on_start_pressed() -> void:
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
-	#get_tree().change_scene_to_file("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
 #设置按钮
 func _on_settings_pressed() -> void:
-	#emit_signal("settings_pressed")
-	#horizontal_blur.start_blur_transition()
-	#await get_tree().create_timer(0.5).timeout
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/设置页面/设置页面.tscn")
-	#get_tree().change_scene_to_file("res://场景与代码/ui场景/设置页面/设置页面.tscn")
 
 #退出按钮
 func _on_exit_pressed() -> void:

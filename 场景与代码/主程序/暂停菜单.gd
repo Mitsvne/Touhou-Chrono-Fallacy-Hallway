@@ -25,6 +25,9 @@ func _process(delta):
 		custom_time += delta
 		# 将累积的时间赋值给全局着色器参数
 		RenderingServer.global_shader_parameter_set("CUSTOM_TIME", custom_time)
+	
+	
+	
 
 func _on_reset_pressed() -> void:
 	get_tree().paused = false

@@ -84,8 +84,8 @@ func _physics_process(delta: float) -> void:
 	#print(current_state)
 	if character_ctrler.is_gravity:
 		current_velocity.y += gravity * delta
-	is_allow_key_move=false if character_ctrler.get_is_moving() else true
-	if is_allow_key_move and not is_dead():
+	is_allow_key_move=character_ctrler.get_is_key_moving()
+	if is_allow_key_move and not is_dead() and not character_ctrler.get_is_moving():
 		move(move_speed,delta)
 
 

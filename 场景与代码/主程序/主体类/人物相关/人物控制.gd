@@ -4,6 +4,7 @@ class_name Character_Ctrler
 @export var character_data: Character_Data
 @export var character_input: Character_Input
 @export var anplayer: AnimationPlayer
+var is_key_moving:bool=true  # 是否按键移动
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
 var is_allow_behit:bool=true  # 是否可以受击
@@ -17,15 +18,50 @@ var motion_ray: RayCast2D
 
 func _ready() -> void:
 	_create_motion_ray()
+	set_process(false)
 	print("3.Character_Ctrler初始化完成")
 	pass
 
-func _physics_process(_delta: float) -> void:
+##私有：持续移动
+func _physics_process(delta: float) -> void:
 	if anplayer.current_animation == "常态":
-		is_moving=false
-	pass
+		is_key_moving=true
+	if not is_moving or not is_instance_valid(character):
+		return
+	if is_gravity:
+		current_velocity.y += gravity * delta
+	current_velocity = _update_velocity(current_velocity, current_drag, delta)
+	current_velocity.x = clamp(current_velocity.x, -x_max_speed, x_max_speed)
+	current_velocity.y = clamp(current_velocity.y, -y_max_speed, y_max_speed)
+	var world_velocity = Vector2(current_velocity.x * character_data.direction, current_velocity.y)
+	if world_velocity.length() < 1.0:
+		stop_move()
+		return
+	var movement = world_velocity * delta
+	if movement.length() > 0:
+		motion_ray.target_position = movement
+		motion_ray.force_raycast_update()
+		if motion_ray.is_colliding():
+			var collision_point = motion_ray.get_collision_point()
+			var collision_normal = motion_ray.get_collision_normal()
+			# 将角色放置在碰撞点稍微偏移的位置，防止陷入
+			var new_global_pos = collision_point - movement.normalized() * 1.0
+			character.global_position = new_global_pos
+			# 根据法线调整速度（反弹/滑行）
+			if collision_normal.length() > 0:
+				var velocity_dot_normal = current_velocity.dot(collision_normal)
+				if velocity_dot_normal < 0:
+					current_velocity -= velocity_dot_normal * collision_normal
+			# 碰撞后若速度过小则停止
+			if current_velocity.length() < 1.0:
+				stop_move()
+				return
+		else:
+			character.global_position += movement
+	else:
+		character.global_position += movement
 
-##私有：根据阻力和加速度更新速度,drag为正数时是阻力，为负数时是加速度
+##根据阻力和加速度更新速度,drag为正数时是阻力，为负数时是加速度
 func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2:
 	if drag.x >= 0:
 		velocity.x = move_toward(velocity.x, 0, drag.x * delta)
@@ -36,44 +72,6 @@ func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2
 	else:
 		velocity.y += sign(velocity.y) * abs(drag.y) * delta if velocity.y != 0 else 0
 	return velocity
-
-##私有：持续移动
-func _move_loop():
-	while is_moving and is_instance_valid(self) and is_instance_valid(character):
-		var delta = get_process_delta_time()
-		if is_gravity:
-			current_velocity.y += gravity * delta
-		current_velocity = _update_velocity(current_velocity, current_drag, delta)
-		current_velocity.x = clamp(current_velocity.x, -x_max_speed, x_max_speed)
-		current_velocity.y = clamp(current_velocity.y, -y_max_speed, y_max_speed)
-		var world_velocity = Vector2(current_velocity.x * character_data.direction, current_velocity.y)
-		if world_velocity.length() < 1:
-			stop_move()
-			break
-		var movement = world_velocity * delta
-		# ---- 射线防穿透检测----
-		if movement.length() > 0:
-			motion_ray.target_position = movement
-			motion_ray.force_raycast_update()
-			if motion_ray.is_colliding():
-				var collision_point = motion_ray.get_collision_point()
-				var collision_normal = motion_ray.get_collision_normal()
-				var new_global_pos = collision_point - movement.normalized() * 1.0
-				character.global_position = new_global_pos
-				if collision_normal.length() > 0:
-					var velocity_dot_normal = current_velocity.dot(collision_normal)
-					if velocity_dot_normal < 0:
-						current_velocity -= velocity_dot_normal * collision_normal
-				if current_velocity.length() < 1:
-					stop_move()
-					break
-			else:
-				character.global_position += movement
-		else:
-			character.global_position += movement
-		await get_tree().process_frame
-	current_velocity = Vector2.ZERO
-	current_drag = Vector2.ZERO
 
 ##移动方向
 func _move_direction():
@@ -97,7 +95,7 @@ func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector
 	current_velocity = initial_velocity
 	current_drag = drag
 	is_moving = true
-	_move_loop()
+	set_process(true)
 
 ##设置阻力/加速度函数
 func set_drag(drag: Vector2):
@@ -105,11 +103,12 @@ func set_drag(drag: Vector2):
 
 ##停止移动函数
 func stop_move():
-	is_moving=false
-	current_drag=Vector2.ZERO
+	is_moving = false
+	current_drag = Vector2.ZERO
 	current_velocity.x = 0
-	if current_velocity.y<0 and not is_gravity:
+	if current_velocity.y < 0 and not is_gravity:
 		current_velocity.y = 0
+	set_process(false)  # 停止处理，节省性能
 
 ##是否在move移动中
 func get_is_moving():
@@ -117,7 +116,11 @@ func get_is_moving():
 
 ##设置按键移动
 func set_key_move(value:bool):
-	is_moving=not value
+	is_key_moving=value
+
+##是否可按键移动
+func get_is_key_moving():
+	return is_key_moving
 
 ##开始冲刺函数
 func start_dash(speed: float = 0.0, drag: float = 0.0):
