@@ -6,6 +6,7 @@ signal mp_changed
 signal energy_changed
 signal direction_changed
 
+
 @onready var team:String
 @onready var direction:float=1.0:
 	set(v):
@@ -45,7 +46,7 @@ signal direction_changed
 		mp_changed.emit(mp,mp_max)
 
 func _ready() -> void:
-	if team=="1P": #owner.is_in_group("1P"):
+	if team=="1P":
 		direction=1.0
 	else:
 		direction=-1.0

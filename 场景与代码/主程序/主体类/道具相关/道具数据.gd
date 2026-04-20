@@ -1,12 +1,10 @@
 extends Node
 class_name Prop_Data
 
-#signal bullet_hp_changed
-#signal bullet_direction_changed
-
 var prop_team: String
 var prop_owner: CharacterBody2D
 
+@export var prop_name: String
 @onready var prop_direction:float=1.0:
 	set(v):
 		if (v==1.0 or v==-1.0) and prop_direction!=v:

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://b1ucfm2gtvg8e"]
-
-[ext_resource type="PackedScene" uid="uid://2bvwevfxovxh" path="res://场景与代码/人物/模板/弹幕模板.tscn" id="1_iyuwa"]
-
-[node name="弹幕模板" unique_id=256754848 instance=ExtResource("1_iyuwa")]
-script = null

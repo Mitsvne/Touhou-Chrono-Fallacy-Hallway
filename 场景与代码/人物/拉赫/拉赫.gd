@@ -4,12 +4,9 @@ var move_speed:int=400
 var acceleration: float = 1600.0   # 加速度（像素/秒²）
 var friction: float = 1200.0      # 减速度（像素/秒²）
 var attack_interval:float=0.5
-var skill_cd:float=5.0
+var skill_cd:float=3.0
 var character_name:String="拉赫莱蒂"
 
-@export var attack_bullet:PackedScene
-@export var bullet2:PackedScene
-@export var bullet3:PackedScene
 @export var book:PackedScene
 
 #控制器导入
@@ -23,7 +20,7 @@ var character_name:String="拉赫莱蒂"
 
 
 func _ready():
-	character_ctrler.add_independent_prop(book,Vector2(50,50))
+	character_ctrler.add_prop(book,Vector2(50,50))
 	#get_parent().add_child.call_deferred(new_book)
 	#get_parent().add_child(new_book)
 	#character_ctrler.shoot(book,Vector2(0,0))
@@ -36,3 +33,6 @@ func _process(_delta: float) -> void:
 		effect_ctrler.fade_to_alpha(halo,0,0.4)
 		#book.modulate.a=0.0
 		#halo.modulate.a=0.0
+
+func book_attack():
+	character_ctrler.get_prop("刻印之卷").prop_ctrler.jump_to_frame("攻击激光",0)

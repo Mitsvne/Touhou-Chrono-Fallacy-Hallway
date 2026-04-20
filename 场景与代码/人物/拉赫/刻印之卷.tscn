@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cpwddaunx5ft8" path="res://场景与代码/主程序/主体类/道具相关/道具控制.gd" id="3_wyqjl"]
 [ext_resource type="Script" uid="uid://dwbij1a12ixg4" path="res://场景与代码/主程序/主体类/道具相关/道具数据.gd" id="4_enmuj"]
 [ext_resource type="Texture2D" uid="uid://d1ivgqbq087e1" path="res://素材/人物素材/拉赫/书/3.png" id="4_penrh"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="4_twclx"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="4_wyqjl"]
 [ext_resource type="Texture2D" uid="uid://wsb24vg1uen4" path="res://素材/人物素材/拉赫/书/2.png" id="5_wyqjl"]
 [ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="6_enmuj"]
@@ -18,6 +19,23 @@
 [ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/人物素材/拉赫/特效/108.png" id="12_5xo0i"]
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/110.png" id="13_nidan"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/112.png" id="14_vub1i"]
+[ext_resource type="Texture2D" uid="uid://d2453id8ckrv0" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-0.png" id="20_r6ped"]
+[ext_resource type="Texture2D" uid="uid://fvtev7a4ujdw" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-1.png" id="21_kssup"]
+[ext_resource type="Texture2D" uid="uid://cddgj27sogjmx" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-2.png" id="22_c8ads"]
+[ext_resource type="Texture2D" uid="uid://dnaptkcnhi63a" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-3.png" id="23_oiso3"]
+[ext_resource type="Texture2D" uid="uid://do1sk7ukidvkc" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-4.png" id="24_djx2v"]
+[ext_resource type="Texture2D" uid="uid://cbtjblelptmpm" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-5.png" id="25_rhojf"]
+[ext_resource type="Texture2D" uid="uid://b3bffguvhicj0" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-6.png" id="26_d5e6j"]
+[ext_resource type="Texture2D" uid="uid://congxipeuy213" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-7.png" id="27_hx808"]
+[ext_resource type="Texture2D" uid="uid://c12b6rvu0mwh8" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-8.png" id="28_lgkur"]
+[ext_resource type="Texture2D" uid="uid://cililfsyqh4ab" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-9.png" id="29_wklm6"]
+[ext_resource type="Texture2D" uid="uid://b64k51m0iq8gw" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-10.png" id="30_ccn4f"]
+[ext_resource type="Texture2D" uid="uid://bxhk7nughjwvr" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-11.png" id="31_gqcht"]
+[ext_resource type="Texture2D" uid="uid://wb310jdq83pa" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-12.png" id="32_ghj81"]
+[ext_resource type="Texture2D" uid="uid://c540mhu1jm4tr" path="res://素材/人物素材/拉赫/特效/DeathStarla_7035-13.png" id="33_1rrlp"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="34_c8ads"]
+[ext_resource type="AudioStream" uid="uid://b5joth01yqpra" path="res://素材/人物素材/拉赫/音效/激光发射.wav" id="34_oiso3"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="35_oiso3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_penrh"]
 
@@ -108,6 +126,612 @@ shader_parameter/gray_intensity = 1.0
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("20_r6ped")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kssup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_c8ads")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_oiso3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_djx2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rhojf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_d5e6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_hx808")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lgkur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_wklm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ccn4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gqcht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ghj81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_1rrlp")
+}],
+"loop": false,
+"name": &"激光",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djx2v"]
+size = Vector2(403.75, 10)
+
+[sub_resource type="Animation" id="Animation_rhojf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库/书图片:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8ml3j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库/书图片:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idea"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库/书图片:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材库/书图片:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材库/书图片:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库/书图片:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材库/书攻击特效:sprite_frames")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_40dgd")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("素材库/书攻击特效:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -10)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("素材库/书攻击特效:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("素材库/书攻击特效:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"激光"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("素材库/书攻击特效:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("动画:speed_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Hitbox/碰撞面:shape")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_djx2v")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Hitbox/碰撞面:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Hitbox/碰撞面:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("素材库/书攻击特效:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Hitbox/碰撞面:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r6ped"]
+resource_name = "常态"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库/书图片:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8ml3j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库/书图片:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idea"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库/书图片:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材库/书图片:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材库/书图片:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库/书图片:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("动画:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_d5e6j"]
+resource_name = "攻击激光"
+length = 0.5333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库/书图片:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_8ml3j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库/书图片:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"open"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库/书图片:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材库/书图片:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材库/书图片:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库/书图片:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.4666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4, 1, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材库/书攻击特效:sprite_frames")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("SpriteFrames_40dgd"), SubResource("SpriteFrames_40dgd")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("素材库/书攻击特效:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"激光", &"激光"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("素材库/书攻击特效:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(300, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("素材库/书攻击特效:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("素材库/书攻击特效:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.06666667, 0.099999994, 0.13333333, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.4666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("动画:speed_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Hitbox/碰撞面:shape")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.20000002, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [SubResource("RectangleShape2D_djx2v"), SubResource("RectangleShape2D_djx2v")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Hitbox/碰撞面:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Hitbox/碰撞面:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.20000002, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(202, -3), Vector2(302, -3)]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("class/Prop_Ctrler")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.53333336),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["常态", 0, 30.0, true],
+"method": &"jump_to_frame"
+}]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("素材库/书攻击特效:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.06666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath(".")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_audio"
+}]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Hitbox/碰撞面:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.20000002, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1)]
+}
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("class/Effect_Ctrler")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2.0, 0.0, 0.5],
+"method": &"shake_once"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kssup"]
+_data = {
+&"RESET": SubResource("Animation_rhojf"),
+&"常态": SubResource("Animation_r6ped"),
+&"攻击激光": SubResource("Animation_d5e6j")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8ads"]
+animations = [{
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_twclx")
 }, {
 "duration": 1.0,
@@ -132,46 +756,86 @@ animations = [{
 "texture": ExtResource("14_vub1i")
 }],
 "loop": true,
-"name": &"default",
+"name": &"气息",
 "speed": 10.0
 }]
 
-[node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler") groups=["props"]]
+[sub_resource type="Resource" id="Resource_hx808"]
+script = ExtResource("35_oiso3")
+attack_interval = 0.1
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler", "audio") groups=["props"]]
 script = ExtResource("1_rn5ax")
 prop_data = NodePath("class/Prop_Data")
 prop_ctrler = NodePath("class/Prop_Ctrler")
+audio = NodePath("音效")
 
 [node name="class" type="Node" parent="." unique_id=1263035583]
 
 [node name="Prop_Data" type="Node" parent="class" unique_id=602318771]
 script = ExtResource("4_enmuj")
+prop_name = "刻印之卷"
 metadata/_custom_type_script = "uid://dwbij1a12ixg4"
 
-[node name="Prop_Ctrler" type="Node" parent="class" unique_id=1950980972 node_paths=PackedStringArray("prop_data", "prop")]
+[node name="Prop_Ctrler" type="Node" parent="class" unique_id=1950980972 node_paths=PackedStringArray("anplayer", "prop_data", "prop")]
 script = ExtResource("3_wyqjl")
+anplayer = NodePath("../../动画")
 prop_data = NodePath("../Prop_Data")
 prop = NodePath("../..")
 metadata/_custom_type_script = "uid://cpwddaunx5ft8"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=972958063]
+script = ExtResource("4_twclx")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=757008451]
 visible = false
 shape = SubResource("RectangleShape2D_penrh")
 disabled = true
 
-[node name="图像" type="Node2D" parent="." unique_id=378101441]
+[node name="素材库" type="Node2D" parent="." unique_id=378101441]
 
-[node name="书图片" type="AnimatedSprite2D" parent="图像" unique_id=2075205217]
+[node name="书图片" type="AnimatedSprite2D" parent="素材库" unique_id=2075205217]
 material = SubResource("ShaderMaterial_enmuj")
-position = Vector2(0, 2)
+position = Vector2(0, -3)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_8ml3j")
 animation = &"idea"
 autoplay = "idea"
 
-[node name="书特效" type="AnimatedSprite2D" parent="图像" unique_id=667068883]
+[node name="书攻击特效" type="AnimatedSprite2D" parent="素材库" unique_id=667068883]
+visible = false
 self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 material = SubResource("ShaderMaterial_4dkra")
-position = Vector2(2, -8)
+position = Vector2(2, -10)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_40dgd")
-autoplay = "default"
+animation = &"激光"
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=1769723863]
+libraries/ = SubResource("AnimationLibrary_kssup")
+autoplay = &"常态"
+
+[node name="书全局特效" type="AnimatedSprite2D" parent="." unique_id=1142687465]
+self_modulate = Color(2.454227, 2.454227, 2.454227, 0.5882353)
+material = SubResource("ShaderMaterial_4dkra")
+position = Vector2(2, -10)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_c8ads")
+animation = &"气息"
+autoplay = "气息"
+
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=189264982]
+stream = ExtResource("34_oiso3")
+bus = &"Se"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=43201303]
+script = ExtResource("34_c8ads")
+attack_data = SubResource("Resource_hx808")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=2095502050]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_djx2v")
+disabled = true

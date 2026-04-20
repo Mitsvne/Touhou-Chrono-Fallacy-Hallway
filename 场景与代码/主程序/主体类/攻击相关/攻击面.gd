@@ -25,7 +25,10 @@ func _physics_process(delta: float):
 		_cooldown_timers[hurtbox] = cooldown_accum
 
 func _on_area_entered(area: Area2D):
-	team = owner.bullet_data.bullet_team
+	if owner.is_in_group("bullets"):
+		team = owner.bullet_data.bullet_team
+	if owner.is_in_group("props"):
+		team = owner.prop_data.prop_team
 	if area is Hurtbox and not area.owner.is_in_group(team):
 		if not hurtboxes.has(area):
 			hurtboxes.append(area)

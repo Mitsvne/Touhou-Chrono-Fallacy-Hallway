@@ -1,9 +1,11 @@
 extends Node
 class_name Bullet_Data
 
+
 var bullet_team: String
 var bullet_owner: CharacterBody2D
 
+@export var bullet_name: String
 @export var bullet_hp_max:float=10
 @onready var bullet_hp:float=bullet_hp_max:
 	set(v):

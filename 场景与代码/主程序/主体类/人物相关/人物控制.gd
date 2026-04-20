@@ -222,7 +222,7 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	# 设置子弹的旋转方向为人物面向的方向
 	bullet_instance.rotation = character.rotation + offset_rotation
 	
-func add_independent_prop(prop,offset:Vector2,offset_rotation:float=0.0):
+func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	if not prop:
 		return
 	var prop_instance = prop.instantiate()
@@ -237,3 +237,21 @@ func add_independent_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	#print("道具主人：",prop_instance.prop_data.prop_owner)
 	prop_instance.position = character.position + offset
 	prop_instance.rotation = character.rotation + offset_rotation
+
+func get_prop(pname:String):
+	var props = get_tree().get_nodes_in_group("props")
+	for prop in props:
+		var prop_name=prop.prop_data.prop_name
+		if prop_name and prop_name==pname:
+			return prop
+		else:
+			printerr("未找到名为",pname,"的道具")
+
+func get_bullet(bname:String):
+	var bullets = get_tree().get_nodes_in_group("bullets")
+	for bullet in bullets:
+		var bullet_name=bullet.bullet_data.bullet_name
+		if bullet_name and bullet_name==bname:
+			return bullet
+		else:
+			printerr("未找到名为",bname,"的弹幕")

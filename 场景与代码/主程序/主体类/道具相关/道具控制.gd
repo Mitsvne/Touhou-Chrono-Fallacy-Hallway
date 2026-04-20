@@ -1,6 +1,7 @@
 extends Node
 class_name Prop_Ctrler
 
+@export var anplayer: AnimationPlayer
 @export var prop_data: Prop_Data
 @export var prop: Area2D
 
@@ -78,21 +79,30 @@ func apply_gravity(value: bool):
 	is_gravity = value
 
 ## 设置朝向（1=右，-1=左）
-func set_direction(value: int):
-	prop_data.bullet_direction = value
+func set_direction(value: float):
+	prop_data.prop_direction = value
+	prop.scale.x=value
 
+## 获取敌人
 func get_target():
-	var team = owner.team
+	var team = prop_data.prop_team
 	var characters = get_tree().get_nodes_in_group("characters")
 	for character in characters:
 		if character is CharacterBody2D and not character.is_in_group(team):
 			return character
 	return null
-	
-func get_prop_owner():
-	var team = owner.team
-	var characters = get_tree().get_nodes_in_group("characters")
-	for character in characters:
-		if character is CharacterBody2D and character.is_in_group(team):
-			return character
-	return null
+
+##跳转到动画的指定时间点（秒）
+func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:
+	if not anplayer.has_animation(anim_name):
+		print("错误：动画 '", anim_name, "' 不存在。")
+		return
+	anplayer.play(anim_name)
+	anplayer.seek(time, true)
+	if not play_after:
+		anplayer.pause()
+
+##跳转到动画的指定帧（需提供动画的帧率）
+func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = true) -> void:
+	var time = frame / fps
+	jump_to_time(anim_name, time, play_after)

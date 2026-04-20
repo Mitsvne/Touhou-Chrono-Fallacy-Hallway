@@ -16,8 +16,8 @@ var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
 var move_speed:int
 var current_velocity: Vector2 = Vector2.ZERO
-var acceleration: float   # 加速度（像素/秒²）
-var friction: float       # 减速度（像素/秒²）
+var acceleration: float
+var friction: float
 var direction:float
 var is_allow_key_move:bool=true
 var is_alive:bool=true
@@ -25,7 +25,6 @@ var attack_timer = Timer.new()
 var skill_timer = Timer.new()
 var is_attack_timer_timeout:bool=false
 var is_skill_timer_timeout:bool=true
-const KEEP_CURRENT:=-1
 var current_state:int=-1:
 	set(v):
 		transition_state(current_state,v)
@@ -42,26 +41,25 @@ var ultimate:String="ultimate_1p"
 
 ##初始化函数
 func _ready() -> void:
-	await character.ready #等人物先加载
-	move_speed=character.move_speed #移速
-	acceleration=character.acceleration #加速度
-	friction=character.friction #减速度
-	direction=character_data.direction #朝向
+	await character.ready                          #等人物先加载
+	move_speed=character.move_speed                #移速
+	acceleration=character.acceleration            #加速度
+	friction=character.friction                    #减速度
+	direction=character_data.direction             #朝向
 	character_data.direction_changed.connect(update_direction)
 	update_direction(direction)
-	current_state=0 #初始状态值
-	team=character_data.team #队伍
-	is_alive=true #是否活着
-	#计时器
+	current_state=0                                #初始状态值
+	team=character_data.team                       #队伍
+	is_alive=true                                  #是否活着
+	#普攻和技能cd计时器
 	attack_timer.wait_time = character.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
-	attack_bullet=character.attack_bullet
 	skill_timer.wait_time = character.skill_cd
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
-	#控制按键
-	character_input.set_control_key(character_data.team)
+	#按队伍分配控制按键
+	character_input.set_control_key(team)
 	move_left=character_input.move_left
 	move_right=character_input.move_right
 	move_up=character_input.move_up
@@ -81,7 +79,6 @@ func _physics_process(delta: float) -> void:
 			break
 		current_state=next_state
 	tick_physics(current_state,delta)
-	#print(current_state)
 	if character_ctrler.is_gravity:
 		current_velocity.y += gravity * delta
 	is_allow_key_move=character_ctrler.get_is_key_moving()
