@@ -55,7 +55,6 @@
 [ext_resource type="Texture2D" uid="uid://b015xkeojppwo" path="res://素材/人物素材/灵梦/人物/hitAir006.png" id="38_ry8iq"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="39_3568u"]
 [ext_resource type="PackedScene" uid="uid://c3rabsfr17fmj" path="res://场景与代码/人物/灵梦/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
-[ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="51_0i5hr"]
 [ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="52_kgnp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
@@ -1239,12 +1238,6 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
-shader = ExtResource("51_0i5hr")
-shader_parameter/speed_x1 = 0.5
-shader_parameter/speed_x2 = 0.7
-shader_parameter/speed_y1 = 1.0
-shader_parameter/speed_y2 = 1.0
-shader_parameter/amplitude = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
 size = Vector2(36, 28)
