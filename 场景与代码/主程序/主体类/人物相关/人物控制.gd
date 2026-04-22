@@ -1,31 +1,29 @@
 extends Node
 class_name Character_Ctrler
+
 @export var character:CharacterBody2D #角色节点
 @export var character_data: Character_Data
 @export var character_input: Character_Input
 @export var anplayer: AnimationPlayer
+
 var is_key_moving:bool=true  # 是否按键移动
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
 var is_allow_behit:bool=true  # 是否可以受击
 var is_invincible:bool=true  # 是否无敌
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float # 重力数值
-var x_max_speed: float = 99999.0  # x轴最大速度
-var y_max_speed: float = 99999.0  # y轴最大速度
+var x_max_speed: float = 9999.0  # x轴最大速度
+var y_max_speed: float = 9999.0  # y轴最大速度
 var current_velocity: Vector2 = Vector2.ZERO  # 当前速度
 var current_drag: Vector2 = Vector2.ZERO  # 当前阻力/加速度
-var motion_ray: RayCast2D
+
 
 func _ready() -> void:
-	_create_motion_ray()
-	set_process(false)
+	set_physics_process(false)
 	print("3.Character_Ctrler初始化完成")
 	pass
 
-##私有：持续移动
 func _physics_process(delta: float) -> void:
-	if anplayer.current_animation == "常态":
-		is_key_moving=true
 	if not is_moving or not is_instance_valid(character):
 		return
 	if is_gravity:
@@ -38,28 +36,16 @@ func _physics_process(delta: float) -> void:
 		stop_move()
 		return
 	var movement = world_velocity * delta
-	if movement.length() > 0:
-		motion_ray.target_position = movement
-		motion_ray.force_raycast_update()
-		if motion_ray.is_colliding():
-			var collision_point = motion_ray.get_collision_point()
-			var collision_normal = motion_ray.get_collision_normal()
-			# 将角色放置在碰撞点稍微偏移的位置，防止陷入
-			var new_global_pos = collision_point - movement.normalized() * 1.0
-			character.global_position = new_global_pos
-			# 根据法线调整速度（反弹/滑行）
-			if collision_normal.length() > 0:
-				var velocity_dot_normal = current_velocity.dot(collision_normal)
-				if velocity_dot_normal < 0:
-					current_velocity -= velocity_dot_normal * collision_normal
-			# 碰撞后若速度过小则停止
-			if current_velocity.length() < 1.0:
-				stop_move()
-				return
-		else:
-			character.global_position += movement
-	else:
-		character.global_position += movement
+	var collision := character.move_and_collide(movement)
+	if collision:
+		var normal := collision.get_normal()
+		var velocity_dot_normal := world_velocity.dot(normal)
+		if velocity_dot_normal < 0:
+			world_velocity -= velocity_dot_normal * normal
+		current_velocity = Vector2(world_velocity.x * character_data.direction, world_velocity.y)
+		if current_velocity.length() < 1.0:
+			stop_move()
+			return
 
 ##根据阻力和加速度更新速度,drag为正数时是阻力，为负数时是加速度
 func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2:
@@ -73,21 +59,6 @@ func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2
 		velocity.y += sign(velocity.y) * abs(drag.y) * delta if velocity.y != 0 else 0
 	return velocity
 
-##移动方向
-func _move_direction():
-	var move_dir = Input.get_vector(character_input.move_left,character_input.move_right,character_input.move_up, character_input.move_down)
-	return move_dir
-
-##创建运动射线
-func _create_motion_ray():
-	motion_ray = RayCast2D.new()
-	motion_ray.name = "MotionRay"
-	motion_ray.enabled = true
-	motion_ray.hit_from_inside = true
-	motion_ray.target_position = Vector2(1000, 0)
-	motion_ray.collision_mask = character.collision_mask
-	character.add_child.call_deferred(motion_ray)
-
 ##开始移动函数
 func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector2.ZERO):
 	if is_moving:
@@ -95,7 +66,7 @@ func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector
 	current_velocity = initial_velocity
 	current_drag = drag
 	is_moving = true
-	set_process(true)
+	set_physics_process(true)
 
 ##设置阻力/加速度函数
 func set_drag(drag: Vector2):
@@ -108,7 +79,7 @@ func stop_move():
 	current_velocity.x = 0
 	if current_velocity.y < 0 and not is_gravity:
 		current_velocity.y = 0
-	set_process(false)  # 停止处理，节省性能
+	set_physics_process(false)
 
 ##是否在move移动中
 func get_is_moving():
@@ -122,14 +93,18 @@ func set_key_move(value:bool):
 func get_is_key_moving():
 	return is_key_moving
 
+##获取移动方向
+func get_move_direction():
+	var move_dir = Input.get_vector(character_input.move_left,character_input.move_right,character_input.move_up, character_input.move_down)
+	return move_dir
+
 ##开始冲刺函数
 func start_dash(speed: float = 0.0, drag: float = 0.0):
-	var dash_dir = _move_direction()
+	var dash_dir = get_move_direction()
 	if dash_dir == Vector2.ZERO:
 		dash_dir=Vector2(1.0,0.0)
 	var c_velocity = dash_dir.normalized() * speed
 	var c_drag = Vector2(1.0,1.0).normalized() * drag
-	#print(c_velocity,c_drag)
 	start_move(c_velocity,c_drag)
 
 ##停止冲刺函数
@@ -177,14 +152,6 @@ func set_invincible(value:bool):
 func get_invincible():
 	return is_invincible
 
-func get_Target():
-	var team=character_data.team
-	var characters = get_tree().get_nodes_in_group("characters")
-	for _character in characters:
-		if _character is CharacterBody2D and not _character.is_in_group(team):
-			return _character
-	return null
-
 ##跳转到动画的指定时间点（秒）
 func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:
 	if not anplayer.has_animation(anim_name):
@@ -199,7 +166,6 @@ func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> vo
 func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = true) -> void:
 	var time = frame / fps
 	jump_to_time(anim_name, time, play_after)
-
 
 ##发射弹幕函数
 func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
@@ -221,7 +187,8 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	bullet_instance.position = character.position + offset
 	# 设置子弹的旋转方向为人物面向的方向
 	bullet_instance.rotation = character.rotation + offset_rotation
-	
+
+##添加道具
 func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	if not prop:
 		return
@@ -238,6 +205,7 @@ func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	prop_instance.position = character.position + offset
 	prop_instance.rotation = character.rotation + offset_rotation
 
+##获取道具
 func get_prop(pname:String):
 	var props = get_tree().get_nodes_in_group("props")
 	for prop in props:
@@ -247,6 +215,7 @@ func get_prop(pname:String):
 		else:
 			printerr("未找到名为",pname,"的道具")
 
+##获取弹幕
 func get_bullet(bname:String):
 	var bullets = get_tree().get_nodes_in_group("bullets")
 	for bullet in bullets:
@@ -255,3 +224,12 @@ func get_bullet(bname:String):
 			return bullet
 		else:
 			printerr("未找到名为",bname,"的弹幕")
+
+##获取对方
+func get_Target():
+	var team=character_data.team
+	var characters = get_tree().get_nodes_in_group("characters")
+	for _character in characters:
+		if _character is CharacterBody2D and not _character.is_in_group(team):
+			return _character
+	return null

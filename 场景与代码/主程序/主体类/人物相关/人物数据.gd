@@ -55,3 +55,4 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	energy+=energy_regen*delta #时刻恢复耐力
+	

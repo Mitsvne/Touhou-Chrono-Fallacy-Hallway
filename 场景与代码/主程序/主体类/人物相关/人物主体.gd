@@ -11,13 +11,14 @@ class_name Character_Main
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
 
-enum State{NONE,常态,移动,技能1,必杀1,冲刺,死亡}
+enum State{NONE,常态,移动,技能,必杀,冲刺,死亡}
 var current_state: State = State.常态 :
 	set(v):
-		print(current_state)
+		#print(current_state)
 		if current_state == v: return
 		exit_state(current_state)
 		transition_state(current_state,v)
+		print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
 		current_state=v
 		enter_state(v)
 
@@ -74,6 +75,7 @@ func _ready() -> void:
 	print("5.Character_Main初始化完成:",character)
 
 
+
 ##每帧效果函数
 func _physics_process(delta: float) -> void:
 	var next_state = get_next_state(current_state)
@@ -94,7 +96,7 @@ func tick_physics(state:State,_delta: float) -> void:
 		State.移动:
 			move_animation()
 			fire_bullet()
-		State.冲刺,State.技能1,State.必杀1:
+		State.冲刺,State.技能,State.必杀:
 			pass
 		State.死亡:
 			character_ctrler.set_invincible(true)
@@ -119,10 +121,10 @@ func get_next_state(state:State)->State:
 		State.冲刺:
 			if not anplayer.is_playing():
 				return State.常态
-		State.技能1:
+		State.技能:
 			if not anplayer.is_playing():
 				return State.常态
-		State.必杀1:
+		State.必杀:
 			if not anplayer.is_playing():
 				return State.常态
 	return state
@@ -144,10 +146,10 @@ func transition_state(_from:State,to:State) -> void:
 			an_paly("常态")
 		State.移动:
 			move_animation()
-		State.技能1:
-			an_paly("技能1")
-		State.必杀1:
-			an_paly("必杀1")
+		State.技能:
+			an_paly("技能")
+		State.必杀:
+			an_paly("必杀")
 		State.冲刺:
 			dash_animation()
 		State.死亡:
@@ -189,12 +191,13 @@ func idle_move() -> State:
 		if skill_timer.is_stopped():
 			skill_timer.start()
 		is_skill_timer_timeout=false
-		return State.技能1
+		return State.技能
 	if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
 		character_data.mp-=100
-		return State.必杀1
+		return State.必杀
 	if Input.is_action_just_pressed(dash) and character_data.energy>=25:
 		character_data.energy-=25
+		print("冲刺")
 		return State.冲刺
 	return State.NONE
 

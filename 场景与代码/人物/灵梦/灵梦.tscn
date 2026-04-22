@@ -306,7 +306,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.0]
+"values": [1.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -461,6 +461,18 @@ tracks/7/keys = {
 "args": [false],
 "method": &"set_invincible"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../动画:speed_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
 }
 
 [sub_resource type="Animation" id="Animation_kgnp6"]
@@ -1231,9 +1243,9 @@ _data = {
 &"前进": SubResource("Animation_0i5hr"),
 &"后退": SubResource("Animation_wmq54"),
 &"常态": SubResource("Animation_yvw77"),
-&"必杀1": SubResource("Animation_uvb8v"),
+&"必杀": SubResource("Animation_uvb8v"),
 &"必杀2": SubResource("Animation_aqga6"),
-&"技能1": SubResource("Animation_m1hc4"),
+&"技能": SubResource("Animation_m1hc4"),
 &"死亡": SubResource("Animation_5jvom")
 }
 
@@ -1308,7 +1320,6 @@ shape = SubResource("RectangleShape2D_256k3")
 [node name="动画" type="AnimationPlayer" parent="." unique_id=657560165]
 root_node = NodePath("../素材库")
 libraries/ = SubResource("AnimationLibrary_wrpc5")
-speed_scale = 2.0
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=7809292]
 material = SubResource("ShaderMaterial_xftrd")
