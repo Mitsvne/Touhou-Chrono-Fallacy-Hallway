@@ -1,5 +1,7 @@
 extends Node
+## 人物按键输入类：根据队伍分配键位
 class_name Character_Input
+
 var input_arry=["move_left_1p","move_right_1p","move_up_1p","move_down_1p",
 				"dash_1p","attack_1p","skill_1p","ultimate_1p",
 				"move_left_2p","move_right_2p","move_up_2p","move_down_2p",
@@ -55,10 +57,6 @@ var input_arry=["move_left_1p","move_right_1p","move_up_1p","move_down_1p",
 
 func _ready() -> void:
 	print("2.Character_Input初始化完成")
-	pass
-
-func _process(_delta: float) -> void:
-	#set_control_key(owner.team)
 	pass
 
 func set_control_key(team:String="1P") -> void:

@@ -1,4 +1,5 @@
 extends Node
+## 人物主体类，状态机
 class_name Character_Main
 
 @export var character_data: Character_Data
@@ -7,18 +8,18 @@ class_name Character_Main
 @export var character:CharacterBody2D
 @export var anplayer: AnimationPlayer
 @export var hurtbox: Hurtbox
+@export var bt_player: BTPlayer
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
 
-enum State{NONE,常态,移动,技能,必杀,冲刺,死亡}
+enum State{NONE,常态,移动,冲刺,技能,必杀,死亡}
 var current_state: State = State.常态 :
 	set(v):
-		#print(current_state)
 		if current_state == v: return
 		exit_state(current_state)
 		transition_state(current_state,v)
-		print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
+		#print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
 		current_state=v
 		enter_state(v)
 
@@ -33,6 +34,7 @@ var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
 var skill_timer = Timer.new()
+var can_shoot: bool = true
 var is_attack_timer_timeout:bool=false
 var is_skill_timer_timeout:bool=true
 
@@ -45,7 +47,7 @@ var attack:String="attack_1p"
 var skill:String="skill_1p"
 var ultimate:String="ultimate_1p"
 
-##初始化函数
+## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
 	team=character_data.team                       #队伍
@@ -74,10 +76,10 @@ func _ready() -> void:
 	ultimate=character_input.ultimate
 	print("5.Character_Main初始化完成:",character)
 
-
-
-##每帧效果函数
+## 每帧效果函数
 func _physics_process(delta: float) -> void:
+	if bt_player and bt_player.active:
+		return
 	var next_state = get_next_state(current_state)
 	if next_state != current_state:
 		current_state = next_state
@@ -88,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	if is_allow_key_move and not is_dead() and not character_ctrler.get_is_moving():
 		move(move_speed,delta)
 
-##状态每帧的效果函数
+## 状态每帧的效果函数
 func tick_physics(state:State,_delta: float) -> void:
 	match  state:
 		State.常态:
@@ -103,7 +105,7 @@ func tick_physics(state:State,_delta: float) -> void:
 			character_ctrler.apply_gravity(true)
 			is_alive=false
 
-##下一个状态逻辑函数
+## 下一个状态逻辑函数
 func get_next_state(state:State)->State:
 	if is_dead():
 			return State.死亡
@@ -129,33 +131,33 @@ func get_next_state(state:State)->State:
 				return State.常态
 	return state
 
-##状态进入时
+## 状态进入时
 func enter_state(state:State):
 	match state:
 		pass
 
-##状态退出时
+## 状态退出时
 func exit_state(state:State):
 	match state:
 		pass
 
-##状态动画播放函数
+## 状态动画播放函数
 func transition_state(_from:State,to:State) -> void:
 	match to:
 		State.常态:
 			an_paly("常态")
 		State.移动:
 			move_animation()
+		State.冲刺:
+			dash_animation()
 		State.技能:
 			an_paly("技能")
 		State.必杀:
 			an_paly("必杀")
-		State.冲刺:
-			dash_animation()
 		State.死亡:
 			an_paly("死亡")
 
-##移动动画播放函数
+## 移动动画播放函数
 func move_animation():
 	var dir:=Input.get_axis(move_left,move_right)
 	if dir*direction>0:
@@ -163,7 +165,7 @@ func move_animation():
 	else:
 		an_paly("后退")
 
-##冲刺动画播放函数
+## 冲刺动画播放函数
 func dash_animation():
 	var dir:=Input.get_axis(move_left,move_right)
 	if dir*direction<0:
@@ -177,7 +179,7 @@ func dash_animation():
 		else:
 			an_paly("冲刺")
 
-##动画播放函数
+## 动画播放函数
 func an_paly(an_name:String):
 	if anplayer.has_animation(an_name):
 		anplayer.play(an_name)
@@ -185,7 +187,7 @@ func an_paly(an_name:String):
 		printerr("缺失动画: ", an_name)
 		return
 
-##常态，移动状态通用效果
+## 常态，移动状态通用效果
 func idle_move() -> State:
 	if Input.is_action_just_pressed(skill) and is_skill_timer_timeout:
 		if skill_timer.is_stopped():
@@ -197,11 +199,10 @@ func idle_move() -> State:
 		return State.必杀
 	if Input.is_action_just_pressed(dash) and character_data.energy>=25:
 		character_data.energy-=25
-		print("冲刺")
 		return State.冲刺
 	return State.NONE
 
-##受击处理函数
+## 受击处理函数
 func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	if not character_ctrler.get_is_allow_behit():
 		print("不可受击状态")
@@ -222,7 +223,7 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 		attack_effect_node.set_attack_effect(attack_type,hitbox.global_position)
 	attack_effect_node.set_hitstop(hitstop)
 	
-##惯性移动函数
+## 惯性移动函数
 func move(max_speed:float,delta):
 	var input_dir = Input.get_vector(move_left,move_right,move_up,move_down)
 	var target_direction = input_dir.normalized()
@@ -238,17 +239,17 @@ func move(max_speed:float,delta):
 	character.velocity = current_velocity
 	character.move_and_slide()
 
-##更新朝向
+## 更新朝向
 func update_direction(direct:float):
 	direction=direct
 	character.scale.x=direction
 
-##判断是否死亡
+## 判断是否死亡
 func is_dead():
 	if character_data.hp<=0 or not is_alive:
 		return true
 
-##普攻弹幕发射
+## 普攻弹幕发射
 func fire_bullet():
 	if Input.is_action_pressed(attack):
 		if attack_timer.is_stopped():
@@ -262,7 +263,7 @@ func fire_bullet():
 			is_attack_timer_timeout=false
 			attack_timer.stop()
 
-##计时结束的回调函数
+## 计时结束的回调函数
 func _on_attack_timer_timeout():
 	is_attack_timer_timeout=true;
 

@@ -16,11 +16,11 @@ var current_drag: Vector2 = Vector2.ZERO       # 当前阻力/加速度
 
 func _ready() -> void:
 	prop_owner=prop_data.prop_owner
-	set_process(false)
+	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	if not is_moving:
-		set_process(false)
+		set_physics_process(false)
 		return
 	if not is_instance_valid(self) or not is_instance_valid(prop):
 		stop_move()
@@ -57,7 +57,7 @@ func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector
 	current_velocity = initial_velocity
 	current_drag = drag
 	is_moving = true
-	set_process(true)
+	set_physics_process(true)
 
 ## 设置阻力/加速度函数
 func set_drag(drag: Vector2):
@@ -68,7 +68,7 @@ func stop_move():
 	if not is_moving:
 		return
 	is_moving = false
-	set_process(false)
+	set_physics_process(false)
 	current_drag = Vector2.ZERO
 	current_velocity.x = 0
 	if current_velocity.y < 0 and not is_gravity:
@@ -92,7 +92,7 @@ func get_target():
 			return character
 	return null
 
-##跳转到动画的指定时间点（秒）
+## 跳转到动画的指定时间点（秒）
 func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:
 	if not anplayer.has_animation(anim_name):
 		print("错误：动画 '", anim_name, "' 不存在。")
@@ -102,7 +102,18 @@ func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> vo
 	if not play_after:
 		anplayer.pause()
 
-##跳转到动画的指定帧（需提供动画的帧率）
+## 跳转到动画的指定帧（需提供动画的帧率）
 func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after: bool = true) -> void:
 	var time = frame / fps
 	jump_to_time(anim_name, time, play_after)
+
+## 播放音频
+func play_audio(audio_path: NodePath):
+	var audio_node = get_node(audio_path)
+	if audio_node == null:
+		printerr("找不到节点: ", audio_path)
+		return
+	if audio_node is AudioStreamPlayer:
+		audio_node.play()
+	else:
+		printerr("该节点不是AudioStreamPlayer")

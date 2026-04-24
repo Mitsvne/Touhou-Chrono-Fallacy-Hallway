@@ -65,6 +65,9 @@
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="55_wrct2"]
 [ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="58_i3xqp"]
 [ext_resource type="PackedScene" uid="uid://dtdtc3d7elfs7" path="res://场景与代码/人物/拉赫/拉赫必杀1弹幕.tscn" id="58_o2gg5"]
+[ext_resource type="BehaviorTree" uid="uid://cg7a6p1wt5tno" path="res://场景与代码/主程序/主体类/AI相关/行为树/拉赫AI行为树.tres" id="66_pxu2m"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_1asjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vjy5"]
 size = Vector2(36, 49)
@@ -1208,7 +1211,7 @@ character_input = NodePath("../Character_Input")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox")]
+[node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
 script = ExtResource("4_10ogm")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
@@ -1216,6 +1219,7 @@ character_input = NodePath("../Character_Input")
 character = NodePath("../..")
 anplayer = NodePath("../../动画")
 hurtbox = NodePath("../../Hurtbox")
+bt_player = NodePath("../../AI/BTPlayer")
 damage_number = ExtResource("2_bgnr4")
 attack_bullet = ExtResource("2_udp54")
 attack_effect = ExtResource("9_6estm")
@@ -1224,6 +1228,14 @@ metadata/_custom_type_script = "uid://jclrroyodlts"
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]
 script = ExtResource("24_ljw2w")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[node name="AI" type="Node" parent="." unique_id=1591852842]
+
+[node name="BTPlayer" type="BTPlayer" parent="AI" unique_id=344541768]
+behavior_tree = ExtResource("66_pxu2m")
+agent_node = NodePath("../..")
+active = false
+blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
 visible = false

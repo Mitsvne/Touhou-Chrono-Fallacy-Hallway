@@ -1,4 +1,5 @@
 extends Node
+## 人物数据类：记录基础数据
 class_name Character_Data
 
 signal hp_changed
@@ -53,6 +54,6 @@ func _ready() -> void:
 	print("1.Character_Data初始化完成")
 	pass
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	energy+=energy_regen*delta #时刻恢复耐力
 	

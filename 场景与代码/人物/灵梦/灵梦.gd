@@ -6,6 +6,8 @@ var friction: float = 1200.0      # 减速度（像素/秒²）
 var attack_interval:float=0.3
 var skill_cd:float=3.0
 var character_name:String="博丽灵梦"
+@export var audio: AudioStreamPlayer
+
 
 @export var attack_bullet:PackedScene
 @export var bullet2:PackedScene
@@ -26,7 +28,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	pass
 
-func jumpto():
-	if Input.is_action_pressed(character_input.move_left):
-		character_ctrler.jump_to_frame("后退",1)
-	pass
+
+
+func play_audio():
+	audio.play()
