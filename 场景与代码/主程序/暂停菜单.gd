@@ -5,7 +5,6 @@ var custom_time: float = 0.0
 
 @export var continue_button: Button
 
-
 func _input(event):
 	if event.is_action_pressed(&"pause"):
 		pause()
@@ -25,9 +24,6 @@ func _process(delta):
 		custom_time += delta
 		# 将累积的时间赋值给全局着色器参数
 		RenderingServer.global_shader_parameter_set("CUSTOM_TIME", custom_time)
-	
-	
-	
 
 func _on_reset_pressed() -> void:
 	get_tree().paused = false

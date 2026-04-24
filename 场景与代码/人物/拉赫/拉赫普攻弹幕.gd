@@ -16,7 +16,7 @@ func _physics_process(_delta):
 	if(ishit):
 		bullet_ctrler.stop_move()
 	else:
-		bullet_ctrler.start_move(Vector2(800,0))
+		bullet_ctrler.start_move(Vector2(1000,0),Vector2(-2000,0))
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):

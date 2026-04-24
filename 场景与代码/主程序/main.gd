@@ -28,7 +28,6 @@ func _ready():
 		players[1].character_data.team="2P"
 		print("第一个角色:%s加入:%s"%
 		[players[1].character_name,players[1].character_data.team])
-	
 	print("main初始化完成")
 	add_child(character1_instance)
 	add_child(character2_instance)

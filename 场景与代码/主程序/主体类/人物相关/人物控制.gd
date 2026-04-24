@@ -185,7 +185,7 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	#print("飞行物所在组：",bullet_instance.get_groups())
 	#print("飞行物队伍："+bullet_instance.bullet_data.bullet_team)
 	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
-	bullet_instance.position = character.position + offset
+	bullet_instance.position = character.position + offset * character_data.direction
 	bullet_instance.rotation = character.rotation + offset_rotation
 
 ## 添加道具
@@ -202,8 +202,16 @@ func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	#print("道具所在组：",prop_instance.get_groups())
 	#print("道具队伍："+prop_instance.prop_data.bullet_team)
 	#print("道具主人：",prop_instance.prop_data.prop_owner)
-	prop_instance.position = character.position + offset
+	prop_instance.position = character.position + offset * character_data.direction
 	prop_instance.rotation = character.rotation + offset_rotation
+
+func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0):
+	if not line:
+		return
+	var line_instance = line.instantiate()
+	get_parent().add_child(line_instance)
+	line_instance.position = character.position + offset
+	line_instance.rotation = character.rotation + offset_rotation
 
 ## 获取道具
 func get_prop(pname:String):

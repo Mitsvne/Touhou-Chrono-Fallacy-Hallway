@@ -25,7 +25,7 @@ func _ready():
 	print("4.character初始化完成:",character_name)
 	
 	
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 

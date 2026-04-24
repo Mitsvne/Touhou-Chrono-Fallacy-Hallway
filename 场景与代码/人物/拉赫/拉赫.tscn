@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl71ltlxsqtk2" path="res://场景与代码/人物/拉赫/拉赫普攻弹幕.tscn" id="2_udp54"]
 [ext_resource type="PackedScene" uid="uid://ciepcq6kv1jvf" path="res://场景与代码/人物/拉赫/刻印之卷.tscn" id="3_wrct2"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="3_xu8tx"]
+[ext_resource type="PackedScene" uid="uid://ylatubhbuc4m" path="res://场景与代码/人物/拉赫/警示线.tscn" id="4_1asjr"]
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="4_10ogm"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/主程序/主体类/效果相关/ui血条.tscn" id="5_v8ol4"]
@@ -965,6 +966,20 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0.13333334)
 }
 tracks/9/use_blend = true
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"skill1"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5a3cy"]
 resource_name = "死亡"
@@ -1186,6 +1201,8 @@ color_ramp = SubResource("GradientTexture1D_liacr")
 motion_mode = 1
 script = ExtResource("1_v8ol4")
 book = ExtResource("3_wrct2")
+attack_bullet1 = ExtResource("2_udp54")
+warning_line = ExtResource("4_1asjr")
 character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
@@ -1234,7 +1251,6 @@ metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 [node name="BTPlayer" type="BTPlayer" parent="AI" unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
 agent_node = NodePath("../..")
-active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
