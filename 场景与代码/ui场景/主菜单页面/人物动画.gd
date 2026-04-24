@@ -19,6 +19,7 @@ func _ready():
 	move_character_with_float(灵梦, Vector2(700, 170), Vector2(525, 170), 1.0)
 	await get_tree().create_timer(delay).timeout
 
+## 动画效果函数
 func move_character_with_float(character: AnimatedSprite2D, initial_position: Vector2, target_position: Vector2, animation_length: float) -> void:
 	# 设置初始位置
 	character.position = initial_position

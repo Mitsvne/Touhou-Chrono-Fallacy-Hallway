@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tt1mpguaogf5"
-path="res://.godot/imported/4_snd_mfdjx.wav-556498a88346dc466874c6b39b955230.sample"
+path="res://.godot/imported/重击1.wav-d01ffc643db535f9eeafec3ad40804f8.sample"
 
 [deps]
 
-source_file="res://素材/音频素材/音效/4_snd_mfdjx.wav"
-dest_files=["res://.godot/imported/4_snd_mfdjx.wav-556498a88346dc466874c6b39b955230.sample"]
+source_file="res://素材/音频素材/音效/重击1.wav"
+dest_files=["res://.godot/imported/重击1.wav-d01ffc643db535f9eeafec3ad40804f8.sample"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cj7eudfk0rkob"]
 
-[ext_resource type="Theme" uid="uid://dxmcr0wtpybpd" path="res://场景与代码/ui场景/ui模板/菜单按钮模板.tres" id="1_cuoyu"]
+[ext_resource type="Theme" uid="uid://dxmcr0wtpybpd" path="res://场景与代码/ui场景/字体模板/菜单按钮模板.tres" id="1_cuoyu"]
 [ext_resource type="Script" uid="uid://bubomkeicq6yi" path="res://场景与代码/ui场景/主菜单页面/菜单.gd" id="2_ppaiu"]
 [ext_resource type="Texture2D" uid="uid://cyofn2qkafd7h" path="res://素材/地图素材/高山/8.png" id="3_ppaiu"]
 [ext_resource type="Texture2D" uid="uid://bsn7jbmxylr10" path="res://素材/地图素材/高山/7.png" id="4_iy2mv"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://drbpm5w260a5y" path="res://素材/地图素材/高山/3.png" id="8_qvrbl"]
 [ext_resource type="Texture2D" uid="uid://cekrwrtpq0u3w" path="res://素材/地图素材/高山/2.png" id="9_y67fw"]
 [ext_resource type="Texture2D" uid="uid://dnp60m8bgvbgp" path="res://素材/地图素材/高山/1.png" id="10_1ip7w"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="11_fevhn"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="11_fevhn"]
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="11_jkb0e"]
 [ext_resource type="Texture2D" uid="uid://b1ngcvdyq75s8" path="res://素材/人物素材/魔理沙/spellEc000.png" id="11_k6418"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/149.png" id="11_nsv7r"]
@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/110.png" id="38_e5alu"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/光环旋转.gd" id="38_mby1k"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/112.png" id="39_qjmqn"]
+[ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="40_uxrj1"]
+[ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="41_135dm"]
 [ext_resource type="Shader" uid="uid://dasvlfyphcha3" path="res://场景与代码/着色器/水平模糊.gdshader" id="44_hncoa"]
 [ext_resource type="Script" uid="uid://c8ebemjti840t" path="res://场景与代码/ui场景/主菜单页面/水平模糊.gd" id="45_x12e2"]
 [ext_resource type="Shader" uid="uid://dt63qnn76xlk2" path="res://场景与代码/着色器/垂直模糊.gdshader" id="46_s6i4g"]
@@ -243,7 +245,7 @@ shader_parameter/strength = 1.0
 shader = ExtResource("44_hncoa")
 shader_parameter/strength = 1.0
 
-[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "bgm")]
+[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "bgm", "audio_pressed", "audio_entered")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -255,7 +257,9 @@ script = ExtResource("2_ppaiu")
 v_box_container = NodePath("ui/按钮盒竖状")
 start_button = NodePath("ui/按钮盒竖状/开始")
 horizontal_blur = NodePath("水平模糊效果/水平模糊")
-bgm = NodePath("背景音乐")
+bgm = NodePath("音效/背景音乐")
+audio_pressed = NodePath("音效/按钮按下音效")
+audio_entered = NodePath("音效/按钮选择音效")
 metadata/_edit_lock_ = true
 
 [node name="视差背景" type="Node2D" parent="." unique_id=1190427915]
@@ -493,9 +497,17 @@ sprite_frames = SubResource("SpriteFrames_8ac32")
 autoplay = "default"
 frame_progress = 0.5239872
 
-[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1746807027]
+[node name="音效" type="Node" parent="." unique_id=1162981741]
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=1746807027]
 stream = ExtResource("30_43m20")
 bus = &"Bgm"
+
+[node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=1724451692]
+stream = ExtResource("40_uxrj1")
+
+[node name="按钮选择音效" type="AudioStreamPlayer" parent="音效" unique_id=1784488945]
+stream = ExtResource("41_135dm")
 
 [node name="垂直模糊效果" type="CanvasLayer" parent="." unique_id=400354206]
 visible = false

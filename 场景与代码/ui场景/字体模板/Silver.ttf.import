@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d25vkmce7mhlt"
-path="res://.godot/imported/knewave_regular.ttf-692c5349fe058e98f3a3cab18d628d32.fontdata"
+uid="uid://dy5c3v30c6y7x"
+path="res://.godot/imported/Silver.ttf-481cf88f4f55c1866f4ce28ccddf2254.fontdata"
 
 [deps]
 
-source_file="res://场景与代码/ui场景/ui模板/knewave_regular.ttf"
-dest_files=["res://.godot/imported/knewave_regular.ttf-692c5349fe058e98f3a3cab18d628d32.fontdata"]
+source_file="res://场景与代码/ui场景/字体模板/Silver.ttf"
+dest_files=["res://.godot/imported/Silver.ttf-481cf88f4f55c1866f4ce28ccddf2254.fontdata"]
 
 [params]
 
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

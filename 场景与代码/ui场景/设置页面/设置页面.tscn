@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dcpcvtqimvtoy"]
 
 [ext_resource type="Script" uid="uid://dpb6sdten8lh0" path="res://场景与代码/ui场景/设置页面/设置页面.gd" id="1_8kpsi"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="4_8kpsi"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="4_8kpsi"]
 [ext_resource type="Script" uid="uid://1pd30vx1hcvv" path="res://场景与代码/ui场景/设置页面/设置功能.gd" id="4_y1ihj"]
 [ext_resource type="Shader" uid="uid://c38fs1dinr3eb" path="res://场景与代码/着色器/浮动效果非全局.gdshader" id="5_apm4q"]
 [ext_resource type="Texture2D" uid="uid://dxrhxiacp3pim" path="res://素材/人物素材/拉赫/书/177.png" id="7_4sadi"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/112.png" id="18_bceol"]
 [ext_resource type="Texture2D" uid="uid://dyffvvjd7x0cg" path="res://素材/ui素材/ui素材/精灵-0001.png" id="21_wiyw1"]
 [ext_resource type="AudioStream" uid="uid://bl85q3rspsoqr" path="res://素材/音频素材/bgm/04 - Silent Forest.mp3" id="23_6750i"]
+[ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="23_apm4q"]
+[ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="24_kupft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei24q"]
 texture = ExtResource("9_qfwej")
@@ -194,7 +196,7 @@ height = 377
 fill = 2
 fill_to = Vector2(1, 1)
 
-[node name="设置页面" type="Control" unique_id=749481195 node_paths=PackedStringArray("拉赫", "back_button")]
+[node name="设置页面" type="Control" unique_id=749481195 node_paths=PackedStringArray("拉赫", "back_button", "audio_pressed", "audio_entered")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,6 +206,8 @@ grow_vertical = 2
 script = ExtResource("1_8kpsi")
 "拉赫" = NodePath("拉赫")
 back_button = NodePath("返回按钮")
+audio_pressed = NodePath("音效/按钮按下音效")
+audio_entered = NodePath("音效/按钮选择音效")
 
 [node name="背景" type="Node2D" parent="." unique_id=273800528]
 metadata/_edit_lock_ = true
@@ -264,7 +268,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "主音量："
 
-[node name="主音量滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1335365319]
+[node name="主音量滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1335365319 groups=["selectable_control"]]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 92.0
@@ -290,7 +294,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音乐："
 
-[node name="背景音乐滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1218367702]
+[node name="背景音乐滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1218367702 groups=["selectable_control"]]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 158.0
@@ -316,7 +320,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音效："
 
-[node name="音效滑块" type="HSlider" parent="书页背景/设置功能" unique_id=493795838]
+[node name="音效滑块" type="HSlider" parent="书页背景/设置功能" unique_id=493795838 groups=["selectable_control"]]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 224.0
@@ -326,7 +330,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="返回按钮" type="Button" parent="." unique_id=139671504]
+[node name="返回按钮" type="Button" parent="." unique_id=139671504 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -398,10 +402,18 @@ randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_leuqt")
 
-[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=618800956]
+[node name="音效" type="Node" parent="." unique_id=2097866783]
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=618800956]
 stream = ExtResource("23_6750i")
 autoplay = true
 bus = &"Bgm"
+
+[node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=676526461]
+stream = ExtResource("23_apm4q")
+
+[node name="按钮选择音效" type="AudioStreamPlayer" parent="音效" unique_id=601261958]
+stream = ExtResource("24_kupft")
 
 [node name="光源" type="PointLight2D" parent="." unique_id=1967983143]
 position = Vector2(384, 181)

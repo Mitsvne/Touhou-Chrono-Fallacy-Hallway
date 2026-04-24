@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dciebhsmhdok6"
-path="res://.godot/imported/1_snd_hit_heavy.wav-cf154aaa7e16332628f3166e8b75c1c2.sample"
+path="res://.godot/imported/中击1.wav-d4ebcdc0e2e247274c5f43f3d901e8d6.sample"
 
 [deps]
 
-source_file="res://素材/音频素材/音效/1_snd_hit_heavy.wav"
-dest_files=["res://.godot/imported/1_snd_hit_heavy.wav-cf154aaa7e16332628f3166e8b75c1c2.sample"]
+source_file="res://素材/音频素材/音效/中击1.wav"
+dest_files=["res://.godot/imported/中击1.wav-d4ebcdc0e2e247274c5f43f3d901e8d6.sample"]
 
 [params]
 

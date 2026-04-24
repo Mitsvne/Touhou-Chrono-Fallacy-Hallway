@@ -1,14 +1,30 @@
 extends Control
 
-#signal settings_pressed
-
 @export var v_box_container: VBoxContainer
 @export var start_button: Button
 @export var horizontal_blur: ColorRect
 @export var bgm: AudioStreamPlayer
+@export var audio_pressed: AudioStreamPlayer
+@export var audio_entered: AudioStreamPlayer
 
+func _ready() -> void:
+	#加载设置
+	load_settings()
+	bgm.play()
+	#出场动画
+	var buttons: Array = get_all_buttons(self)
+	await get_tree().create_timer(0.5).timeout
+	await get_tree().process_frame
+	buttons.sort_custom(buttons_array_sorting)
+	animate_buttons(buttons.duplicate(), true,0.2,Vector2(0,0),Vector2(0,0),0.5)
+	#鼠标控制焦点
+	start_button.grab_focus()
+	for button:Button in v_box_container.get_children():
+		button.mouse_entered.connect(button.grab_focus)
+		button.focus_entered.connect(button_entered)
 
-# 获取所有按钮组成一个数组
+## ===== 按钮动画效果 =====
+## 获取所有按钮组成一个数组
 func get_all_buttons(node: Node) -> Array:
 	var buttons: Array = []
 	for child in node.get_children():
@@ -19,13 +35,13 @@ func get_all_buttons(node: Node) -> Array:
 			buttons += get_all_buttons(child)
 	return buttons
 
-# 排序按钮
+## 排序按钮
 func buttons_array_sorting(a: Button, b: Button) -> bool:
 	if a.global_position.y == b.global_position.y:
 		return a.global_position.x < b.global_position.x
 	return a.global_position.y < b.global_position.y
 
-# 按钮动画
+## 按钮动画
 func animate_buttons(buttons: Array, forward := true, delay_between_buttons := 0.16, move_offset := Vector2(-20, 0), scale_offset := Vector2.ZERO,animation_length:=0.5) -> void:
 	# 反转按钮顺序（如果是反向动画）
 	if !forward:
@@ -56,37 +72,29 @@ func animate_buttons(buttons: Array, forward := true, delay_between_buttons := 0
 		# 等待按钮间延迟
 		await get_tree().create_timer(delay_between_buttons).timeout
 
-func _ready() -> void:
-	#加载设置
-	load_settings()
-	bgm.play()
-	#出场动画
-	var buttons: Array = get_all_buttons(self)
-	await get_tree().create_timer(0.5).timeout
-	await get_tree().process_frame
-	buttons.sort_custom(buttons_array_sorting)
-	animate_buttons(buttons.duplicate(), true,0.2,Vector2(0,0),Vector2(0,0),0.5)
-	#鼠标控制焦点
-	start_button.grab_focus()
-	for button:Button in v_box_container.get_children():
-		button.mouse_entered.connect(button.grab_focus)
-	
-	
 
+## ===== 实际功能 =====
+## 加载设置
 func load_settings():
 	var settings_scene = load("res://场景与代码/ui场景/设置页面/设置页面.tscn")
 	var settings_instance = settings_scene.instantiate()
 	settings_instance.get_node("书页背景/设置功能").load_audio_settings()
 
+## 所有按钮聚焦时
+func button_entered():
+	audio_entered.play()
 
-#开始按钮
+## 开始按钮
 func _on_start_pressed() -> void:
+	audio_pressed.play()
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
-#设置按钮
+## 设置按钮
 func _on_settings_pressed() -> void:
+	audio_pressed.play()
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/设置页面/设置页面.tscn")
 
-#退出按钮
+## 退出按钮
 func _on_exit_pressed() -> void:
+	audio_pressed.play()
 	get_tree().quit()

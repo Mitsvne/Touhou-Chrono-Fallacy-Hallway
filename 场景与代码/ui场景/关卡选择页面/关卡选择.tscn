@@ -4,14 +4,16 @@
 [ext_resource type="AudioStream" uid="uid://n1p3x148ua80" path="res://素材/音频素材/bgm/19 - Where The Winds Roam.mp3" id="1_6nj48"]
 [ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="2_uyobv"]
 [ext_resource type="Texture2D" uid="uid://elatdupqfgas" path="res://素材/地图素材/丘原/orig.png" id="2_wvhtr"]
+[ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="3_fp2f5"]
 [ext_resource type="Script" uid="uid://l5mwguom4fb0" path="res://场景与代码/ui场景/关卡选择页面/轮播菜单.gd" id="3_wvhtr"]
+[ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="4_7l1me"]
 [ext_resource type="Texture2D" uid="uid://c5j8iglpqledq" path="res://素材/地图素材/山脉/orig.png" id="4_weqc4"]
 [ext_resource type="Texture2D" uid="uid://2us8rgnwduo0" path="res://素材/地图素材/平原/orig.png" id="6_s83rs"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="8_cqui6"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="8_cqui6"]
 [ext_resource type="Texture2D" uid="uid://l04jbcvwl7dr" path="res://素材/地图素材/小径/orig.png" id="9_a5if0"]
 [ext_resource type="Texture2D" uid="uid://43dw8p4183bc" path="res://素材/地图素材/极光/orig.png" id="10_34e8d"]
 
-[node name="关卡选择" type="Control" unique_id=1910587026]
+[node name="关卡选择" type="Control" unique_id=1910587026 node_paths=PackedStringArray("audio_pressed", "audio_entered", "carousel_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,11 +21,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0xtt7")
+audio_pressed = NodePath("音效/按钮按下音效")
+audio_entered = NodePath("音效/按钮选择音效")
+carousel_menu = NodePath("轮播菜单")
 
-[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=1338872240]
+[node name="音效" type="Node" parent="." unique_id=1630642659]
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=1338872240]
 stream = ExtResource("1_6nj48")
-autoplay = true
 bus = &"Bgm"
+
+[node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=6281097]
+stream = ExtResource("3_fp2f5")
+
+[node name="按钮选择音效" type="AudioStreamPlayer" parent="音效" unique_id=1662429586]
+stream = ExtResource("4_7l1me")
 
 [node name="平原" parent="." unique_id=336795962 instance=ExtResource("2_uyobv")]
 
@@ -53,7 +65,7 @@ repeat_timer = NodePath("Timer")
 card = NodePath("山脉")
 metadata/_edit_lock_ = true
 
-[node name="山脉" type="Button" parent="轮播菜单" unique_id=1405624635]
+[node name="山脉" type="Button" parent="轮播菜单" unique_id=1405624635 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,7 +82,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(292, 166)
 icon = ExtResource("4_weqc4")
 
-[node name="丘原" type="Button" parent="轮播菜单" unique_id=785272908]
+[node name="丘原" type="Button" parent="轮播菜单" unique_id=785272908 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,7 +99,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(292, 166)
 icon = ExtResource("2_wvhtr")
 
-[node name="平原" type="Button" parent="轮播菜单" unique_id=1080602271]
+[node name="平原" type="Button" parent="轮播菜单" unique_id=1080602271 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,7 +116,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(292, 166)
 icon = ExtResource("6_s83rs")
 
-[node name="极光" type="Button" parent="轮播菜单" unique_id=1802271843]
+[node name="极光" type="Button" parent="轮播菜单" unique_id=1802271843 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,7 +133,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(292, 166)
 icon = ExtResource("10_34e8d")
 
-[node name="小径" type="Button" parent="轮播菜单" unique_id=871962727]
+[node name="小径" type="Button" parent="轮播菜单" unique_id=871962727 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -140,7 +152,7 @@ icon = ExtResource("9_a5if0")
 
 [node name="Timer" type="Timer" parent="轮播菜单" unique_id=1090201811]
 
-[node name="返回" type="Button" parent="." unique_id=1948500099]
+[node name="返回" type="Button" parent="." unique_id=1948500099 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

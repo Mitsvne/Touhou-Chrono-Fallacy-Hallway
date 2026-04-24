@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
 [ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物/灵梦/技能cd.gd" id="22_c73gp"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="22_fc6ke"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="22_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://1g0g5p1l2uky" path="res://素材/人物素材/灵梦/人物/attackS000.png" id="24_ktvnh"]
 [ext_resource type="Texture2D" uid="uid://b1e1rgppsr2ik" path="res://素材/人物素材/灵梦/人物/attackS001.png" id="25_xn1ji"]
 [ext_resource type="Texture2D" uid="uid://bfp53vlvy1dx2" path="res://素材/人物素材/灵梦/人物/attackS002.png" id="26_b0bj7"]

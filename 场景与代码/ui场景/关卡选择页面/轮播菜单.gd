@@ -25,7 +25,7 @@ var current_direction: int = 0                        # -1:左, 0:无, 1:右
 var mouse_direction: int = 0
 var mouse_held: bool = false                          # 石否在按鼠标
 
-# ===== 初始化 =====
+## ===== 初始化 =====
 func _ready():
 	current_center_index = center_index
 	# 收集所有子控件作为卡片，并设置缩放中心
@@ -34,21 +34,21 @@ func _ready():
 			center_position=Vector2(self.size.x/2, self.size.y/2)-Vector2(child.size.x / 2, child.size.y / 2)
 			child.pivot_offset = Vector2(child.size.x / 2, child.size.y / 2)
 			items.append(child)
-			child.mouse_entered.connect(child.grab_focus)
 	calculate_target_positions()
 	update_z_index()
 	animate_to_target()
 	card.grab_focus()
 
-# ===== 输入处理 =====
+## ===== 输入处理 =====
+## 按键切换
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("move_left_1p"):
+	if Input.is_action_just_pressed(&"ui_left"):
 		scroll_left()
 		key_start_repeat(-1)
-	if Input.is_action_just_pressed("move_right_1p"):
+	if Input.is_action_just_pressed(&"ui_right"):
 		scroll_right()
 		key_start_repeat(1)
-	if Input.is_action_just_released("move_left_1p") or Input.is_action_just_released("move_right_1p"):
+	if Input.is_action_just_released(&"ui_left") or Input.is_action_just_released(&"ui_right"):
 		current_direction = 0
 		if not mouse_held:
 			repeat_timer.stop()
@@ -57,7 +57,7 @@ func key_start_repeat(dir: int):
 	current_direction = dir
 	repeat_timer.start(0.2)
 
-# 鼠标点击切换
+## 鼠标点击切换
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -72,10 +72,8 @@ func _gui_input(event: InputEvent) -> void:
 				scroll_right()
 				mouse_start_repeat(1)
 		else:
-			# 鼠标释放
 			mouse_held = false
 			mouse_direction = 0
-			# 如果没有键盘方向也按着，则停止 Timer
 			if current_direction == 0:
 				repeat_timer.stop()
 
@@ -96,8 +94,9 @@ func _on_repeat_timer_timeout():
 		elif mouse_direction == 1:
 			scroll_right()
 
-# ===== 核心逻辑 =====
-# 计算所有卡片的目标位置（循环排列）
+
+## ===== 核心逻辑 =====
+## 计算所有卡片的目标位置（循环排列）
 func calculate_target_positions():
 	target_positions.clear()
 	var n = items.size()
@@ -108,7 +107,7 @@ func calculate_target_positions():
 		var pos = center_position + Vector2(offset * item_spacing, 0)
 		target_positions.append(pos)
 
-# 更新图层深度（基于循环距离）
+## 更新图层深度（基于循环距离）
 func update_z_index():
 	var n = items.size()
 	var half = n / 2.0
@@ -119,7 +118,7 @@ func update_z_index():
 		var z = z_index_range - int(dist)
 		item.z_index = max(z, 0)
 
-# 执行补间动画（位置、缩放、透明度）
+## 执行补间动画（位置、缩放、透明度）
 func animate_to_target():
 	if tween and tween.is_valid():
 		tween.kill()
@@ -151,13 +150,13 @@ func animate_to_target():
 		tween.tween_property(item, "modulate", target_modulate, animation_duration)\
 			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
-# 向左滚动（显示右侧卡片）
+## 向左滚动（显示右侧卡片）
 func scroll_left():
 	current_center_index = wrap(current_center_index - 1, 0, items.size())
 	calculate_target_positions()
 	animate_to_target()
 
-# 向右滚动（显示左侧卡片）
+## 向右滚动（显示左侧卡片）
 func scroll_right():
 	current_center_index = wrap(current_center_index + 1, 0, items.size())
 	calculate_target_positions()

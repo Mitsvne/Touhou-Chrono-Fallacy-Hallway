@@ -62,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://hpnxyj2k5fnr" path="res://素材/人物素材/拉赫/人物/xem_2280-12.png" id="38_wn6fn"]
 [ext_resource type="Texture2D" uid="uid://bn4elv05d0ddn" path="res://素材/人物素材/拉赫/人物/xem_2280-13.png" id="39_yx3af"]
 [ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物/灵梦/技能cd.gd" id="54_vivdl"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/ui模板/优设标题黑.ttf" id="55_wrct2"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="55_wrct2"]
 [ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="58_i3xqp"]
 [ext_resource type="PackedScene" uid="uid://dtdtc3d7elfs7" path="res://场景与代码/人物/拉赫/拉赫必杀1弹幕.tscn" id="58_o2gg5"]
 [ext_resource type="BehaviorTree" uid="uid://cg7a6p1wt5tno" path="res://场景与代码/主程序/主体类/AI相关/行为树/拉赫AI行为树.tres" id="66_pxu2m"]

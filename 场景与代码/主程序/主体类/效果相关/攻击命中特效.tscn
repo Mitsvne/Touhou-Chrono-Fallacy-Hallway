@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://bvjw0g3b143jy" path="res://素材/特效素材/中击1/hitAc011.png" id="20_3l38a"]
 [ext_resource type="Texture2D" uid="uid://bemaqqod5uhfn" path="res://素材/特效素材/中击1/hitAc012.png" id="21_foxkx"]
 [ext_resource type="Texture2D" uid="uid://byktr4djvgyyf" path="res://素材/特效素材/重击1/hitCb001.png" id="22_tt6yg"]
-[ext_resource type="AudioStream" uid="uid://x0rjcxa3rxrd" path="res://素材/音频素材/音效/8_snd_hit2.wav" id="22_ybwtl"]
-[ext_resource type="AudioStream" uid="uid://dciebhsmhdok6" path="res://素材/音频素材/音效/1_snd_hit_heavy.wav" id="23_cpq7e"]
+[ext_resource type="AudioStream" uid="uid://x0rjcxa3rxrd" path="res://素材/音频素材/音效/轻击1.wav" id="22_ybwtl"]
+[ext_resource type="AudioStream" uid="uid://dciebhsmhdok6" path="res://素材/音频素材/音效/中击1.wav" id="23_cpq7e"]
 [ext_resource type="Texture2D" uid="uid://bv3egw8003hqm" path="res://素材/特效素材/重击1/hitCb002.png" id="23_dn36l"]
 [ext_resource type="Texture2D" uid="uid://csa7etex7rch8" path="res://素材/特效素材/重击1/hitCb003.png" id="24_egkn7"]
 [ext_resource type="Texture2D" uid="uid://xn7uksqcyw13" path="res://素材/特效素材/重击1/hitCb004.png" id="25_xy71n"]
@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://c5y8w2wn5vsfo" path="res://素材/特效素材/重击1/hitCb016.png" id="37_edei4"]
 [ext_resource type="Texture2D" uid="uid://hsljhs1lobia" path="res://素材/特效素材/重击1/hitCb017.png" id="38_cwgiq"]
 [ext_resource type="Texture2D" uid="uid://cy6ouay11tffq" path="res://素材/特效素材/重击1/hitCb018.png" id="39_o5xav"]
-[ext_resource type="AudioStream" uid="uid://tt1mpguaogf5" path="res://素材/音频素材/音效/4_snd_mfdjx.wav" id="42_dn36l"]
+[ext_resource type="AudioStream" uid="uid://tt1mpguaogf5" path="res://素材/音频素材/音效/重击1.wav" id="42_dn36l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q3rgq"]
 animations = [{

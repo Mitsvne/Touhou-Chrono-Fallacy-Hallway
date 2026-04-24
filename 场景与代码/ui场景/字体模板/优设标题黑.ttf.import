@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://n231m6uqsq6x"
-path="res://.godot/imported/junction_bold.otf-8f1e027cb04629d6ff062ad71c7d547d.fontdata"
+uid="uid://7mhoi7j3oidc"
+path="res://.godot/imported/优设标题黑.ttf-d98eb42c9d6877c468406222dbc4a596.fontdata"
 
 [deps]
 
-source_file="res://场景与代码/ui场景/ui模板/junction_bold.otf"
-dest_files=["res://.godot/imported/junction_bold.otf-8f1e027cb04629d6ff062ad71c7d547d.fontdata"]
+source_file="res://场景与代码/ui场景/字体模板/优设标题黑.ttf"
+dest_files=["res://.godot/imported/优设标题黑.ttf-d98eb42c9d6877c468406222dbc4a596.fontdata"]
 
 [params]
 
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

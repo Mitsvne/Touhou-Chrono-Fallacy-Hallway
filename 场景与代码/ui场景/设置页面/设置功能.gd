@@ -7,6 +7,7 @@ extends Control
 func _ready() -> void:
 	load_audio_settings()
 
+## 保存设置值到settings.cfg
 func save_audio_settings():
 	var config = ConfigFile.new()
 	var master_vol = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(&"Master"))
@@ -17,6 +18,7 @@ func save_audio_settings():
 	config.set_value("audio", "se_volume", se_vol)
 	config.save("user://settings.cfg")
 
+## 加载音频设置
 func load_audio_settings():
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") != OK:
@@ -33,21 +35,21 @@ func load_audio_settings():
 	bgmslider.value = db_to_linear(bgm_vol)
 	seslider.value = db_to_linear(se_vol)
 
-# 设置音乐总线音量
+## 设置音乐总线音量
 func _on_bgm_value_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var master_bus_index = AudioServer.get_bus_index(&"Bgm")
 	AudioServer.set_bus_volume_db(master_bus_index, db_value)
 	save_audio_settings()
 
-# 设置音效总线音量
+## 设置音效总线音量
 func _on_se_value_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var master_bus_index = AudioServer.get_bus_index(&"Se")
 	AudioServer.set_bus_volume_db(master_bus_index, db_value)
 	save_audio_settings()
 
-# 设置主音量总线音量
+## 设置主音量总线音量
 func _on_master_value_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
 	var master_bus_index = AudioServer.get_bus_index(&"Master")
