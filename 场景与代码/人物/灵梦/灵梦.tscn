@@ -1232,7 +1232,8 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
-hp_max = 200.0
+hp_max = 1000.0
+energy_regen = 20.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Input" type="Node" parent="class" unique_id=1488286937]

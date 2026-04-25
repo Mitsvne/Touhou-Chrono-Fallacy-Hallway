@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://dl71ltlxsqtk2"]
+
+[ext_resource type="Script" uid="uid://c1c7rvkeif6do" path="res://场景与代码/人物/拉赫/弹幕/拉赫普攻弹幕.gd" id="1_b1c2s"]
+[ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="2_4p6cs"]
+[ext_resource type="Texture2D" uid="uid://bmknbgm4ct5uw" path="res://素材/人物素材/拉赫/特效/弹幕1/5.png" id="3_twufo"]
+[ext_resource type="Texture2D" uid="uid://captawbftn0jp" path="res://素材/人物素材/拉赫/特效/弹幕1/6.png" id="4_34vkl"]
+[ext_resource type="Texture2D" uid="uid://b1hnh0nfhe2da" path="res://素材/人物素材/拉赫/特效/弹幕1/7.png" id="5_4jeld"]
+[ext_resource type="Texture2D" uid="uid://m6ajwq1g8bxw" path="res://素材/人物素材/拉赫/特效/弹幕1/8.png" id="6_gd1n6"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="6_yguo1"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="7_4p6cs"]
+[ext_resource type="Texture2D" uid="uid://d2s3otgq0txf0" path="res://素材/人物素材/拉赫/特效/弹幕1/9.png" id="7_mjxvh"]
+[ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="8_eet54"]
+[ext_resource type="Texture2D" uid="uid://b2d7h3xav8jrk" path="res://素材/人物素材/拉赫/特效/弹幕1/1.png" id="8_iwgpk"]
+[ext_resource type="Texture2D" uid="uid://db36ioxbb2w6n" path="res://素材/人物素材/拉赫/特效/弹幕1/2.png" id="9_w82s2"]
+[ext_resource type="Texture2D" uid="uid://bm8snvf1uw6hg" path="res://素材/人物素材/拉赫/特效/弹幕1/3.png" id="10_5tq74"]
+[ext_resource type="Texture2D" uid="uid://d2o0sqx2eyxwb" path="res://素材/人物素材/拉赫/特效/弹幕1/4.png" id="11_cg0va"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="14_5m40u"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="15_eet54"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="15_phyu5"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/灵梦/气流拖尾.gd" id="18_413ml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lllv"]
+size = Vector2(55, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_413ml"]
+shader = ExtResource("2_4p6cs")
+shader_parameter/gray_intensity = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spcgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_twufo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_34vkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4jeld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gd1n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mjxvh")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_iwgpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w82s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5tq74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cg0va")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_forii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_noypq"]
+resource_name = "hit"
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_1yl6a"]
+resource_name = "loop"
+length = 0.13333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lupqp"]
+_data = {
+&"RESET": SubResource("Animation_forii"),
+&"hit": SubResource("Animation_noypq"),
+&"loop": SubResource("Animation_1yl6a")
+}
+
+[sub_resource type="Resource" id="Resource_xf4pb"]
+script = ExtResource("7_4p6cs")
+damage = 20.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="Curve" id="Curve_03l7r"]
+_data = [Vector2(0, 0.11996579), 0.0, 2.1496606, 0, 0, Vector2(0.9900851, 0.9944303), 0.0, 0.0, 0, 0, Vector2(1, 0.8512161), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_v40bc"]
+offsets = PackedFloat32Array(0, 0.27868852, 0.757377, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
+
+[node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
+script = ExtResource("1_b1c2s")
+an = NodePath("动画")
+hitarea = NodePath("Hitbox/碰撞面")
+hurtarea = NodePath("Hurtbox/碰撞面2")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+
+[node name="碰撞面2" type="CollisionShape2D" parent="." unique_id=118328846]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_3lllv")
+
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1282921721]
+material = SubResource("ShaderMaterial_413ml")
+position = Vector2(-25, 0)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_spcgt")
+animation = &"loop"
+autoplay = "loop"
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=166720183]
+root_node = NodePath("../素材库")
+libraries/ = SubResource("AnimationLibrary_lupqp")
+speed_scale = 0.5
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=772372855]
+script = ExtResource("6_yguo1")
+attack_data = SubResource("Resource_xf4pb")
+
+[node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1486490914]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_3lllv")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1461978052]
+visible = false
+script = ExtResource("14_5m40u")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="碰撞面2" type="CollisionShape2D" parent="Hurtbox" unique_id=743883131]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_3lllv")
+
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=867426146]
+stream = ExtResource("8_eet54")
+autoplay = true
+
+[node name="class" type="Node" parent="." unique_id=1838317957]
+
+[node name="Bullet_Data" type="Node" parent="class" unique_id=593305816]
+script = ExtResource("15_phyu5")
+metadata/_custom_type_script = "uid://df5xa5fby1rqi"
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=62505051 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+script = ExtResource("15_eet54")
+anplayer = NodePath("../../动画")
+bullet_data = NodePath("../Bullet_Data")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="拖尾" type="Node2D" parent="." unique_id=558377509 node_paths=PackedStringArray("line2d")]
+z_index = -1
+script = ExtResource("18_413ml")
+line2d = NodePath("线")
+
+[node name="线" type="Line2D" parent="拖尾" unique_id=745855783]
+top_level = true
+width_curve = SubResource("Curve_03l7r")
+gradient = SubResource("Gradient_v40bc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
