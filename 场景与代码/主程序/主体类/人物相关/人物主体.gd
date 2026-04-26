@@ -254,10 +254,10 @@ func fire_bullet():
 	if Input.is_action_pressed(attack):
 		if attack_timer.is_stopped():
 			attack_timer.start()
-			character_ctrler.shoot(attack_bullet,Vector2(50*direction,0))
+			character_ctrler.shoot(attack_bullet,Vector2(50,0))
 		elif is_attack_timer_timeout:
 			is_attack_timer_timeout=false
-			character_ctrler.shoot(attack_bullet,Vector2(50*direction,0))
+			character_ctrler.shoot(attack_bullet,Vector2(50,0))
 	else:
 		if not attack_timer.is_stopped() and is_attack_timer_timeout:
 			is_attack_timer_timeout=false

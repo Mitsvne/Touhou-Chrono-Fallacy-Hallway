@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	current_velocity.x = clamp(current_velocity.x, -x_max_speed, x_max_speed)
 	current_velocity.y = clamp(current_velocity.y, -y_max_speed, y_max_speed)
 	var world_velocity = Vector2(current_velocity.x * character_data.direction, current_velocity.y)
-	print(world_velocity)
+	#print(world_velocity)
 	if world_velocity.length() < 1.0:
 		stop_move()
 		return
@@ -172,7 +172,7 @@ func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after:
 	jump_to_time(anim_name, time, play_after)
 
 ## 发射弹幕
-func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
+func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
 	if not Bullet:
 		return
 	var bullet_instance = Bullet.instantiate()
@@ -185,11 +185,16 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0):
 	#print("飞行物所在组：",bullet_instance.get_groups())
 	#print("飞行物队伍："+bullet_instance.bullet_data.bullet_team)
 	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
-	bullet_instance.position = character.position + offset * character_data.direction
-	bullet_instance.rotation = character.rotation + offset_rotation
+	if generate_position.length()!=0:
+		bullet_instance.position.x = generate_position.x + offset.x * character_data.direction
+		bullet_instance.position.y = generate_position.y + offset.y
+	else:
+		bullet_instance.position.x = character.position.x + offset.x * character_data.direction
+		bullet_instance.position.y = character.position.y + offset.y
+	bullet_instance.rotation = character.rotation + deg_to_rad(offset_rotation)
 
 ## 添加道具
-func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
+func add_prop(prop,offset:Vector2):
 	if not prop:
 		return
 	var prop_instance = prop.instantiate()
@@ -202,16 +207,22 @@ func add_prop(prop,offset:Vector2,offset_rotation:float=0.0):
 	#print("道具所在组：",prop_instance.get_groups())
 	#print("道具队伍："+prop_instance.prop_data.bullet_team)
 	#print("道具主人：",prop_instance.prop_data.prop_owner)
-	prop_instance.position = character.position + offset * character_data.direction
-	prop_instance.rotation = character.rotation + offset_rotation
+	prop_instance.position.x = character.position.x + offset.x * character_data.direction
+	prop_instance.position.y = character.position.y + offset.y
+	prop_instance.rotation = character.rotation
 
-func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0):
+func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
 	if not line:
 		return
 	var line_instance = line.instantiate()
 	get_parent().add_child(line_instance)
-	line_instance.position = character.position + offset
-	line_instance.rotation = character.rotation + offset_rotation
+	if generate_position.length()!=0:
+		line_instance.position.x = generate_position.x + offset.x * character_data.direction
+		line_instance.position.y = generate_position.y + offset.y
+	else:
+		line_instance.position.x = character.position.x + offset.x * character_data.direction
+		line_instance.position.y = character.position.y + offset.y
+	line_instance.rotation = character.rotation + deg_to_rad(offset_rotation)
 
 ## 获取道具
 func get_prop(pname:String):

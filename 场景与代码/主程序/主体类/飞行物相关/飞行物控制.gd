@@ -126,8 +126,6 @@ func _update_velocity(velocity: Vector2, drag: Vector2, delta: float) -> Vector2
 			new_vel.y += sign(new_vel.y) * abs(drag.y) * delta
 	return new_vel
 
-
-
 ## 开始移动函数
 func start_move(initial_velocity: Vector2 = Vector2.ZERO, drag: Vector2 = Vector2.ZERO):
 	if is_moving:
@@ -157,7 +155,7 @@ func stop_move():
 ## 设置阻力/加速度函数
 func set_drag(drag: Vector2):
 	current_drag = drag
-
+'''
 ## 直线追踪函数
 func start_move_towards(target: Node2D,speed: float, drag: float = 0.0):
 	if not bullet: return
@@ -165,7 +163,45 @@ func start_move_towards(target: Node2D,speed: float, drag: float = 0.0):
 	var desired = dir * speed
 	var init_x = desired.x * bullet_data.bullet_direction
 	var init_y = desired.y
-	start_move(Vector2(init_x, init_y), Vector2(drag, drag))
+	start_move(Vector2(init_x, init_y), Vector2(drag, drag))'''
+## 直线追踪函数
+func start_move_towards(target: Node2D,speed: float,drag: float = 0.0,min_angle: float = -INF,max_angle: float = INF,base_direction: Vector2 = Vector2.RIGHT):
+	if not bullet: return
+	if min_angle >= max_angle:
+		var v = base_direction * speed
+		start_move(v, Vector2(drag, drag))
+		return
+	var to_target = target.global_position - bullet.global_position
+	if to_target.length_squared() < 0.0001:
+		return
+	var base_dir = base_direction.normalized()
+	var target_dir = to_target.normalized()
+	var base_angle = base_dir.angle()
+	var target_angle = target_dir.angle()
+	var diff = target_angle - base_angle
+	if diff > PI: diff -= 2*PI
+	elif diff < -PI: diff += 2*PI
+	diff = clamp(diff, min_angle, max_angle)
+	var final_angle = base_angle + diff
+	var final_velocity = Vector2.RIGHT.rotated(final_angle) * speed
+	start_move(final_velocity, Vector2(drag, drag))
+
+## 沿自身角度（前方）飞行
+func start_move_forward(speed: float, drag: float = 0.0):
+	if not bullet:
+		return
+	# 1. 根据子弹当前旋转角度构造世界方向向量
+	var dir = Vector2.RIGHT.rotated(bullet.rotation)*bullet_data.bullet_direction
+	current_velocity = dir * speed
+	# 2. 切换到自由飞行模式（不受 bullet_direction 翻转影响）
+	is_tracking = false
+	use_free_flight = true
+	# 3. 设置标量阻力/加速度（自由飞行分支会用到）
+	current_tracking_drag = drag
+	# 4. 启动移动（如果尚未移动）
+	if not is_moving:
+		is_moving = true
+		set_physics_process(true)
 
 ## 开始追踪函数
 func start_track(target: Node, track_speed: float = 100, track_drag: float = 0.0, min_turn_radius: float = 400.0, tighten_spd: float = 0.5):

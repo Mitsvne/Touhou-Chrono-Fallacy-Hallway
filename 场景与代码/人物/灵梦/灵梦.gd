@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var move_speed:int=300
-var acceleration: float = 2100.0   # 加速度（像素/秒²）
+var move_speed:int=400
+var acceleration: float = 1600.0   # 加速度（像素/秒²）
 var friction: float = 1200.0      # 减速度（像素/秒²）
 var attack_interval:float=0.3
 var skill_cd:float=3.0

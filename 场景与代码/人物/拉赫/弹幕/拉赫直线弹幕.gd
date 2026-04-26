@@ -10,16 +10,14 @@ var ishit=false
 
 func _ready():
 	await get_tree().process_frame
-	bullet_ctrler.start_track(bullet_ctrler.get_target(),800,-100,400)
-	await get_tree().create_timer(3, false).timeout
-	bullet_ctrler.stop_track()
+	bullet_ctrler.start_move_forward(-800,-10)
+	#bullet_ctrler.start_move(Vector2(800,0),Vector2(-10,0))
 	await get_tree().create_timer(3, false).timeout
 	queue_free()
 
 func _physics_process(_delta):
 	if ishit:
 		bullet_ctrler.stop_move()
-	pass
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):
