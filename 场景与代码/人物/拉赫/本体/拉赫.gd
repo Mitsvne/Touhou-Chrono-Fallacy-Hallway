@@ -40,7 +40,7 @@ func skill1():
 	character_ctrler.add_warning_line(warning_line,Vector2(50,400))
 	character_ctrler.add_warning_line(warning_line,Vector2(50,-400))
 	await get_tree().create_timer(1.0, false).timeout
-	effect_ctrler.shake_once(1,1)
+	effect_ctrler.shake_once(Vector2(1,1))
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,0),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,100),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,-100),current_rotation,current_position)
@@ -65,7 +65,7 @@ func skill2():
 	character_ctrler.add_warning_line(warning_line,Vector2(400,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(-400,-300),current_rotation)
 	await get_tree().create_timer(1.0, false).timeout
-	effect_ctrler.shake_once(1,1)
+	effect_ctrler.shake_once(Vector2(1,1))
 	character_ctrler.shoot(attack_bullet1,Vector2(0,-300),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(100,-300),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(-100,-300),current_rotation,current_position)

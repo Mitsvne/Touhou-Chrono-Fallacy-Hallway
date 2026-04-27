@@ -414,7 +414,7 @@ tracks/5/keys = {
 "args": [NodePath("../../素材库"), Color(1, 1, 1, 0.5882353), 0.075, 0.5],
 "method": &"start_shadow"
 }, {
-"args": [false],
+"args": [],
 "method": &"stop_shadow"
 }]
 }
@@ -516,7 +516,7 @@ tracks/5/keys = {
 "args": [NodePath("../../素材库"), Color(1, 1, 1, 0.5882353), 0.075, 0.5],
 "method": &"start_shadow"
 }, {
-"args": [false],
+"args": [],
 "method": &"stop_shadow"
 }]
 }

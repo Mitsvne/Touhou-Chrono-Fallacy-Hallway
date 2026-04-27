@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):
 		ishit=true
-		effect_ctrler.shake_once(2,2)
+		effect_ctrler.shake_once(Vector2(2,2))
 		bullet_data.get_bullet_owner().character_data.mp+=10
 		hitarea.set_deferred("disabled", true)
 		hurtarea.set_deferred("disabled", true)
