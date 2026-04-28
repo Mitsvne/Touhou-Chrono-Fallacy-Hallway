@@ -12,17 +12,18 @@ var angle:int=200
 @export var effect_ctrler: Effect_Ctrler
 @export var bullet_ctrler: Bullet_Ctrler
 
+
+
 func _ready():
-	bullet_ctrler.apply_gravity(true)
-	await get_tree().create_timer(2, false).timeout
+	await get_tree().process_frame
+	var target=bullet_ctrler.get_target().global_position
+	bullet_ctrler.start_move_parabola(target,0,100,0)
+	await get_tree().create_timer(4, false).timeout
 	queue_free()
 
 func _process(_delta: float) -> void:
 	if(ishit):
 		bullet_ctrler.stop_move()
-	else:
-		an.play(&"loop")
-		bullet_ctrler.start_move(Vector2(cos(angle) * speed,sin(angle) * speed))
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):

@@ -10,8 +10,7 @@ var ishit=false
 
 func _ready():
 	await get_tree().process_frame
-	bullet_ctrler.start_move_forward(-800,-10)
-	#bullet_ctrler.start_move(Vector2(800,0),Vector2(-10,0))
+	bullet_ctrler.start_move_forward(800,-10)
 	await get_tree().create_timer(3, false).timeout
 	queue_free()
 

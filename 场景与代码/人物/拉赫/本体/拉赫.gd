@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func skill1():
-	var current_position=self.position
+	var current_position=self.global_position
 	var current_rotation=0
 	character_ctrler.add_warning_line(warning_line,Vector2(50,0))
 	character_ctrler.add_warning_line(warning_line,Vector2(50,100))
@@ -53,8 +53,8 @@ func skill1():
 
 func skill2():
 	character_data.mp+=100
-	var current_position=self.position
-	var current_rotation=-90
+	var current_position=self.global_position
+	var current_rotation=90
 	character_ctrler.add_warning_line(warning_line,Vector2(0,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(100,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(-100,-300),current_rotation)

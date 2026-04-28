@@ -55,8 +55,8 @@ func _ready() -> void:
 	acceleration=character.acceleration            #加速度
 	friction=character.friction                    #减速度
 	direction=character_data.direction             #朝向
-	character_data.direction_changed.connect(update_direction)
-	update_direction(direction)
+	character_data.direction_changed.connect(set_direction)
+	character.scale.x = direction                  #赋予初始朝向
 	#普攻和技能cd计时器
 	attack_timer.wait_time = character.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
@@ -76,6 +76,8 @@ func _ready() -> void:
 	ultimate=character_input.ultimate
 	print("5.Character_Main初始化完成:",character)
 
+
+
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
 	if bt_player and bt_player.active:
@@ -94,6 +96,7 @@ func _physics_process(delta: float) -> void:
 func tick_physics(state:State,_delta: float) -> void:
 	match  state:
 		State.常态:
+			update_direction()
 			fire_bullet()
 		State.移动:
 			move_animation()
@@ -134,6 +137,8 @@ func get_next_state(state:State)->State:
 ## 状态进入时
 func enter_state(state:State):
 	match state:
+		State.技能,State.必杀:
+			update_direction()
 		pass
 
 ## 状态退出时
@@ -202,6 +207,28 @@ func idle_move() -> State:
 		return State.冲刺
 	return State.NONE
 
+## 更新朝向：让人物始终盯着目标看
+func update_direction():
+	var target = character_ctrler.get_target()
+	if not is_instance_valid(target):
+		return
+	var target_pos = target.global_position
+	var self_pos = character.global_position
+	# 计算目标在左还是在右
+	var diff_x = target_pos.x - self_pos.x
+	# 设置一个微小的死区（例如5像素），防止重合时疯狂转身
+	if abs(diff_x) > 10.0:
+		var new_dir = 1.0 if diff_x > 0 else -1.0
+		# 关键：只有当方向真的改变时才调用 set_direction
+		if new_dir != direction:
+			character_data.direction = new_dir 
+
+## 设置朝向：处理视觉翻转和逻辑数值同步
+func set_direction(direct: float):
+	direction = direct
+	# 统一翻转逻辑：保持原始缩放比例，只改变符号
+	character.scale.x = abs(character.scale.x) * -1
+
 ## 受击处理函数
 func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	if not character_ctrler.get_is_allow_behit():
@@ -238,11 +265,6 @@ func move(max_speed:float,delta):
 		current_velocity = current_velocity.move_toward(Vector2.ZERO, friction * delta)
 	character.velocity = current_velocity
 	character.move_and_slide()
-
-## 更新朝向
-func update_direction(direct:float):
-	direction=direct
-	character.scale.x=direction
 
 ## 判断是否死亡
 func is_dead():

@@ -98,6 +98,7 @@ func get_is_key_moving():
 ## 获取移动方向
 func get_move_direction():
 	var move_dir = Input.get_vector(character_input.move_left,character_input.move_right,character_input.move_up, character_input.move_down)
+	move_dir.x*=character_data.direction
 	return move_dir
 
 ## 开始冲刺函数
@@ -161,6 +162,8 @@ func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> vo
 	if not anplayer.has_animation(anim_name):
 		print("错误：动画 '", anim_name, "' 不存在。")
 		return
+	var anim = anplayer.get_animation(anim_name)
+	time = clamp(time, 0, anim.length) #防止time超出上限
 	anplayer.play(anim_name)
 	anplayer.seek(time, true)
 	if not play_after:
@@ -185,13 +188,12 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	#print("飞行物所在组：",bullet_instance.get_groups())
 	#print("飞行物队伍："+bullet_instance.bullet_data.bullet_team)
 	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
-	if generate_position.length()!=0:
-		bullet_instance.position.x = generate_position.x + offset.x * character_data.direction
-		bullet_instance.position.y = generate_position.y + offset.y
-	else:
-		bullet_instance.position.x = character.position.x + offset.x * character_data.direction
-		bullet_instance.position.y = character.position.y + offset.y
-	bullet_instance.rotation = character.rotation + deg_to_rad(offset_rotation)
+	var origin = generate_position if generate_position.length() != 0 else character.global_position
+	bullet_instance.global_position.x = origin.x + offset.x * character_data.direction
+	bullet_instance.global_position.y = origin.y + offset.y
+	var base_rot = 0.0 if character_data.direction > 0 else PI
+	var final_offset_rot = deg_to_rad(offset_rotation) * character_data.direction
+	bullet_instance.rotation = base_rot + final_offset_rot
 
 ## 添加道具
 func add_prop(prop,offset:Vector2):
@@ -207,8 +209,8 @@ func add_prop(prop,offset:Vector2):
 	#print("道具所在组：",prop_instance.get_groups())
 	#print("道具队伍："+prop_instance.prop_data.bullet_team)
 	#print("道具主人：",prop_instance.prop_data.prop_owner)
-	prop_instance.position.x = character.position.x + offset.x * character_data.direction
-	prop_instance.position.y = character.position.y + offset.y
+	prop_instance.global_position.x = character.global_position.x + offset.x * character_data.direction
+	prop_instance.global_position.y = character.global_position.y + offset.y
 	prop_instance.rotation = character.rotation
 
 func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
@@ -216,13 +218,12 @@ func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0,generate_pos
 		return
 	var line_instance = line.instantiate()
 	get_parent().add_child(line_instance)
-	if generate_position.length()!=0:
-		line_instance.position.x = generate_position.x + offset.x * character_data.direction
-		line_instance.position.y = generate_position.y + offset.y
-	else:
-		line_instance.position.x = character.position.x + offset.x * character_data.direction
-		line_instance.position.y = character.position.y + offset.y
-	line_instance.rotation = character.rotation + deg_to_rad(offset_rotation)
+	var origin = generate_position if generate_position.length() != 0 else character.global_position
+	line_instance.global_position.x = origin.x + offset.x * character_data.direction
+	line_instance.global_position.y = origin.y + offset.y
+	var base_rot = 0.0 if character_data.direction > 0 else PI
+	var final_offset_rot = deg_to_rad(offset_rotation) * character_data.direction
+	line_instance.rotation = base_rot + final_offset_rot
 
 ## 获取道具
 func get_prop(pname:String):
@@ -245,7 +246,7 @@ func get_bullet(bname:String):
 			printerr("未找到名为",bname,"的弹幕")
 
 ## 获取对方
-func get_Target():
+func get_target():
 	var team=character_data.team
 	var characters = get_tree().get_nodes_in_group("characters")
 	for _character in characters:

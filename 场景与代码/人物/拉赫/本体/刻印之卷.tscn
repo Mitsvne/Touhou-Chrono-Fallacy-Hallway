@@ -716,7 +716,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0.16666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [2.0, 0.0, 0.5],
+"args": [Vector2(2, 0), 0.2],
 "method": &"shake_once"
 }]
 }
