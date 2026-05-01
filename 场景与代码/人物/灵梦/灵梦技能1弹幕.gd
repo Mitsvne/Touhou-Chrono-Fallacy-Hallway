@@ -17,7 +17,7 @@ var angle:int=200
 func _ready():
 	await get_tree().process_frame
 	var target=bullet_ctrler.get_target().global_position
-	bullet_ctrler.start_move_parabola(target,0,100,0)
+	bullet_ctrler.start_move_parabola(target,0,150,0)
 	await get_tree().create_timer(4, false).timeout
 	queue_free()
 

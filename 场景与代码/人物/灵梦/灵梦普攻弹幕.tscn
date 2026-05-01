@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="7_x7voj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfn0"]
-size = Vector2(26, 14)
+size = Vector2(24, 10)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g87nq"]
 blend_mode = 1
@@ -95,7 +95,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, -1)]
+"values": [Vector2(-11, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -167,10 +167,10 @@ tracks/3/path = NodePath(".:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.033333335),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Vector2(0.6, 0.6)]
+"values": []
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -179,10 +179,10 @@ tracks/4/path = NodePath(".:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.033333335, 1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, -1), Vector2(4, -1)]
+"values": [Vector2(-11, 0), Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -269,12 +269,11 @@ bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=35290016]
-position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_vxfn0")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1937011500]
 material = SubResource("CanvasItemMaterial_g87nq")
-position = Vector2(-1, -1)
+position = Vector2(-11, 0)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_8djmu")
 animation = &"hit"
@@ -291,7 +290,6 @@ attack_data = SubResource("Resource_ds2uh")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1444962531]
-position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_vxfn0")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2143644386]
@@ -299,7 +297,6 @@ script = ExtResource("6_f2vet")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hurtbox" unique_id=1298488069]
-position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_vxfn0")
 
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=1941379380]
@@ -314,8 +311,9 @@ bus = &"Se"
 script = ExtResource("7_x7voj")
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=760172629 node_paths=PackedStringArray("bullet_data", "bullet")]
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=760172629 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("7_7fhjk")
+anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"

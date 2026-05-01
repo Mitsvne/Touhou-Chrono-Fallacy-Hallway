@@ -11,6 +11,7 @@ var ishit=false
 func _ready():
 	await get_tree().process_frame
 	var target=bullet_ctrler.get_target().global_position
+	#bullet_ctrler.start_move_forward(400)
 	bullet_ctrler.start_move_towards(target,400,-10, -5, 5)
 	await get_tree().create_timer(2, false).timeout
 	queue_free()

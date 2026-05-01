@@ -31,8 +31,17 @@ func _ready():
 	print("main初始化完成")
 	add_child(character1_instance)
 	add_child(character2_instance)
+	character1_instance.character_main.character_is_dead.connect(game_over_fail)
+	character1_instance.character_main.character_is_dead.connect(game_over_victory)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	pass
+
+
+func game_over_victory(team):
+	print(team)
+	pass
+func game_over_fail(team):
+	print(team)
 	pass

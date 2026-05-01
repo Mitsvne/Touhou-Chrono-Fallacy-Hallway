@@ -30,15 +30,15 @@ func _physics_process(_delta: float) -> void:
 func skill1():
 	var current_position=self.global_position
 	var current_rotation=0
-	character_ctrler.add_warning_line(warning_line,Vector2(50,0))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,100))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,-100))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,200))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,-200))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,300))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,-300))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,400))
-	character_ctrler.add_warning_line(warning_line,Vector2(50,-400))
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,0),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,100),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,-100),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,200),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,-200),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,300),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,-300),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,400),current_rotation)
+	character_ctrler.add_warning_line(warning_line,Vector2(-300,-400),current_rotation)
 	await get_tree().create_timer(1.0, false).timeout
 	effect_ctrler.shake_once(Vector2(1,1))
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,0),current_rotation,current_position)
@@ -54,7 +54,7 @@ func skill1():
 func skill2():
 	character_data.mp+=100
 	var current_position=self.global_position
-	var current_rotation=90
+	var current_rotation=60
 	character_ctrler.add_warning_line(warning_line,Vector2(0,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(100,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(-100,-300),current_rotation)

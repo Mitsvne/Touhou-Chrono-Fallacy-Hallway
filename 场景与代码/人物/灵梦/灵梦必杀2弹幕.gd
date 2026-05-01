@@ -12,6 +12,11 @@ var ishit=false
 
 
 func _ready():
+	await get_tree().process_frame
+	if bullet_data.bullet_owner.character_data.direction==-1:
+		rotation=90
+	#scale.x=
+	#scale.y=bullet_data.bullet_owner.character_data.direction
 	await get_tree().create_timer(4, false).timeout
 	queue_free()
 

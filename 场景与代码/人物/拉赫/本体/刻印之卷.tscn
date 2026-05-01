@@ -355,7 +355,7 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(9, 0)]
+"values": [Vector2(202, 0)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -836,6 +836,6 @@ attack_data = SubResource("Resource_hx808")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=2095502050]
-position = Vector2(9, 0)
+position = Vector2(202, 0)
 shape = SubResource("RectangleShape2D_djx2v")
 disabled = true

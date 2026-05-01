@@ -158,6 +158,7 @@ func start_move_forward(speed: float, drag: float = 0.0, use_vector_drag: bool =
 	if not is_instance_valid(bullet): return
 	# 获取当前物体的全局朝向向量
 	var direction = Vector2.RIGHT.rotated(bullet.global_rotation)
+	#print(direction)
 	var init_velocity = direction * speed
 	if use_vector_drag:
 		# 如果使用矢量阻力，需要考虑 bullet_direction 镜像（直线模式）
@@ -214,36 +215,41 @@ func start_move_parabola(target_pos: Vector2, speed: float = 0.0, arc_height: fl
 	var v_y: float = 0.0
 	if is_zero_approx(speed):
 		# --- 模式 A：自动计算模式（基于高度确定初速度） ---
-		var h = max(arc_height, arc_height + diff.y)
-		v_y = -sqrt(2 * gravity * h)
-		var t = (-v_y / gravity) + sqrt(2 * max(0, h - diff.y) / gravity)
-		v_x = diff.x / t
+		var g = gravity
+		var arc_h = max(arc_height, 0.01)   # 防止除零
+		# 上升阶段
+		var v_y_up = -sqrt(2 * g * arc_h)   # 向上为负
+		var t_up = -v_y_up / g              # 到达最高点的时间
+		# 下降阶段：从最高点 (-arc_h) 落到目标 Y (diff.y)
+		var drop_distance = arc_h + diff.y  # diff.y 可正可负
+		if drop_distance < 0:
+			arc_h = -diff.y + 10.0
+			v_y_up = -sqrt(2 * g * arc_h)
+			t_up = -v_y_up / g
+			drop_distance = arc_h + diff.y
+		var t_down = sqrt(2 * drop_distance / g)
+		var t_total = t_up + t_down
+		v_y = v_y_up
+		v_x = diff.x / t_total
 	else:
-		# --- 模式 B：固定速度模式（计算发射角度） ---
+		 # --- 模式 B：固定速率模式 ---
 		var g = gravity
 		var x = diff.x
 		var y = diff.y
 		var s = speed
-		var root = pow(s, 4) - g * (g * pow(x, 2) + 2 * y * pow(s, 2))
-		if root < 0:
-			# 物理上无法到达（速度太慢），退回到最大射程角（45度）
-			var angle = deg_to_rad(-45 if x > 0 else -135)
-			velocity = Vector2.RIGHT.rotated(angle) * s
+		var discriminant = pow(s, 4) - g * (g * x * x + 2 * y * s * s)
+		if discriminant < 0:
+			# 无法到达，回退到 45° 角（或选择最大射程角）
+			var angle = deg_to_rad(45)
+			if x < 0: angle = PI - angle
+			velocity = Vector2(cos(angle), -sin(angle)) * s
 		else:
-			# 计算两个可能的发射角（取高弧度那个，让轨迹更像抛物线）
-			var angle = atan((pow(s, 2) + sqrt(root)) / (g * x))
-			# 如果 x 在左侧，atan 会反向，需要修正
+			var root = sqrt(discriminant)
+			# 取较高的弧线（正切值较小的解），更接近“抛物线感”
+			var tan_theta = (s * s - root) / (g * x)   # 高弧解
+			var angle = atan(tan_theta)
 			if x < 0: angle += PI
-			velocity = Vector2(cos(angle), -sin(angle)).normalized() * s
-			# 修正 y 方向（因为 Godot Y 轴向下）
-			velocity.y = -abs(velocity.y) if y < 0 else abs(velocity.y)
-			# 简化处理：直接设置最终速度向量
-			velocity = Vector2(s * sign(x), 0).rotated(atan2(y - (0.5 * g * pow(x/s, 2)), x)) 
-			if velocity.is_finite() == false:
-				velocity = Vector2.ZERO # 防极端情况下会产生 NaN
-			# 注意：以上公式复杂，简单起见我们常用方向向量合成：
-			#var launch_dir = (Vector2(x, y - arc_height).normalized()) 
-			#velocity = launch_dir * s
+			velocity = Vector2(cos(angle), -sin(angle)) * s
 	# 2. 启动
 	if is_zero_approx(v_x) and is_zero_approx(v_y):
 		# 如果使用了模式B计算出的 velocity，直接应用
@@ -279,6 +285,33 @@ func apply_gravity(value: bool):
 func set_direction(value: int):
 	bullet_data.bullet_direction = value
 	bullet.scale.x=value
+
+func get_all_collision_shapes(root: Node) -> Array[Node]:
+	var shapes: Array[Node] = []
+	shapes.append_array(root.find_children("*", "CollisionShape2D"))
+	shapes.append_array(root.find_children("*", "CollisionPolygon2D"))
+	return shapes
+
+func get_all_visual_nodes(root: Node) -> Array[Node]:
+	var visuals: Array[Node] = []
+	visuals.append_array(root.find_children("*", "Sprite2D"))
+	visuals.append_array(root.find_children("*", "AnimatedSprite2D"))
+	return visuals
+
+func initialize_mirror(dir: int):
+	if dir == 1:
+		return
+	var collisions=get_all_collision_shapes(bullet)
+	var sprites=get_all_visual_nodes(bullet)
+	# 1. 贴图镜像
+	if sprites: 
+		for sprite in sprites:
+			sprite.flip_v = true
+	# 2. 物理碰撞体局部位置镜像
+	if collisions:
+		for collision in collisions:
+			collision.position.x *= -1
+
 
 ## 获取敌人节点
 func get_target():

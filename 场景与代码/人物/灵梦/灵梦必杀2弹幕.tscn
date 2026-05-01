@@ -559,6 +559,7 @@ disabled = true
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(30, 30)
 sprite_frames = SubResource("SpriteFrames_hxgal")
+flip_h = true
 
 [node name="动画" parent="." index="2" unique_id=943798430]
 root_node = NodePath("..")
@@ -566,7 +567,6 @@ libraries/ = SubResource("AnimationLibrary_8gky8")
 autoplay = &"hit"
 
 [node name="Hitbox" parent="." index="3" unique_id=234097381]
-visible = false
 attack_data = SubResource("Resource_875fk")
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1929849455]
@@ -574,13 +574,12 @@ position = Vector2(31, 32)
 shape = SubResource("CircleShape2D_hxgal")
 
 [node name="Hitbox2" type="Area2D" parent="." index="4" unique_id=301495821]
-visible = false
 script = ExtResource("5_875fk")
 attack_data = SubResource("Resource_8gky8")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox2" index="0" unique_id=1024501482]
-position = Vector2(83, 86)
+position = Vector2(93, 86)
 scale = Vector2(0.100000024, 0.100000024)
 shape = SubResource("CircleShape2D_xdlkq")
 disabled = true
@@ -589,9 +588,9 @@ disabled = true
 visible = false
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hurtbox" index="0" unique_id=463974006]
-visible = false
 position = Vector2(31, 32)
 shape = SubResource("CircleShape2D_hxgal")
+disabled = true
 
 [node name="音效" parent="." index="6" unique_id=142179356]
 bus = &"Se"

@@ -185,15 +185,16 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	bullet_instance.bullet_data.bullet_team=character_data.team
 	bullet_instance.bullet_data.bullet_owner=character
 	bullet_instance.bullet_data.bullet_direction=character_data.direction
-	#print("飞行物所在组：",bullet_instance.get_groups())
-	#print("飞行物队伍："+bullet_instance.bullet_data.bullet_team)
-	#print("飞行物主人：",bullet_instance.bullet_ctrler.bullet_owner)
+	
 	var origin = generate_position if generate_position.length() != 0 else character.global_position
 	bullet_instance.global_position.x = origin.x + offset.x * character_data.direction
 	bullet_instance.global_position.y = origin.y + offset.y
-	var base_rot = 0.0 if character_data.direction > 0 else PI
-	var final_offset_rot = deg_to_rad(offset_rotation) * character_data.direction
-	bullet_instance.rotation = base_rot + final_offset_rot
+	bullet_instance.bullet_ctrler.initialize_mirror(character_data.direction)
+	if character_data.direction == 1:
+		bullet_instance.rotation = deg_to_rad(offset_rotation)
+	else:
+		bullet_instance.rotation = PI - deg_to_rad(offset_rotation)
+	
 
 ## 添加道具
 func add_prop(prop,offset:Vector2):

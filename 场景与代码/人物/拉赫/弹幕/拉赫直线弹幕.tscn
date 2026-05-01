@@ -202,7 +202,6 @@ bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面2" type="CollisionShape2D" parent="." unique_id=118328846]
-visible = false
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_3lllv")
 
@@ -220,7 +219,6 @@ libraries/ = SubResource("AnimationLibrary_lupqp")
 speed_scale = 0.5
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=772372855]
-visible = false
 script = ExtResource("12_0a8ww")
 attack_data = SubResource("Resource_xf4pb")
 
@@ -229,7 +227,6 @@ position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_3lllv")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1461978052]
-visible = false
 script = ExtResource("14_kluci")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
