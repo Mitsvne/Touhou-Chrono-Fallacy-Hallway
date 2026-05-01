@@ -18,7 +18,7 @@ signal direction_changed
 			#push_warning("direction 只能赋值为 1 或 -1，当前值不变")
 			return
 
-@export var hp_max:float=100#血量上限
+@export var hp_max:float=200#血量上限
 @onready var hp:float=hp_max:#血量
 	set(v):
 		v=clampf(v,0.0,hp_max)

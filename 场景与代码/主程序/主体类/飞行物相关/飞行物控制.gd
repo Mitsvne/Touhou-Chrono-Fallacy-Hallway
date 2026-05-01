@@ -286,31 +286,46 @@ func set_direction(value: int):
 	bullet_data.bullet_direction = value
 	bullet.scale.x=value
 
+## 获取场景内的物理碰撞层
 func get_all_collision_shapes(root: Node) -> Array[Node]:
 	var shapes: Array[Node] = []
 	shapes.append_array(root.find_children("*", "CollisionShape2D"))
 	shapes.append_array(root.find_children("*", "CollisionPolygon2D"))
 	return shapes
 
+## 获取场景内的图像节点
 func get_all_visual_nodes(root: Node) -> Array[Node]:
 	var visuals: Array[Node] = []
 	visuals.append_array(root.find_children("*", "Sprite2D"))
 	visuals.append_array(root.find_children("*", "AnimatedSprite2D"))
 	return visuals
 
+## 检查是否有物理碰撞层负缩放
+func check_collision_negative_scale(root: Node) -> void:
+	var shapes = get_all_collision_shapes(root)
+	for shape in shapes:
+		var global_scale = shape.global_transform.get_scale()
+		if global_scale.x < 0 or global_scale.y < 0:
+			print("[警告] 负缩放碰撞体: ", shape.get_path(), " scale=", global_scale)
+
+## 镜像效果
 func initialize_mirror(dir: int):
 	if dir == 1:
 		return
 	var collisions=get_all_collision_shapes(bullet)
 	var sprites=get_all_visual_nodes(bullet)
+	check_collision_negative_scale(bullet)
 	# 1. 贴图镜像
 	if sprites: 
 		for sprite in sprites:
+			#sprite.position *= -1 
 			sprite.flip_v = true
 	# 2. 物理碰撞体局部位置镜像
 	if collisions:
 		for collision in collisions:
 			collision.position.x *= -1
+			#collision.position.x *= -1
+			#print(collision)
 
 
 ## 获取敌人节点

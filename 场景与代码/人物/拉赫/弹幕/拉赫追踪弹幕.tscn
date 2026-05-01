@@ -202,12 +202,12 @@ colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353
 [node name="拉赫追踪弹幕" type="Area2D" unique_id=580817433 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler")]
 script = ExtResource("1_4hpx3")
 an = NodePath("动画")
-hitarea = NodePath("Hitbox/碰撞面")
-hurtarea = NodePath("Hurtbox/碰撞面2")
+hitarea = NodePath("Hitbox/攻击面")
+hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
-[node name="碰撞面2" type="CollisionShape2D" parent="." unique_id=1861385137]
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1861385137]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_0b8ep")
 
@@ -229,7 +229,7 @@ speed_scale = 0.5
 script = ExtResource("11_cgjrj")
 attack_data = SubResource("Resource_gwtpk")
 
-[node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1912168038]
+[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1912168038]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_p6kci")
 
@@ -238,7 +238,7 @@ visible = false
 script = ExtResource("13_xqgto")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
-[node name="碰撞面2" type="CollisionShape2D" parent="Hurtbox" unique_id=865302257]
+[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=865302257]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_cejsq")
 

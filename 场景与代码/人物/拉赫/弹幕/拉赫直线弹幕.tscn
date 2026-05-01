@@ -196,19 +196,19 @@ colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353
 [node name="拉赫普攻弹幕" type="Area2D" unique_id=1707398084 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_vkq6w")
 an = NodePath("动画")
-hitarea = NodePath("Hitbox/碰撞面")
-hurtarea = NodePath("Hurtbox/碰撞面2")
+hitarea = NodePath("Hitbox/攻击面")
+hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
-[node name="碰撞面2" type="CollisionShape2D" parent="." unique_id=118328846]
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=118328846]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_3lllv")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1282921721]
 material = SubResource("ShaderMaterial_413ml")
 position = Vector2(-25, 0)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.19999999, 0.19999999)
 sprite_frames = SubResource("SpriteFrames_spcgt")
 animation = &"loop"
 autoplay = "loop"
@@ -222,7 +222,7 @@ speed_scale = 0.5
 script = ExtResource("12_0a8ww")
 attack_data = SubResource("Resource_xf4pb")
 
-[node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1486490914]
+[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1486490914]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_3lllv")
 
@@ -230,7 +230,7 @@ shape = SubResource("RectangleShape2D_3lllv")
 script = ExtResource("14_kluci")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
-[node name="碰撞面2" type="CollisionShape2D" parent="Hurtbox" unique_id=743883131]
+[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=743883131]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_3lllv")
 
