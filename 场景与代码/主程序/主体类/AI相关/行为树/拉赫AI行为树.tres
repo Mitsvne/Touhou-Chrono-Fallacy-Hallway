@@ -1,5 +1,9 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://cg7a6p1wt5tno"]
 
+[ext_resource type="Script" uid="uid://cnt5wax5vito0" path="res://场景与代码/主程序/主体类/AI相关/任务/idle.gd" id="1_qhu3j"]
+[ext_resource type="Script" uid="uid://cymgidmwqpwix" path="res://场景与代码/主程序/主体类/AI相关/任务/move_to_target.gd" id="1_vbdkt"]
+[ext_resource type="Script" uid="uid://bm1lnpnpijuhc" path="res://场景与代码/主程序/主体类/AI相关/任务/back_away.gd" id="2_5ntii"]
+
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_6bllh"]
 var/character/name = &"character"
 var/character/type = 22
@@ -26,23 +30,17 @@ var/effect_ctrler/type = 22
 var/effect_ctrler/value = NodePath("class/Effect_Ctrler")
 var/effect_ctrler/hint = 0
 var/effect_ctrler/hint_string = ""
+var/move_speed/name = &"move_speed"
+var/move_speed/type = 3
+var/move_speed/value = 0.0
+var/move_speed/hint = 0
+var/move_speed/hint_string = "400"
 
-[sub_resource type="BBNode" id="BBNode_5ntii"]
-saved_value = NodePath("动画")
-resource_name = "动画"
+[sub_resource type="BTAction" id="BTAction_imwqy"]
+script = ExtResource("1_qhu3j")
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_qhu3j"]
-animation_player = SubResource("BBNode_5ntii")
-animation_name = &"常态"
-
-[sub_resource type="BBNode" id="BBNode_pghet"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_behlt"]
-animation_player = SubResource("BBNode_pghet")
-animation_name = &"常态"
-max_time = 2.0
+[sub_resource type="BTAction" id="BTAction_5ntii"]
+script = ExtResource("1_vbdkt")
 
 [sub_resource type="BBNode" id="BBNode_qhu3j"]
 saved_value = NodePath("动画")
@@ -52,49 +50,40 @@ resource_name = "动画"
 animation_player = SubResource("BBNode_qhu3j")
 animation_name = &"技能"
 
-[sub_resource type="BBNode" id="BBNode_vbdkt"]
+[sub_resource type="BTWait" id="BTWait_qhu3j"]
+duration = 0.85
+
+[sub_resource type="BTAction" id="BTAction_pghet"]
+script = ExtResource("1_qhu3j")
+timeout_limit = 0.5
+
+[sub_resource type="BTAction" id="BTAction_behlt"]
+script = ExtResource("1_vbdkt")
+tolerance = 150.0
+timeout_limit = 1.0
+
+[sub_resource type="BTAction" id="BTAction_785ua"]
+script = ExtResource("1_qhu3j")
+timeout_limit = 0.5
+
+[sub_resource type="BTAction" id="BTAction_qhu3j"]
+script = ExtResource("2_5ntii")
+timeout_limit = 1.0
+
+[sub_resource type="BBNode" id="BBNode_pghet"]
 saved_value = NodePath("动画")
 resource_name = "动画"
 
-[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_5ntii"]
-animation_player = SubResource("BBNode_vbdkt")
-animation_name = &"技能"
-
-[sub_resource type="BBNode" id="BBNode_4x5c5"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_tvd48"]
-animation_player = SubResource("BBNode_4x5c5")
-animation_name = &"常态"
-
-[sub_resource type="BBNode" id="BBNode_2a4wo"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_7mfyj"]
-animation_player = SubResource("BBNode_2a4wo")
-animation_name = &"常态"
-
-[sub_resource type="BBNode" id="BBNode_behlt"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_785ua"]
-animation_player = SubResource("BBNode_behlt")
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_behlt"]
+animation_player = SubResource("BBNode_pghet")
 animation_name = &"必杀"
 
-[sub_resource type="BBNode" id="BBNode_imwqy"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_pghet"]
-animation_player = SubResource("BBNode_imwqy")
-animation_name = &"必杀"
-max_time = 1.5
+[sub_resource type="BTWait" id="BTWait_imwqy"]
+duration = 1.333
 
 [sub_resource type="BTSequence" id="BTSequence_785ua"]
-children = [SubResource("BTPlayAnimation_qhu3j"), SubResource("BTAwaitAnimation_behlt"), SubResource("BTPlayAnimation_imwqy"), SubResource("BTAwaitAnimation_5ntii"), SubResource("BTPlayAnimation_tvd48"), SubResource("BTAwaitAnimation_7mfyj"), SubResource("BTPlayAnimation_785ua"), SubResource("BTAwaitAnimation_pghet")]
+custom_name = "Stroll"
+children = [SubResource("BTAction_imwqy"), SubResource("BTAction_5ntii"), SubResource("BTPlayAnimation_imwqy"), SubResource("BTWait_qhu3j"), SubResource("BTAction_pghet"), SubResource("BTAction_behlt"), SubResource("BTAction_785ua"), SubResource("BTAction_qhu3j"), SubResource("BTPlayAnimation_behlt"), SubResource("BTWait_imwqy")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_6bllh")

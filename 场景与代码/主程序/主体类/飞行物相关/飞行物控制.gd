@@ -327,6 +327,36 @@ func initialize_mirror(dir: int):
 			#collision.position.x *= -1
 			#print(collision)
 
+## 发射弹幕
+func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
+	if not Bullet:
+		return
+	var bullet_instance = Bullet.instantiate()
+	get_parent().add_child(bullet_instance)
+	bullet_instance.add_to_group("bullets")
+	bullet_instance.add_to_group(bullet_data.team)
+	bullet_instance.bullet_data.bullet_team=bullet_data.team
+	bullet_instance.bullet_data.bullet_owner=bullet
+	bullet_instance.bullet_data.bullet_direction=bullet_data.direction
+	#位置偏移
+	var origin = generate_position if generate_position.length() != 0 else bullet.global_position
+	bullet_instance.global_position.x = origin.x + offset.x * bullet_data.direction
+	bullet_instance.global_position.y = origin.y + offset.y
+	#飞行物根据朝向镜像
+	bullet_instance.bullet_ctrler.initialize_mirror(bullet_data.direction)
+	if bullet_data.direction == 1:
+		bullet_instance.rotation = deg_to_rad(offset_rotation)
+	else:
+		bullet_instance.rotation = PI - deg_to_rad(offset_rotation)
+
+
+
+
+
+
+
+
+
 
 ## 获取敌人节点
 func get_target():

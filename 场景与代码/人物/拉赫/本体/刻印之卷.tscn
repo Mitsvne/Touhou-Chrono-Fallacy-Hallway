@@ -765,10 +765,11 @@ script = ExtResource("35_oiso3")
 attack_interval = 0.1
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler", "audio") groups=["props"]]
+[node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler", "anplayer", "audio") groups=["props"]]
 script = ExtResource("1_rn5ax")
 prop_data = NodePath("class/Prop_Data")
 prop_ctrler = NodePath("class/Prop_Ctrler")
+anplayer = NodePath("动画")
 audio = NodePath("音效")
 
 [node name="class" type="Node" parent="." unique_id=1263035583]

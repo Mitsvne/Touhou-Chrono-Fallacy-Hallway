@@ -12,7 +12,8 @@ var character_name:String="拉赫莱蒂"
 @export var attack_bullet2:PackedScene
 @export var warning_line:PackedScene
 #控制器导入
-@export var character_main: Character_Main
+@export var character_ai_main: Character_AI_Main
+#@export var character_main: Character_Main
 @export var character_data: Character_Data
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
@@ -21,12 +22,14 @@ var character_name:String="拉赫莱蒂"
 
 
 func _ready():
-	character_ctrler.add_prop(book,Vector2(50,50))
+	#await get_tree().process_frame
+	character_ctrler.add_prop(book,Vector2(0,-50))
 	print("4.character初始化完成:",character_name)
 
 func _physics_process(_delta: float) -> void:
 	pass
 
+## 弹幕网横向
 func skill1():
 	var current_position=self.global_position
 	var current_rotation=0
@@ -51,10 +54,11 @@ func skill1():
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,400),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,-400),current_rotation,current_position)
 
+## 弹幕网竖向
 func skill2():
 	character_data.mp+=100
 	var current_position=self.global_position
-	var current_rotation=60
+	var current_rotation=90
 	character_ctrler.add_warning_line(warning_line,Vector2(0,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(100,-300),current_rotation)
 	character_ctrler.add_warning_line(warning_line,Vector2(-100,-300),current_rotation)
@@ -76,7 +80,7 @@ func skill2():
 	character_ctrler.shoot(attack_bullet1,Vector2(400,-300),current_rotation,current_position)
 	character_ctrler.shoot(attack_bullet1,Vector2(-400,-300),current_rotation,current_position)
 
-
+## 追踪弹幕连发
 func skill3():
 	character_data.mp+=100
 	character_ctrler.shoot(attack_bullet2,Vector2(0,0))

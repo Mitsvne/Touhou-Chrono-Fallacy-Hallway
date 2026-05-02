@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="9_bgnr4"]
 [ext_resource type="Texture2D" uid="uid://jeprym35tyjf" path="res://素材/人物素材/拉赫/人物/xem_100-1.png" id="10_gfiyh"]
+[ext_resource type="Script" uid="uid://ycxk0gu5kdcb" path="res://场景与代码/主程序/主体类/人物相关/人物主体_boss.gd" id="10_nnwkb"]
 [ext_resource type="Texture2D" uid="uid://b3x0c51budwnn" path="res://素材/人物素材/拉赫/人物/xem_100-3.png" id="10_ukv3x"]
 [ext_resource type="Texture2D" uid="uid://cxw3sjpjw4xw7" path="res://素材/人物素材/拉赫/人物/xem_100-2.png" id="11_6estm"]
 [ext_resource type="Texture2D" uid="uid://doi4gn5kafeud" path="res://素材/人物素材/拉赫/人物/xem_100-4.png" id="11_573nv"]
@@ -63,8 +64,6 @@
 [ext_resource type="Texture2D" uid="uid://cwr3jfuo4vr81" path="res://素材/人物素材/拉赫/人物/xem_2280-11.png" id="37_rhyp6"]
 [ext_resource type="Texture2D" uid="uid://hpnxyj2k5fnr" path="res://素材/人物素材/拉赫/人物/xem_2280-12.png" id="38_wn6fn"]
 [ext_resource type="Texture2D" uid="uid://bn4elv05d0ddn" path="res://素材/人物素材/拉赫/人物/xem_2280-13.png" id="39_yx3af"]
-[ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物/灵梦/技能cd.gd" id="54_vivdl"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="55_wrct2"]
 [ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="58_i3xqp"]
 [ext_resource type="BehaviorTree" uid="uid://cg7a6p1wt5tno" path="res://场景与代码/主程序/主体类/AI相关/行为树/拉赫AI行为树.tres" id="66_pxu2m"]
 [ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="68_nnwkb"]
@@ -733,6 +732,42 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.4666667)
 }
 tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("光环:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17.999994, -43.999985)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("光环:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.34906584]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("光环:skew")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8726646]
+}
 
 [sub_resource type="Animation" id="Animation_vivdl"]
 resource_name = "技能1"
@@ -829,6 +864,42 @@ tracks/6/keys = {
 "args": [],
 "method": &"skill2"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("光环:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17.999994, -43.999985)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("光环:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.34906584]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("光环:skew")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8726646]
 }
 
 [sub_resource type="Animation" id="Animation_nnwkb"]
@@ -1105,24 +1176,37 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_ot8d4")
 color_ramp = SubResource("GradientTexture1D_liacr")
 
-[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["bosses", "characters", "players"]]
+[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_data", "character_ctrler", "effect_ctrler") groups=["bosses", "characters", "players"]]
 motion_mode = 1
 script = ExtResource("1_v8ol4")
 book = ExtResource("3_wrct2")
 attack_bullet1 = ExtResource("2_udp54")
 attack_bullet2 = ExtResource("4_chhjm")
 warning_line = ExtResource("4_1asjr")
-character_main = NodePath("class/Character_Main")
+character_ai_main = NodePath("class/Character_AI_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="class" type="Node" parent="." unique_id=519233685]
 
-[node name="Character_Data" type="Node" parent="class" unique_id=592698125]
+[node name="Character_Main" type="Node" parent="class" unique_id=1740628792 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
+script = ExtResource("4_10ogm")
+character_data = NodePath("../Character_Data")
+character_ctrler = NodePath("../Character_Ctrler")
+character_input = NodePath("../Character_Input")
+character = NodePath("../..")
+anplayer = NodePath("../../动画")
+hurtbox = NodePath("../../Hurtbox")
+bt_player = NodePath("../../BTPlayer")
+damage_number = ExtResource("2_bgnr4")
+attack_bullet = ExtResource("4_chhjm")
+attack_effect = ExtResource("9_6estm")
+metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="Character_Data" type="Node" parent="class" unique_id=1370663754]
 script = ExtResource("4_pxy2b")
 hp_max = 1000.0
-energy_max = 1000.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Input" type="Node" parent="class" unique_id=724283982]
@@ -1137,8 +1221,8 @@ character_input = NodePath("../Character_Input")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1919320945 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
-script = ExtResource("4_10ogm")
+[node name="Character_AI_Main" type="Node" parent="class" unique_id=1803098692 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
+script = ExtResource("10_nnwkb")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
 character_input = NodePath("../Character_Input")
@@ -1147,9 +1231,8 @@ anplayer = NodePath("../../动画")
 hurtbox = NodePath("../../Hurtbox")
 bt_player = NodePath("../../BTPlayer")
 damage_number = ExtResource("2_bgnr4")
-attack_bullet = ExtResource("2_udp54")
 attack_effect = ExtResource("9_6estm")
-metadata/_custom_type_script = "uid://jclrroyodlts"
+metadata/_custom_type_script = "uid://ycxk0gu5kdcb"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1335184765]
 script = ExtResource("24_ljw2w")
@@ -1157,7 +1240,6 @@ metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
-active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
@@ -1185,21 +1267,6 @@ transform = Transform2D(-1, 0, 0, 1, 630, 10)
 [node name="ui血条" parent="血条ui" unique_id=1721267738 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("5_v8ol4")]
 character = NodePath("../..")
 character_data = NodePath("../../class/Character_Data")
-
-[node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=1170557731 node_paths=PackedStringArray("cd_label", "character_main")]
-offset_left = 145.0
-offset_top = 28.0
-offset_right = 185.0
-offset_bottom = 68.0
-scale = Vector2(-1, 1)
-script = ExtResource("54_vivdl")
-cd_label = NodePath("Label")
-character_main = NodePath("../../class/Character_Main")
-
-[node name="Label" type="Label" parent="血条ui/技能cd" unique_id=1036596101]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("55_wrct2")
-text = "CD:"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
 script = ExtResource("3_xu8tx")
@@ -1255,4 +1322,4 @@ stream = ExtResource("68_nnwkb")
 max_polyphony = 5
 bus = &"Se"
 
-[connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]
+[connection signal="hurt" from="Hurtbox" to="class/Character_AI_Main" method="_on_hurtbox_hurt"]
