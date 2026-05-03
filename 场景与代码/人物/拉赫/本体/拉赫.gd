@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 #控制器导入
-#@export var character_ai_main: Character_AI_Main
+@export var character_ai_main: Character_AI_Main
 @export var character_main: Character_Main
 @export var character_data: Character_Data
+@export var character_input: Character_Input
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
+@export var bt_player: BTPlayer
 
 var move_speed:int=400
 var acceleration: float = 1600.0   # 加速度（像素/秒²）
@@ -21,6 +23,7 @@ var character_name:String="拉赫莱蒂"
 
 @onready var halo: Node2D = $光环
 @onready var shoot_audio: AudioStreamPlayer = $音效/弹幕发射音效
+
 
 
 func _ready():

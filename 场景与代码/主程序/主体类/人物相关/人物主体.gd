@@ -77,8 +77,10 @@ func _ready() -> void:
 	skill=character_input.skill
 	ultimate=character_input.ultimate
 	print("5.Character_Main初始化完成:",character)
-
-
+	await get_tree().process_frame
+	if bt_player and bt_player.active:
+		print("AI开启,Character_Main关闭")
+		return
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:

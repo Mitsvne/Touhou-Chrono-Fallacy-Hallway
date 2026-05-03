@@ -2,7 +2,7 @@ extends Node
 
 @export var character1:PackedScene
 @export var character2:PackedScene
-@export var result_scene: PackedScene
+@export var result_scene:PackedScene
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
@@ -34,8 +34,10 @@ func _ready():
 	add_child(character1_instance)
 	add_child(character2_instance)
 	character1_instance.character_main.character_is_dead.connect(game_over_fail)
-	character2_instance.character_main.character_is_dead.connect(game_over_victory)
-	#character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
+	if character2_instance.bt_player.active:
+		character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
+	else:
+		character2_instance.character_main.character_is_dead.connect(game_over_victory)
 
 
 func _physics_process(_delta: float) -> void:

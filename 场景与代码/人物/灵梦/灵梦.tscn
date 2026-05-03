@@ -2170,14 +2170,14 @@ size = Vector2(26, 25.5)
 [node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_input", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
 motion_mode = 1
 script = ExtResource("1_ig6o6")
-attack_bullet = ExtResource("2_g1kd8")
-bullet2 = ExtResource("3_8vesq")
-bullet3 = SubResource("PackedScene_bo27d")
 character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_input = NodePath("class/Character_Input")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
+attack_bullet = ExtResource("2_g1kd8")
+bullet2 = ExtResource("3_8vesq")
+bullet3 = SubResource("PackedScene_bo27d")
 
 [node name="class" type="Node" parent="." unique_id=213625171]
 

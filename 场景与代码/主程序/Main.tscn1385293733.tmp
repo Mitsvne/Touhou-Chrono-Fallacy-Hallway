@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://do4vla6wati0b"]
+
+[ext_resource type="PackedScene" uid="uid://bj4poyfjuw0rg" path="res://场景与代码/地图/山脉.tscn" id="1_3nwfj"]
+[ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/main.gd" id="1_w1jva"]
+[ext_resource type="Script" uid="uid://chi1q3hkesd61" path="res://场景与代码/主程序/主体类/镜头相关/镜头.gd" id="2_avk0m"]
+[ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_w1jva"]
+[ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_gtwc4"]
+[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面.tscn" id="4_en0us"]
+[ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/主程序/暂停菜单.gd" id="4_wfpim"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="5_gtwc4"]
+[ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="7_8cp7d"]
+[ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_wfpim"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfpim"]
+shader = ExtResource("7_8cp7d")
+
+[sub_resource type="Gradient" id="Gradient_073jx"]
+colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_073jx"]
+gradient = SubResource("Gradient_073jx")
+width = 2592
+height = 486
+fill = 1
+fill_from = Vector2(0.65, 0)
+fill_to = Vector2(0.4923077, 1)
+
+[sub_resource type="Environment" id="Environment_073jx"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.8
+glow_bloom = 0.2
+glow_blend_mode = 0
+fog_enabled = true
+
+[node name="Main" type="Node" unique_id=676586633]
+script = ExtResource("1_w1jva")
+character1 = ExtResource("2_w1jva")
+character2 = ExtResource("3_gtwc4")
+result_scene = ExtResource("4_en0us")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
+
+[node name="暂停菜单" type="Control" parent="ui" unique_id=1436569818 node_paths=PackedStringArray("continue_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wfpim")
+continue_button = NodePath("垂直容器/继续游戏")
+
+[node name="垂直容器" type="VBoxContainer" parent="ui/暂停菜单" unique_id=565067573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -49.0
+offset_right = 44.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="游戏暂停" type="Label" parent="ui/暂停菜单/垂直容器" unique_id=312349534]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_gtwc4")
+theme_override_font_sizes/font_size = 24
+text = "游戏暂停"
+
+[node name="继续游戏" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=422401519]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_gtwc4")
+text = "继续游戏"
+
+[node name="游戏重置" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=1570851647]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_gtwc4")
+text = " 游戏重置 "
+
+[node name="回到主页" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=1090904219]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_gtwc4")
+text = "回到主页"
+
+[node name="山脉" parent="." unique_id=160434654 instance=ExtResource("1_3nwfj")]
+material = SubResource("ShaderMaterial_wfpim")
+metadata/_edit_lock_ = true
+
+[node name="镜头" type="Camera2D" parent="." unique_id=55027781]
+position = Vector2(189, 205)
+process_callback = 0
+limit_left = 0
+limit_top = -50
+limit_right = 864
+limit_bottom = 436
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("2_avk0m")
+metadata/_edit_lock_ = true
+
+[node name="1P位置" type="Node2D" parent="." unique_id=868929190]
+position = Vector2(189, 205)
+metadata/_edit_lock_ = true
+
+[node name="2P位置" type="Node2D" parent="." unique_id=1923647600]
+position = Vector2(467, 208)
+metadata/_edit_lock_ = true
+
+[node name="光源" type="PointLight2D" parent="." unique_id=393667408]
+position = Vector2(0, 195)
+energy = 1.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_073jx")
+metadata/_edit_lock_ = true
+
+[node name="阴影幕布" type="CanvasModulate" parent="." unique_id=1873196507]
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="世界环境光" type="WorldEnvironment" parent="." unique_id=99965680]
+environment = SubResource("Environment_073jx")
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=880136600]
+stream = ExtResource("8_wfpim")
+bus = &"Bgm"
+
+[connection signal="pressed" from="ui/暂停菜单/垂直容器/继续游戏" to="ui/暂停菜单" method="_on_continue_pressed"]
+[connection signal="pressed" from="ui/暂停菜单/垂直容器/游戏重置" to="ui/暂停菜单" method="_on_reset_pressed"]
+[connection signal="pressed" from="ui/暂停菜单/垂直容器/回到主页" to="ui/暂停菜单" method="_on_return_pressed"]
