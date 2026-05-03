@@ -13,25 +13,43 @@
 [ext_resource type="Texture2D" uid="uid://b5rasjydygfsg" path="res://素材/特效素材/中击1/hitAc002.png" id="11_ybwtl"]
 [ext_resource type="Texture2D" uid="uid://cdkqc2jmdmtv2" path="res://素材/特效素材/中击1/hitAc003.png" id="12_cpq7e"]
 [ext_resource type="Texture2D" uid="uid://dunrliagl3l8r" path="res://素材/特效素材/中击1/hitAc004.png" id="13_eq0g4"]
+[ext_resource type="Texture2D" uid="uid://bi5u3ecmeieoc" path="res://素材/特效素材/终结/hitBc000.png" id="14_b3nb3"]
 [ext_resource type="Texture2D" uid="uid://br33j7m85uay5" path="res://素材/特效素材/中击1/hitAc005.png" id="14_dl3kt"]
 [ext_resource type="Texture2D" uid="uid://rkpjdxk3xcqi" path="res://素材/特效素材/中击1/hitAc006.png" id="15_bjouf"]
+[ext_resource type="Texture2D" uid="uid://bve234h1tevl" path="res://素材/特效素材/终结/hitBc001.png" id="15_w3oss"]
 [ext_resource type="Texture2D" uid="uid://bk8sotbhhxde0" path="res://素材/特效素材/中击1/hitAc007.png" id="16_4em5b"]
+[ext_resource type="Texture2D" uid="uid://ceutvxev1jius" path="res://素材/特效素材/终结/hitBc002.png" id="16_qlht4"]
 [ext_resource type="Texture2D" uid="uid://bx0jtttrdincv" path="res://素材/特效素材/中击1/hitAc008.png" id="17_3jirg"]
+[ext_resource type="Texture2D" uid="uid://d3gnc5sxym44a" path="res://素材/特效素材/终结/hitBc003.png" id="17_k2mtp"]
 [ext_resource type="Texture2D" uid="uid://devfkfkv5vf48" path="res://素材/特效素材/中击1/hitAc009.png" id="18_tjmem"]
+[ext_resource type="Texture2D" uid="uid://b5it7p2k5wedw" path="res://素材/特效素材/终结/hitBc004.png" id="18_xm6x0"]
 [ext_resource type="Texture2D" uid="uid://b3njfa66yjiaf" path="res://素材/特效素材/中击1/hitAc010.png" id="19_oun1q"]
+[ext_resource type="Texture2D" uid="uid://buc08hjpshj4j" path="res://素材/特效素材/终结/hitBc005.png" id="19_tmmvx"]
 [ext_resource type="Texture2D" uid="uid://bvjw0g3b143jy" path="res://素材/特效素材/中击1/hitAc011.png" id="20_3l38a"]
+[ext_resource type="Texture2D" uid="uid://211nkxas3e3p" path="res://素材/特效素材/终结/hitBc006.png" id="20_vdgq2"]
 [ext_resource type="Texture2D" uid="uid://bemaqqod5uhfn" path="res://素材/特效素材/中击1/hitAc012.png" id="21_foxkx"]
+[ext_resource type="Texture2D" uid="uid://dn1plnmsg8nud" path="res://素材/特效素材/终结/hitBc007.png" id="21_hrsvr"]
+[ext_resource type="Texture2D" uid="uid://cii7ieckpdadi" path="res://素材/特效素材/终结/hitBc008.png" id="22_gjm3k"]
 [ext_resource type="Texture2D" uid="uid://byktr4djvgyyf" path="res://素材/特效素材/重击1/hitCb001.png" id="22_tt6yg"]
 [ext_resource type="AudioStream" uid="uid://x0rjcxa3rxrd" path="res://素材/音频素材/音效/轻击1.wav" id="22_ybwtl"]
 [ext_resource type="AudioStream" uid="uid://dciebhsmhdok6" path="res://素材/音频素材/音效/中击1.wav" id="23_cpq7e"]
 [ext_resource type="Texture2D" uid="uid://bv3egw8003hqm" path="res://素材/特效素材/重击1/hitCb002.png" id="23_dn36l"]
+[ext_resource type="Texture2D" uid="uid://coo5eik8qabcn" path="res://素材/特效素材/终结/hitBc009.png" id="23_or0kd"]
+[ext_resource type="Texture2D" uid="uid://dyvobpbgnvu0v" path="res://素材/特效素材/终结/hitBc010.png" id="24_1yxs2"]
 [ext_resource type="Texture2D" uid="uid://csa7etex7rch8" path="res://素材/特效素材/重击1/hitCb003.png" id="24_egkn7"]
+[ext_resource type="Texture2D" uid="uid://bcrajwj7rkhpg" path="res://素材/特效素材/终结/hitBc011.png" id="25_swjxr"]
 [ext_resource type="Texture2D" uid="uid://xn7uksqcyw13" path="res://素材/特效素材/重击1/hitCb004.png" id="25_xy71n"]
+[ext_resource type="Texture2D" uid="uid://dla2xydfenxjj" path="res://素材/特效素材/终结/hitBc012.png" id="26_lnnps"]
 [ext_resource type="Texture2D" uid="uid://leqokovn8tst" path="res://素材/特效素材/重击1/hitCb005.png" id="26_smya2"]
+[ext_resource type="Texture2D" uid="uid://c0xjfv56jku0p" path="res://素材/特效素材/终结/hitBc013.png" id="27_5d0ck"]
 [ext_resource type="Texture2D" uid="uid://be5atgsydyfd5" path="res://素材/特效素材/重击1/hitCb006.png" id="27_lw7jo"]
 [ext_resource type="Texture2D" uid="uid://fvc5eh1buf35" path="res://素材/特效素材/重击1/hitCb007.png" id="28_4px2a"]
+[ext_resource type="Texture2D" uid="uid://cwtcdosguf3ij" path="res://素材/特效素材/终结/hitBc014.png" id="28_k4lnb"]
+[ext_resource type="Texture2D" uid="uid://7coruj37hfqb" path="res://素材/特效素材/终结/hitBc015.png" id="29_fvki6"]
 [ext_resource type="Texture2D" uid="uid://buew6po62xwpg" path="res://素材/特效素材/重击1/hitCb008.png" id="29_ikbes"]
 [ext_resource type="Texture2D" uid="uid://ciy716fotq5mj" path="res://素材/特效素材/重击1/hitCb009.png" id="30_fqgqw"]
+[ext_resource type="Texture2D" uid="uid://buj682widhi10" path="res://素材/特效素材/终结/hitBc016.png" id="30_wjpot"]
+[ext_resource type="Texture2D" uid="uid://c0qboc2esdnqo" path="res://素材/特效素材/终结/hitBc017.png" id="31_1tt1w"]
 [ext_resource type="Texture2D" uid="uid://ckafd6hdb5kv1" path="res://素材/特效素材/重击1/hitCb010.png" id="31_4svlu"]
 [ext_resource type="Texture2D" uid="uid://dswu34t7qj3kg" path="res://素材/特效素材/重击1/hitCb011.png" id="32_gkrv4"]
 [ext_resource type="Texture2D" uid="uid://bl7jtsb16bxr6" path="res://素材/特效素材/重击1/hitCb012.png" id="33_3n411"]
@@ -42,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://hsljhs1lobia" path="res://素材/特效素材/重击1/hitCb017.png" id="38_cwgiq"]
 [ext_resource type="Texture2D" uid="uid://cy6ouay11tffq" path="res://素材/特效素材/重击1/hitCb018.png" id="39_o5xav"]
 [ext_resource type="AudioStream" uid="uid://tt1mpguaogf5" path="res://素材/音频素材/音效/重击1.wav" id="42_dn36l"]
+[ext_resource type="AudioStream" uid="uid://tcpy2ei3qxyc" path="res://素材/音频素材/音效/终结.wav" id="59_cdg12"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q3rgq"]
 animations = [{
@@ -85,6 +104,65 @@ animations = [{
 "loop": false,
 "name": &"中击1",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_b3nb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w3oss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qlht4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_k2mtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xm6x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tmmvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vdgq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hrsvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gjm3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_or0kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_1yxs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_swjxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_lnnps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5d0ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_k4lnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_fvki6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wjpot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_1tt1w")
+}],
+"loop": false,
+"name": &"终结",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,6 +371,73 @@ tracks/3/keys = {
 }
 tracks/3/use_blend = true
 
+[sub_resource type="Animation" id="Animation_li5qy"]
+resource_name = "终结"
+length = 1.3333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_q3rgq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"终结"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("音效")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("59_cdg12")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材库:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_fbkhx"]
 resource_name = "轻击1"
 length = 0.36666667
@@ -431,6 +576,7 @@ tracks/5/keys = {
 _data = {
 &"RESET": SubResource("Animation_fp2xu"),
 &"中击1": SubResource("Animation_lwcs4"),
+&"终结": SubResource("Animation_li5qy"),
 &"轻击1": SubResource("Animation_fbkhx"),
 &"重击1": SubResource("Animation_eut3u")
 }

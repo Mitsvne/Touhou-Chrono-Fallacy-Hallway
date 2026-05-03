@@ -248,6 +248,10 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
 	character_data.hp-=damage
+	if character_data.hp<=0:
+		attack_effect_position=hitbox.global_position
+		attack_type=4
+		hitstop=0.1
 	get_tree().current_scene.add_child(damage_node)
 	damage_node.set_damage(damage, character.position, Color.WHITE)
 	get_tree().current_scene.add_child(attack_effect_node)

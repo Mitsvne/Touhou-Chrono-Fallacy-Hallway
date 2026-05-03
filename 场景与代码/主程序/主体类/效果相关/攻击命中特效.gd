@@ -6,12 +6,14 @@ extends Node2D
 var attack_anim_map := {
 	1: "轻击1",
 	2: "中击1",
-	3: "重击1"
+	3: "重击1",
+	4: "终结"
 	# 可继续扩展
 }
 
 ##播放动画函数
 func set_attack_effect(attack_type:int,target: Vector2):
+	rotation=randf_range(0.0, 360.0)
 	global_position = target
 	if attack_anim_map.has(attack_type):
 		var an_name = attack_anim_map[attack_type]
