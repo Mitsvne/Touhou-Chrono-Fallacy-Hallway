@@ -68,7 +68,7 @@ timeout_limit = 0.5
 
 [sub_resource type="BTAction" id="BTAction_qhu3j"]
 script = ExtResource("2_5ntii")
-timeout_limit = 1.0
+timeout_limit = 0.5
 
 [sub_resource type="BBNode" id="BBNode_pghet"]
 saved_value = NodePath("动画")

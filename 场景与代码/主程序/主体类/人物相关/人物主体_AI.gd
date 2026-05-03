@@ -205,7 +205,7 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	if character_data.hp<=0:
 		attack_effect_position=hitbox.global_position
 		attack_type=4
-		hitstop=0.1
+		hitstop=0.15
 	get_tree().current_scene.add_child(damage_node)
 	damage_node.set_damage(damage, character.position, Color.WHITE)
 	get_tree().current_scene.add_child(attack_effect_node)

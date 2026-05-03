@@ -1222,7 +1222,6 @@ metadata/_custom_type_script = "uid://ycxk0gu5kdcb"
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1370663754]
 script = ExtResource("4_pxy2b")
-hp_max = 1000.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Input" type="Node" parent="class" unique_id=724283982]

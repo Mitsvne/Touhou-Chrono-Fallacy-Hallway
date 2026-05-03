@@ -7,12 +7,19 @@ extends Node
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
+@onready var arrow: Sprite2D = $ui/箭头
+
+
 @onready var map: Node2D = $山脉
 
+var character1_instance : Node2D
+var character2_instance : Node2D
+# 可调整的偏移量，避免箭头紧贴边缘
+const EDGE_MARGIN := 20.0
 
 func _ready():
-	var character1_instance = character1.instantiate()
-	var character2_instance = character2.instantiate()
+	character1_instance = character1.instantiate()
+	character2_instance = character2.instantiate()
 	character1_instance.position=_1p_pos.position
 	character2_instance.position=_2p_pos.position
 	camera.reparent(character1_instance)
@@ -38,6 +45,9 @@ func _ready():
 		character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 	else:
 		character2_instance.character_main.character_is_dead.connect(game_over_victory)
+	arrow.player=character1_instance
+	arrow.enemy=character2_instance
+	
 
 
 func _physics_process(_delta: float) -> void:
