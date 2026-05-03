@@ -1176,17 +1176,17 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_ot8d4")
 color_ramp = SubResource("GradientTexture1D_liacr")
 
-[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_data", "character_ctrler", "effect_ctrler") groups=["bosses", "characters", "players"]]
+[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["bosses", "characters", "players"]]
 motion_mode = 1
 script = ExtResource("1_v8ol4")
+character_main = NodePath("class/Character_Main")
+character_data = NodePath("class/Character_Data")
+character_ctrler = NodePath("class/Character_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
 book = ExtResource("3_wrct2")
 attack_bullet1 = ExtResource("2_udp54")
 attack_bullet2 = ExtResource("4_chhjm")
 warning_line = ExtResource("4_1asjr")
-character_ai_main = NodePath("class/Character_AI_Main")
-character_data = NodePath("class/Character_Data")
-character_ctrler = NodePath("class/Character_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="class" type="Node" parent="." unique_id=519233685]
 
@@ -1206,7 +1206,6 @@ metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1370663754]
 script = ExtResource("4_pxy2b")
-hp_max = 1000.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Input" type="Node" parent="class" unique_id=724283982]
@@ -1240,6 +1239,7 @@ metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
+active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]

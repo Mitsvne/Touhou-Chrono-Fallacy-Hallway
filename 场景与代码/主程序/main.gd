@@ -2,6 +2,8 @@ extends Node
 
 @export var character1:PackedScene
 @export var character2:PackedScene
+@export var result_scene: PackedScene
+
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
@@ -32,16 +34,25 @@ func _ready():
 	add_child(character1_instance)
 	add_child(character2_instance)
 	character1_instance.character_main.character_is_dead.connect(game_over_fail)
-	character1_instance.character_main.character_is_dead.connect(game_over_victory)
+	character2_instance.character_main.character_is_dead.connect(game_over_victory)
+	#character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 
 
 func _physics_process(_delta: float) -> void:
 	pass
 
-
+## 玩家胜利结算
 func game_over_victory(team):
-	print(team)
-	pass
+	print("游戏胜利，%s死亡"%[team])
+	add_result_scene("成功")
+
+## 玩家胜利结算
 func game_over_fail(team):
-	print(team)
-	pass
+	print("游戏失败，%s死亡"%[team])
+	add_result_scene("失败")
+
+## 添加结算页面
+func  add_result_scene(result:String):
+	var result_instance = result_scene.instantiate()
+	result_instance.result=result
+	add_child(result_instance)

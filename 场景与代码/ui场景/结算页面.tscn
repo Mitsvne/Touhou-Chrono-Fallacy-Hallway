@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dptewmma7hr2j"]
+
+[ext_resource type="Script" uid="uid://bqpbskbb408mh" path="res://场景与代码/ui场景/结算页面/结算页面.gd" id="1_yp4sk"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="2_lvraq"]
+
+[node name="结算页面" type="CanvasLayer" unique_id=404581363 node_paths=PackedStringArray("label")]
+script = ExtResource("1_yp4sk")
+label = NodePath("VBoxContainer/标题")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=914456664]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.42999
+offset_top = -38.5
+offset_right = 74.57001
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="标题" type="Label" parent="VBoxContainer" unique_id=398310503]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_lvraq")
+theme_override_font_sizes/font_size = 32
+text = "祓除"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1479297413]
+layout_mode = 2
+
+[node name="重新开始" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=897675844]
+layout_mode = 2
+text = "重新开始"
+
+[node name="返回标题" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1103807786]
+layout_mode = 2
+text = "返回标题
+"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/重新开始" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/返回标题" to="." method="_on_return_pressed"]

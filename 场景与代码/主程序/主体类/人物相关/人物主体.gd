@@ -109,7 +109,6 @@ func tick_physics(state:State,_delta: float) -> void:
 			character_ctrler.set_invincible(true)
 			character_ctrler.apply_gravity(true)
 			is_alive=false
-			character_is_dead.emit(team)
 			
 
 ## 下一个状态逻辑函数
@@ -143,6 +142,8 @@ func enter_state(state:State):
 	match state:
 		State.技能,State.必杀:
 			update_direction()
+		State.死亡:
+			character_is_dead.emit(team)
 		pass
 
 ## 状态退出时

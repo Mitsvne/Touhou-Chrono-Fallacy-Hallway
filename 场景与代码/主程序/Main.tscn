@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://chi1q3hkesd61" path="res://场景与代码/主程序/主体类/镜头相关/镜头.gd" id="2_avk0m"]
 [ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_w1jva"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_gtwc4"]
+[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面.tscn" id="4_en0us"]
 [ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/主程序/暂停菜单.gd" id="4_wfpim"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="5_gtwc4"]
 [ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="7_8cp7d"]
@@ -37,6 +38,7 @@ fog_enabled = true
 script = ExtResource("1_w1jva")
 character1 = ExtResource("2_w1jva")
 character2 = ExtResource("3_gtwc4")
+result_scene = ExtResource("4_en0us")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
 
