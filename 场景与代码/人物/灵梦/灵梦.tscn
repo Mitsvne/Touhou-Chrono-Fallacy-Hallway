@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="5_v3c6i"]
 [ext_resource type="Texture2D" uid="uid://1na3wap1p3m0" path="res://素材/人物素材/灵梦/人物/shotB000.png" id="6_7lla3"]
-[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/主程序/主体类/效果相关/ui血条.tscn" id="6_jxt28"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="6_jxt28"]
 [ext_resource type="Texture2D" uid="uid://bsavoqinxffk1" path="res://素材/人物素材/灵梦/人物/spellDb000.png" id="6_nhrl1"]
 [ext_resource type="Texture2D" uid="uid://cswh26fqiry2k" path="res://素材/人物素材/灵梦/人物/dashStop000.png" id="6_yh3oc"]
 [ext_resource type="Texture2D" uid="uid://cfhr8ues3cyuk" path="res://素材/人物素材/灵梦/人物/dashStop003.png" id="7_20d74"]
@@ -2223,7 +2223,7 @@ script = ExtResource("35_rluf1")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=2014086127]
-visible = false
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_0mxg6")
 
 [node name="动画" type="AnimationPlayer" parent="." unique_id=657560165]
@@ -2255,13 +2255,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("22_fc6ke")
 text = "CD:"
 
-[node name="ui血条" parent="血条ui" unique_id=1721267738 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("6_jxt28")]
-offset_right = 65.0
-character = NodePath("../..")
-character_data = NodePath("../../class/Character_Data")
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=719264059]
-visible = false
 position = Vector2(6.5, 13)
 script = ExtResource("7_n1bbb")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"

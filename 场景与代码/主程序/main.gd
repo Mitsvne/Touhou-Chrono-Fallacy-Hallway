@@ -10,6 +10,10 @@ extends Node
 @onready var camera: Camera2D = $镜头
 @onready var arrow: Sprite2D = $ui/箭头
 @onready var map: Node2D = $山脉
+@onready var bar1: Control = $ui/ui血条人物
+@onready var bar2: Control = $ui/ui血条boss
+
+
 
 var character1_instance : Node2D
 var character2_instance : Node2D
@@ -48,6 +52,10 @@ func _ready():
 		character2_instance.character_main.character_is_dead.connect(game_over_victory)
 	arrow.player=character1_instance
 	arrow.enemy=character2_instance
+	bar1.character=character1_instance
+	bar1.character_data=character1_instance.character_data
+	bar2.character=character2_instance
+	bar2.character_data=character2_instance.character_data
 	
 
 

@@ -111,13 +111,13 @@ func start_dash(speed: float = 0.0, drag: float = 0.0):
 	var c_drag = Vector2(1.0,1.0).normalized() * drag
 	start_move(c_velocity,c_drag)
 	set_invincible(true)
-	set_penetrate(true)
+	#set_penetrate(true)
 
 ## 停止冲刺函数
 func stop_dash():
 	stop_move()
 	set_invincible(false)
-	set_penetrate(false)
+	#set_penetrate(false)
 
 ## 是否启动重力
 func apply_gravity(value:bool):

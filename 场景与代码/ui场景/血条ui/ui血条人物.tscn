@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://lmo1rknygdh6"]
+
+[ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/ui场景/血条ui/ui血条.gd" id="1_fmrxx"]
+[ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui素材/GUI.png" id="2_hh74g"]
+[ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="3_y4fsv"]
+[ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="4_uqb3n"]
+[ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="5_463i5"]
+[ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="6_qqc8a"]
+[ext_resource type="Texture2D" uid="uid://br4iv8rxw6ssy" path="res://素材/ui素材/ui素材/血量魔力耐力条.png" id="7_bd5yo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4w3d"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("2_hh74g")
+region_rect = Rect2(81, 97, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uw24"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(8, 11, 90, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4iqy"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(7, 16, 93, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7nph"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(8, 6, 90, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdrj"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(8, 39, 39, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wymq7"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(7, 25, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bbl0"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(8, 34, 39, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yd2i"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(50, 25, 45, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ots05"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(51, 34, 42, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he3yd"]
+atlas = ExtResource("7_bd5yo")
+region = Rect2(51, 39, 42, 3)
+
+[node name="ui血条人物" type="Control" unique_id=1116684798 node_paths=PackedStringArray("bar", "hp_bar", "delay_hp_bar", "mp_bar", "delay_mp_bar", "energy_bar", "delay_energy_bar", "avatars")]
+layout_mode = 3
+anchor_right = 0.384
+anchor_bottom = 0.16700001
+offset_right = 0.23999023
+offset_bottom = -0.12000275
+size_flags_horizontal = 0
+script = ExtResource("1_fmrxx")
+bar = NodePath(".")
+hp_bar = NodePath("血量条/血量条")
+delay_hp_bar = NodePath("血量条/延迟血量")
+mp_bar = NodePath("魔力条/魔力条")
+delay_mp_bar = NodePath("魔力条/延迟魔力")
+energy_bar = NodePath("耐力条/耐力条")
+delay_energy_bar = NodePath("耐力条/延迟耐力")
+avatars = NodePath("头像框")
+
+[node name="头像框" type="PanelContainer" parent="." unique_id=378296762]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_a4w3d")
+
+[node name="博丽灵梦" type="TextureRect" parent="头像框" unique_id=1364760154]
+layout_mode = 2
+texture = ExtResource("3_y4fsv")
+stretch_mode = 5
+
+[node name="雾雨魔理沙" type="TextureRect" parent="头像框" unique_id=1315756053]
+layout_mode = 2
+texture = ExtResource("4_uqb3n")
+stretch_mode = 5
+
+[node name="东风谷早苗" type="TextureRect" parent="头像框" unique_id=1276417338]
+layout_mode = 2
+texture = ExtResource("5_463i5")
+stretch_mode = 5
+
+[node name="拉赫莱蒂" type="TextureRect" parent="头像框" unique_id=777818063]
+layout_mode = 2
+texture = ExtResource("6_qqc8a")
+stretch_mode = 5
+
+[node name="血量条" type="TextureProgressBar" parent="." unique_id=1045250746]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 12.0
+offset_right = 245.0
+offset_bottom = 26.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="血量条" type="TextureProgressBar" parent="血量条" unique_id=266841937]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 92.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_0uw24")
+
+[node name="延迟血量" type="TextureProgressBar" parent="血量条" unique_id=716941940]
+show_behind_parent = true
+layout_mode = 1
+offset_right = 93.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_i4iqy")
+texture_progress = SubResource("AtlasTexture_y7nph")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="耐力条" type="TextureProgressBar" parent="." unique_id=10358998]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 26.0
+offset_right = 141.0
+offset_bottom = 40.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="耐力条" type="TextureProgressBar" parent="耐力条" unique_id=1692344903]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 41.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_grdrj")
+
+[node name="延迟耐力" type="TextureProgressBar" parent="耐力条" unique_id=1657956882]
+show_behind_parent = true
+layout_mode = 1
+offset_right = 41.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_wymq7")
+texture_progress = SubResource("AtlasTexture_7bbl0")
+texture_progress_offset = Vector2(1, 2)
+metadata/_edit_lock_ = true
+
+[node name="魔力条" type="TextureProgressBar" parent="." unique_id=105426201]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 26.0
+offset_right = 231.0
+offset_bottom = 40.0
+size_flags_vertical = 0
+max_value = 1.0
+value = 1.0
+
+[node name="延迟魔力" type="TextureProgressBar" parent="魔力条" unique_id=1751933167]
+layout_mode = 1
+offset_right = 45.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_1yd2i")
+texture_progress = SubResource("AtlasTexture_ots05")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="魔力条" type="TextureProgressBar" parent="魔力条" unique_id=266859493]
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 3.5
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_he3yd")
+texture_progress_offset = Vector2(1, 2)

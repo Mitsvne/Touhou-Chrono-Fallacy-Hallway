@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="4_10ogm"]
 [ext_resource type="PackedScene" uid="uid://do0xxuq2ay83k" path="res://场景与代码/人物/拉赫/弹幕/拉赫追踪弹幕.tscn" id="4_chhjm"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
-[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/主程序/主体类/效果相关/ui血条.tscn" id="5_v8ol4"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
@@ -1248,6 +1247,7 @@ blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
 visible = false
+visibility_layer = 2
 position = Vector2(-3, -1.5)
 shape = SubResource("RectangleShape2D_3vjy5")
 
@@ -1261,16 +1261,6 @@ position = Vector2(-7, -9)
 sprite_frames = SubResource("SpriteFrames_olaod")
 animation = &"站立"
 autoplay = "站立"
-
-[node name="血条ui" type="CanvasLayer" parent="." unique_id=1539130727]
-offset = Vector2(630, 10)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-transform = Transform2D(-1, 0, 0, 1, 630, 10)
-
-[node name="ui血条" parent="血条ui" unique_id=1721267738 node_paths=PackedStringArray("character", "character_data") instance=ExtResource("5_v8ol4")]
-character = NodePath("../..")
-character_data = NodePath("../../class/Character_Data")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
 script = ExtResource("3_xu8tx")
