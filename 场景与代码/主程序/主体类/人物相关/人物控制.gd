@@ -11,6 +11,7 @@ var is_key_moving:bool=true  # 是否按键移动
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
 var is_allow_behit:bool=true  # 是否可以受击
+var is_penetrate:bool=true  # 是否可被穿透
 var is_invincible:bool=true  # 是否无敌
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float # 重力数值
 var x_max_speed: float = 9999.0  # x轴最大速度
@@ -110,11 +111,13 @@ func start_dash(speed: float = 0.0, drag: float = 0.0):
 	var c_drag = Vector2(1.0,1.0).normalized() * drag
 	start_move(c_velocity,c_drag)
 	set_invincible(true)
+	set_penetrate(true)
 
 ## 停止冲刺函数
 func stop_dash():
 	stop_move()
 	set_invincible(false)
+	set_penetrate(false)
 
 ## 是否启动重力
 func apply_gravity(value:bool):
@@ -132,6 +135,12 @@ func set_is_allow_behit(value:bool):
 func get_is_allow_behit():
 	return is_allow_behit
 
+## 获取碰撞体
+func _get_collisionshape():
+	for child in owner.get_children():
+		if child is CollisionShape2D:
+			return child
+
 ## 获取hurtbox
 func _get_hurtbox():
 	for child in owner.get_children():
@@ -139,7 +148,7 @@ func _get_hurtbox():
 			return child
 
 ## 获取hurtbox中所有的图形
-func _get_collisionshapes() -> Array[CollisionShape2D]:
+func _get_hurtbox_collisionshapes() -> Array[CollisionShape2D]:
 	var hurtbox: Hurtbox=_get_hurtbox()
 	var shapes: Array[CollisionShape2D] = []
 	for child in hurtbox.get_children():
@@ -150,12 +159,17 @@ func _get_collisionshapes() -> Array[CollisionShape2D]:
 ## 设置是否无敌
 func set_invincible(value:bool):
 	is_invincible=value
-	for shape in _get_collisionshapes():
+	for shape in _get_hurtbox_collisionshapes():
 		shape.set_deferred("disabled", value)
 
 ## 获取是否无敌
 func get_invincible():
 	return is_invincible
+
+## 设置是否可被穿越
+func set_penetrate(value:bool):
+	is_penetrate=value
+	_get_collisionshape().set_deferred("disabled", value)
 
 ## 跳转到动画的指定时间点（秒）
 func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:

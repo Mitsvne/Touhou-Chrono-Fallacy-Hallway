@@ -5,9 +5,8 @@
 [ext_resource type="Script" uid="uid://chi1q3hkesd61" path="res://场景与代码/主程序/主体类/镜头相关/镜头.gd" id="2_avk0m"]
 [ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_w1jva"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_gtwc4"]
-[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面.tscn" id="4_en0us"]
-[ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/主程序/暂停菜单.gd" id="4_wfpim"]
-[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="5_gtwc4"]
+[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_en0us"]
+[ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_pvlsi"]
 [ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="7_8cp7d"]
 [ext_resource type="Texture2D" uid="uid://c1e51jre1lp1p" path="res://素材/ui素材/人物头像/箭头.png" id="7_l38lg"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_wfpim"]
@@ -41,54 +40,9 @@ script = ExtResource("1_w1jva")
 character1 = ExtResource("2_w1jva")
 character2 = ExtResource("3_gtwc4")
 result_scene = ExtResource("4_en0us")
+pause_scene = ExtResource("5_pvlsi")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
-
-[node name="暂停菜单" type="Control" parent="ui" unique_id=1436569818 node_paths=PackedStringArray("continue_button")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_wfpim")
-continue_button = NodePath("垂直容器/继续游戏")
-
-[node name="垂直容器" type="VBoxContainer" parent="ui/暂停菜单" unique_id=565067573]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -49.0
-offset_right = 44.0
-offset_bottom = 49.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="游戏暂停" type="Label" parent="ui/暂停菜单/垂直容器" unique_id=312349534]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_gtwc4")
-theme_override_font_sizes/font_size = 24
-text = "游戏暂停"
-
-[node name="继续游戏" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=422401519]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_gtwc4")
-text = "继续游戏"
-
-[node name="游戏重置" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=1570851647]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_gtwc4")
-text = " 游戏重置 "
-
-[node name="回到主页" type="Button" parent="ui/暂停菜单/垂直容器" unique_id=1090904219]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_gtwc4")
-text = "回到主页"
 
 [node name="箭头" type="Sprite2D" parent="ui" unique_id=266843227]
 texture = ExtResource("7_l38lg")
@@ -138,7 +92,3 @@ environment = SubResource("Environment_073jx")
 [node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=880136600]
 stream = ExtResource("8_wfpim")
 bus = &"Bgm"
-
-[connection signal="pressed" from="ui/暂停菜单/垂直容器/继续游戏" to="ui/暂停菜单" method="_on_continue_pressed"]
-[connection signal="pressed" from="ui/暂停菜单/垂直容器/游戏重置" to="ui/暂停菜单" method="_on_reset_pressed"]
-[connection signal="pressed" from="ui/暂停菜单/垂直容器/回到主页" to="ui/暂停菜单" method="_on_return_pressed"]

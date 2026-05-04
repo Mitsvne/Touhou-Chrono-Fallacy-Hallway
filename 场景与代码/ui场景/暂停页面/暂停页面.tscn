@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://gv05gegcytup"]
+
+[ext_resource type="Script" uid="uid://cpruycbdvbkvg" path="res://场景与代码/ui场景/暂停页面/暂停页面.gd" id="1_ko3rl"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="2_yog4p"]
+
+[node name="暂停页面" type="CanvasLayer" unique_id=2084888377 node_paths=PackedStringArray("continue_button")]
+script = ExtResource("1_ko3rl")
+continue_button = NodePath("VBoxContainer/继续游戏")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=691860015]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -65.5
+offset_right = 44.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="游戏暂停" type="Label" parent="VBoxContainer" unique_id=582145639]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yog4p")
+theme_override_font_sizes/font_size = 24
+text = "游戏暂停"
+
+[node name="继续游戏" type="Button" parent="VBoxContainer" unique_id=256117010]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yog4p")
+text = "继续游戏"
+
+[node name="游戏重置" type="Button" parent="VBoxContainer" unique_id=1210050233]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_yog4p")
+text = " 游戏重置 "
+
+[node name="回到主页" type="Button" parent="VBoxContainer" unique_id=964569159]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yog4p")
+text = "回到主页"
+
+[connection signal="pressed" from="VBoxContainer/继续游戏" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/游戏重置" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/回到主页" to="." method="_on_return_pressed"]

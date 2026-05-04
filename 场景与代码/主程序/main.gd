@@ -3,21 +3,22 @@ extends Node
 @export var character1:PackedScene
 @export var character2:PackedScene
 @export var result_scene:PackedScene
+@export var pause_scene:PackedScene
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
 @onready var arrow: Sprite2D = $ui/箭头
-
-
 @onready var map: Node2D = $山脉
 
 var character1_instance : Node2D
 var character2_instance : Node2D
 # 可调整的偏移量，避免箭头紧贴边缘
+var custom_time: float = 0.0
 const EDGE_MARGIN := 20.0
 
 func _ready():
+	add_pause_scene(false)
 	character1_instance = character1.instantiate()
 	character2_instance = character2.instantiate()
 	character1_instance.position=_1p_pos.position
@@ -50,8 +51,12 @@ func _ready():
 	
 
 
-func _physics_process(_delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	if not get_tree().paused:
+		custom_time += delta # 将累积的时间赋值给全局着色器参数
+		RenderingServer.global_shader_parameter_set("CUSTOM_TIME", custom_time)
+
+
 
 ## 玩家胜利结算
 func game_over_victory(team):
@@ -64,7 +69,13 @@ func game_over_fail(team):
 	add_result_scene("失败")
 
 ## 添加结算页面
-func  add_result_scene(result:String):
+func add_result_scene(result:String):
 	var result_instance = result_scene.instantiate()
 	result_instance.result=result
 	add_child(result_instance)
+
+## 添加结算页面
+func add_pause_scene(pause:bool):
+	var pause_instance = pause_scene.instantiate()
+	pause_instance.is_paused=pause
+	add_child(pause_instance)
