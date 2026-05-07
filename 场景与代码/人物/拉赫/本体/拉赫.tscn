@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="4_10ogm"]
 [ext_resource type="PackedScene" uid="uid://do0xxuq2ay83k" path="res://场景与代码/人物/拉赫/弹幕/拉赫追踪弹幕.tscn" id="4_chhjm"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
+[ext_resource type="PackedScene" uid="uid://gdvis0ara2ny" path="res://场景与代码/人物/拉赫/弹幕/拉赫火焰弹幕.tscn" id="8_chhjm"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
@@ -1202,7 +1203,7 @@ anplayer = NodePath("../../动画")
 hurtbox = NodePath("../../Hurtbox")
 bt_player = NodePath("../../BTPlayer")
 damage_number = ExtResource("2_bgnr4")
-attack_bullet = ExtResource("2_udp54")
+attack_bullet = ExtResource("8_chhjm")
 attack_effect = ExtResource("9_6estm")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
@@ -1262,6 +1263,7 @@ animation = &"站立"
 autoplay = "站立"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111343519]
+visible = false
 script = ExtResource("3_xu8tx")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
