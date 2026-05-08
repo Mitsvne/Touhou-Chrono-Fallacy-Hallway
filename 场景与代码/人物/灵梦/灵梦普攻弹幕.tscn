@@ -13,6 +13,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfn0"]
 size = Vector2(24, 10)
 
+[sub_resource type="Resource" id="Resource_ds2uh"]
+script = ExtResource("5_2546f")
+damage = 5.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g87nq"]
 blend_mode = 1
 
@@ -255,11 +260,6 @@ _data = {
 &"loop": SubResource("Animation_rn2kp")
 }
 
-[sub_resource type="Resource" id="Resource_ds2uh"]
-script = ExtResource("5_2546f")
-damage = 5.0
-metadata/_custom_type_script = "uid://dng1kpmjhakhe"
-
 [node name="灵梦普攻弹幕" type="Area2D" unique_id=81166135 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_1ax1q")
 an = NodePath("动画")
@@ -270,19 +270,6 @@ bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=35290016]
 shape = SubResource("RectangleShape2D_vxfn0")
-
-[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1937011500]
-material = SubResource("CanvasItemMaterial_g87nq")
-position = Vector2(-11, 0)
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_8djmu")
-animation = &"hit"
-autoplay = "loop"
-
-[node name="动画" type="AnimationPlayer" parent="." unique_id=1972724870]
-root_node = NodePath("../素材库")
-libraries/ = SubResource("AnimationLibrary_rn2kp")
-speed_scale = 2.0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=265541908]
 script = ExtResource("4_g87nq")
@@ -299,11 +286,18 @@ metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 [node name="碰撞面" type="CollisionShape2D" parent="Hurtbox" unique_id=1298488069]
 shape = SubResource("RectangleShape2D_vxfn0")
 
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1941379380]
-stream = ExtResource("6_ds2uh")
-volume_db = -6.0
-autoplay = true
-bus = &"Se"
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1937011500]
+material = SubResource("CanvasItemMaterial_g87nq")
+position = Vector2(-11, 0)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_8djmu")
+animation = &"hit"
+autoplay = "loop"
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=1972724870]
+root_node = NodePath("../素材库")
+libraries/ = SubResource("AnimationLibrary_rn2kp")
+speed_scale = 2.0
 
 [node name="class" type="Node" parent="." unique_id=936898298]
 
@@ -317,6 +311,12 @@ anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1941379380 groups=["bullets"]]
+stream = ExtResource("6_ds2uh")
+volume_db = -6.0
+autoplay = true
+bus = &"Se"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

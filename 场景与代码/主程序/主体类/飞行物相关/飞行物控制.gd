@@ -85,6 +85,7 @@ func _process_tracking(delta: float) -> void:
 	# 计算步进（注意这里的符号，angle_difference 是 目标 - 当前，所以直接加上步进即可）
 	var step = clamp(angle_diff, -max_w * delta, max_w * delta)
 	velocity = velocity.rotated(step)
+	
 
 ## 标量阻力/加速度处理（追踪/自由飞行）
 func _apply_scalar_drag(delta: float) -> void:
@@ -156,9 +157,9 @@ func start_track(target: Node2D, spd: float, drag: float = 0.0, radius: float = 
 ## 沿自身当前角度飞行（进入直线或自由飞行模式）
 func start_move_forward(speed: float, drag: float = 0.0, use_vector_drag: bool = false) -> void:
 	if not is_instance_valid(bullet): return
-	# 获取当前物体的全局朝向向量
+	# 获取当前物体的全局朝向向量b
+	#print("飞行物移动角度：",rad_to_deg(rotation))
 	var direction = Vector2.RIGHT.rotated(bullet.global_rotation)
-	#print(direction)
 	var init_velocity = direction * speed
 	if use_vector_drag:
 		# 如果使用矢量阻力，需要考虑 bullet_direction 镜像（直线模式）

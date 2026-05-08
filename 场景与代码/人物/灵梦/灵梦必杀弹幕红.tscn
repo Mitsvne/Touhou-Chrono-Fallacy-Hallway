@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_3hkdx"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_xe1f2"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="6_yim3i"]
-[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/灵梦/气流拖尾.gd" id="8_5xo2j"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_5xo2j"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="9_o68x3"]
 [ext_resource type="AudioStream" uid="uid://rxnd45x7xxh2" path="res://素材/人物素材/灵梦/音效/弹幕发射3.wav" id="9_rg7m5"]
 [ext_resource type="AudioStream" uid="uid://cbi6w30rsiwhf" path="res://素材/人物素材/灵梦/音效/lm_5-73.wav" id="10_xe1f2"]

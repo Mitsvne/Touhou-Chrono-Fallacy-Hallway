@@ -17,10 +17,29 @@
 [ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="14_igcdk"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="15_dd8u2"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="16_bjd1s"]
-[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/灵梦/气流拖尾.gd" id="17_nexlu"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="17_nexlu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8ep"]
 size = Vector2(55, 14)
+
+[sub_resource type="Resource" id="Resource_gwtpk"]
+script = ExtResource("12_vbuqm")
+damage = 20.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6kci"]
+size = Vector2(55, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cejsq"]
+size = Vector2(55, 14)
+
+[sub_resource type="Curve" id="Curve_212li"]
+_data = [Vector2(0, 0.11996579), 0.0, 2.1496606, 0, 0, Vector2(0.9900851, 0.9944303), 0.0, 0.0, 0, 0, Vector2(1, 0.8512161), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_eqdnw"]
+offsets = PackedFloat32Array(0, 0.27868852, 0.757377, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pqky3"]
 shader = ExtResource("1_7g6lf")
@@ -180,26 +199,7 @@ _data = {
 &"loop": SubResource("Animation_1yl6a")
 }
 
-[sub_resource type="Resource" id="Resource_gwtpk"]
-script = ExtResource("12_vbuqm")
-damage = 20.0
-metadata/_custom_type_script = "uid://dng1kpmjhakhe"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6kci"]
-size = Vector2(55, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cejsq"]
-size = Vector2(55, 14)
-
-[sub_resource type="Curve" id="Curve_212li"]
-_data = [Vector2(0, 0.11996579), 0.0, 2.1496606, 0, 0, Vector2(0.9900851, 0.9944303), 0.0, 0.0, 0, 0, Vector2(1, 0.8512161), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_eqdnw"]
-offsets = PackedFloat32Array(0, 0.27868852, 0.757377, 1)
-colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
-
-[node name="拉赫追踪弹幕" type="Area2D" unique_id=580817433 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler")]
+[node name="拉赫追踪弹幕" type="Area2D" unique_id=580817433 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_4hpx3")
 an = NodePath("动画")
 hitarea = NodePath("Hitbox/攻击面")
@@ -210,6 +210,32 @@ bullet_ctrler = NodePath("class/Bullet_Ctrler")
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1861385137]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_0b8ep")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=444915434]
+script = ExtResource("11_cgjrj")
+attack_data = SubResource("Resource_gwtpk")
+
+[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1912168038]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_p6kci")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2066311497]
+script = ExtResource("13_xqgto")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=865302257]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_cejsq")
+
+[node name="拖尾" type="Node2D" parent="." unique_id=1031476512 node_paths=PackedStringArray("line2d")]
+z_index = -1
+script = ExtResource("17_nexlu")
+line2d = NodePath("线")
+
+[node name="线" type="Line2D" parent="拖尾" unique_id=831076337]
+top_level = true
+width_curve = SubResource("Curve_212li")
+gradient = SubResource("Gradient_eqdnw")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=15493103]
 self_modulate = Color(1, 1, 1, 0)
@@ -225,27 +251,6 @@ root_node = NodePath("../素材库")
 libraries/ = SubResource("AnimationLibrary_ip2uj")
 speed_scale = 0.5
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=444915434]
-script = ExtResource("11_cgjrj")
-attack_data = SubResource("Resource_gwtpk")
-
-[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1912168038]
-position = Vector2(1.5, 1)
-shape = SubResource("RectangleShape2D_p6kci")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=2066311497]
-visible = false
-script = ExtResource("13_xqgto")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=865302257]
-position = Vector2(1.5, 1)
-shape = SubResource("RectangleShape2D_cejsq")
-
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1196718871]
-stream = ExtResource("14_igcdk")
-autoplay = true
-
 [node name="class" type="Node" parent="." unique_id=1533588077]
 
 [node name="Bullet_Data" type="Node" parent="class" unique_id=1273404862]
@@ -259,15 +264,9 @@ bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
-[node name="拖尾" type="Node2D" parent="." unique_id=1031476512 node_paths=PackedStringArray("line2d")]
-z_index = -1
-script = ExtResource("17_nexlu")
-line2d = NodePath("线")
-
-[node name="线" type="Line2D" parent="拖尾" unique_id=831076337]
-top_level = true
-width_curve = SubResource("Curve_212li")
-gradient = SubResource("Gradient_eqdnw")
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1196718871]
+stream = ExtResource("14_igcdk")
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

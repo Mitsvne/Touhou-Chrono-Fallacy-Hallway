@@ -108,6 +108,23 @@ func _get_area_polygons(area: Area2D) -> Array[PackedVector2Array]:
 					var angle = i * TAU / segments
 					points.append(Vector2(cos(angle), sin(angle)) * radius)
 				poly = shape_transform  * points
+			elif shape is CapsuleShape2D:
+				var r = shape.radius
+				var h = shape.height
+				var half_h = h / 2.0
+				var semi_segments = 16
+				var pts = PackedVector2Array()
+				pts.append(Vector2(-r, -half_h))
+				for i in range(1, semi_segments):
+					var angle = PI - i * PI / semi_segments
+					pts.append(Vector2(cos(angle), sin(angle)) * r + Vector2(0, half_h))
+				pts.append(Vector2(r, half_h))
+				pts.append(Vector2(r, -half_h))
+				for i in range(1, semi_segments):
+					var angle = - i * PI / semi_segments
+					pts.append(Vector2(cos(angle), sin(angle)) * r + Vector2(0, -half_h))
+				pts.append(Vector2(-r, -half_h))
+				poly = shape_transform * pts
 			# 其他形状（胶囊、线段等）可自行扩展
 			if not poly.is_empty():
 				result.append(poly)

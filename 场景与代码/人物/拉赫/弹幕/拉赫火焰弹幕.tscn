@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://gdvis0ara2ny"]
 
-[ext_resource type="Shader" uid="uid://bjfp3xblgq0de" path="res://场景与代码/着色器/火焰效果.tres" id="1_irsxg"]
 [ext_resource type="Script" uid="uid://bd55ubve028k2" path="res://场景与代码/人物/拉赫/弹幕/拉赫火焰弹幕.gd" id="1_yc4gq"]
-[ext_resource type="Texture2D" uid="uid://bid7hygs1nt76" path="res://素材/特效素材/纹理图/火焰纹理.png" id="2_jg2s3"]
-[ext_resource type="Texture2D" uid="uid://i16efq2a0i6g" path="res://素材/特效素材/纹理图/园地圆柱.jpg" id="3_mmk5h"]
-[ext_resource type="Texture2D" uid="uid://cvoxfrer6netm" path="res://素材/特效素材/纹理图/像素白点.png" id="4_jsjuc"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="5_mmk5h"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="6_jsjuc"]
+[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://视觉类.gd" id="7_l2ty5"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="8_bgfok"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="8_l2ty5"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="9_l2ty5"]
@@ -14,176 +11,289 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgfok"]
 height = 26.0
 
-[sub_resource type="Gradient" id="Gradient_yc4gq"]
+[sub_resource type="Resource" id="Resource_grlph"]
+script = ExtResource("6_jsjuc")
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mc2de"]
-gradient = SubResource("Gradient_yc4gq")
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_bgfok"]
+parameter_name = "scale"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_l2ty5"]
+size = Vector2(709, 489)
+title = "纹理2"
+tint_color_enabled = true
+tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
+attached_nodes = PackedInt32Array(17, 18, 16, 13, 12)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_akm0r"]
+expanded_output_ports = [0]
+linked_parent_graph_frame = 11
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8rqkx"]
+linked_parent_graph_frame = 11
+parameter_name = "add"
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_pl1q7"]
+size = Vector2(713.99994, 489)
+title = "纹理2"
+tint_color_enabled = true
+tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
+attached_nodes = PackedInt32Array(17, 18)
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_6iiro"]
+linked_parent_graph_frame = 16
+parameter_name = "color"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ffej8"]
+expanded_output_ports = [0]
+linked_parent_graph_frame = 16
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_2kg2s"]
+linked_parent_graph_frame = 23
+parameter_name = "sub"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_2kbsi"]
+linked_parent_graph_frame = 5
+parameter_name = "main"
+texture_type = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_t1fco"]
+expanded_output_ports = [0]
+linked_parent_graph_frame = 23
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_f67v5"]
+linked_parent_graph_frame = 24
+parameter_name = "shape"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_o7uis"]
+expanded_output_ports = [0]
+linked_parent_graph_frame = 24
+source = 5
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_wsdy4"]
+size = Vector2(729, 489)
+title = "纹理4"
+tint_color_enabled = true
+tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
+attached_nodes = PackedInt32Array(19, 20)
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_cweqt"]
+size = Vector2(729, 489)
+title = "纹理3"
+tint_color_enabled = true
+tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
+attached_nodes = PackedInt32Array(21, 22)
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_5k1ty"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hpg6j"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_um1a1"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_ojwsf"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_x6rhv"]
+expanded_output_ports = [0]
+linked_parent_graph_frame = 5
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_sq7ru"]
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_yxy5x"]
+size = Vector2(694, 489)
+title = "纹理1"
+tint_color_enabled = true
+tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
+attached_nodes = PackedInt32Array(3, 2, 12, 13)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_rtbdh"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_nynli"]
+parameter_name = "speed"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_pb5ru"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_uowp7"]
+function = 1
+
+[sub_resource type="VisualShader" id="VisualShader_ip5qg"]
+resource_local_to_scene = true
+mode = 1
+flags/unshaded = true
+flags/light_only = false
+nodes/vertex/0/position = Vector2(784, 144)
+nodes/fragment/0/position = Vector2(3088, 688)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_2kbsi")
+nodes/fragment/2/position = Vector2(352, 208)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_x6rhv")
+nodes/fragment/3/position = Vector2(656, 272)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_sq7ru")
+nodes/fragment/4/position = Vector2(112, 368)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFrame_yxy5x")
+nodes/fragment/5/position = Vector2(320, 160)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_rtbdh")
+nodes/fragment/6/position = Vector2(-416, 240)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVec2Parameter_nynli")
+nodes/fragment/7/position = Vector2(-416, 368)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorOp_pb5ru")
+nodes/fragment/8/position = Vector2(-112, 368)
+nodes/fragment/9/node = SubResource("VisualShaderNodeUVFunc_uowp7")
+nodes/fragment/9/position = Vector2(112, 160)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVec2Parameter_bgfok")
+nodes/fragment/10/position = Vector2(-416, -32)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFrame_l2ty5")
+nodes/fragment/11/position = Vector2(320, 599.2)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_akm0r")
+nodes/fragment/12/position = Vector2(656, 704)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture2DParameter_8rqkx")
+nodes/fragment/13/position = Vector2(352, 640)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFrame_pl1q7")
+nodes/fragment/16/position = Vector2(2400, 592)
+nodes/fragment/17/node = SubResource("VisualShaderNodeTexture2DParameter_6iiro")
+nodes/fragment/17/position = Vector2(2432, 640)
+nodes/fragment/18/node = SubResource("VisualShaderNodeTexture_ffej8")
+nodes/fragment/18/position = Vector2(2752, 704)
+nodes/fragment/19/node = SubResource("VisualShaderNodeTexture2DParameter_2kg2s")
+nodes/fragment/19/position = Vector2(1712, 640)
+nodes/fragment/20/node = SubResource("VisualShaderNodeTexture_t1fco")
+nodes/fragment/20/position = Vector2(2032, 704)
+nodes/fragment/21/node = SubResource("VisualShaderNodeTexture2DParameter_f67v5")
+nodes/fragment/21/position = Vector2(1040, 640)
+nodes/fragment/22/node = SubResource("VisualShaderNodeTexture_o7uis")
+nodes/fragment/22/position = Vector2(1360, 704)
+nodes/fragment/23/node = SubResource("VisualShaderNodeFrame_wsdy4")
+nodes/fragment/23/position = Vector2(1680, 592)
+nodes/fragment/24/node = SubResource("VisualShaderNodeFrame_cweqt")
+nodes/fragment/24/position = Vector2(1008, 608)
+nodes/fragment/25/node = SubResource("VisualShaderNodeFloatOp_5k1ty")
+nodes/fragment/25/position = Vector2(1136, 304)
+nodes/fragment/26/node = SubResource("VisualShaderNodeFloatOp_hpg6j")
+nodes/fragment/26/position = Vector2(1616, 304)
+nodes/fragment/27/node = SubResource("VisualShaderNodeFloatOp_um1a1")
+nodes/fragment/27/position = Vector2(2272, 304)
+nodes/fragment/28/node = SubResource("VisualShaderNodeClamp_ojwsf")
+nodes/fragment/28/position = Vector2(2608, 336)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 3, 0, 6, 0, 8, 0, 7, 0, 8, 1, 8, 0, 4, 2, 9, 0, 4, 0, 10, 0, 9, 1, 13, 0, 12, 2, 12, 1, 25, 1, 3, 1, 25, 0, 21, 0, 22, 2, 25, 0, 26, 0, 22, 1, 26, 1, 26, 0, 27, 0, 20, 1, 27, 1, 19, 0, 20, 2, 27, 0, 28, 0, 18, 0, 0, 0, 18, 4, 0, 1, 28, 0, 18, 0, 17, 0, 18, 2)
+
+[sub_resource type="Gradient" id="Gradient_grlph"]
+resource_local_to_scene = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yc4gq"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_grlph")
 fill_from = Vector2(1, 0)
-fill_to = Vector2(1, 0.93958336)
+fill_to = Vector2(1, 1)
 
-[sub_resource type="Gradient" id="Gradient_bgfok"]
-offsets = PackedFloat32Array(0, 0.4875, 0.61875, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 0.35519984, 0.2881848, 1, 1, 0.7703656, 0.54809254, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_ffej8"]
+offsets = PackedFloat32Array(0, 0.35, 0.46875, 0.81875)
+colors = PackedColorArray(0, 0, 0, 0, 0.85389084, 0.337525, 0.38701934, 1, 1, 0.65335774, 0.48497677, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_grig7"]
-gradient = SubResource("Gradient_bgfok")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_grlph"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ffej8")
 
-[sub_resource type="Gradient" id="Gradient_l2ty5"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yc4gq"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/火焰纹理.png-7dcb300b6529c7249a4095f48461218c.ctex"
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1hmm8"]
-gradient = SubResource("Gradient_l2ty5")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bgfok"]
+load_path = "res://.godot/imported/园地圆柱.jpg-51890c91f171806aa51a512ea49c9f6c.ctex"
+
+[sub_resource type="Gradient" id="Gradient_2kbsi"]
+resource_local_to_scene = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l2ty5"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_2kbsi")
 fill_from = Vector2(1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_akm0r"]
-shader = ExtResource("1_irsxg")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgfok"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_ip5qg")
 shader_parameter/scale = Vector2(1, 1)
 shader_parameter/speed = Vector2(0, 1)
-shader_parameter/main = ExtResource("2_jg2s3")
-shader_parameter/add = SubResource("GradientTexture2D_mc2de")
-shader_parameter/shape = ExtResource("3_mmk5h")
-shader_parameter/sub = SubResource("GradientTexture2D_1hmm8")
-shader_parameter/color = SubResource("GradientTexture1D_grig7")
+shader_parameter/main = SubResource("CompressedTexture2D_yc4gq")
+shader_parameter/add = SubResource("GradientTexture2D_yc4gq")
+shader_parameter/shape = SubResource("CompressedTexture2D_bgfok")
+shader_parameter/sub = SubResource("GradientTexture2D_l2ty5")
+shader_parameter/color = SubResource("GradientTexture1D_grlph")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsjuc"]
+load_path = "res://.godot/imported/像素白点.png-5f99a7dbc24446659cffd5f4d494395f.ctex"
 
 [sub_resource type="Animation" id="Animation_akm0r"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("图形:texture")
+tracks/0/path = NodePath("VisualNode/图形:material:shader_parameter/add")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_jsjuc")]
+"values": [SubResource("GradientTexture2D_yc4gq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("图形:position")
+tracks/1/path = NodePath("VisualNode/图形:material:shader_parameter/add:fill_from")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-25, -1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("图形:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.5707964]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("图形:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(60, 100)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("图形:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [Vector2(1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8rqkx"]
 resource_name = "hit"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("图形:frame")
+tracks/0/path = NodePath("VisualNode/图形:material:shader_parameter/add")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_pl1q7"]
-resource_name = "loop"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("图形:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_jsjuc")]
+"values": [SubResource("GradientTexture2D_yc4gq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("图形:position")
+tracks/1/path = NodePath("VisualNode/图形:material:shader_parameter/add:fill_from")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-25, -1)]
+"values": [Vector2(1, 0), Vector2(1, 0.9)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("图形:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.5707964]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("图形:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(60, 100)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("图形:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+
+[sub_resource type="Animation" id="Animation_pl1q7"]
+resource_name = "loop"
+loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6iiro"]
 _data = {
@@ -192,37 +302,21 @@ _data = {
 &"loop": SubResource("Animation_pl1q7")
 }
 
-[sub_resource type="Resource" id="Resource_grlph"]
-script = ExtResource("6_jsjuc")
-metadata/_custom_type_script = "uid://dng1kpmjhakhe"
-
-[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler")]
+[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
 script = ExtResource("1_yc4gq")
-an = NodePath("动画")
+sprite = NodePath("VisualNode/图形")
+an = NodePath("VisualNode/动画")
 hitarea = NodePath("Hitbox/攻击面")
 hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
+metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=655721601]
-visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 
-[node name="图形" type="Sprite2D" parent="." unique_id=601779241]
-material = SubResource("ShaderMaterial_akm0r")
-position = Vector2(-25, -1)
-rotation = -1.5707964
-scale = Vector2(60, 100)
-texture = ExtResource("4_jsjuc")
-offset = Vector2(0.8620471, 0.44047582)
-
-[node name="动画" type="AnimationPlayer" parent="." unique_id=1749077408]
-libraries/ = SubResource("AnimationLibrary_6iiro")
-autoplay = &"loop"
-
 [node name="Hitbox" type="Area2D" parent="." unique_id=1376696230]
-visible = false
 script = ExtResource("5_mmk5h")
 attack_data = SubResource("Resource_grlph")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
@@ -232,13 +326,28 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=688669162]
-visible = false
 script = ExtResource("8_l2ty5")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
 [node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1551612333]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
+
+[node name="VisualNode" type="Node2D" parent="." unique_id=973445540 node_paths=PackedStringArray("data")]
+script = ExtResource("7_l2ty5")
+data = NodePath("../class/Bullet_Data")
+metadata/_custom_type_script = "uid://dtiqmbrkt75kr"
+
+[node name="图形" type="Sprite2D" parent="VisualNode" unique_id=601779241]
+material = SubResource("ShaderMaterial_bgfok")
+rotation = -1.5707964
+scale = Vector2(60, 100)
+texture = SubResource("CompressedTexture2D_jsjuc")
+offset = Vector2(0.014131367, -0.27995527)
+
+[node name="动画" type="AnimationPlayer" parent="VisualNode" unique_id=1749077408]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_6iiro")
 
 [node name="class" type="Node" parent="." unique_id=298435156]
 
@@ -248,7 +357,7 @@ metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
 [node name="Bullet_Ctrler" type="Node" parent="class" unique_id=500749183 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("9_l2ty5")
-anplayer = NodePath("../../动画")
+anplayer = NodePath("../../VisualNode/动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"

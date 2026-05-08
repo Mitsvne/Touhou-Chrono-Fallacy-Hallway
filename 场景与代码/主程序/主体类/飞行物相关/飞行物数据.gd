@@ -21,6 +21,14 @@ var bullet_owner: CharacterBody2D
 		else:
 			return
 
+@onready var move_direction:float=1.0:
+	set(v):
+		if (v==1.0 or v==-1.0) and bullet_direction!=v:
+			bullet_direction=v
+		else:
+			return
+
+
 func get_bullet_team():
 	return bullet_team
 
