@@ -271,6 +271,16 @@ func get_target():
 			return _character
 	return null
 
+## 瞬间移动到对方位置
+func move_to_target(offect:Vector2=Vector2(0,0)):
+	offect.x*=character_data.direction
+	character.global_position=get_target().global_position+offect
+
+
+
+
+
+
 ## 播放音频
 func play_audio(audio_path: NodePath):
 	var audio_node = get_node(audio_path)

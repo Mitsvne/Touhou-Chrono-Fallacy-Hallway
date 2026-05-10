@@ -19,10 +19,12 @@ var character_name:String="拉赫莱蒂"
 @export var book:PackedScene
 @export var attack_bullet1:PackedScene
 @export var attack_bullet2:PackedScene
+@export var fire_bullet:PackedScene
 @export var warning_line:PackedScene
 
 @onready var halo: Node2D = $光环
 @onready var shoot_audio: AudioStreamPlayer = $音效/弹幕发射音效
+@onready var fire_audio: AudioStreamPlayer = $音效/火焰弹幕音效
 
 
 
@@ -103,3 +105,17 @@ func skill3():
 
 func book_attack():
 	character_ctrler.get_prop("刻印之卷").prop_ctrler.jump_to_frame("攻击激光",0)
+	
+
+func deep_falling_star():
+	character_data.mp+=100
+	var current_position=self.global_position
+	var angles: Array[float] = Math.random_num(10,-150,-30)
+	var x: Array[float] = Math.random_num(10,-300,300,true)
+	var y=50
+	for i in range(angles.size()):
+		character_ctrler.add_warning_line(warning_line,Vector2(x[i],y),angles[i],current_position)
+	await get_tree().create_timer(0.3, false).timeout
+	fire_audio.play()
+	for i in range(angles.size()):
+		character_ctrler.shoot(fire_bullet, Vector2(x[i], y), angles[i], current_position)

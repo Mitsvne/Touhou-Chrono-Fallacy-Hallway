@@ -163,7 +163,7 @@ func transition_state(_from:State,to:State) -> void:
 		State.冲刺:
 			dash_animation()
 		State.技能:
-			an_paly("技能")
+			an_paly("技能3")
 		State.必杀:
 			an_paly("必杀")
 		State.死亡:

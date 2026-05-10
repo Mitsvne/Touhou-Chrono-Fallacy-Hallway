@@ -11,23 +11,8 @@ var ishit=false
 
 func _ready():
 	await get_tree().process_frame
-	# 1. 材质独立
-	sprite.material = sprite.material.duplicate()
-	var mat = sprite.material as ShaderMaterial
-	# 处理 add 纹理
-	var add_original = mat.get_shader_parameter("add")
-	if add_original is GradientTexture2D:
-		var add_tex = add_original.duplicate()
-		mat.set_shader_parameter("add", add_tex)
-	# 处理 sub 纹理
-	var sub_original = mat.get_shader_parameter("sub")
-	if sub_original is GradientTexture2D:
-		var sub_tex = sub_original.duplicate()
-		mat.set_shader_parameter("sub", sub_tex)
-	print("材质ID：", sprite.material.get_instance_id())
-	print("add纹理ID：", sprite.material.get_shader_parameter("add").get_instance_id())
-	print("sub纹理ID：", sprite.material.get_shader_parameter("sub").get_instance_id())
-	bullet_ctrler.start_move_forward(500)
+	material_copy()
+	bullet_ctrler.start_move_forward(600,-100)
 	await get_tree().create_timer(3, false).timeout
 	queue_free()
 
@@ -35,6 +20,7 @@ func _physics_process(_delta):
 	if ishit:
 		bullet_ctrler.stop_move()
 
+## 命中效果
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.bullet_team) and area.owner.is_in_group("characters"):
 		ishit=true
@@ -46,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 		await get_tree().create_timer(0.3).timeout
 		queue_free()
 
-
+## 被攻击命中效果
 func _on_hurtbox_hurt(hitbox: Hitbox, attack_data: AttackData) -> void:
 	if hitbox.owner.is_in_group("bullets"):
 		bullet_data.bullet_hp-=attack_data.damage
@@ -59,6 +45,27 @@ func _on_hurtbox_hurt(hitbox: Hitbox, attack_data: AttackData) -> void:
 			#await an.animation_finished
 			queue_free()
 
+
+
+## 着色器资源复制
+func material_copy():
+	sprite.material = sprite.material.duplicate()
+	var mat = sprite.material as ShaderMaterial
+	# 处理 add 纹理
+	var add_original = mat.get_shader_parameter("add")
+	if add_original is GradientTexture2D:
+		var add_tex = add_original.duplicate()
+		mat.set_shader_parameter("add", add_tex)
+	# 处理 sub 纹理
+	var sub_original = mat.get_shader_parameter("sub")
+	if sub_original is GradientTexture2D:
+		var sub_tex = sub_original.duplicate()
+		mat.set_shader_parameter("sub", sub_tex)
+	#print("材质ID：", sprite.material.get_instance_id())
+	#print("add纹理ID：", sprite.material.get_shader_parameter("add").get_instance_id())
+	#print("sub纹理ID：", sprite.material.get_shader_parameter("sub").get_instance_id())
+
+## 着色器动画1
 func animate_fill_from(tex: GradientTexture2D, duration: float = 1.5) -> Tween:
 	var tween = create_tween()
 	tween.tween_method(
@@ -68,7 +75,8 @@ func animate_fill_from(tex: GradientTexture2D, duration: float = 1.5) -> Tween:
 			, 0.0, 1.0, duration
 		)
 	return tween
-	
+
+## 着色器动画2
 func animate_fill_to(tex: GradientTexture2D, duration: float = 1.5) -> Tween:
 	var tween = create_tween()
 	tween.tween_method(

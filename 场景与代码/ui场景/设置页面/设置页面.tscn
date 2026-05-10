@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bnag8jbpsdno7" path="res://素材/地图素材/图书馆/Full Asset 1.png" id="9_qfwej"]
 [ext_resource type="Texture2D" uid="uid://bq1aabtxs1f4k" path="res://素材/地图素材/图书馆/Full Asset 2.png" id="9_xf5p5"]
 [ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/人物素材/拉赫/特效/书特效/98.png" id="11_8kpsi"]
-[ext_resource type="Texture2D" uid="uid://bp4s2rnqd0rc2" path="res://素材/人物素材/拉赫/人物/xem_1700-5.png" id="11_ym0ws"]
+[ext_resource type="Texture2D" uid="uid://bp4s2rnqd0rc2" path="res://素材/人物素材/拉赫/人物/常态/xem_1700-5.png" id="11_ym0ws"]
 [ext_resource type="Texture2D" uid="uid://dsjssc4csmyqu" path="res://素材/人物素材/拉赫/特效/书特效/100.png" id="12_6750i"]
 [ext_resource type="Texture2D" uid="uid://c4u2813mepq07" path="res://素材/人物素材/拉赫/特效/书特效/102.png" id="13_ei24q"]
 [ext_resource type="Texture2D" uid="uid://3tqftu23441p" path="res://素材/人物素材/拉赫/特效/书特效/104.png" id="14_1q7tq"]
