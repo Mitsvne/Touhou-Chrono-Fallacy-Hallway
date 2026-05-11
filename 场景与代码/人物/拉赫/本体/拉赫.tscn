@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="4_10ogm"]
 [ext_resource type="PackedScene" uid="uid://do0xxuq2ay83k" path="res://场景与代码/人物/拉赫/弹幕/拉赫追踪弹幕.tscn" id="4_chhjm"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
+[ext_resource type="PackedScene" uid="uid://o5hlctvkwv50" path="res://场景与代码/人物/拉赫/弹幕/闪星特效.tscn" id="6_mhgoh"]
 [ext_resource type="PackedScene" uid="uid://gdvis0ara2ny" path="res://场景与代码/人物/拉赫/弹幕/拉赫火焰弹幕.tscn" id="8_chhjm"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
@@ -1211,9 +1212,12 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"add_shine_star"
+}, {
 "args": [],
 "method": &"deep_falling_star"
 }]
@@ -1523,6 +1527,7 @@ book = ExtResource("3_wrct2")
 attack_bullet1 = ExtResource("2_udp54")
 attack_bullet2 = ExtResource("4_chhjm")
 fire_bullet = ExtResource("8_chhjm")
+shine_star = ExtResource("6_mhgoh")
 warning_line = ExtResource("4_1asjr")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]

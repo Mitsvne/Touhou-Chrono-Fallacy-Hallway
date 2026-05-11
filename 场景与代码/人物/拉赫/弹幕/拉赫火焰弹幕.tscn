@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ciu2nx33u4n08" path="res://素材/人物素材/拉赫/音效/火焰.wav" id="8_grlph"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="8_l2ty5"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="9_l2ty5"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="11_akm0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgfok"]
 height = 26.0
@@ -31,7 +32,7 @@ fill_to = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_pl1q7"]
 offsets = PackedFloat32Array(0, 0.45625, 0.56875, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.75044096, 0.25099728, 0.38323042, 1, 0.94408476, 0.5021804, 0.4248457, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.7490196, 0.2509804, 0.38431373, 0.78431374, 0.94509804, 0.5019608, 0.42352942, 0.78431374, 1, 1, 1, 0.78431374)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6iiro"]
 gradient = SubResource("Gradient_pl1q7")
@@ -136,7 +137,7 @@ gravity = Vector3(0, 200, 0)
 scale_max = 5.0
 color = Color(0.9098039, 0.4627451, 0.42352942, 1)
 
-[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
+[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler", "effect_ctrler") groups=["bullets"]]
 script = ExtResource("1_yc4gq")
 sprite = NodePath("VisualNode/图形")
 an = NodePath("VisualNode/动画")
@@ -144,6 +145,7 @@ hitarea = NodePath("Hitbox/攻击面")
 hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
 metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=655721601]
@@ -186,7 +188,7 @@ libraries/ = SubResource("AnimationLibrary_6iiro")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="VisualNode" unique_id=1308292159]
 visible = false
 emitting = false
-amount = 10
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_grlph")
 
 [node name="class" type="Node" parent="." unique_id=298435156]
@@ -201,6 +203,10 @@ anplayer = NodePath("../../VisualNode/动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1332674033]
+script = ExtResource("11_akm0r")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=1462564110]
 stream = ExtResource("8_grlph")

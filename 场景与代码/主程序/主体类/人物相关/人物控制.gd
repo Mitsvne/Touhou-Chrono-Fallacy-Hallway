@@ -231,6 +231,7 @@ func add_prop(prop,offset:Vector2):
 	prop_instance.global_position.y = character.global_position.y + offset.y
 	prop_instance.rotation = character.rotation
 
+## 添加警示线
 func add_warning_line(generate_position:Vector2,offset:Vector2,offset_rotation:float=0.0,
 	length: float = 999,width: float = 1,color: Color = Color(1.0, 1.0, 1.0, 1.0),
 	grow_time: float = 0.5,keep_time: float = 0.5,shrink_time: float = 0.3):
@@ -247,8 +248,17 @@ func add_warning_line(generate_position:Vector2,offset:Vector2,offset_rotation:f
 	line_instance.set_width(width)
 	get_parent().add_child(line_instance)
 	line_instance.line_animate(length,grow_time,keep_time,shrink_time)
-	
 
+## 添加特效
+func add_effect(effect,generate_position:Vector2=character.global_position,offset:Vector2=Vector2(0,0)):
+	if not effect:
+		return
+	var effect_instance = effect.instantiate()
+	var origin = generate_position if generate_position else Vector2(0,0)
+	effect_instance.global_position.x = origin.x + offset.x * character_data.direction
+	effect_instance.global_position.y = origin.y + offset.y
+	effect_instance.scale.x *= character_data.direction
+	get_parent().add_child(effect_instance)
 
 
 

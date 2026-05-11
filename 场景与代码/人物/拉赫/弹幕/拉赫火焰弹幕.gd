@@ -8,6 +8,7 @@ var ishit=false
 @export var hurtarea: CollisionShape2D
 @export var bullet_data: Bullet_Data
 @export var bullet_ctrler: Bullet_Ctrler
+@export var effect_ctrler: Effect_Ctrler
 
 func _ready():
 	await get_tree().process_frame

@@ -20,6 +20,7 @@ var character_name:String="拉赫莱蒂"
 @export var attack_bullet1:PackedScene
 @export var attack_bullet2:PackedScene
 @export var fire_bullet:PackedScene
+@export var shine_star:PackedScene
 @export var warning_line:PackedScene
 
 @onready var halo: Node2D = $VisualNode/光环
@@ -112,6 +113,8 @@ func skill3():
 func book_attack():
 	character_ctrler.get_prop("刻印之卷").prop_ctrler.jump_to_frame("攻击激光",0)
 	
+func add_shine_star():
+	character_ctrler.add_effect(shine_star,self.global_position,Vector2(0,50))
 
 func deep_falling_star():
 	character_data.mp+=100

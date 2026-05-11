@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://o5hlctvkwv50"]
+
+[ext_resource type="Texture2D" uid="uid://dciv2uknpdb4v" path="res://素材/人物素材/拉赫/特效/闪星/1.png" id="1_bheio"]
+[ext_resource type="Script" uid="uid://bje56ts8b65mm" path="res://场景与代码/人物/拉赫/弹幕/闪星特效.gd" id="1_g868e"]
+[ext_resource type="Texture2D" uid="uid://ykifl0t17n1x" path="res://素材/人物素材/拉赫/特效/闪星/2.png" id="2_mw85t"]
+[ext_resource type="Texture2D" uid="uid://fylojle7chek" path="res://素材/人物素材/拉赫/特效/闪星/3.png" id="3_g868e"]
+[ext_resource type="Texture2D" uid="uid://cv6b0kw6bbstp" path="res://素材/人物素材/拉赫/特效/闪星/4.png" id="4_kqa2b"]
+[ext_resource type="Texture2D" uid="uid://cmlqnvhha6p68" path="res://素材/人物素材/拉赫/特效/闪星/5.png" id="5_56ie6"]
+[ext_resource type="Texture2D" uid="uid://b2ejd48tfahw1" path="res://素材/人物素材/拉赫/特效/闪星/6.png" id="6_17fdu"]
+[ext_resource type="Texture2D" uid="uid://tlecnb46g03t" path="res://素材/人物素材/拉赫/特效/闪星/7.png" id="7_27tvr"]
+[ext_resource type="Texture2D" uid="uid://dqxp8227qcw4l" path="res://素材/人物素材/拉赫/特效/闪星/8.png" id="8_kar8j"]
+[ext_resource type="AudioStream" uid="uid://cwau5g0tkfukk" path="res://素材/人物素材/拉赫/音效/闪星.wav" id="9_mw85t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4hjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bheio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mw85t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g868e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kqa2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56ie6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_17fdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_27tvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kar8j")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="闪星特效" type="Node2D" unique_id=996953414]
+script = ExtResource("1_g868e")
+
+[node name="动画" type="AnimatedSprite2D" parent="." unique_id=1727457414]
+position = Vector2(0, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i4hjq")
+autoplay = "default"
+frame = 8
+frame_progress = 1.0
+
+[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1608537488]
+stream = ExtResource("9_mw85t")
+volume_db = -5.0
+autoplay = true
