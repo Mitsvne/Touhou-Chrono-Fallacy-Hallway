@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="幻想谬时回廊"
-run/main_scene="uid://cj7eudfk0rkob"
+run/main_scene="uid://do4vla6wati0b"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [audio]

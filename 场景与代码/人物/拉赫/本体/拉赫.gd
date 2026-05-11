@@ -22,7 +22,7 @@ var character_name:String="拉赫莱蒂"
 @export var fire_bullet:PackedScene
 @export var warning_line:PackedScene
 
-@onready var halo: Node2D = $光环
+@onready var halo: Node2D = $VisualNode/光环
 @onready var shoot_audio: AudioStreamPlayer = $音效/弹幕发射音效
 @onready var fire_audio: AudioStreamPlayer = $音效/火焰弹幕音效
 
@@ -36,19 +36,25 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	pass
 
+
+func add_line():
+	character_data.mp+=100
+	var current_position=self.global_position
+	character_ctrler.add_warning_line(current_position,Vector2(0,0),0)
+
 ## 弹幕网横向
 func skill1():
 	var current_position=self.global_position
 	var current_rotation=0
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,0),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,100),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,-100),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,200),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,-200),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,400),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,-400),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,0),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,100),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,-100),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,200),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,-200),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,400),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,-400),current_rotation)
 	await get_tree().create_timer(1.0, false).timeout
 	effect_ctrler.shake_once(Vector2(1,1))
 	character_ctrler.shoot(attack_bullet1,Vector2(-300,0),current_rotation,current_position)
@@ -66,15 +72,15 @@ func skill2():
 	character_data.mp+=100
 	var current_position=self.global_position
 	var current_rotation=90
-	character_ctrler.add_warning_line(warning_line,Vector2(0,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(100,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-100,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(200,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-200,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(300,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-300,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(400,-300),current_rotation)
-	character_ctrler.add_warning_line(warning_line,Vector2(-400,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(0,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(100,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-100,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(200,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-200,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(300,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-300,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(400,-300),current_rotation)
+	character_ctrler.add_warning_line(current_position,Vector2(-400,-300),current_rotation)
 	await get_tree().create_timer(1.0, false).timeout
 	effect_ctrler.shake_once(Vector2(1,1))
 	character_ctrler.shoot(attack_bullet1,Vector2(0,-300),current_rotation,current_position)
@@ -110,11 +116,11 @@ func book_attack():
 func deep_falling_star():
 	character_data.mp+=100
 	var current_position=self.global_position
-	var angles: Array[float] = Math.random_num(10,-150,-30)
+	var angles: Array[float] = Math.random_num(10,-140,-40)
 	var x: Array[float] = Math.random_num(10,-300,300,true)
 	var y=50
 	for i in range(angles.size()):
-		character_ctrler.add_warning_line(warning_line,Vector2(x[i],y),angles[i],current_position)
+		character_ctrler.add_warning_line(current_position,Vector2(x[i],y),angles[i],999,1,Color(1.0, 0.463, 0.392, 0.588),0.3,0.3,0.3)
 	await get_tree().create_timer(0.3, false).timeout
 	fire_audio.play()
 	for i in range(angles.size()):

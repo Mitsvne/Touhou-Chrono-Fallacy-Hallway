@@ -5,36 +5,6 @@
 [ext_resource type="Script" uid="uid://bm1lnpnpijuhc" path="res://场景与代码/主程序/主体类/AI相关/任务/back_away.gd" id="2_5ntii"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_6bllh"]
-var/character/name = &"character"
-var/character/type = 22
-var/character/value = NodePath(".")
-var/character/hint = 0
-var/character/hint_string = ""
-var/anplayer/name = &"anplayer"
-var/anplayer/type = 22
-var/anplayer/value = NodePath("动画")
-var/anplayer/hint = 0
-var/anplayer/hint_string = ""
-var/character_data/name = &"character_data"
-var/character_data/type = 22
-var/character_data/value = NodePath("class/Character_Data")
-var/character_data/hint = 0
-var/character_data/hint_string = ""
-var/character_ctrler/name = &"character_ctrler"
-var/character_ctrler/type = 22
-var/character_ctrler/value = NodePath("class/Character_Ctrler")
-var/character_ctrler/hint = 0
-var/character_ctrler/hint_string = ""
-var/effect_ctrler/name = &"effect_ctrler"
-var/effect_ctrler/type = 22
-var/effect_ctrler/value = NodePath("class/Effect_Ctrler")
-var/effect_ctrler/hint = 0
-var/effect_ctrler/hint_string = ""
-var/move_speed/name = &"move_speed"
-var/move_speed/type = 3
-var/move_speed/value = 0.0
-var/move_speed/hint = 0
-var/move_speed/hint_string = "400"
 
 [sub_resource type="BTAction" id="BTAction_imwqy"]
 script = ExtResource("1_qhu3j")

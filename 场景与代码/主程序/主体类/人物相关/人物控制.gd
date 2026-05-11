@@ -6,6 +6,7 @@ class_name Character_Ctrler
 @export var character_data: Character_Data
 @export var character_input: Character_Input
 @export var anplayer: AnimationPlayer
+@export var warning_line:PackedScene
 
 var is_key_moving:bool=true  # 是否按键移动
 var is_moving:bool=false  # 是否移动
@@ -230,17 +231,26 @@ func add_prop(prop,offset:Vector2):
 	prop_instance.global_position.y = character.global_position.y + offset.y
 	prop_instance.rotation = character.rotation
 
-func add_warning_line(line,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
-	if not line:
+func add_warning_line(generate_position:Vector2,offset:Vector2,offset_rotation:float=0.0,
+	length: float = 999,width: float = 1,color: Color = Color(1.0, 1.0, 1.0, 1.0),
+	grow_time: float = 0.5,keep_time: float = 0.5,shrink_time: float = 0.3):
+	if not warning_line:
 		return
-	var line_instance = line.instantiate()
-	get_parent().add_child(line_instance)
+	var line_instance = warning_line.instantiate()
 	var origin = generate_position if generate_position.length() != 0 else character.global_position
 	line_instance.global_position.x = origin.x + offset.x * character_data.direction
 	line_instance.global_position.y = origin.y + offset.y
 	var base_rot = 0.0 if character_data.direction > 0 else PI
 	var final_offset_rot = deg_to_rad(offset_rotation) * character_data.direction
 	line_instance.rotation = base_rot + final_offset_rot
+	line_instance.set_color(color)
+	line_instance.set_width(width)
+	get_parent().add_child(line_instance)
+	line_instance.line_animate(length,grow_time,keep_time,shrink_time)
+	
+
+
+
 
 ## 获取道具
 func get_prop(pname:String):
