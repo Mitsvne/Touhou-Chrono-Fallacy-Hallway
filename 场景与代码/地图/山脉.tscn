@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bnvy2gs5lawdj" path="res://素材/地图素材/山脉/2.png" id="2_kyx6h"]
 [ext_resource type="Texture2D" uid="uid://cbtkryinjdmwg" path="res://素材/地图素材/山脉/4.png" id="3_smmn0"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyx6h"]
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_smmn0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyx6h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dx6ce"]
 
@@ -47,23 +47,37 @@ centered = false
 
 [node name="地图边界" type="Node2D" parent="." unique_id=129516774]
 
-[node name="空气墙" type="StaticBody2D" parent="地图边界" unique_id=1341847973]
+[node name="空气墙上" type="StaticBody2D" parent="地图边界" unique_id=1341847973]
+collision_layer = 16
+collision_mask = 2
 
-[node name="下" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1033900123]
-position = Vector2(329, 437)
-shape = SubResource("WorldBoundaryShape2D_kyx6h")
-
-[node name="上" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=2024146668]
+[node name="上" type="CollisionShape2D" parent="地图边界/空气墙上" unique_id=2024146668]
 position = Vector2(329, -49)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_smmn0")
 
-[node name="左" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1333243014]
+[node name="空气墙下" type="StaticBody2D" parent="地图边界" unique_id=1502368477]
+collision_layer = 32
+collision_mask = 2
+
+[node name="下" type="CollisionShape2D" parent="地图边界/空气墙下" unique_id=1757852175]
+position = Vector2(329, 437)
+shape = SubResource("WorldBoundaryShape2D_kyx6h")
+
+[node name="空气墙左" type="StaticBody2D" parent="地图边界" unique_id=1932726347]
+collision_layer = 64
+collision_mask = 2
+
+[node name="左" type="CollisionShape2D" parent="地图边界/空气墙左" unique_id=1607681755]
 position = Vector2(-1, 202)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_dx6ce")
 
-[node name="右" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=338271668]
+[node name="空气墙右" type="StaticBody2D" parent="地图边界" unique_id=971056062]
+collision_layer = 128
+collision_mask = 2
+
+[node name="右" type="CollisionShape2D" parent="地图边界/空气墙右" unique_id=1274274883]
 position = Vector2(864, 189)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_yaode")

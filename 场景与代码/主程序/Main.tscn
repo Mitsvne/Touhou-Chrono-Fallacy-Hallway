@@ -7,15 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_gtwc4"]
 [ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_en0us"]
 [ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_pvlsi"]
-[ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="7_8cp7d"]
 [ext_resource type="Texture2D" uid="uid://c1e51jre1lp1p" path="res://素材/ui素材/人物头像/箭头.png" id="7_l38lg"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="8_ds467"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_wfpim"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="9_l38lg"]
 [ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/指向箭头.gd" id="11_ds467"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfpim"]
-shader = ExtResource("7_8cp7d")
 
 [sub_resource type="Gradient" id="Gradient_073jx"]
 colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
@@ -69,7 +65,6 @@ offset_bottom = 70.0
 grow_horizontal = 0
 
 [node name="山脉" parent="." unique_id=160434654 instance=ExtResource("1_3nwfj")]
-material = SubResource("ShaderMaterial_wfpim")
 metadata/_edit_lock_ = true
 
 [node name="镜头" type="Camera2D" parent="." unique_id=55027781]

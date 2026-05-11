@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var anplayer: AnimationPlayer
 @export var line: Line2D
 
 func _ready() -> void:

@@ -34,7 +34,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/com.timothyqiu.animation-resetter/plugin.cfg")
 
 [global_group]
 
@@ -178,8 +178,13 @@ pause={
 
 2d_render/layer_1="character"
 2d_render/layer_2="map"
-2d_physics/layer_1="PlayerHurtbox"
-2d_physics/layer_2="EnemyHurtbox"
+2d_physics/layer_2="character"
+2d_physics/layer_3="hitbox"
+2d_physics/layer_4="hurtbox"
+2d_physics/layer_5="map_top"
+2d_physics/layer_6="map_bottom"
+2d_physics/layer_7="map_left"
+2d_physics/layer_8="map_right"
 
 [limbo_ai]
 
