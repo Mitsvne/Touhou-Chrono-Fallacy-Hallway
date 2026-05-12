@@ -50,6 +50,7 @@ animations = [{
 script = ExtResource("1_g868e")
 
 [node name="动画" type="AnimatedSprite2D" parent="." unique_id=1727457414]
+modulate = Color(1.8247963, 0.90944153, 0.7557179, 1)
 position = Vector2(0, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i4hjq")

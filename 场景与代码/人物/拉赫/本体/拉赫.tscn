@@ -11,8 +11,11 @@
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="4_10ogm"]
 [ext_resource type="PackedScene" uid="uid://do0xxuq2ay83k" path="res://场景与代码/人物/拉赫/弹幕/拉赫追踪弹幕.tscn" id="4_chhjm"]
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="4_pxy2b"]
+[ext_resource type="PackedScene" uid="uid://nrxps1sbldyh" path="res://场景与代码/人物/拉赫/弹幕/拉赫冰锥弹幕.tscn" id="6_jggr4"]
 [ext_resource type="PackedScene" uid="uid://o5hlctvkwv50" path="res://场景与代码/人物/拉赫/弹幕/闪星特效.tscn" id="6_mhgoh"]
+[ext_resource type="PackedScene" uid="uid://dm0gs5fli6grc" path="res://场景与代码/人物/拉赫/弹幕/法阵特效.tscn" id="7_w1t4i"]
 [ext_resource type="PackedScene" uid="uid://gdvis0ara2ny" path="res://场景与代码/人物/拉赫/弹幕/拉赫火焰弹幕.tscn" id="8_chhjm"]
+[ext_resource type="PackedScene" uid="uid://c1jpxmd2q1ab6" path="res://场景与代码/人物/拉赫/弹幕/法阵特效2.tscn" id="8_ixnr7"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_r3d67"]
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
@@ -108,6 +111,7 @@
 [ext_resource type="AudioStream" uid="uid://dvornij3ecsea" path="res://素材/人物素材/拉赫/音效/火焰坠落.wav" id="90_eo3fy"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="90_s2hbs"]
 [ext_resource type="AudioStream" uid="uid://ciu2nx33u4n08" path="res://素材/人物素材/拉赫/音效/火焰.wav" id="105_eo3fy"]
+[ext_resource type="AudioStream" uid="uid://b3kskkp5awds2" path="res://素材/人物素材/拉赫/音效/冰3.wav" id="111_c4y0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vjy5"]
 size = Vector2(36, 49)
@@ -510,19 +514,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("碰撞箱:disabled")
+tracks/7/path = NodePath("VisualNode/素材库:self_modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("VisualNode/素材库:self_modulate")
+tracks/8/path = NodePath("VisualNode/光环:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -534,34 +538,22 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("VisualNode/光环:modulate")
+tracks/9/path = NodePath("Hitbox/攻击面:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Hitbox/攻击面:disabled")
+tracks/10/path = NodePath("音效/音效:volume_db")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("音效/音效:volume_db")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -815,6 +807,73 @@ tracks/6/keys = {
 "values": [0.8726646]
 }
 
+[sub_resource type="Animation" id="Animation_4bve0"]
+resource_name = "技能4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualNode/素材库:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"动作5"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualNode/素材库:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualNode/素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.36666667, 0.4, 0.4666667, 0.5333334, 0.6, 0.66666675, 0.73333335, 0.8000001, 0.8666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 5, 6, 5, 6, 7, 8]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"add_magic_array2"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"severe_ice_prison"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_i3xqp"]
 resource_name = "必杀1"
 length = 1.3333334
@@ -865,7 +924,7 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"add_line"
+"method": &"skill3"
 }]
 }
 tracks/4/type = "audio"
@@ -1212,11 +1271,14 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.53333336, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.53333336, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"add_shine_star"
+}, {
+"args": [],
+"method": &"add_magic_array"
 }, {
 "args": [],
 "method": &"deep_falling_star"
@@ -1296,22 +1358,39 @@ tracks/11/path = NodePath("class/Effect_Ctrler")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.7, 0.96666664, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.36666667, 0.53333336, 0.7, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [NodePath("../../VisualNode/素材库"), Color(1, 0.7576058, 0.7132878, 0.5882353), 0.05, 0.3],
+"method": &"start_shadow"
+}, {
+"args": [],
+"method": &"stop_shadow"
+}, {
+"args": [Vector2(2, 2), 0.3],
+"method": &"shake_once"
+}, {
 "args": [NodePath("../../VisualNode/素材库"), Color(1, 0.7576058, 0.7132878, 0.5882353), 0.01, 0.5],
 "method": &"start_shadow"
 }, {
 "args": [],
 "method": &"stop_shadow"
 }, {
-"args": [Vector2(2, 2), 0.2],
+"args": [Vector2(1, 5), 0.5],
 "method": &"shake_once"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_4bve0"]
-resource_name = "技能4"
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("class/Effect_Ctrler")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_5a3cy"]
 resource_name = "死亡"
@@ -1464,11 +1543,11 @@ _data = {
 &"前进": SubResource("Animation_pmn05"),
 &"后退": SubResource("Animation_bhcb1"),
 &"常态": SubResource("Animation_ljw2w"),
-&"必杀": SubResource("Animation_i3xqp"),
+&"必杀": SubResource("Animation_4bve0"),
+&"必杀1": SubResource("Animation_i3xqp"),
 &"技能": SubResource("Animation_vivdl"),
 &"技能2": SubResource("Animation_nnwkb"),
 &"技能3": SubResource("Animation_aowwo"),
-&"技能4": SubResource("Animation_4bve0"),
 &"死亡": SubResource("Animation_5a3cy")
 }
 
@@ -1527,8 +1606,10 @@ book = ExtResource("3_wrct2")
 attack_bullet1 = ExtResource("2_udp54")
 attack_bullet2 = ExtResource("4_chhjm")
 fire_bullet = ExtResource("8_chhjm")
+ice_bullet = ExtResource("6_jggr4")
 shine_star = ExtResource("6_mhgoh")
-warning_line = ExtResource("4_1asjr")
+magic_array = ExtResource("7_w1t4i")
+magic_array2 = ExtResource("8_ixnr7")
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
 visible = false
@@ -1622,7 +1703,7 @@ anplayer = NodePath("../../VisualNode/动画")
 hurtbox = NodePath("../../Hurtbox")
 bt_player = NodePath("../../BTPlayer")
 damage_number = ExtResource("2_bgnr4")
-attack_bullet = ExtResource("8_chhjm")
+attack_bullet = ExtResource("6_jggr4")
 attack_effect = ExtResource("9_6estm")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
@@ -1673,6 +1754,10 @@ bus = &"Se"
 
 [node name="火焰弹幕音效" type="AudioStreamPlayer" parent="音效" unique_id=1755540711]
 stream = ExtResource("105_eo3fy")
+volume_db = -5.0
+
+[node name="寒冰弹幕音效" type="AudioStreamPlayer" parent="音效" unique_id=1045873183]
+stream = ExtResource("111_c4y0f")
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")

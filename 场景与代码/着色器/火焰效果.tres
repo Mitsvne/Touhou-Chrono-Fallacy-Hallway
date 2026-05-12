@@ -6,7 +6,7 @@ default_value_enabled = true
 default_value = Vector2(1, 1)
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_r6smb"]
-size = Vector2(709, 488.99997)
+size = Vector2(709, 489)
 title = "纹理2"
 tint_color_enabled = true
 tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
@@ -22,7 +22,7 @@ linked_parent_graph_frame = 11
 parameter_name = "add"
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_c6fst"]
-size = Vector2(725.00006, 488.99997)
+size = Vector2(725.00006, 489)
 title = "纹理2"
 tint_color_enabled = true
 tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
@@ -65,14 +65,14 @@ linked_parent_graph_frame = 24
 source = 5
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_vwh5j"]
-size = Vector2(729, 488.99997)
+size = Vector2(729, 489)
 title = "纹理4"
 tint_color_enabled = true
 tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)
 attached_nodes = PackedInt32Array(19, 20)
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_tbexc"]
-size = Vector2(728.9999, 488.99997)
+size = Vector2(729, 489)
 title = "纹理3"
 tint_color_enabled = true
 tint_color = Color(0.6453125, 0.27324948, 0.27324948, 0.75)

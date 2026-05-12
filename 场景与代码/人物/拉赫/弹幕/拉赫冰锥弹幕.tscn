@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://nrxps1sbldyh"]
+
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="1_1407a"]
+[ext_resource type="Script" uid="uid://5dy6xt178q5x" path="res://场景与代码/人物/拉赫/弹幕/拉赫冰锥弹幕.gd" id="1_gt874"]
+[ext_resource type="Texture2D" uid="uid://08ouiydtv3js" path="res://素材/人物素材/拉赫/特效/冰/bulletBd000.png" id="2_4hp10"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_by3mt"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="4_e1pa8"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="5_qgj4k"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="6_e1pa8"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_sn4fp"]
+[ext_resource type="Texture2D" uid="uid://clgu2nwk340us" path="res://素材/人物素材/拉赫/特效/冰/bulletIa001.png" id="8_qgj4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3mt"]
+size = Vector2(50, 15)
+
+[sub_resource type="Resource" id="Resource_462vn"]
+script = ExtResource("2_by3mt")
+damage = 20.0
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="Curve" id="Curve_qgj4k"]
+_data = [Vector2(0, 0.01534462), 0.0, 0.0, 0, 0, Vector2(0.23780487, 0.7029058), 0.60324323, 0.60324323, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1pa8"]
+curve = SubResource("Curve_qgj4k")
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn4fp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e1pa8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+inherit_velocity_ratio = 0.1
+spread = 180.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.099999994
+scale_max = 0.39999998
+color = Color(1.2756859, 1.5720325, 1.5720325, 1)
+alpha_curve = SubResource("CurveTexture_e1pa8")
+emission_curve = SubResource("CurveTexture_sn4fp")
+
+[node name="拉赫冰锥弹幕" type="Area2D" unique_id=1879851532 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "particle", "bullet_data", "bullet_ctrler", "effect_ctrler") groups=["bullets"]]
+script = ExtResource("1_gt874")
+sprite = NodePath("图片")
+an = NodePath("AnimationPlayer")
+hitarea = NodePath("Hitbox/攻击面")
+hurtarea = NodePath("Hurtbox/受击面")
+particle = NodePath("粒子")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1675493029]
+visible = false
+shape = SubResource("RectangleShape2D_by3mt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1235536284]
+root_node = NodePath("")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=730822718]
+visible = false
+script = ExtResource("1_1407a")
+attack_data = SubResource("Resource_462vn")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=48703510]
+shape = SubResource("RectangleShape2D_by3mt")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=36954914]
+script = ExtResource("4_e1pa8")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1202467182]
+visible = false
+shape = SubResource("RectangleShape2D_by3mt")
+
+[node name="图片" type="Sprite2D" parent="." unique_id=1801586337]
+modulate = Color(1.1668241, 1.5720325, 1.5720325, 1)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_4hp10")
+
+[node name="class" type="Node" parent="." unique_id=395536807]
+
+[node name="Bullet_Data" type="Node" parent="class" unique_id=1602069365]
+script = ExtResource("5_qgj4k")
+metadata/_custom_type_script = "uid://df5xa5fby1rqi"
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=218810365 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+script = ExtResource("6_e1pa8")
+anplayer = NodePath("../../AnimationPlayer")
+bullet_data = NodePath("../Bullet_Data")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1163580916]
+script = ExtResource("7_sn4fp")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[node name="粒子" type="GPUParticles2D" parent="." unique_id=1907212684]
+amount = 30
+texture = ExtResource("8_qgj4k")
+lifetime = 0.5
+speed_scale = 0.5
+explosiveness = 0.1
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_e1pa8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

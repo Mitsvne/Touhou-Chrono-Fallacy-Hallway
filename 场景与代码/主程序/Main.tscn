@@ -25,13 +25,12 @@ fill_from = Vector2(0.65, 0)
 fill_to = Vector2(0.4923077, 1)
 
 [sub_resource type="Environment" id="Environment_073jx"]
+resource_local_to_scene = true
 background_mode = 3
 glow_enabled = true
 glow_intensity = 1.0
-glow_strength = 0.8
-glow_bloom = 0.2
+glow_bloom = 0.15
 glow_blend_mode = 0
-fog_enabled = true
 
 [node name="Main" type="Node" unique_id=676586633]
 script = ExtResource("1_w1jva")

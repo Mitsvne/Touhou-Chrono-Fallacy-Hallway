@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c1jpxmd2q1ab6"]
+
+[ext_resource type="Script" uid="uid://dgscgy52csd8f" path="res://场景与代码/人物/拉赫/弹幕/法阵特效2.gd" id="1_3fg3o"]
+[ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="2_bksf6"]
+[ext_resource type="Texture2D" uid="uid://cvn8q6lcgw1wp" path="res://素材/人物素材/拉赫/特效/光环/151.png" id="3_beg1v"]
+[ext_resource type="AudioStream" uid="uid://dfgqeiilmio5q" path="res://素材/人物素材/拉赫/音效/冰4.wav" id="4_bksf6"]
+
+[node name="法阵特效2" type="Node2D" unique_id=861007259]
+modulate = Color(1.5720325, 1.5720325, 1.5720325, 0.78431374)
+z_index = -1
+script = ExtResource("1_3fg3o")
+
+[node name="数字" type="Sprite2D" parent="." unique_id=431864539]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_bksf6")
+
+[node name="法阵" type="Sprite2D" parent="." unique_id=1505056553]
+texture = ExtResource("3_beg1v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1429111415]
+stream = ExtResource("4_bksf6")
+autoplay = true

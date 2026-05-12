@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dl71ltlxsqtk2"]
 
 [ext_resource type="Script" uid="uid://c1c7rvkeif6do" path="res://场景与代码/人物/拉赫/弹幕/拉赫直线弹幕.gd" id="1_vkq6w"]
-[ext_resource type="Shader" uid="uid://cjjua3m0sr3e8" path="res://场景与代码/着色器/灰白效果.gdshader" id="2_23qyr"]
 [ext_resource type="Texture2D" uid="uid://bmknbgm4ct5uw" path="res://素材/人物素材/拉赫/特效/弹幕1/5.png" id="3_2wx5b"]
 [ext_resource type="Texture2D" uid="uid://captawbftn0jp" path="res://素材/人物素材/拉赫/特效/弹幕1/6.png" id="4_tk2fs"]
 [ext_resource type="Texture2D" uid="uid://b1hnh0nfhe2da" path="res://素材/人物素材/拉赫/特效/弹幕1/7.png" id="5_jq06u"]
@@ -34,10 +33,6 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_v40bc"]
 offsets = PackedFloat32Array(0, 0.27868852, 0.757377, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.5803922, 0.5803922, 0.5803922, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_413ml"]
-shader = ExtResource("2_23qyr")
-shader_parameter/gray_intensity = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spcgt"]
 animations = [{
@@ -232,7 +227,6 @@ width_curve = SubResource("Curve_03l7r")
 gradient = SubResource("Gradient_v40bc")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1282921721]
-material = SubResource("ShaderMaterial_413ml")
 position = Vector2(-25, 0)
 scale = Vector2(0.19999999, 0.19999999)
 sprite_frames = SubResource("SpriteFrames_spcgt")

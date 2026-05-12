@@ -31,8 +31,8 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_pl1q7"]
-offsets = PackedFloat32Array(0, 0.45625, 0.56875, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.7490196, 0.2509804, 0.38431373, 0.78431374, 0.94509804, 0.5019608, 0.42352942, 0.78431374, 1, 1, 1, 0.78431374)
+offsets = PackedFloat32Array(0, 0.45, 0.56875, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1.353256, 0.62040275, 0.5052401, 1, 0.94509804, 0.54901963, 0.42352942, 0.78431374, 1, 1, 1, 0.78431374)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6iiro"]
 gradient = SubResource("Gradient_pl1q7")
@@ -124,19 +124,6 @@ _data = {
 &"loop": SubResource("Animation_pl1q7")
 }
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_grlph"]
-lifetime_randomness = 0.1
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 10.0
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-gravity = Vector3(0, 200, 0)
-scale_max = 5.0
-color = Color(0.9098039, 0.4627451, 0.42352942, 1)
-
 [node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler", "effect_ctrler") groups=["bullets"]]
 script = ExtResource("1_yc4gq")
 sprite = NodePath("VisualNode/图形")
@@ -149,10 +136,12 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=655721601]
+visible = false
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1376696230]
+visible = false
 script = ExtResource("5_mmk5h")
 attack_data = SubResource("Resource_grlph")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
@@ -162,6 +151,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=688669162]
+visible = false
 script = ExtResource("8_l2ty5")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
@@ -184,12 +174,6 @@ offset = Vector2(0.014131367, -0.27995527)
 [node name="动画" type="AnimationPlayer" parent="VisualNode" unique_id=1749077408]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_6iiro")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="VisualNode" unique_id=1308292159]
-visible = false
-emitting = false
-amount = 30
-process_material = SubResource("ParticleProcessMaterial_grlph")
 
 [node name="class" type="Node" parent="." unique_id=298435156]
 
