@@ -39,6 +39,7 @@ var skill_timer = Timer.new()
 var can_shoot: bool = true
 var is_attack_timer_timeout:bool=false
 var is_skill_timer_timeout:bool=true
+var final_hit:bool=false
 
 var move_left:String="move_left_1p"
 var move_right:String="move_right_1p"
@@ -236,6 +237,7 @@ func set_direction(direct: float):
 	# 统一翻转逻辑：保持原始缩放比例，只改变符号
 	character.scale.x = abs(character.scale.x) * -1
 
+
 ## 受击处理函数
 func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	if not character_ctrler.get_is_allow_behit():
@@ -248,7 +250,8 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
 	character_data.hp-=damage
-	if character_data.hp<=0:
+	if character_data.hp<=0 and not final_hit:
+		final_hit=true
 		attack_effect_position=hitbox.global_position
 		attack_type=4
 		hitstop=0.1
