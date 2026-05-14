@@ -81,7 +81,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	if bt_player and bt_player.active:
 		print("AI开启,Character_Main关闭")
+		set_physics_process(false)
 		return
+
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
@@ -164,7 +166,7 @@ func transition_state(_from:State,to:State) -> void:
 		State.冲刺:
 			dash_animation()
 		State.技能:
-			an_paly("技能3")
+			an_paly("技能")
 		State.必杀:
 			an_paly("必杀")
 		State.死亡:

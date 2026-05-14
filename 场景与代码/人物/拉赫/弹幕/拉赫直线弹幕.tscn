@@ -253,8 +253,8 @@ metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=867426146]
 stream = ExtResource("15_gbha8")
-volume_db = -10.0
 autoplay = true
+bus = &"Se"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

@@ -2,58 +2,77 @@
 
 [ext_resource type="Script" uid="uid://cnt5wax5vito0" path="res://场景与代码/主程序/主体类/AI相关/任务/idle.gd" id="1_qhu3j"]
 [ext_resource type="Script" uid="uid://cymgidmwqpwix" path="res://场景与代码/主程序/主体类/AI相关/任务/move_to_target.gd" id="1_vbdkt"]
-[ext_resource type="Script" uid="uid://bm1lnpnpijuhc" path="res://场景与代码/主程序/主体类/AI相关/任务/back_away.gd" id="2_5ntii"]
+[ext_resource type="Script" uid="uid://d2dd1dibriioq" path="res://场景与代码/主程序/主体类/AI相关/任务/get_first_target_in_group.gd" id="2_behlt"]
+[ext_resource type="Script" uid="uid://bkfnnv6kmuf8b" path="res://场景与代码/主程序/主体类/AI相关/任务/skill.gd" id="4_imwqy"]
+[ext_resource type="Script" uid="uid://bm1lnpnpijuhc" path="res://场景与代码/主程序/主体类/AI相关/任务/back_away_target.gd" id="4_pghet"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_6bllh"]
 
 [sub_resource type="BTAction" id="BTAction_imwqy"]
 script = ExtResource("1_qhu3j")
 
-[sub_resource type="BTAction" id="BTAction_5ntii"]
-script = ExtResource("1_vbdkt")
-
-[sub_resource type="BBNode" id="BBNode_qhu3j"]
-saved_value = NodePath("动画")
-resource_name = "动画"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_imwqy"]
-animation_player = SubResource("BBNode_qhu3j")
-animation_name = &"技能"
-
-[sub_resource type="BTWait" id="BTWait_qhu3j"]
-duration = 0.85
-
 [sub_resource type="BTAction" id="BTAction_pghet"]
-script = ExtResource("1_qhu3j")
-timeout_limit = 0.5
+script = ExtResource("2_behlt")
+group = &"players"
+
+[sub_resource type="BTSequence" id="BTSequence_pghet"]
+custom_name = "发呆，寻一下目标"
+children = [SubResource("BTAction_imwqy"), SubResource("BTAction_pghet")]
 
 [sub_resource type="BTAction" id="BTAction_behlt"]
 script = ExtResource("1_vbdkt")
-tolerance = 150.0
+tolerance = 100.0
 timeout_limit = 1.0
 
-[sub_resource type="BTAction" id="BTAction_785ua"]
+[sub_resource type="BTAction" id="BTAction_2a4wo"]
+script = ExtResource("4_imwqy")
+an_name = "技能3"
+
+[sub_resource type="BTAction" id="BTAction_5wgam"]
+script = ExtResource("1_vbdkt")
+tolerance = 100.0
+timeout_limit = 1.0
+
+[sub_resource type="BTSelector" id="BTSelector_7mfyj"]
+custom_name = "如果规定时间内无法移动到目标位置，则直接释放技能3"
+children = [SubResource("BTAction_behlt"), SubResource("BTAction_2a4wo"), SubResource("BTAction_5wgam")]
+
+[sub_resource type="BTAction" id="BTAction_0nnrh"]
 script = ExtResource("1_qhu3j")
+
+[sub_resource type="BTAction" id="BTAction_7mfyj"]
+script = ExtResource("4_imwqy")
+an_name = "技能4"
+
+[sub_resource type="BTSequence" id="BTSequence_5wgam"]
+custom_name = "移动到目标位置了，释放技能4"
+children = [SubResource("BTAction_7mfyj")]
+
+[sub_resource type="BTAction" id="BTAction_4x5c5"]
+script = ExtResource("1_qhu3j")
+
+[sub_resource type="BTAction" id="BTAction_tvd48"]
+script = ExtResource("4_pghet")
 timeout_limit = 0.5
 
-[sub_resource type="BTAction" id="BTAction_qhu3j"]
-script = ExtResource("2_5ntii")
-timeout_limit = 0.5
+[sub_resource type="BTAction" id="BTAction_785ua"]
+script = ExtResource("4_imwqy")
+an_name = "技能2"
 
-[sub_resource type="BBNode" id="BBNode_pghet"]
-saved_value = NodePath("动画")
-resource_name = "动画"
+[sub_resource type="BTSequence" id="BTSequence_dj6cq"]
+custom_name = "拉远释放技能2"
+children = [SubResource("BTAction_tvd48"), SubResource("BTAction_785ua")]
 
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_behlt"]
-animation_player = SubResource("BBNode_pghet")
-animation_name = &"必杀"
+[sub_resource type="BTAction" id="BTAction_dj6cq"]
+script = ExtResource("1_qhu3j")
 
-[sub_resource type="BTWait" id="BTWait_imwqy"]
-duration = 1.333
+[sub_resource type="BTAction" id="BTAction_hqshn"]
+script = ExtResource("4_imwqy")
+an_name = "技能"
 
 [sub_resource type="BTSequence" id="BTSequence_785ua"]
 custom_name = "Stroll"
-children = [SubResource("BTAction_imwqy"), SubResource("BTAction_5ntii"), SubResource("BTPlayAnimation_imwqy"), SubResource("BTWait_qhu3j"), SubResource("BTAction_pghet"), SubResource("BTAction_behlt"), SubResource("BTAction_785ua"), SubResource("BTAction_qhu3j"), SubResource("BTPlayAnimation_behlt"), SubResource("BTWait_imwqy")]
+children = [SubResource("BTSequence_pghet"), SubResource("BTSelector_7mfyj"), SubResource("BTAction_0nnrh"), SubResource("BTSequence_5wgam"), SubResource("BTAction_4x5c5"), SubResource("BTSequence_dj6cq"), SubResource("BTAction_dj6cq"), SubResource("BTAction_hqshn")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_6bllh")

@@ -85,7 +85,6 @@ func _process_tracking(delta: float) -> void:
 	# 计算步进（注意这里的符号，angle_difference 是 目标 - 当前，所以直接加上步进即可）
 	var step = clamp(angle_diff, -max_w * delta, max_w * delta)
 	velocity = velocity.rotated(step)
-	
 
 ## 标量阻力/加速度处理（追踪/自由飞行）
 func _apply_scalar_drag(delta: float) -> void:

@@ -807,73 +807,6 @@ tracks/6/keys = {
 "values": [0.8726646]
 }
 
-[sub_resource type="Animation" id="Animation_4bve0"]
-resource_name = "技能4"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VisualNode/素材库:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"动作5"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VisualNode/素材库:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, -7)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VisualNode/素材库:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.36666667, 0.4, 0.4666667, 0.5333334, 0.6, 0.66666675, 0.73333335, 0.8000001, 0.8666667, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 5, 6, 5, 6, 7, 8]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.36666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"add_magic_array2"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.36666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"severe_ice_prison"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_i3xqp"]
 resource_name = "必杀1"
 length = 1.3333334
@@ -1061,51 +994,37 @@ tracks/5/keys = {
 "method": &"skill1"
 }]
 }
-tracks/6/type = "method"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".")
+tracks/6/path = NodePath("VisualNode/光环:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"skill2"
-}]
+"update": 0,
+"values": [Vector2(-17.999994, -43.999985)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("VisualNode/光环:position")
+tracks/7/path = NodePath("VisualNode/光环:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-17.999994, -43.999985)]
+"values": [-0.34906584]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("VisualNode/光环:rotation")
+tracks/8/path = NodePath("VisualNode/光环:skew")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.34906584]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("VisualNode/光环:skew")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1162,7 +1081,7 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"skill2"
+"method": &"skill3"
 }]
 }
 tracks/4/type = "audio"
@@ -1392,6 +1311,73 @@ tracks/12/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_4bve0"]
+resource_name = "技能4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualNode/素材库:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"动作5"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualNode/素材库:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualNode/素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.36666667, 0.4, 0.4666667, 0.5333334, 0.6, 0.66666675, 0.73333335, 0.8000001, 0.8666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 5, 6, 5, 6, 7, 8]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"add_magic_array2"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"severe_ice_prison"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_5a3cy"]
 resource_name = "死亡"
 tracks/0/type = "value"
@@ -1543,11 +1529,11 @@ _data = {
 &"前进": SubResource("Animation_pmn05"),
 &"后退": SubResource("Animation_bhcb1"),
 &"常态": SubResource("Animation_ljw2w"),
-&"必杀": SubResource("Animation_4bve0"),
-&"必杀1": SubResource("Animation_i3xqp"),
+&"必杀": SubResource("Animation_i3xqp"),
 &"技能": SubResource("Animation_vivdl"),
 &"技能2": SubResource("Animation_nnwkb"),
 &"技能3": SubResource("Animation_aowwo"),
+&"技能4": SubResource("Animation_4bve0"),
 &"死亡": SubResource("Animation_5a3cy")
 }
 
@@ -1693,7 +1679,7 @@ process_material = SubResource("ParticleProcessMaterial_one88")
 
 [node name="class" type="Node" parent="." unique_id=519233685]
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1740628792 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
+[node name="Character_Main" type="Node" parent="class" unique_id=351135758 node_paths=PackedStringArray("character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "bt_player")]
 script = ExtResource("4_10ogm")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
@@ -1703,7 +1689,7 @@ anplayer = NodePath("../../VisualNode/动画")
 hurtbox = NodePath("../../Hurtbox")
 bt_player = NodePath("../../BTPlayer")
 damage_number = ExtResource("2_bgnr4")
-attack_bullet = ExtResource("6_jggr4")
+attack_bullet = ExtResource("2_udp54")
 attack_effect = ExtResource("9_6estm")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 

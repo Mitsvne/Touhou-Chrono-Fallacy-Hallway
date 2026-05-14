@@ -42,55 +42,18 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
-## 弹幕网横向
+## 弹幕网
 func skill1():
 	var current_position=self.global_position
-	var current_rotation=0
-	character_ctrler.add_warning_line(current_position,Vector2(-300,0),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,100),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,-100),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,200),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,-200),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,400),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,-400),current_rotation)
+	for i in range(-10,11):
+		print(i)
+		character_ctrler.add_warning_line(current_position,Vector2(-700,100*i),0,2000)
+		character_ctrler.add_warning_line(current_position,Vector2(100*i,-700),90,2000)
 	await get_tree().create_timer(1.0, false).timeout
 	effect_ctrler.shake_once(Vector2(1,1))
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,0),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,100),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,-100),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,200),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,-200),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,400),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,-400),current_rotation,current_position)
-
-## 弹幕网竖向
-func skill2():
-	var current_position=self.global_position
-	var current_rotation=90
-	character_ctrler.add_warning_line(current_position,Vector2(0,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(100,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-100,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(200,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-200,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(300,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-300,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(400,-300),current_rotation)
-	character_ctrler.add_warning_line(current_position,Vector2(-400,-300),current_rotation)
-	await get_tree().create_timer(1.0, false).timeout
-	effect_ctrler.shake_once(Vector2(1,1))
-	character_ctrler.shoot(attack_bullet1,Vector2(0,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(100,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-100,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(200,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-200,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(300,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-300,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(400,-300),current_rotation,current_position)
-	character_ctrler.shoot(attack_bullet1,Vector2(-400,-300),current_rotation,current_position)
+	for i in range(-10,11):
+		character_ctrler.shoot(attack_bullet1,Vector2(-700,100*i),0,current_position)
+		character_ctrler.shoot(attack_bullet1,Vector2(100*i,-700),90,current_position)
 
 ## 追踪弹幕连发
 func skill3():

@@ -3,20 +3,20 @@ extends BTAction
 
 @export var tolerance := 200.0
 @export var timeout_limit := 2.0
-
-var target: CharacterBody2D
+@export var target_var: StringName = &"target"
+enum State{NONE,常态,移动,技能,必杀,死亡}
 var time: float = 0.0
 
 func _enter() -> void:
-	target = agent.character_ctrler.get_target()
+	agent.character_ai_main.set_current_state(State.移动)
 	time = 0.0
 
 # 每帧由行为树调用的执行函数
 func _tick(delta: float) -> Status:
-	#print(agent.character_data.direction)
 	time += delta
 	if time > timeout_limit:
-		return SUCCESS
+		return FAILURE
+	var target: Node2D = blackboard.get_var(target_var, null)
 	var target_pos: Vector2 = target.global_position
 	if target_pos.distance_to(agent.global_position) < tolerance:
 		return SUCCESS
@@ -28,6 +28,4 @@ func _tick(delta: float) -> Status:
 	dir.x *= horizontal_factor
 	var desired_velocity: Vector2 = dir.normalized() * speed
 	agent.character_ai_main.move(desired_velocity)
-	agent.character_ai_main.update_direction()
-	agent.character_ai_main.move_animation()
 	return RUNNING
