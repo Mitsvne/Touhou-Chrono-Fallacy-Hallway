@@ -6,6 +6,7 @@ extends Control
 
 func _ready() -> void:
 	#获取所有按钮节点，连接信号
+	AudioManager.play_bgm(preload("res://素材/音频素材/bgm/19 - Where The Winds Roam.mp3"), 0.5, -6.0)
 	var controls = get_tree().get_nodes_in_group("selectable_control")
 	for control in controls:
 		print(control)

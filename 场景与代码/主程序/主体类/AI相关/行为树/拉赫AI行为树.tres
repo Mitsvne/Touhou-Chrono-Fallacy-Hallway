@@ -39,6 +39,7 @@ children = [SubResource("BTAction_behlt"), SubResource("BTAction_2a4wo"), SubRes
 
 [sub_resource type="BTAction" id="BTAction_0nnrh"]
 script = ExtResource("1_qhu3j")
+timeout_limit = 0.1
 
 [sub_resource type="BTAction" id="BTAction_7mfyj"]
 script = ExtResource("4_imwqy")
@@ -50,6 +51,7 @@ children = [SubResource("BTAction_7mfyj")]
 
 [sub_resource type="BTAction" id="BTAction_4x5c5"]
 script = ExtResource("1_qhu3j")
+timeout_limit = 0.5
 
 [sub_resource type="BTAction" id="BTAction_tvd48"]
 script = ExtResource("4_pghet")
@@ -65,6 +67,7 @@ children = [SubResource("BTAction_tvd48"), SubResource("BTAction_785ua")]
 
 [sub_resource type="BTAction" id="BTAction_dj6cq"]
 script = ExtResource("1_qhu3j")
+timeout_limit = 0.5
 
 [sub_resource type="BTAction" id="BTAction_hqshn"]
 script = ExtResource("4_imwqy")

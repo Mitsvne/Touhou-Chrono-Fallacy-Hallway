@@ -4,6 +4,7 @@ var ishit=false
 
 @export var sprite: Sprite2D
 @export var an: AnimationPlayer
+@export var aduio: AudioStream
 @export var hitarea: CollisionShape2D
 @export var hurtarea: CollisionShape2D
 @export var bullet_data: Bullet_Data
@@ -12,6 +13,7 @@ var ishit=false
 
 func _ready():
 	await get_tree().process_frame
+	#AudioManager.play_sfx(aduio)
 	material_copy()
 	bullet_ctrler.start_move_forward(600,-100)
 	await get_tree().create_timer(3, false).timeout

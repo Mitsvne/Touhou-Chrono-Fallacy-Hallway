@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dcg22r72w0xss" path="res://场景与代码/主程序/主体类/人物相关/人物输入.gd" id="8_rjgm0"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="9_bgnr4"]
-[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/视觉相关/视觉类.gd" id="10_da1ql"]
+[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/效果相关/视觉类.gd" id="10_da1ql"]
 [ext_resource type="Texture2D" uid="uid://jeprym35tyjf" path="res://素材/人物素材/拉赫/人物/移动/xem_100-1.png" id="10_gfiyh"]
 [ext_resource type="Script" uid="uid://ycxk0gu5kdcb" path="res://场景与代码/主程序/主体类/人物相关/人物主体_AI.gd" id="10_nnwkb"]
 [ext_resource type="Texture2D" uid="uid://b3x0c51budwnn" path="res://素材/人物素材/拉赫/人物/移动/xem_100-3.png" id="10_ukv3x"]
@@ -1731,23 +1731,23 @@ metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 [node name="音效" type="Node" parent="." unique_id=1746312565]
 
 [node name="音效" type="AudioStreamPlayer" parent="音效" unique_id=854809106]
-bus = &"Se"
+bus = &"SFX"
 
 [node name="弹幕发射音效" type="AudioStreamPlayer" parent="音效" unique_id=2056598171]
 stream = ExtResource("68_nnwkb")
-max_polyphony = 5
-bus = &"Se"
+bus = &"SFX"
 
 [node name="火焰弹幕音效" type="AudioStreamPlayer" parent="音效" unique_id=1755540711]
 stream = ExtResource("105_eo3fy")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="寒冰弹幕音效" type="AudioStreamPlayer" parent="音效" unique_id=1045873183]
 stream = ExtResource("111_c4y0f")
+bus = &"SFX"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
-active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_AI_Main" method="_on_hurtbox_hurt"]

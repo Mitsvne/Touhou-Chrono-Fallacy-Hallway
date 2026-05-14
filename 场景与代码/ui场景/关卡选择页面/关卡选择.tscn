@@ -29,7 +29,6 @@ carousel_menu = NodePath("轮播菜单")
 
 [node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=1338872240]
 stream = ExtResource("1_6nj48")
-bus = &"Bgm"
 
 [node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=6281097]
 stream = ExtResource("3_fp2f5")

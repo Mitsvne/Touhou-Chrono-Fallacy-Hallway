@@ -12,7 +12,7 @@ class_name Character_Main
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
-
+@export var on:bool
 signal character_is_dead(team:String)
 
 enum State{NONE,常态,移动,冲刺,技能,必杀,死亡}
@@ -53,36 +53,37 @@ var ultimate:String="ultimate_1p"
 ## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
-	team=character_data.team                       #队伍
-	move_speed=character.move_speed                #移速
-	acceleration=character.acceleration            #加速度
-	friction=character.friction                    #减速度
-	direction=character_data.direction             #朝向
-	character_data.direction_changed.connect(set_direction)
-	character.scale.x = direction                  #赋予初始朝向
-	#普攻和技能cd计时器
-	attack_timer.wait_time = character.attack_interval
-	attack_timer.timeout.connect(_on_attack_timer_timeout)
-	add_child(attack_timer)
-	skill_timer.wait_time = character.skill_cd
-	skill_timer.timeout.connect(_on_skill_timer_timeout)
-	add_child(skill_timer)
-	#按队伍分配控制按键
-	character_input.set_control_key(team)
-	move_left=character_input.move_left
-	move_right=character_input.move_right
-	move_up=character_input.move_up
-	move_down=character_input.move_down
-	dash=character_input.dash
-	attack=character_input.attack
-	skill=character_input.skill
-	ultimate=character_input.ultimate
-	print("5.Character_Main初始化完成:",character)
-	await get_tree().process_frame
-	if bt_player and bt_player.active:
-		print("AI开启,Character_Main关闭")
-		set_physics_process(false)
-		return
+	if on:
+		team=character_data.team                       #队伍
+		move_speed=character.move_speed                #移速
+		acceleration=character.acceleration            #加速度
+		friction=character.friction                    #减速度
+		direction=character_data.direction             #朝向
+		character_data.direction_changed.connect(set_direction)
+		character.scale.x = direction                  #赋予初始朝向
+		#普攻和技能cd计时器
+		attack_timer.wait_time = character.attack_interval
+		attack_timer.timeout.connect(_on_attack_timer_timeout)
+		add_child(attack_timer)
+		skill_timer.wait_time = character.skill_cd
+		skill_timer.timeout.connect(_on_skill_timer_timeout)
+		add_child(skill_timer)
+		#按队伍分配控制按键
+		character_input.set_control_key(team)
+		move_left=character_input.move_left
+		move_right=character_input.move_right
+		move_up=character_input.move_up
+		move_down=character_input.move_down
+		dash=character_input.dash
+		attack=character_input.attack
+		skill=character_input.skill
+		ultimate=character_input.ultimate
+		print("5.Character_Main初始化完成:",character)
+		await get_tree().process_frame
+		if bt_player and bt_player.active:
+			print("AI开启,Character_Main关闭")
+			set_physics_process(false)
+			return
 
 
 ## 每帧效果函数

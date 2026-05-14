@@ -245,7 +245,7 @@ shader_parameter/strength = 1.0
 shader = ExtResource("44_hncoa")
 shader_parameter/strength = 1.0
 
-[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "bgm", "audio_pressed", "audio_entered")]
+[node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "audio_pressed", "audio_entered")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +257,8 @@ script = ExtResource("2_ppaiu")
 v_box_container = NodePath("ui/按钮盒竖状")
 start_button = NodePath("ui/按钮盒竖状/开始")
 horizontal_blur = NodePath("水平模糊效果/水平模糊")
-bgm = NodePath("音效/背景音乐")
+bgm = Object(AudioStreamPlayer,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","stream":ExtResource("30_43m20"),"volume_db":0.0,"pitch_scale":1.0,"autoplay":false,"stream_paused":false,"mix_target":0,"max_polyphony":1,"bus":&"BGM","playback_type":0,"script":null)
+
 audio_pressed = NodePath("音效/按钮按下音效")
 audio_entered = NodePath("音效/按钮选择音效")
 metadata/_edit_lock_ = true
@@ -501,7 +502,7 @@ frame_progress = 0.5239872
 
 [node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=1746807027]
 stream = ExtResource("30_43m20")
-bus = &"Bgm"
+bus = &"BGM"
 
 [node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=1724451692]
 stream = ExtResource("40_uxrj1")

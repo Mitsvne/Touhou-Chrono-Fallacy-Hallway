@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://5dy6xt178q5x" path="res://场景与代码/人物/拉赫/弹幕/拉赫冰锥弹幕.gd" id="1_gt874"]
 [ext_resource type="Texture2D" uid="uid://08ouiydtv3js" path="res://素材/人物素材/拉赫/特效/冰/bulletBd000.png" id="2_4hp10"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_by3mt"]
+[ext_resource type="AudioStream" uid="uid://37hey20flliy" path="res://素材/人物素材/拉赫/音效/冰2.wav" id="2_sn4fp"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="4_e1pa8"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="5_qgj4k"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="6_e1pa8"]
@@ -46,6 +47,7 @@ emission_curve = SubResource("CurveTexture_sn4fp")
 script = ExtResource("1_gt874")
 sprite = NodePath("图片")
 an = NodePath("AnimationPlayer")
+aduio = ExtResource("2_sn4fp")
 hitarea = NodePath("Hitbox/攻击面")
 hurtarea = NodePath("Hurtbox/受击面")
 particle = NodePath("粒子")

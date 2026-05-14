@@ -2,6 +2,8 @@ extends Node2D
 
 @export var ansprite: AnimatedSprite2D
 @export var anplayer: AnimationPlayer
+@export var audio: AudioStream
+
 
 var attack_anim_map := {
 	1: "轻击1",

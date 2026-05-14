@@ -2213,6 +2213,7 @@ hurtbox = NodePath("../../Hurtbox")
 damage_number = ExtResource("5_imqij")
 attack_bullet = ExtResource("2_g1kd8")
 attack_effect = ExtResource("10_wmq54")
+on = true
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
@@ -2272,11 +2273,11 @@ texture = ExtResource("1_1l8ri")
 [node name="音效" type="Node" parent="." unique_id=530592448]
 
 [node name="通用音效节点" type="AudioStreamPlayer" parent="音效" unique_id=341833494]
-bus = &"Se"
+bus = &"SFX"
 
 [node name="冲刺音效" type="AudioStreamPlayer" parent="音效" unique_id=1526758497]
 stream = ExtResource("39_3568u")
 volume_db = -5.0
-bus = &"Se"
+bus = &"SFX"
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]

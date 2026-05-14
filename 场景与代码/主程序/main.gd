@@ -21,6 +21,7 @@ const EDGE_MARGIN := 20.0
 
 func _ready():
 	GameState.current_state = GameState.State.正常   # 强制设为正常
+	AudioManager.stop_bgm(0)
 	add_pause_scene()   # 添加暂停页面并隐藏
 	# 添加人物
 	character1_instance = character1.instantiate()

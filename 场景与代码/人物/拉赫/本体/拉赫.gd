@@ -26,11 +26,8 @@ var character_name:String="拉赫莱蒂"
 @export var magic_array2:PackedScene
 
 @onready var halo: Node2D = $VisualNode/光环
-@onready var shoot_audio: AudioStreamPlayer = $音效/弹幕发射音效
 @onready var fire_audio: AudioStreamPlayer = $音效/火焰弹幕音效
 @onready var ice_audio: AudioStreamPlayer = $音效/寒冰弹幕音效
-
-
 
 func _ready():
 	#await get_tree().process_frame

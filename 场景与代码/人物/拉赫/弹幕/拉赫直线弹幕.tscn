@@ -195,6 +195,7 @@ hitarea = NodePath("Hitbox/攻击面")
 hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")
 bullet_ctrler = NodePath("class/Bullet_Ctrler")
+aduio = ExtResource("15_gbha8")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=118328846]
 position = Vector2(1.5, 1)
@@ -250,11 +251,6 @@ anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
-
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=867426146]
-stream = ExtResource("15_gbha8")
-autoplay = true
-bus = &"Se"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

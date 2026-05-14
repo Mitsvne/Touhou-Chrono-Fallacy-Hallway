@@ -3,14 +3,14 @@ extends Control
 @export var v_box_container: VBoxContainer
 @export var start_button: Button
 @export var horizontal_blur: ColorRect
-@export var bgm: AudioStreamPlayer
+@export var bgm: AudioStream
 @export var audio_pressed: AudioStreamPlayer
 @export var audio_entered: AudioStreamPlayer
 
 func _ready() -> void:
 	#加载设置
-	load_settings()
-	bgm.play()
+	AudioManager.load_volume_settings()
+	AudioManager.play_bgm(preload("res://素材/音频素材/bgm/op.mp3"), 0, -6.0)
 	#出场动画
 	var buttons: Array = get_all_buttons(self)
 	await get_tree().create_timer(0.5).timeout
@@ -74,11 +74,7 @@ func animate_buttons(buttons: Array, forward := true, delay_between_buttons := 0
 
 
 ## ===== 实际功能 =====
-## 加载设置
-func load_settings():
-	var settings_scene = load("res://场景与代码/ui场景/设置页面/设置页面.tscn")
-	var settings_instance = settings_scene.instantiate()
-	settings_instance.get_node("书页背景/设置功能").load_audio_settings()
+
 
 ## 所有按钮聚焦时
 func button_entered():

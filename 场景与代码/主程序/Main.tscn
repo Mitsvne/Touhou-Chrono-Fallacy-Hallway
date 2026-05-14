@@ -105,4 +105,3 @@ environment = SubResource("Environment_073jx")
 
 [node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=880136600]
 stream = ExtResource("8_wfpim")
-bus = &"Bgm"

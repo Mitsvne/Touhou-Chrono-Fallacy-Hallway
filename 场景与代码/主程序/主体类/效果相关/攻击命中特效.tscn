@@ -599,4 +599,3 @@ animation = &"轻击1"
 
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=1471424493]
 volume_db = -8.0
-bus = &"Se"

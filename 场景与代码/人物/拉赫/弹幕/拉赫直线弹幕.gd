@@ -7,9 +7,11 @@ var ishit=false
 @export var hurtarea: CollisionShape2D
 @export var bullet_data: Bullet_Data
 @export var bullet_ctrler: Bullet_Ctrler
+@export var aduio: AudioStream
 
 func _ready():
 	await get_tree().process_frame
+	AudioManager.play_sfx(aduio)
 	bullet_ctrler.start_move_forward(800,-10)
 	await get_tree().create_timer(3, false).timeout
 	queue_free()

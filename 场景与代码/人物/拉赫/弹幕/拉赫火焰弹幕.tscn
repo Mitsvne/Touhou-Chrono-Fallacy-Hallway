@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="6_jsjuc"]
 [ext_resource type="Shader" uid="uid://bjfp3xblgq0de" path="res://场景与代码/着色器/火焰效果.tres" id="6_yc4gq"]
 [ext_resource type="Texture2D" uid="uid://bid7hygs1nt76" path="res://素材/特效素材/纹理图/火焰纹理.png" id="7_akm0r"]
-[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/视觉相关/视觉类.gd" id="7_l2ty5"]
+[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/效果相关/视觉类.gd" id="7_l2ty5"]
 [ext_resource type="Texture2D" uid="uid://i16efq2a0i6g" path="res://素材/特效素材/纹理图/园地圆柱.jpg" id="8_8rqkx"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="8_bgfok"]
 [ext_resource type="AudioStream" uid="uid://ciu2nx33u4n08" path="res://素材/人物素材/拉赫/音效/火焰.wav" id="8_grlph"]
@@ -128,6 +128,7 @@ _data = {
 script = ExtResource("1_yc4gq")
 sprite = NodePath("VisualNode/图形")
 an = NodePath("VisualNode/动画")
+aduio = ExtResource("8_grlph")
 hitarea = NodePath("Hitbox/攻击面")
 hurtarea = NodePath("Hurtbox/受击面")
 bullet_data = NodePath("class/Bullet_Data")

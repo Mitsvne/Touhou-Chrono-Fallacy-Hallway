@@ -5,11 +5,11 @@ extends Control
 @export var audio_entered: AudioStreamPlayer
 
 func _ready() -> void:
+	AudioManager.play_bgm(preload("res://素材/音频素材/bgm/04 - Silent Forest.mp3"), 0.5, -6.0)
 	拉赫.modulate.a = 0
 	move_character_with_float(拉赫, Vector2(96, -62), Vector2(96, 219), 1.5)
 	var controls = get_tree().get_nodes_in_group("selectable_control")
 	for control in controls:
-		print(control)
 		control.focus_entered.connect(control_entered)
 	back_button.grab_focus()
 
