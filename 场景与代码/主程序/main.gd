@@ -46,10 +46,7 @@ func _ready():
 	add_child(character1_instance)
 	add_child(character2_instance)
 	character1_instance.character_main.character_is_dead.connect(game_over_fail)
-	if character2_instance.bt_player.active:
-		character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
-	else:
-		character2_instance.character_main.character_is_dead.connect(game_over_victory)
+	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 	# 指向箭头与血条
 	arrow.player=character1_instance
 	arrow.enemy=character2_instance

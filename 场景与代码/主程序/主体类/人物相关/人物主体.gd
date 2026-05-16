@@ -4,11 +4,9 @@ class_name Character_Main
 
 @export var character_data: Character_Data
 @export var character_ctrler: Character_Ctrler
-@export var character_input: Character_Input
 @export var character:CharacterBody2D
 @export var anplayer: AnimationPlayer
 @export var hurtbox: Hurtbox
-@export var bt_player: BTPlayer
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
@@ -41,55 +39,27 @@ var is_attack_timer_timeout:bool=false
 var is_skill_timer_timeout:bool=true
 var final_hit:bool=false
 
-var move_left:String="move_left_1p"
-var move_right:String="move_right_1p"
-var move_up:String="move_up_1p"
-var move_down:String="move_down_1p"
-var dash:String="dash_1p"
-var attack:String="attack_1p"
-var skill:String="skill_1p"
-var ultimate:String="ultimate_1p"
-
 ## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
-	if on:
-		team=character_data.team                       #队伍
-		move_speed=character.move_speed                #移速
-		acceleration=character.acceleration            #加速度
-		friction=character.friction                    #减速度
-		direction=character_data.direction             #朝向
-		character_data.direction_changed.connect(set_direction)
-		character.scale.x = direction                  #赋予初始朝向
-		#普攻和技能cd计时器
-		attack_timer.wait_time = character.attack_interval
-		attack_timer.timeout.connect(_on_attack_timer_timeout)
-		add_child(attack_timer)
-		skill_timer.wait_time = character.skill_cd
-		skill_timer.timeout.connect(_on_skill_timer_timeout)
-		add_child(skill_timer)
-		#按队伍分配控制按键
-		character_input.set_control_key(team)
-		move_left=character_input.move_left
-		move_right=character_input.move_right
-		move_up=character_input.move_up
-		move_down=character_input.move_down
-		dash=character_input.dash
-		attack=character_input.attack
-		skill=character_input.skill
-		ultimate=character_input.ultimate
-		print("5.Character_Main初始化完成:",character)
-		await get_tree().process_frame
-		if bt_player and bt_player.active:
-			print("AI开启,Character_Main关闭")
-			set_physics_process(false)
-			return
-
+	team=character_data.team                       #队伍
+	move_speed=character.move_speed                #移速
+	acceleration=character.acceleration            #加速度
+	friction=character.friction                    #减速度
+	direction=character_data.direction             #朝向
+	character_data.direction_changed.connect(set_direction)
+	character.scale.x = direction                  #赋予初始朝向
+	#普攻和技能cd计时器
+	attack_timer.wait_time = character.attack_interval
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	add_child(attack_timer)
+	skill_timer.wait_time = character.skill_cd
+	skill_timer.timeout.connect(_on_skill_timer_timeout)
+	add_child(skill_timer)
+	print("5.Character_Main初始化完成:",character)
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
-	if bt_player and bt_player.active:
-		return
 	var next_state = get_next_state(current_state)
 	if next_state != current_state:
 		current_state = next_state
@@ -127,10 +97,10 @@ func get_next_state(state:State)->State:
 			return common
 	match state:
 		State.常态:
-			if Input.is_action_pressed(move_left) or Input.is_action_pressed(move_right):
+			if InputManager.is_action_pressed("move_left") or InputManager.is_action_pressed("move_right"):
 				return State.移动
 		State.移动:
-			if not Input.is_action_pressed(move_left) and not Input.is_action_pressed(move_right):
+			if not InputManager.is_action_pressed("move_left") and not InputManager.is_action_pressed("move_right"):
 				return State.常态
 		State.冲刺:
 			if not anplayer.is_playing():
@@ -175,7 +145,7 @@ func transition_state(_from:State,to:State) -> void:
 
 ## 移动动画播放函数
 func move_animation():
-	var dir:=Input.get_axis(move_left,move_right)
+	var dir:=InputManager.get_axis("move_left","move_right")
 	if dir*direction>0:
 		an_paly("前进")
 	else:
@@ -183,7 +153,7 @@ func move_animation():
 
 ## 冲刺动画播放函数
 func dash_animation():
-	var dir:=Input.get_axis(move_left,move_right)
+	var dir:=InputManager.get_axis("move_left","move_right")
 	if dir*direction<0:
 		if anplayer.has_animation("冲刺后"):
 			an_paly("冲刺后")
@@ -205,15 +175,15 @@ func an_paly(an_name:String):
 
 ## 常态，移动状态通用效果
 func idle_move() -> State:
-	if Input.is_action_just_pressed(skill) and is_skill_timer_timeout:
+	if InputManager.is_action_just_pressed("skill") and is_skill_timer_timeout:
 		if skill_timer.is_stopped():
 			skill_timer.start()
 		is_skill_timer_timeout=false
 		return State.技能
-	if Input.is_action_just_pressed(ultimate) and character_data.mp>=100:
+	if InputManager.is_action_just_pressed("ultimate") and character_data.mp>=100:
 		character_data.mp-=100
 		return State.必杀
-	if Input.is_action_just_pressed(dash) and character_data.energy>=25:
+	if InputManager.is_action_just_pressed("dash") and character_data.energy>=25:
 		character_data.energy-=25
 		return State.冲刺
 	return State.NONE
@@ -269,7 +239,7 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	
 ## 惯性移动函数
 func move(max_speed:float,delta):
-	var input_dir = Input.get_vector(move_left,move_right,move_up,move_down)
+	var input_dir = InputManager.get_vector("move_left", "move_right", "move_up", "move_down")
 	var target_direction = input_dir.normalized()
 	if input_dir != Vector2.ZERO:
 		if current_velocity.length() > 0.01:
@@ -290,7 +260,7 @@ func is_dead():
 
 ## 普攻弹幕发射
 func fire_bullet():
-	if Input.is_action_pressed(attack):
+	if InputManager.is_action_pressed("attack"):
 		if attack_timer.is_stopped():
 			attack_timer.start()
 			character_ctrler.shoot(attack_bullet,Vector2(50,0))

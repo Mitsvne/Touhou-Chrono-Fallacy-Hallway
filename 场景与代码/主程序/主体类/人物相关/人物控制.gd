@@ -99,7 +99,7 @@ func get_is_key_moving():
 
 ## 获取移动方向
 func get_move_direction():
-	var move_dir = Input.get_vector(character_input.move_left,character_input.move_right,character_input.move_up, character_input.move_down)
+	var move_dir = InputManager.get_vector("move_left", "move_right", "move_up", "move_down")
 	move_dir.x*=character_data.direction
 	return move_dir
 

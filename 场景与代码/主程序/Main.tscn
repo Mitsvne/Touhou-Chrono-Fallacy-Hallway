@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="8_ds467"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_wfpim"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="9_l38lg"]
-[ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/指向箭头.gd" id="11_ds467"]
+[ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/主体类/效果相关/指向箭头.gd" id="11_ds467"]
 
 [sub_resource type="Gradient" id="Gradient_073jx"]
 colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
