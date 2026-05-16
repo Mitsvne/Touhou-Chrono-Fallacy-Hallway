@@ -10,7 +10,6 @@ class_name Character_Main
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
-@export var on:bool
 signal character_is_dead(team:String)
 
 enum State{NONE,常态,移动,冲刺,技能,必杀,死亡}
@@ -33,8 +32,6 @@ var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
 var skill_timer = Timer.new()
-var can_shoot: bool = true
-var is_attack_timer_timeout:bool=false
 var is_skill_timer_timeout:bool=true
 var final_hit:bool=false
 
@@ -259,17 +256,10 @@ func fire_bullet():
 		if attack_timer.is_stopped():
 			attack_timer.start()
 			character_ctrler.shoot(attack_bullet,Vector2(50,0))
-		elif is_attack_timer_timeout:
-			is_attack_timer_timeout=false
-			character_ctrler.shoot(attack_bullet,Vector2(50,0))
-	else:
-		if not attack_timer.is_stopped() and is_attack_timer_timeout:
-			is_attack_timer_timeout=false
-			attack_timer.stop()
 
 ## 计时结束的回调函数
 func _on_attack_timer_timeout():
-	is_attack_timer_timeout=true;
+	attack_timer.stop()
 
 func _on_skill_timer_timeout():
 	is_skill_timer_timeout=true;

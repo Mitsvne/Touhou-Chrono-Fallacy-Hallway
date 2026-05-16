@@ -2208,7 +2208,6 @@ hurtbox = NodePath("../../Hurtbox")
 damage_number = ExtResource("5_imqij")
 attack_bullet = ExtResource("2_g1kd8")
 attack_effect = ExtResource("10_wmq54")
-on = true
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
