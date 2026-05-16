@@ -39,7 +39,7 @@ func _ready() -> void:
 	team=character_data.team                       #队伍
 	move_speed=character.move_speed                #移速
 	acceleration=character.acceleration            #加速度
-	friction=character.friction                    #减速度    #朝向
+	friction=character.friction                    #减速度
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	target = character_ctrler.get_target()
@@ -47,17 +47,17 @@ func _ready() -> void:
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
+	#print("velocity:",character.velocity)
 	var next_state = get_next_state(current_state)
 	if next_state != current_state:
 		current_state = next_state
 	tick_physics(current_state,delta)
 	if character_ctrler.is_gravity:
 		current_velocity.y += gravity * delta
-	move(move_speed,delta)
+	if not bt_player.active:
+		move(move_speed,delta)
 
-func set_current_state(v:State):
-	if v!=current_state:
-		current_state=v
+
 
 ## 状态每帧的效果函数
 func tick_physics(state:State,_delta: float) -> void:
@@ -66,8 +66,6 @@ func tick_physics(state:State,_delta: float) -> void:
 			update_direction()
 		State.移动:
 			move_animation()
-		State.技能1,State.必杀:
-			pass
 		State.死亡:
 			character_ctrler.set_invincible(true)
 			character_ctrler.apply_gravity(true)
@@ -96,28 +94,28 @@ func get_next_state(state:State)->State:
 		var common = idle_move()
 		if common != State.NONE:
 			return common
-	match state:
-		State.常态:
-			if InputManager.is_action_pressed("move_left_AI") or InputManager.is_action_pressed("move_right_AI"):
-				return State.移动
-		State.移动:
-			if not InputManager.is_action_pressed("move_left_AI") and not InputManager.is_action_pressed("move_right_AI"):
-				return State.常态
-		State.技能1:
-			if not anplayer.is_playing():
-				return State.常态
-		State.技能2:
-			if not anplayer.is_playing():
-				return State.常态
-		State.技能3:
-			if not anplayer.is_playing():
-				return State.常态
-		State.技能4:
-			if not anplayer.is_playing():
-				return State.常态
-		State.必杀:
-			if not anplayer.is_playing():
-				return State.常态
+	if bt_player.active:
+		match state:
+			State.常态:
+				if character.velocity.length()!= 0:
+					return State.移动
+			State.移动:
+				if character.velocity.length()== 0:
+					return State.常态
+			State.技能1,State.技能2,State.技能3,State.技能4,State.必杀:
+				if not anplayer.is_playing():
+					return State.常态
+	else:
+		match state:
+			State.常态:
+				if InputManager.is_action_pressed("move_left_AI") or InputManager.is_action_pressed("move_right_AI"):
+					return State.移动
+			State.移动:
+				if not InputManager.is_action_pressed("move_left_AI") and not InputManager.is_action_pressed("move_right_AI"):
+					return State.常态
+			State.技能1,State.技能2,State.技能3,State.技能4,State.必杀:
+				if not anplayer.is_playing():
+					return State.常态
 	return state
 
 ## 状态进入时
@@ -125,7 +123,6 @@ func enter_state(state:State):
 	match state:
 		State.死亡:
 			character_is_dead.emit(team)
-		pass
 
 ## 状态退出时
 func exit_state(state:State):
@@ -234,6 +231,10 @@ func set_direction(_direct: float):
 # ==========================================
 # —— 安全的对外输入接口（AI逻辑） ——
 # ==========================================
+
+func set_current_state(v:State):
+	if v!=current_state:
+		current_state=v
 
 func move_ai(p_velocity: Vector2) -> void:
 	character.velocity = lerp(character.velocity, p_velocity, 0.2)

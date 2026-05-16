@@ -21,5 +21,5 @@ func _tick(delta: float) -> Status:
 	time += delta
 	if time > timeout_limit:
 		return SUCCESS
-	agent.character_ai_main.move(desired_velocity)
+	agent.character_ai_main.move_ai(desired_velocity)
 	return RUNNING

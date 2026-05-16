@@ -27,5 +27,5 @@ func _tick(delta: float) -> Status:
 	horizontal_factor = clampf(horizontal_factor, 0.0, 1.0)
 	dir.x *= horizontal_factor
 	var desired_velocity: Vector2 = dir.normalized() * speed
-	agent.character_ai_main.move(desired_velocity)
+	agent.character_ai_main.move_ai(desired_velocity)
 	return RUNNING

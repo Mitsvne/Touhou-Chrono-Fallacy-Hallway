@@ -71,7 +71,7 @@ timeout_limit = 0.5
 
 [sub_resource type="BTAction" id="BTAction_hqshn"]
 script = ExtResource("4_imwqy")
-an_name = "技能"
+an_name = "技能1"
 
 [sub_resource type="BTSequence" id="BTSequence_785ua"]
 custom_name = "Stroll"

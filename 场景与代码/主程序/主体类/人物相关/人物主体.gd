@@ -29,7 +29,6 @@ var move_speed:int
 var current_velocity: Vector2 = Vector2.ZERO
 var acceleration: float
 var friction: float
-var direction:float
 var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
@@ -46,9 +45,8 @@ func _ready() -> void:
 	move_speed=character.move_speed                #移速
 	acceleration=character.acceleration            #加速度
 	friction=character.friction                    #减速度
-	direction=character_data.direction             #朝向
 	character_data.direction_changed.connect(set_direction)
-	character.scale.x = direction                  #赋予初始朝向
+	character.scale.x = character_data.direction   #赋予初始朝向
 	#普攻和技能cd计时器
 	attack_timer.wait_time = character.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
@@ -146,7 +144,7 @@ func transition_state(_from:State,to:State) -> void:
 ## 移动动画播放函数
 func move_animation():
 	var dir:=InputManager.get_axis("move_left","move_right")
-	if dir*direction>0:
+	if dir*character_data.direction>0:
 		an_paly("前进")
 	else:
 		an_paly("后退")
@@ -154,7 +152,7 @@ func move_animation():
 ## 冲刺动画播放函数
 func dash_animation():
 	var dir:=InputManager.get_axis("move_left","move_right")
-	if dir*direction<0:
+	if dir*character_data.direction<0:
 		if anplayer.has_animation("冲刺后"):
 			an_paly("冲刺后")
 		else:
@@ -200,16 +198,13 @@ func update_direction():
 	# 设置一个微小的死区（例如5像素），防止重合时疯狂转身
 	if abs(diff_x) > 10.0:
 		var new_dir = 1.0 if diff_x > 0 else -1.0
-		# 关键：只有当方向真的改变时才调用 set_direction
-		if new_dir != direction:
-			character_data.direction = new_dir 
+		character_data.direction = new_dir
 
 ## 设置朝向：处理视觉翻转和逻辑数值同步
-func set_direction(direct: float):
-	direction = direct
+func set_direction(_direct: float):
 	# 统一翻转逻辑：保持原始缩放比例，只改变符号
-	character.scale.x = abs(character.scale.x) * -1
-
+	character.scale.x *= -1
+	#character.scale.x = abs(character.scale.x) * -1
 
 ## 受击处理函数
 func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
