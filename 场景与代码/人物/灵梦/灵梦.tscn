@@ -2168,14 +2168,13 @@ shader_parameter/amplitude = 10.000000475
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3vqu"]
 size = Vector2(40, 40)
 
-[node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_input", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
+[node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
 collision_layer = 2
 collision_mask = 240
 motion_mode = 1
 script = ExtResource("1_ig6o6")
 character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
-character_input = NodePath("")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
 attack_bullet = ExtResource("2_g1kd8")
@@ -2190,11 +2189,10 @@ hp_max = 300.0
 energy_regen = 20.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "character_input", "anplayer")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "anplayer")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
-character_input = NodePath("")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 

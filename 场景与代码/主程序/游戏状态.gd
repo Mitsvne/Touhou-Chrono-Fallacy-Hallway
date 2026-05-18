@@ -12,6 +12,10 @@ var current_state: State:
 			return
 		print("游戏状态：%s => %s"%[State.keys()[_current_state],State.keys()[new_state]])
 		_current_state = new_state
+		if _current_state==State.正常:
+			InputManager.is_gameplay_locked=false
+		else:
+			InputManager.is_gameplay_locked=true
 		state_changed.emit(_current_state)
 
 func set_pause(pause: bool):

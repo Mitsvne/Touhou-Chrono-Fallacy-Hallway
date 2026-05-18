@@ -1574,15 +1574,13 @@ color_ramp = SubResource("GradientTexture1D_liacr")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_1asjr"]
 
-[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_main", "character_data", "character_input", "character_ctrler", "effect_ctrler", "bt_player") groups=["bosses", "characters", "players"]]
+[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_data", "character_ctrler", "effect_ctrler", "bt_player") groups=["bosses", "characters", "players"]]
 collision_layer = 2
 collision_mask = 240
 motion_mode = 1
 script = ExtResource("1_v8ol4")
 character_ai_main = NodePath("class/Character_AI_Main")
-character_main = NodePath("")
 character_data = NodePath("class/Character_Data")
-character_input = NodePath("")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
 bt_player = NodePath("BTPlayer")
@@ -1693,11 +1691,10 @@ metadata/_custom_type_script = "uid://ycxk0gu5kdcb"
 script = ExtResource("4_pxy2b")
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character", "character_data", "character_input", "anplayer")]
+[node name="Character_Ctrler" type="Node" parent="class" unique_id=1842727843 node_paths=PackedStringArray("character", "character_data", "anplayer")]
 script = ExtResource("22_udp54")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
-character_input = NodePath("")
 anplayer = NodePath("../../VisualNode/动画")
 warning_line = ExtResource("4_1asjr")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
@@ -1726,7 +1723,6 @@ bus = &"SFX"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
-active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_AI_Main" method="_on_hurtbox_hurt"]

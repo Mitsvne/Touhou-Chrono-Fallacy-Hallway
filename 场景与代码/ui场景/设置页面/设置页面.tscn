@@ -1,248 +1,45 @@
-[gd_scene format=4 uid="uid://dcpcvtqimvtoy"]
+[gd_scene format=3 uid="uid://cce4pj0chhgsk"]
 
-[ext_resource type="Script" uid="uid://dpb6sdten8lh0" path="res://场景与代码/ui场景/设置页面/设置页面.gd" id="1_8kpsi"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="4_8kpsi"]
-[ext_resource type="Script" uid="uid://1pd30vx1hcvv" path="res://场景与代码/ui场景/设置页面/设置功能.gd" id="4_y1ihj"]
-[ext_resource type="Shader" uid="uid://c38fs1dinr3eb" path="res://场景与代码/着色器/浮动效果非全局.gdshader" id="5_apm4q"]
-[ext_resource type="Texture2D" uid="uid://dxrhxiacp3pim" path="res://素材/人物素材/拉赫/书/177.png" id="7_4sadi"]
-[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_uokta"]
-[ext_resource type="Texture2D" uid="uid://bqqa7xb0ou8bk" path="res://素材/人物素材/拉赫/书/178.png" id="8_xs0jf"]
-[ext_resource type="Texture2D" uid="uid://t3hdsxnflscu" path="res://素材/人物素材/拉赫/书/179.png" id="9_m6q0h"]
-[ext_resource type="Texture2D" uid="uid://bnag8jbpsdno7" path="res://素材/地图素材/图书馆/Full Asset 1.png" id="9_qfwej"]
-[ext_resource type="Texture2D" uid="uid://bq1aabtxs1f4k" path="res://素材/地图素材/图书馆/Full Asset 2.png" id="9_xf5p5"]
-[ext_resource type="Texture2D" uid="uid://c0g6vk3m8ipgj" path="res://素材/人物素材/拉赫/特效/书特效/98.png" id="11_8kpsi"]
-[ext_resource type="Texture2D" uid="uid://bp4s2rnqd0rc2" path="res://素材/人物素材/拉赫/人物/常态/xem_1700-5.png" id="11_ym0ws"]
-[ext_resource type="Texture2D" uid="uid://dsjssc4csmyqu" path="res://素材/人物素材/拉赫/特效/书特效/100.png" id="12_6750i"]
-[ext_resource type="Texture2D" uid="uid://c4u2813mepq07" path="res://素材/人物素材/拉赫/特效/书特效/102.png" id="13_ei24q"]
-[ext_resource type="Texture2D" uid="uid://3tqftu23441p" path="res://素材/人物素材/拉赫/特效/书特效/104.png" id="14_1q7tq"]
-[ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="14_4sadi"]
-[ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/人物素材/拉赫/特效/书特效/106.png" id="15_4pmf3"]
-[ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/人物素材/拉赫/特效/书特效/108.png" id="16_g6c36"]
-[ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/书特效/110.png" id="17_w1lqb"]
-[ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/书特效/112.png" id="18_bceol"]
-[ext_resource type="Texture2D" uid="uid://dyffvvjd7x0cg" path="res://素材/ui素材/ui素材/精灵-0001.png" id="21_wiyw1"]
-[ext_resource type="AudioStream" uid="uid://bl85q3rspsoqr" path="res://素材/音频素材/bgm/04 - Silent Forest.mp3" id="23_6750i"]
-[ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="23_apm4q"]
-[ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="24_kupft"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei24q"]
-texture = ExtResource("9_qfwej")
-32:2/size_in_atlas = Vector2i(8, 20)
-32:2/0 = 0
-26:2/size_in_atlas = Vector2i(6, 20)
-26:2/0 = 0
-28:38/size_in_atlas = Vector2i(6, 2)
-28:38/0 = 0
-34:38/size_in_atlas = Vector2i(6, 1)
-34:38/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_1q7tq"]
-sources/0 = SubResource("TileSetAtlasSource_ei24q")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wiyw1"]
-texture = ExtResource("9_xf5p5")
-50:36/size_in_atlas = Vector2i(12, 8)
-50:36/0 = 0
-14:42/size_in_atlas = Vector2i(6, 2)
-14:42/0 = 0
-22:40/size_in_atlas = Vector2i(4, 4)
-22:40/0 = 0
-30:38/size_in_atlas = Vector2i(2, 6)
-30:38/0 = 0
-38:38/size_in_atlas = Vector2i(6, 6)
-38:38/0 = 0
-20:24/size_in_atlas = Vector2i(22, 2)
-20:24/0 = 0
-19:22/size_in_atlas = Vector2i(21, 2)
-19:22/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kpsi"]
-texture = ExtResource("9_qfwej")
-margins = Vector2i(0, 4)
-48:34/size_in_atlas = Vector2i(13, 2)
-48:34/0 = 0
-49:31/size_in_atlas = Vector2i(2, 1)
-49:31/0 = 0
-51:31/size_in_atlas = Vector2i(2, 1)
-51:31/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_6750i"]
-sources/0 = SubResource("TileSetAtlasSource_wiyw1")
-sources/1 = SubResource("TileSetAtlasSource_8kpsi")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y1ihj"]
-shader = ExtResource("5_apm4q")
-shader_parameter/speed_x1 = 0.5
-shader_parameter/speed_x2 = 0.7
-shader_parameter/speed_y1 = 1.0
-shader_parameter/speed_y2 = 1.0
-shader_parameter/amplitude = 5.0000002375
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_22thn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_4sadi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xs0jf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_m6q0h")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wk51"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d5p6e"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_8kpsi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_6750i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_ei24q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_1q7tq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_4pmf3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_g6c36")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_w1lqb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_bceol")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kupft"]
-shader = ExtResource("5_apm4q")
-shader_parameter/speed_x1 = 0.5
-shader_parameter/speed_x2 = 0.7
-shader_parameter/speed_y1 = 1.0
-shader_parameter/speed_y2 = 1.0
-shader_parameter/amplitude = 10.000000475
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1q7tq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_ym0ws")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Gradient" id="Gradient_apm4q"]
-colors = PackedColorArray(1, 1, 1, 1, 2.1372175, 2.1372175, 2.1372175, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_liacr"]
-gradient = SubResource("Gradient_apm4q")
-
-[sub_resource type="Curve" id="Curve_kupft"]
-_data = [Vector2(0, 0.5059524), 0.0, 0.0, 0, 0, Vector2(0.2177177, 0.8095239), 0.0, 0.0, 0, 0, Vector2(0.6261261, 0.51190484), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-metadata/_snap_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ot8d4"]
-curve = SubResource("Curve_kupft")
-
-[sub_resource type="Curve" id="Curve_mgq5q"]
-_limits = [-200.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_0wbqi"]
-curve = SubResource("Curve_mgq5q")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_leuqt"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(1, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 420.0
-emission_ring_inner_radius = 370.0
-emission_ring_cone_angle = 90.0
-gravity = Vector3(100, 50, 0)
-tangential_accel_curve = SubResource("CurveTexture_0wbqi")
-scale_min = 0.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_ot8d4")
-color_ramp = SubResource("GradientTexture1D_liacr")
-
-[sub_resource type="Gradient" id="Gradient_uokta"]
-offsets = PackedFloat32Array(0, 0.9935484)
-colors = PackedColorArray(0.86209106, 0.8620912, 0.8620911, 1, 0.32767138, 0.32767066, 0.3276708, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y1ihj"]
-gradient = SubResource("Gradient_uokta")
-width = 784
-height = 377
-fill = 2
-fill_to = Vector2(1, 1)
-
-[node name="设置页面" type="Control" unique_id=749481195 node_paths=PackedStringArray("拉赫", "back_button", "audio_pressed", "audio_entered")]
+[node name="设置页面" type="Control" unique_id=1521991216]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8kpsi")
-"拉赫" = NodePath("拉赫")
-back_button = NodePath("返回按钮")
-audio_pressed = NodePath("音效/按钮按下音效")
-audio_entered = NodePath("音效/按钮选择音效")
 
-[node name="背景" type="Node2D" parent="." unique_id=273800528]
-metadata/_edit_lock_ = true
+[node name="选项卡菜单" type="TabContainer" parent="." unique_id=1871558608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
 
-[node name="背景" type="TileMapLayer" parent="背景" unique_id=1838092712]
-tile_map_data = PackedByteArray("AAADAAkAAAAgAAIAAAAKAAkAAAAaAAIAAAARAAkAAAAgAAIAAAAYAAkAAAAaAAIAAAAfAAkAAAAgAAIAAAAmAAkAAAAaAAIAAAAtAAkAAAAgAAIAAAACABQAAAAcACYAAAADABQAAAAcACYAAAAEABQAAAAcACYAAAAFABQAAAAcACYAAAAGABQAAAAcACYAAAAHABQAAAAcACYAAAAIABQAAAAcACYAAAAJABQAAAAcACYAAAAKABQAAAAcACYAAAALABQAAAAcACYAAAAMABQAAAAcACYAAAANABQAAAAcACYAAAAOABQAAAAcACYAAAAPABQAAAAcACYAAAAQABQAAAAcACYAAAARABQAAAAcACYAAAASABQAAAAcACYAAAATABQAAAAcACYAAAAUABQAAAAcACYAAAAVABQAAAAcACYAAAAWABQAAAAcACYAAAAXABQAAAAcACYAAAAYABQAAAAcACYAAAAZABQAAAAcACYAAAAaABQAAAAcACYAAAAbABQAAAAcACYAAAAcABQAAAAcACYAAAAdABQAAAAcACYAAAAgABQAAAAcACYAAAAhABQAAAAcACYAAAAiABQAAAAcACYAAAAjABQAAAAcACYAAAAkABQAAAAcACYAAAAlABQAAAAcACYAAAAmABQAAAAcACYAAAAnABQAAAAcACYAAAAoABQAAAAcACYAAAApABQAAAAcACYAAAAqABQAAAAcACYAAAArABQAAAAcACYAAAAsABQAAAAcACYAAAAtABQAAAAcACYAAAAuABQAAAAcACYAAAACABUAAAAiACYAAAACABYAAAAiACYAAAAFABYAAAAiACYAAAAGABYAAAAiACYAAAAHABYAAAAiACYAAAAIABYAAAAiACYAAAAJABYAAAAiACYAAAAKABYAAAAiACYAAAALABYAAAAiACYAAAAMABYAAAAiACYAAAANABYAAAAiACYAAAAOABYAAAAiACYAAAAPABYAAAAiACYAAAAQABYAAAAiACYAAAATABYAAAAiACYAAAAUABYAAAAiACYAAAAVABYAAAAiACYAAAAWABYAAAAiACYAAAAXABYAAAAiACYAAAAYABYAAAAiACYAAAAZABYAAAAiACYAAAAaABYAAAAiACYAAAAbABYAAAAiACYAAAAcABYAAAAiACYAAAAdABYAAAAiACYAAAAeABYAAAAiACYAAAAfABYAAAAiACYAAAAFABUAAAAiACYAAAAGABUAAAAiACYAAAAHABUAAAAiACYAAAAIABUAAAAiACYAAAAJABUAAAAiACYAAAAKABUAAAAiACYAAAALABUAAAAiACYAAAAMABUAAAAiACYAAAANABUAAAAiACYAAAAOABUAAAAiACYAAAAPABUAAAAiACYAAAAQABUAAAAiACYAAAARABUAAAAiACYAAAASABUAAAAiACYAAAATABUAAAAiACYAAAAUABUAAAAiACYAAAAVABUAAAAiACYAAAAWABUAAAAiACYAAAAXABUAAAAiACYAAAAYABUAAAAiACYAAAAZABUAAAAiACYAAAAaABUAAAAiACYAAAAbABUAAAAiACYAAAAcABUAAAAiACYAAAAdABUAAAAiACYAAAAeABUAAAAiACYAAAAfABUAAAAiACYAAAAgABUAAAAiACYAAAAiABYAAAAiACYAAAAjABYAAAAiACYAAAAkABYAAAAiACYAAAAlABYAAAAiACYAAAAmABYAAAAiACYAAAAnABYAAAAiACYAAAAoABYAAAAiACYAAAApABYAAAAiACYAAAAqABYAAAAiACYAAAArABYAAAAiACYAAAAsABYAAAAiACYAAAAtABYAAAAiACYAAAAuABYAAAAiACYAAAAkABUAAAAiACYAAAAlABUAAAAiACYAAAAmABUAAAAiACYAAAAnABUAAAAiACYAAAAoABUAAAAiACYAAAApABUAAAAiACYAAAAqABUAAAAiACYAAAArABUAAAAiACYAAAAsABUAAAAiACYAAAAtABUAAAAiACYAAAAuABUAAAAiACYAAAA=")
-tile_set = SubResource("TileSet_1q7tq")
+[node name="画面" type="Control" parent="选项卡菜单" unique_id=1266280771]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="中景" type="TileMapLayer" parent="背景" unique_id=1278345363]
-tile_map_data = PackedByteArray("AAAFAA8AAAAyACQAAAAXABIAAAAOACoAAAAdABEAAAAWACgAAAARABEAAAAWACgAABAXAAEAAAAmACYAAAAgABAAAAAeACYAAAAAABAAAAAeACYAAAAFABIAAQAwACIAAAAfABIAAAAUABgAAAA=")
-tile_set = SubResource("TileSet_6750i")
+[node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/画面" unique_id=333295635]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.875
+offset_right = 102.875
+offset_bottom = 108.0
+grow_horizontal = 2
 
-[node name="书页背景" type="Sprite2D" parent="." unique_id=441010266]
-position = Vector2(365, 132)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("21_wiyw1")
+[node name="HBoxContainer" type="HBoxContainer" parent="选项卡菜单/画面/VBoxContainer" unique_id=1293566192]
+layout_mode = 2
 
-[node name="设置功能" type="Control" parent="书页背景" unique_id=1232628111 node_paths=PackedStringArray("masterslider", "bgmslider", "sfxslider")]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -320.0
-offset_top = -216.0
-offset_right = 320.0
-offset_bottom = 218.0
-script = ExtResource("4_y1ihj")
-masterslider = NodePath("主音量滑块")
-bgmslider = NodePath("背景音乐滑块")
-sfxslider = NodePath("音效滑块")
-
-[node name="设置页面" type="Label" parent="书页背景/设置功能" unique_id=9797731]
-layout_mode = 0
-offset_left = 222.0
-offset_right = 281.0
-offset_bottom = 21.0
-scale = Vector2(3, 3)
+[node name="分辨率" type="Label" parent="选项卡菜单/画面/VBoxContainer/HBoxContainer" unique_id=1620862768]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
 theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
@@ -250,15 +47,50 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
-text = "设置页面"
+text = "分辨率："
 
-[node name="主音量" type="Label" parent="书页背景/设置功能" unique_id=1593509893]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 66.0
-offset_right = 65.0
-offset_bottom = 87.0
-scale = Vector2(3, 3)
+[node name="OptionButton" type="OptionButton" parent="选项卡菜单/画面/VBoxContainer/HBoxContainer" unique_id=528287446]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="选项卡菜单/画面/VBoxContainer" unique_id=175758557]
+layout_mode = 2
+
+[node name="窗口模式" type="Label" parent="选项卡菜单/画面/VBoxContainer/HBoxContainer2" unique_id=637401597]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
+theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "窗口模式："
+
+[node name="OptionButton" type="OptionButton" parent="选项卡菜单/画面/VBoxContainer/HBoxContainer2" unique_id=897419059]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="声音" type="Control" parent="选项卡菜单" unique_id=903785404]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/声音" unique_id=1166341092]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.5
+offset_right = 107.5
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=920302361]
+layout_mode = 2
+
+[node name="主音量" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer" unique_id=2099161295]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
 theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
@@ -268,23 +100,20 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "主音量："
 
-[node name="主音量滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1335365319 groups=["selectable_control"]]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 92.0
-offset_right = 420.0
-offset_bottom = 108.0
+[node name="主音量滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer" unique_id=706448744 groups=["selectable_control"]]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="背景音乐" type="Label" parent="书页背景/设置功能" unique_id=832107317]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 130.0
-offset_right = 103.0
-offset_bottom = 151.0
-scale = Vector2(3, 3)
+[node name="HBoxContainer2" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=935482573]
+layout_mode = 2
+
+[node name="音乐" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer2" unique_id=1520371634]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
 theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
@@ -294,23 +123,20 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音乐："
 
-[node name="背景音乐滑块" type="HSlider" parent="书页背景/设置功能" unique_id=1218367702 groups=["selectable_control"]]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 158.0
-offset_right = 420.0
-offset_bottom = 174.0
+[node name="音乐滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer2" unique_id=521873419 groups=["selectable_control"]]
+custom_minimum_size = Vector2(150, 2)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="音效" type="Label" parent="书页背景/设置功能" unique_id=2109792842]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 194.0
-offset_right = 103.0
-offset_bottom = 215.0
-scale = Vector2(3, 3)
+[node name="HBoxContainer3" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=1749210144]
+layout_mode = 2
+
+[node name="音效" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer3" unique_id=1745375540]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
 theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
@@ -320,111 +146,209 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音效："
 
-[node name="音效滑块" type="HSlider" parent="书页背景/设置功能" unique_id=493795838 groups=["selectable_control"]]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 224.0
-offset_right = 420.0
-offset_bottom = 240.0
+[node name="音效滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer3" unique_id=283622059 groups=["selectable_control"]]
+custom_minimum_size = Vector2(150, 2)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="返回按钮" type="Button" parent="." unique_id=139671504 groups=["selectable_control"]]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -31.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="HBoxContainer4" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=709161522]
+layout_mode = 2
+
+[node name="语音" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer4" unique_id=1202137161]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
 theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
-text = "返回"
+text = "语音："
 
-[node name="书" type="Node2D" parent="." unique_id=1103140532]
-position = Vector2(445.00003, 443.99994)
-rotation = 2.1502457
-scale = Vector2(0.9999999, -0.99999994)
-skew = -0.8726643
+[node name="语音滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer4" unique_id=690336299 groups=["selectable_control"]]
+custom_minimum_size = Vector2(150, 2)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="书图片" type="AnimatedSprite2D" parent="书" unique_id=1265477131]
-material = SubResource("ShaderMaterial_y1ihj")
-position = Vector2(-295.86905, -246.33868)
-rotation = -2.6220343
-scale = Vector2(1.7157356, -1.377245)
-skew = -0.85214347
-sprite_frames = SubResource("SpriteFrames_22thn")
-autoplay = "default"
-frame_progress = 0.2787755
+[node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857]
+layout_mode = 2
+metadata/_tab_index = 2
 
-[node name="书特效" type="AnimatedSprite2D" parent="书" unique_id=1570243383]
-modulate = Color(0, 0, 0, 0.7137255)
-self_modulate = Color(0, 0, 0, 0.69803923)
-material = SubResource("ShaderMaterial_5wk51")
-position = Vector2(-300.4531, -246.895)
-rotation = 1.2382112
-scale = Vector2(0.94415534, -0.6165235)
-skew = 0.8521434
-sprite_frames = SubResource("SpriteFrames_d5p6e")
-autoplay = "default"
+[node name="ScrollContainer" type="ScrollContainer" parent="选项卡菜单/按键" unique_id=2028180318]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_right = 101.5
+offset_bottom = 330.0
+grow_horizontal = 2
 
-[node name="拉赫" type="AnimatedSprite2D" parent="." unique_id=559350331]
-modulate = Color(1, 0.99607843, 0.99607843, 1)
-material = SubResource("ShaderMaterial_kupft")
-position = Vector2(96, 219)
-scale = Vector2(-1, 1)
-sprite_frames = SubResource("SpriteFrames_1q7tq")
+[node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/按键/ScrollContainer" unique_id=115963015]
+layout_mode = 2
 
-[node name="光环" type="Node2D" parent="拉赫" unique_id=2008153051]
-position = Vector2(28.460327, -45.611908)
-rotation = 0.991347
-scale = Vector2(0.9999999, 0.99999994)
-skew = 0.8726646
+[node name="HBoxContainer" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1107812401]
+layout_mode = 2
 
-[node name="光环旋转" type="Node2D" parent="拉赫/光环" unique_id=9767572]
-script = ExtResource("8_uokta")
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1361167907]
+layout_mode = 2
+text = "移动 上："
 
-[node name="光环" type="Sprite2D" parent="拉赫/光环/光环旋转" unique_id=1771221710]
-self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("14_4sadi")
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=405377624]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "W"
 
-[node name="粒子" type="GPUParticles2D" parent="拉赫/光环/光环旋转" unique_id=1056238662]
-show_behind_parent = true
-scale = Vector2(0.070000015, 0.07000001)
-amount = 60
-randomness = 1.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_leuqt")
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2004189094]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
 
-[node name="音效" type="Node" parent="." unique_id=2097866783]
+[node name="HBoxContainer2" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=429719985]
+layout_mode = 2
 
-[node name="背景音乐" type="AudioStreamPlayer" parent="音效" unique_id=618800956]
-stream = ExtResource("23_6750i")
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=159963107]
+layout_mode = 2
+text = "移动 下："
 
-[node name="按钮按下音效" type="AudioStreamPlayer" parent="音效" unique_id=676526461]
-stream = ExtResource("23_apm4q")
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1107493674]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "S"
 
-[node name="按钮选择音效" type="AudioStreamPlayer" parent="音效" unique_id=601261958]
-stream = ExtResource("24_kupft")
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1587813585]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
 
-[node name="光源" type="PointLight2D" parent="." unique_id=1967983143]
-position = Vector2(384, 181)
-energy = 1.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_y1ihj")
-metadata/_edit_lock_ = true
+[node name="HBoxContainer3" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1765996697]
+layout_mode = 2
 
-[node name="阴影幕布" type="CanvasModulate" parent="." unique_id=980743010]
-color = Color(0.20511743, 0.20511743, 0.20511743, 1)
-metadata/_edit_lock_ = true
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=471116189]
+layout_mode = 2
+text = "移动 左："
 
-[connection signal="value_changed" from="书页背景/设置功能/主音量滑块" to="书页背景/设置功能" method="_on_master_value_changed"]
-[connection signal="value_changed" from="书页背景/设置功能/背景音乐滑块" to="书页背景/设置功能" method="_on_bgm_value_changed"]
-[connection signal="value_changed" from="书页背景/设置功能/音效滑块" to="书页背景/设置功能" method="_on_sfx_value_changed"]
-[connection signal="pressed" from="返回按钮" to="." method="_on_back_pressed"]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1718011141]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "A"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=197878774]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=749666839]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1919331623]
+layout_mode = 2
+text = "移动 右："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1582829789]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "D"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=536657440]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=977375954]
+layout_mode = 2
+text = "冲刺："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1333029005]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "L"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=897874923]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=873630995]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=317570738]
+layout_mode = 2
+text = "普攻："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=449409402]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "J"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=465224218]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=321274902]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1435257555]
+layout_mode = 2
+text = "技能："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=92792347]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "U"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1492693719]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=275864393]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1983628182]
+layout_mode = 2
+text = "必杀："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=138896109]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "I"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=141481897]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1718825796]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1954563458]
+layout_mode = 2
+text = "援助："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1451273118]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "O"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=910081873]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "重置"
+
+[node name="语言" type="Control" parent="选项卡菜单" unique_id=1033216235]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

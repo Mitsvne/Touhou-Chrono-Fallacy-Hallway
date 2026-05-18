@@ -2,7 +2,6 @@ extends CharacterBody2D
 #控制器导入
 @export var character_main: Character_Main
 @export var character_data: Character_Data
-@export var character_input: Character_Input
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
 

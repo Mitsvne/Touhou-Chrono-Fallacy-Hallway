@@ -88,7 +88,7 @@ func _on_start_pressed() -> void:
 ## 设置按钮
 func _on_settings_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/设置页面/设置页面.tscn")
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/设置页面/设置场景.tscn")
 
 ## 退出按钮
 func _on_exit_pressed() -> void:

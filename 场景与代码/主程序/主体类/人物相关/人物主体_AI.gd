@@ -22,7 +22,6 @@ var current_state: State = State.常态 :
 		print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
 		current_state=v
 		enter_state(v)
-
 var target :CharacterBody2D
 var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
@@ -56,6 +55,8 @@ func _physics_process(delta: float) -> void:
 		current_velocity.y += gravity * delta
 	if not bt_player.active:
 		move(move_speed,delta)
+	if target.character_main.is_alive==false:
+		bt_player.active=false
 
 
 

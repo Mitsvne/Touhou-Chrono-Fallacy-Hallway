@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://bqpbskbb408mh" path="res://场景与代码/ui场景/结算页面/结算页面.gd" id="1_yp4sk"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="2_lvraq"]
 
-[node name="结算页面" type="CanvasLayer" unique_id=404581363 node_paths=PackedStringArray("label")]
+[node name="结算页面" type="CanvasLayer" unique_id=404581363 node_paths=PackedStringArray("label", "reset_button")]
 script = ExtResource("1_yp4sk")
 label = NodePath("VBoxContainer/标题")
+reset_button = NodePath("VBoxContainer/HBoxContainer/重新开始")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=914456664]
 anchors_preset = 8

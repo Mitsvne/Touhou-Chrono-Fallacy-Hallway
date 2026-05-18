@@ -3,6 +3,7 @@ extends CanvasLayer
 var result:String      #结算结果，主程序给出
 
 @export var label: Label
+@export var reset_button: Button
 
 func set_result(text: String) -> void:
 	result = text
@@ -10,6 +11,7 @@ func set_result(text: String) -> void:
 		label.text = "退治" + result
 
 func _ready() -> void:
+	reset_button.grab_focus()
 	GameState.set_result(true)
 
 func _exit_tree() -> void:
