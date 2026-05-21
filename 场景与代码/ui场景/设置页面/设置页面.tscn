@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cce4pj0chhgsk"]
 
 [ext_resource type="Script" uid="uid://qmfk5mn71l68" path="res://场景与代码/ui场景/设置页面/画面.gd" id="1_p6lvd"]
+[ext_resource type="Script" uid="uid://1pd30vx1hcvv" path="res://场景与代码/ui场景/设置页面/声音.gd" id="3_jk4y0"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="4_8kpsi"]
+[ext_resource type="Script" uid="uid://mgicchblpsh1" path="res://场景与代码/ui场景/设置页面/按键.gd" id="4_ecuth"]
 
 [node name="设置页面" type="Control" unique_id=1521991216]
 layout_mode = 3
@@ -19,9 +21,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="画面" type="Control" parent="选项卡菜单" unique_id=1266280771 node_paths=PackedStringArray("display_mode_option", "resolution_option", "fps_option")]
+visible = false
 layout_mode = 2
 script = ExtResource("1_p6lvd")
 display_mode_option = NodePath("VBoxContainer/显示模式/显示模式下拉菜单按钮")
@@ -93,9 +96,13 @@ text = "帧率："
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="声音" type="Control" parent="选项卡菜单" unique_id=903785404]
-visible = false
+[node name="声音" type="Control" parent="选项卡菜单" unique_id=903785404 node_paths=PackedStringArray("masterslider", "bgmslider", "sfxslider", "voiceslider")]
 layout_mode = 2
+script = ExtResource("3_jk4y0")
+masterslider = NodePath("VBoxContainer/主音量/主音量滑块")
+bgmslider = NodePath("VBoxContainer/音乐/音乐滑块")
+sfxslider = NodePath("VBoxContainer/音效/音效滑块")
+voiceslider = NodePath("VBoxContainer/语音/语音滑块")
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/声音" unique_id=1166341092]
@@ -108,10 +115,10 @@ offset_right = 107.5
 offset_bottom = 96.0
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=920302361]
+[node name="主音量" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=920302361]
 layout_mode = 2
 
-[node name="主音量" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer" unique_id=2099161295]
+[node name="主音量" type="Label" parent="选项卡菜单/声音/VBoxContainer/主音量" unique_id=2099161295]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
@@ -122,7 +129,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "主音量："
 
-[node name="主音量滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer" unique_id=706448744 groups=["selectable_control"]]
+[node name="主音量滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/主音量" unique_id=706448744 groups=["selectable_control"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -131,10 +138,10 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=935482573]
+[node name="音乐" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=935482573]
 layout_mode = 2
 
-[node name="音乐" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer2" unique_id=1520371634]
+[node name="音乐" type="Label" parent="选项卡菜单/声音/VBoxContainer/音乐" unique_id=1520371634]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
@@ -145,7 +152,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音乐："
 
-[node name="音乐滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer2" unique_id=521873419 groups=["selectable_control"]]
+[node name="音乐滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/音乐" unique_id=521873419 groups=["selectable_control"]]
 custom_minimum_size = Vector2(150, 2)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -154,10 +161,10 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=1749210144]
+[node name="音效" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=1749210144]
 layout_mode = 2
 
-[node name="音效" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer3" unique_id=1745375540]
+[node name="音效" type="Label" parent="选项卡菜单/声音/VBoxContainer/音效" unique_id=1745375540]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
@@ -168,7 +175,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音效："
 
-[node name="音效滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer3" unique_id=283622059 groups=["selectable_control"]]
+[node name="音效滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/音效" unique_id=283622059 groups=["selectable_control"]]
 custom_minimum_size = Vector2(150, 2)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -177,10 +184,10 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=709161522]
+[node name="语音" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=709161522]
 layout_mode = 2
 
-[node name="语音" type="Label" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer4" unique_id=1202137161]
+[node name="语音" type="Label" parent="选项卡菜单/声音/VBoxContainer/语音" unique_id=1202137161]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
@@ -191,7 +198,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "语音："
 
-[node name="语音滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/HBoxContainer4" unique_id=690336299 groups=["selectable_control"]]
+[node name="语音滑块" type="HSlider" parent="选项卡菜单/声音/VBoxContainer/语音" unique_id=690336299 groups=["selectable_control"]]
 custom_minimum_size = Vector2(150, 2)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -200,9 +207,28 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857]
+[node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857 node_paths=PackedStringArray("set_btn_move_up", "reset_btn_move_up", "set_btn_move_down", "reset_btn_move_down", "set_btn_move_left", "reset_btn_move_left", "set_btn_move_right", "reset_btn_move_right", "set_btn_attack", "reset_btn_attack", "set_btn_dash", "reset_btn_dash", "set_btn_skill", "reset_btn_skill", "set_btn_ultimate", "reset_btn_ultimate", "set_btn_assist", "reset_btn_assist")]
 visible = false
 layout_mode = 2
+script = ExtResource("4_ecuth")
+set_btn_move_up = NodePath("ScrollContainer/VBoxContainer/移动上/当前按键")
+reset_btn_move_up = NodePath("ScrollContainer/VBoxContainer/移动上/重置")
+set_btn_move_down = NodePath("ScrollContainer/VBoxContainer/移动下/当前按键")
+reset_btn_move_down = NodePath("ScrollContainer/VBoxContainer/移动下/重置")
+set_btn_move_left = NodePath("ScrollContainer/VBoxContainer/移动左/当前按键")
+reset_btn_move_left = NodePath("ScrollContainer/VBoxContainer/移动左/重置")
+set_btn_move_right = NodePath("ScrollContainer/VBoxContainer/移动右/当前按键")
+reset_btn_move_right = NodePath("ScrollContainer/VBoxContainer/移动右/重置")
+set_btn_attack = NodePath("ScrollContainer/VBoxContainer/普攻/当前按键")
+reset_btn_attack = NodePath("ScrollContainer/VBoxContainer/普攻/重置")
+set_btn_dash = NodePath("ScrollContainer/VBoxContainer/冲刺/当前按键")
+reset_btn_dash = NodePath("ScrollContainer/VBoxContainer/冲刺/重置")
+set_btn_skill = NodePath("ScrollContainer/VBoxContainer/技能/当前按键")
+reset_btn_skill = NodePath("ScrollContainer/VBoxContainer/技能/重置")
+set_btn_ultimate = NodePath("ScrollContainer/VBoxContainer/必杀/当前按键")
+reset_btn_ultimate = NodePath("ScrollContainer/VBoxContainer/必杀/重置")
+set_btn_assist = NodePath("ScrollContainer/VBoxContainer/援助/当前按键")
+reset_btn_assist = NodePath("ScrollContainer/VBoxContainer/援助/重置")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="选项卡菜单/按键" unique_id=2028180318]
@@ -218,155 +244,155 @@ grow_horizontal = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/按键/ScrollContainer" unique_id=115963015]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1107812401]
+[node name="移动上" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1107812401]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1361167907]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=1361167907]
 layout_mode = 2
 text = "移动 上："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=405377624]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=405377624]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "W"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2004189094]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=2004189094]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=429719985]
+[node name="移动下" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=429719985]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=159963107]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=159963107]
 layout_mode = 2
 text = "移动 下："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1107493674]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1107493674]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "S"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1587813585]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1587813585]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1765996697]
+[node name="移动左" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1765996697]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=471116189]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=471116189]
 layout_mode = 2
 text = "移动 左："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1718011141]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=1718011141]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "A"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=197878774]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=197878774]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=749666839]
+[node name="移动右" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=749666839]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1919331623]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1919331623]
 layout_mode = 2
 text = "移动 右："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1582829789]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1582829789]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "D"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=536657440]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=536657440]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
+[node name="冲刺" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=977375954]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=977375954]
 layout_mode = 2
 text = "冲刺："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1333029005]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=1333029005]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "L"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=897874923]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=897874923]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=873630995]
+[node name="普攻" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=873630995]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=317570738]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=317570738]
 layout_mode = 2
 text = "普攻："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=449409402]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=449409402]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "J"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=465224218]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=465224218]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=321274902]
+[node name="技能" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=321274902]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1435257555]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=1435257555]
 layout_mode = 2
 text = "技能："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=92792347]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=92792347]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "U"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1492693719]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=1492693719]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=275864393]
+[node name="必杀" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=275864393]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1983628182]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=1983628182]
 layout_mode = 2
 text = "必杀："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=138896109]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=138896109]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "I"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=141481897]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=141481897]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1718825796]
+[node name="援助" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1718825796]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1954563458]
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1954563458]
 layout_mode = 2
 text = "援助："
 
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1451273118]
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1451273118]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "O"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=910081873]
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=910081873]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "重置"
@@ -375,3 +401,17 @@ text = "重置"
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/语言" unique_id=78222431]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/语言/VBoxContainer" unique_id=1328288610]
+layout_mode = 2
+text = "开发中，敬请期待"

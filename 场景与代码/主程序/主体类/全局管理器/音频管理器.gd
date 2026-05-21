@@ -1,4 +1,3 @@
-# audio_manager.gd (Autoload)
 extends Node
 
 ## 背景音乐播放器
@@ -9,11 +8,14 @@ var _sfx_pool: Array[AudioStreamPlayer] = []
 @export var max_polyphony: int = 4
 ## 音效播放器池初始大小
 @export var pool_size: int = 8
+## 语音播放器
+var _voice_player: AudioStreamPlayer
 
 ## 总线名称（需在Audio面板中手动创建）
 const BUS_MASTER := "Master"
 const BUS_BGM := "BGM"
 const BUS_SFX := "SFX"
+const BUS_VOICE := "Voice"
 const SETTINGS_PATH := "user://audio_settings.cfg"
 
 func _ready() -> void:
@@ -27,7 +29,11 @@ func _ready() -> void:
 		p.bus = BUS_SFX
 		add_child(p)
 		_sfx_pool.append(p)
+	_voice_player = AudioStreamPlayer.new()
+	_voice_player.bus = BUS_VOICE
+	add_child(_voice_player)
 
+##----------播放---------##
 
 ## 播放背景音乐（自动淡入，循环）
 func play_bgm(stream: AudioStream, _fade_in_duration: float = 0.0, volume_db: float = 0.0) -> void:
@@ -40,12 +46,10 @@ func play_bgm(stream: AudioStream, _fade_in_duration: float = 0.0, volume_db: fl
 	_bgm_player.volume_db = volume_db
 	_bgm_player.play()
 
-
 ## 停止背景音乐
 func stop_bgm(_fade_out_duration: float = 0.5) -> void:
 	if _bgm_player.playing:
 		_bgm_player.stop()
-
 
 ## 播放音效（带并发控制）
 func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0) -> AudioStreamPlayer:
@@ -57,7 +61,6 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 
 			count += 1
 			if oldest_player == null:
 				oldest_player = p
-
 	# 如果已达到并发上限，直接复用最旧的那个播放器
 	if count >= max_polyphony:
 		if oldest_player != null:
@@ -70,7 +73,6 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 
 		else:
 			# 理论上不会发生
 			pass
-
 	# 找一个空闲的播放器
 	for p in _sfx_pool:
 		if not p.playing:
@@ -79,7 +81,6 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 
 			p.pitch_scale = pitch_scale
 			p.play()
 			return p
-
 	# 所有播放器都在忙碌中，动态创建一个新播放器并加入池（不推荐频繁发生）
 	var new_p := AudioStreamPlayer.new()
 	new_p.bus = BUS_SFX
@@ -90,6 +91,23 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_scale: float = 
 	new_p.pitch_scale = pitch_scale
 	new_p.play()
 	return new_p
+
+## 播放语音
+func play_voice(stream: AudioStream, volume_db: float = 0.0) -> void:
+	# 简单覆盖，停止当前语音，播放新语音
+	if _voice_player.playing:
+		_voice_player.stop()
+	_voice_player.stream = stream
+	_voice_player.volume_db = volume_db
+	_voice_player.play()
+
+## 停止语音
+func stop_voice() -> void:
+	if _voice_player.playing:
+		_voice_player.stop()
+
+
+##----------设置---------##
 
 ## 设置主音量（线性 0.0～1.0，转 dB）
 func set_master_volume(linear: float) -> void:
@@ -106,6 +124,11 @@ func set_sfx_volume(linear: float) -> void:
 	var db := linear_to_db(clampf(linear, 0.0, 1.0))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(BUS_SFX), db)
 
+## 设置 VOICE 音量
+func set_voice_volume(linear: float) -> void:
+	var db := linear_to_db(clampf(linear, 0.0, 1.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(BUS_VOICE), db)
+
 ## 获取线性音量值（用于 UI 滑块显示）
 func get_master_volume_linear() -> float:
 	var db := AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
@@ -119,12 +142,17 @@ func get_sfx_volume_linear() -> float:
 	var db := AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	return db_to_linear(db)
 
+func get_voice_volume_linear() -> float:
+	var db := AudioServer.get_bus_volume_db(AudioServer.get_bus_index(BUS_VOICE))
+	return db_to_linear(db)
+
 ## 保存当前总线音量到配置文件
 func save_volume_settings() -> void:
 	var config := ConfigFile.new()
 	config.set_value("audio", "master_volume", get_master_volume_linear())
 	config.set_value("audio", "bgm_volume", get_bgm_volume_linear())
 	config.set_value("audio", "sfx_volume", get_sfx_volume_linear())
+	config.set_value("audio", "voice_volume", get_voice_volume_linear())
 	config.save(SETTINGS_PATH)
 
 ## 从配置文件加载音量并应用
@@ -135,3 +163,4 @@ func load_volume_settings() -> void:
 	set_master_volume(config.get_value("audio", "master_volume", 1.0))
 	set_bgm_volume(config.get_value("audio", "bgm_volume", 1.0))
 	set_sfx_volume(config.get_value("audio", "sfx_volume", 1.0))
+	set_voice_volume(config.get_value("audio", "voice_volume", 1.0))
