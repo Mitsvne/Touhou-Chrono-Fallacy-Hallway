@@ -59,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://3lxrlcyhfxcd" path="res://场景与代码/人物/灵梦/灵梦必杀弹幕红.tscn" id="56_wmq54"]
 [ext_resource type="PackedScene" uid="uid://cevptb0cf01pl" path="res://场景与代码/人物/灵梦/灵梦必杀弹幕蓝.tscn" id="57_kgnp6"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="59_0mxg6"]
+[ext_resource type="Script" uid="uid://bpvq5t7ax0ymu" path="res://场景与代码/人物/灵梦/饰品.gd" id="60_k3vqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
 size = Vector2(39, 39)
@@ -2271,5 +2272,8 @@ bus = &"SFX"
 stream = ExtResource("39_3568u")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="饰品" type="Node" parent="." unique_id=794604284]
+script = ExtResource("60_k3vqu")
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]

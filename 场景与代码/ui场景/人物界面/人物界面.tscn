@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c3hsrjlyntn80"]
+
+[ext_resource type="Script" uid="uid://bl3a513six7sn" path="res://场景与代码/ui场景/人物界面/饰品部分.gd" id="1_knost"]
+[ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="2_yjpx4"]
+[ext_resource type="Script" uid="uid://dfv5lf8gtfu5e" path="res://场景与代码/ui场景/人物界面/饰品格子.gd" id="3_gepx4"]
+[ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="4_nsrdc"]
+[ext_resource type="Texture2D" uid="uid://bslp3mg2h4h73" path="res://素材/ui素材/人物头像/铃仙.png" id="5_srhrw"]
+[ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="6_bkfly"]
+[ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="7_ad5fq"]
+
+[node name="人物界面" type="Control" unique_id=1519760193]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="饰品部分" type="Control" parent="." unique_id=547540032 node_paths=PackedStringArray("equipped_slots", "inventory_container")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knost")
+equipped_slots = [NodePath("HBoxContainer/饰品格子-装备中1"), NodePath("HBoxContainer/饰品格子-装备中2"), NodePath("HBoxContainer/饰品格子-装备中3")]
+inventory_container = NodePath("背包")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="饰品部分" unique_id=1951863736]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_right = 79.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="饰品格子-装备中1" type="TextureButton" parent="饰品部分/HBoxContainer" unique_id=254251533]
+layout_mode = 2
+texture_normal = ExtResource("2_yjpx4")
+script = ExtResource("3_gepx4")
+
+[node name="饰品格子-装备中2" type="TextureButton" parent="饰品部分/HBoxContainer" unique_id=1971704510]
+layout_mode = 2
+texture_normal = ExtResource("4_nsrdc")
+script = ExtResource("3_gepx4")
+
+[node name="饰品格子-装备中3" type="TextureButton" parent="饰品部分/HBoxContainer" unique_id=536003068]
+layout_mode = 2
+texture_normal = ExtResource("5_srhrw")
+script = ExtResource("3_gepx4")
+
+[node name="背包" type="ScrollContainer" parent="饰品部分" unique_id=299800659]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -59.0
+offset_right = 73.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="饰品部分/背包" unique_id=1294881980]
+layout_mode = 2
+
+[node name="饰品格子1" type="TextureButton" parent="饰品部分/背包/VBoxContainer" unique_id=136034962]
+layout_mode = 2
+texture_normal = ExtResource("6_bkfly")
+script = ExtResource("3_gepx4")
+
+[node name="饰品格子2" type="TextureButton" parent="饰品部分/背包/VBoxContainer" unique_id=458534238]
+layout_mode = 2
+texture_normal = ExtResource("7_ad5fq")
+script = ExtResource("3_gepx4")

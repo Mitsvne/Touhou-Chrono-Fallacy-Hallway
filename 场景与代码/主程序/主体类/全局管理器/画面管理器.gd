@@ -18,7 +18,7 @@ const DISPLAY_LABELS: Array[String] = ["窗口化", "全屏无边框", "全屏"]
 var config := ConfigFile.new()
 # 当前实际生效的设置缓存
 var current_mode: Window.Mode = Window.MODE_WINDOWED
-var current_size: Vector2i = Vector2i(1280, 720)
+var current_size: Vector2i = Vector2i(1920, 1080)
 var current_fps: int = 60
 
 func _ready() -> void:
@@ -91,8 +91,8 @@ func load_settings() -> void:
 		return
 	current_mode = config.get_value("video", "display_mode", Window.MODE_WINDOWED)
 	current_size = Vector2i(
-		config.get_value("video", "window_width", 1280),
-		config.get_value("video", "window_height", 720)
+		config.get_value("video", "window_width", 1920),
+		config.get_value("video", "window_height", 1080)
 	)
 	current_fps = config.get_value("video", "fps_limit", 60)
 
