@@ -1,7 +1,7 @@
 extends Control
 
 # ===== 导出参数 =====
-@export var item_spacing: float = 150.0               # 卡片间距
+@export var item_spacing: float = 320.0               # 卡片间距
 @export var animation_duration: float = 0.3           # 动画时长
 @export var center_index: int = 0                     # 默认居中卡片索引
 @export var center_position: Vector2 = Vector2(0, 80) # 居中卡片位置
@@ -38,6 +38,7 @@ func _ready():
 	update_z_index()
 	animate_to_target()
 	card.grab_focus()
+	reCardDisabled()
 
 ## ===== 输入处理 =====
 ## 按键切换
@@ -155,9 +156,22 @@ func scroll_left():
 	current_center_index = wrap(current_center_index - 1, 0, items.size())
 	calculate_target_positions()
 	animate_to_target()
+	reCardDisabled()
 
 ## 向右滚动（显示左侧卡片）
 func scroll_right():
 	current_center_index = wrap(current_center_index + 1, 0, items.size())
 	calculate_target_positions()
 	animate_to_target()
+	reCardDisabled()
+
+## 刷新地图卡片的开启状态
+func reCardDisabled():
+	var i:int = 0;
+	while i < items.size():
+		var mapCard = items[i];
+		i += 1;
+		if(i == current_center_index + 1):
+			mapCard.disabled = false;
+			continue;
+		mapCard.disabled = true;
