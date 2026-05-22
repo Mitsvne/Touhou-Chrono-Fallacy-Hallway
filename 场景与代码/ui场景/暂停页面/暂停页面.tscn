@@ -37,6 +37,11 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_yog4p")
 text = " 游戏重置 "
 
+[node name="回到关卡" type="Button" parent="VBoxContainer" unique_id=700137336]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yog4p")
+text = "回到关卡"
+
 [node name="回到主页" type="Button" parent="VBoxContainer" unique_id=964569159]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yog4p")
@@ -44,4 +49,5 @@ text = "回到主页"
 
 [connection signal="pressed" from="VBoxContainer/继续游戏" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/游戏重置" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="VBoxContainer/回到主页" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/回到关卡" to="." method="_on_back_to_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/回到主页" to="." method="_on_back_to_menu_pressed"]

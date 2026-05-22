@@ -1,29 +1,116 @@
 [gd_scene format=3 uid="uid://c3hsrjlyntn80"]
 
 [ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
-[ext_resource type="Script" uid="uid://bl3a513six7sn" path="res://场景与代码/ui场景/人物界面/饰品部分.gd" id="1_knost"]
+[ext_resource type="Script" uid="uid://brnn8y1ssrusk" path="res://场景与代码/ui场景/人物界面/人物界面.gd" id="1_h7faq"]
+[ext_resource type="Script" uid="uid://bl3a513six7sn" path="res://场景与代码/ui场景/人物界面/背包/饰品部分.gd" id="1_knost"]
 [ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="2_yjpx4"]
-[ext_resource type="Script" uid="uid://dfv5lf8gtfu5e" path="res://场景与代码/ui场景/人物界面/饰品格子.gd" id="3_gepx4"]
+[ext_resource type="Script" uid="uid://dfv5lf8gtfu5e" path="res://场景与代码/ui场景/人物界面/背包/饰品格子.gd" id="3_gepx4"]
 [ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="4_nsrdc"]
 [ext_resource type="Texture2D" uid="uid://bslp3mg2h4h73" path="res://素材/ui素材/人物头像/铃仙.png" id="5_srhrw"]
 [ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="6_bkfly"]
 [ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="7_ad5fq"]
 [ext_resource type="Script" uid="uid://cb42qv5fv2c5k" path="res://场景与代码/ui场景/人物界面/背包/背包栏位.gd" id="9_nsrdc"]
+[ext_resource type="Script" uid="uid://btpmddgwr7g7y" path="res://场景与代码/ui场景/人物界面/人物面板.gd" id="10_on5sk"]
+[ext_resource type="Texture2D" uid="uid://b0b2j5uiwmwr5" path="res://素材/人物素材/早苗/stand001.png" id="17_gafpj"]
+[ext_resource type="Texture2D" uid="uid://6cj3t5n216hi" path="res://素材/人物素材/早苗/stand002.png" id="18_fiia1"]
+[ext_resource type="Texture2D" uid="uid://da81vm5mvuqfj" path="res://素材/人物素材/早苗/stand003.png" id="19_5qkjf"]
+[ext_resource type="Texture2D" uid="uid://cq56jpg2n0t24" path="res://素材/人物素材/早苗/stand004.png" id="20_vy5sx"]
+[ext_resource type="Texture2D" uid="uid://c526qxegdpbpt" path="res://素材/人物素材/早苗/stand005.png" id="21_jwqhd"]
+[ext_resource type="Texture2D" uid="uid://dy6n7bo4pcw61" path="res://素材/人物素材/早苗/stand006.png" id="22_xj0qe"]
+[ext_resource type="Texture2D" uid="uid://c2bqdfsuu3dqp" path="res://素材/人物素材/早苗/stand007.png" id="23_bkog8"]
+[ext_resource type="Texture2D" uid="uid://cn02qekq2uac3" path="res://素材/人物素材/灵梦/人物/stand000.png" id="24_uloqu"]
+[ext_resource type="Texture2D" uid="uid://gw13lqx1eebq" path="res://素材/人物素材/灵梦/人物/stand001.png" id="25_l5wtj"]
+[ext_resource type="Texture2D" uid="uid://du26wxfv34mq8" path="res://素材/人物素材/灵梦/人物/stand002.png" id="26_7sxqe"]
+[ext_resource type="Texture2D" uid="uid://by11ph7on2qjp" path="res://素材/人物素材/灵梦/人物/stand003.png" id="27_48gml"]
+[ext_resource type="Texture2D" uid="uid://ceqvmib5nusjk" path="res://素材/人物素材/灵梦/人物/stand004.png" id="28_fcjc1"]
+[ext_resource type="Texture2D" uid="uid://c07oo3kgcrkg5" path="res://素材/ui素材/ui素材/箭头2.png" id="28_ny3ie"]
+[ext_resource type="Texture2D" uid="uid://bcw6vq1qqbpns" path="res://素材/人物素材/灵梦/人物/stand005.png" id="29_tx8m0"]
+[ext_resource type="Texture2D" uid="uid://csnaneetaftq2" path="res://素材/人物素材/灵梦/人物/stand006.png" id="30_g7hsp"]
+[ext_resource type="Texture2D" uid="uid://biuy0nqiijgef" path="res://素材/人物素材/灵梦/人物/stand007.png" id="31_3s75x"]
+[ext_resource type="Texture2D" uid="uid://cf7q58k5mlc5y" path="res://素材/人物素材/灵梦/人物/stand008.png" id="32_g2vdo"]
+[ext_resource type="Texture2D" uid="uid://dk8kauf55ywnh" path="res://素材/人物素材/灵梦/人物/stand009.png" id="33_1ej85"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="34_md5pp"]
 
-[node name="人物界面" type="Control" unique_id=1519760193]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnptm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_gafpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fiia1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5qkjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vy5sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jwqhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xj0qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bkog8")
+}],
+"loop": true,
+"name": &"东风谷早苗",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_uloqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_l5wtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7sxqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_48gml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_fcjc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_tx8m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_g7hsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3s75x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_g2vdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_1ej85")
+}],
+"loop": true,
+"name": &"博丽灵梦",
+"speed": 8.0
+}]
+
+[node name="人物界面" type="Control" unique_id=1519760193 node_paths=PackedStringArray("back_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h7faq")
+back_button = NodePath("返回")
 
 [node name="背景" type="Sprite2D" parent="." unique_id=759560381]
-position = Vector2(319.99997, 179.99998)
-scale = Vector2(3.3333333, 2.25)
+position = Vector2(319.99997, 180.5)
+scale = Vector2(0.8333333, 0.68241966)
 texture = ExtResource("1_gepx4")
 region_enabled = true
-region_rect = Rect2(3232, 3616, 192, 160)
+region_rect = Rect2(880, 2288, 768, 529)
 
 [node name="饰品部分" type="Control" parent="." unique_id=547540032 node_paths=PackedStringArray("equipped_slots", "inventory_container")]
 visible = false
@@ -63,6 +150,7 @@ texture_normal = ExtResource("5_srhrw")
 script = ExtResource("3_gepx4")
 
 [node name="背包" type="ScrollContainer" parent="饰品部分" unique_id=299800659]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,6 +178,7 @@ texture_normal = ExtResource("7_ad5fq")
 script = ExtResource("3_gepx4")
 
 [node name="背包栏" type="Control" parent="." unique_id=1487636724]
+visible = false
 anchors_preset = 0
 offset_left = 133.0
 offset_top = 163.0
@@ -194,3 +283,171 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_gepx4")
 region_enabled = true
 region_rect = Rect2(2790, 3766, 84, 84)
+
+[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "name_label", "hp_label", "mp_label", "energy_name", "power_name", "speed_name")]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 361.0
+script = ExtResource("10_on5sk")
+an = NodePath("人物/人物图像")
+name_label = NodePath("人物/人物名称")
+hp_label = NodePath("属性/HBoxContainer/VBoxContainer/血量")
+mp_label = NodePath("属性/HBoxContainer/VBoxContainer/魔力")
+energy_name = NodePath("属性/HBoxContainer/VBoxContainer/耐力")
+power_name = NodePath("属性/HBoxContainer/HBoxContainer/攻击")
+speed_name = NodePath("属性/HBoxContainer/HBoxContainer/移速")
+
+[node name="人物" type="Control" parent="面板" unique_id=1530969487]
+anchors_preset = 0
+offset_right = 254.0
+offset_bottom = 248.0
+
+[node name="人物图像" type="AnimatedSprite2D" parent="面板/人物" unique_id=1966836913]
+position = Vector2(125, 124)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_qnptm")
+animation = &"博丽灵梦"
+autoplay = "博丽灵梦"
+frame_progress = 0.6814582
+
+[node name="箭头左" type="TextureButton" parent="面板/人物" unique_id=2074798986]
+layout_mode = 0
+offset_left = 15.000001
+offset_top = 121.00001
+offset_right = 147.0
+offset_bottom = 279.00003
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("28_ny3ie")
+flip_h = true
+
+[node name="人物名称" type="Label" parent="面板/人物" unique_id=1599031170]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 211.0
+offset_right = 176.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 32
+text = "博丽灵梦"
+
+[node name="箭头右" type="TextureButton" parent="面板/人物" unique_id=1793078415]
+layout_mode = 0
+offset_left = 217.00002
+offset_top = 122.000015
+offset_right = 349.0
+offset_bottom = 280.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("28_ny3ie")
+
+[node name="属性" type="Control" parent="面板" unique_id=929963042]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -111.0
+offset_right = 250.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="面板/属性" unique_id=1457799323]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 229.0
+offset_bottom = 98.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="面板/属性/HBoxContainer" unique_id=1704632554]
+layout_mode = 2
+
+[node name="血量" type="Label" parent="面板/属性/HBoxContainer/VBoxContainer" unique_id=1854106273]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 20
+text = "血量：300"
+
+[node name="魔力" type="Label" parent="面板/属性/HBoxContainer/VBoxContainer" unique_id=865846694]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 20
+text = "魔力：100"
+
+[node name="耐力" type="Label" parent="面板/属性/HBoxContainer/VBoxContainer" unique_id=2024764632]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 20
+text = "耐力：100"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="面板/属性/HBoxContainer" unique_id=1578370104]
+layout_mode = 2
+
+[node name="攻击" type="Label" parent="面板/属性/HBoxContainer/HBoxContainer" unique_id=1588301036]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 20
+text = "攻击：10"
+
+[node name="移速" type="Label" parent="面板/属性/HBoxContainer/HBoxContainer" unique_id=1588083306]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 20
+text = "移速：400"
+
+[node name="技能" type="Control" parent="面板" unique_id=409632289]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -376.0
+offset_bottom = 156.0
+grow_horizontal = 0
+
+[node name="技能" type="Label" parent="面板/技能" unique_id=864662840]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 121.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 32
+text = "技能"
+
+[node name="必杀" type="Label" parent="面板/技能" unique_id=1223525393]
+layout_mode = 1
+offset_left = 193.0
+offset_top = 18.0
+offset_right = 311.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 32
+text = "必杀"
+
+[node name="道具" type="Control" parent="面板" unique_id=875759774]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -373.0
+offset_top = -193.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="道具" type="Label" parent="面板/道具" unique_id=565952284]
+layout_mode = 1
+offset_right = 118.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 32
+text = "道具"
+
+[node name="返回" type="Button" parent="." unique_id=1144151725]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 51.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+text = "返回"
+
+[connection signal="pressed" from="返回" to="." method="_on_back_pressed"]

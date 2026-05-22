@@ -20,8 +20,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
+theme_override_font_sizes/font_size = 24
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="画面" type="Control" parent="选项卡菜单" unique_id=1266280771 node_paths=PackedStringArray("display_mode_option", "resolution_option", "fps_option")]
 visible = false
@@ -41,18 +43,14 @@ offset_left = -102.875
 offset_right = 102.875
 offset_bottom = 108.0
 grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(102.875, 0)
 
 [node name="显示模式" type="HBoxContainer" parent="选项卡菜单/画面/VBoxContainer" unique_id=175758557]
 layout_mode = 2
 
 [node name="显示模式标签" type="Label" parent="选项卡菜单/画面/VBoxContainer/显示模式" unique_id=637401597]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "显示模式："
 
@@ -65,12 +63,6 @@ layout_mode = 2
 
 [node name="分辨率标签" type="Label" parent="选项卡菜单/画面/VBoxContainer/分辨率" unique_id=1620862768]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "分辨率："
 
@@ -83,12 +75,6 @@ layout_mode = 2
 
 [node name="帧率标签" type="Label" parent="选项卡菜单/画面/VBoxContainer/帧率" unique_id=57213276]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "帧率："
 
@@ -97,6 +83,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="声音" type="Control" parent="选项卡菜单" unique_id=903785404 node_paths=PackedStringArray("masterslider", "bgmslider", "sfxslider", "voiceslider")]
+visible = false
 layout_mode = 2
 script = ExtResource("3_jk4y0")
 masterslider = NodePath("VBoxContainer/主音量/主音量滑块")
@@ -114,18 +101,14 @@ offset_left = -107.5
 offset_right = 107.5
 offset_bottom = 96.0
 grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(107.5, 0)
 
 [node name="主音量" type="HBoxContainer" parent="选项卡菜单/声音/VBoxContainer" unique_id=920302361]
 layout_mode = 2
 
 [node name="主音量" type="Label" parent="选项卡菜单/声音/VBoxContainer/主音量" unique_id=2099161295]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "主音量："
 
@@ -143,12 +126,6 @@ layout_mode = 2
 
 [node name="音乐" type="Label" parent="选项卡菜单/声音/VBoxContainer/音乐" unique_id=1520371634]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音乐："
 
@@ -166,12 +143,6 @@ layout_mode = 2
 
 [node name="音效" type="Label" parent="选项卡菜单/声音/VBoxContainer/音效" unique_id=1745375540]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "音效："
 
@@ -189,12 +160,6 @@ layout_mode = 2
 
 [node name="语音" type="Label" parent="选项卡菜单/声音/VBoxContainer/语音" unique_id=1202137161]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7058824, 0.654902, 0.5803922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.19607843)
-theme_override_colors/font_outline_color = Color(0.58431375, 0.5372549, 0.4745098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "语音："
 
@@ -208,7 +173,6 @@ step = 0.01
 value = 1.0
 
 [node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857 node_paths=PackedStringArray("set_btn_move_up", "reset_btn_move_up", "set_btn_move_down", "reset_btn_move_down", "set_btn_move_left", "reset_btn_move_left", "set_btn_move_right", "reset_btn_move_right", "set_btn_attack", "reset_btn_attack", "set_btn_dash", "reset_btn_dash", "set_btn_skill", "reset_btn_skill", "set_btn_ultimate", "reset_btn_ultimate", "set_btn_assist", "reset_btn_assist")]
-visible = false
 layout_mode = 2
 script = ExtResource("4_ecuth")
 set_btn_move_up = NodePath("ScrollContainer/VBoxContainer/移动上/当前按键")
@@ -238,8 +202,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -101.5
 offset_right = 101.5
-offset_bottom = 330.0
+offset_bottom = 197.33333
 grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(101.5, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="选项卡菜单/按键/ScrollContainer" unique_id=115963015]
 layout_mode = 2
@@ -249,16 +215,20 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=1361167907]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "移动 上："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=405377624]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "W"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=2004189094]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="移动下" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=429719985]
@@ -266,16 +236,20 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=159963107]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "移动 下："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1107493674]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "S"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1587813585]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="移动左" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1765996697]
@@ -283,16 +257,20 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=471116189]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "移动 左："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=1718011141]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "A"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=197878774]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="移动右" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=749666839]
@@ -300,101 +278,130 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1919331623]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "移动 右："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1582829789]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "D"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=536657440]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="冲刺" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=977375954]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "冲刺："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=1333029005]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "L"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=897874923]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="普攻" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=873630995]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=317570738]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "普攻："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=449409402]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "J"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=465224218]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="技能" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=321274902]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=1435257555]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "技能："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=92792347]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "U"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=1492693719]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="必杀" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=275864393]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=1983628182]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "必杀："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=138896109]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "I"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=141481897]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="援助" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1718825796]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1954563458]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "援助："
 
 [node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1451273118]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "O"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=910081873]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
 [node name="语言" type="Control" parent="选项卡菜单" unique_id=1033216235]
@@ -407,11 +414,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -60.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="选项卡菜单/语言/VBoxContainer" unique_id=1328288610]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
+theme_override_font_sizes/font_size = 24
 text = "开发中，敬请期待"

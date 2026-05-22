@@ -14,5 +14,5 @@ var selected:bool = false;
 
 ## 初始化栏位
 func _pressed() -> void:
-    column_texture_select.visible = false;
-    pass
+	column_texture_select.visible = false;
+	pass
