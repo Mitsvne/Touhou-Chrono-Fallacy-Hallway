@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c3hsrjlyntn80"]
 
+[ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
 [ext_resource type="Script" uid="uid://bl3a513six7sn" path="res://场景与代码/ui场景/人物界面/饰品部分.gd" id="1_knost"]
 [ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="2_yjpx4"]
 [ext_resource type="Script" uid="uid://dfv5lf8gtfu5e" path="res://场景与代码/ui场景/人物界面/饰品格子.gd" id="3_gepx4"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bslp3mg2h4h73" path="res://素材/ui素材/人物头像/铃仙.png" id="5_srhrw"]
 [ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="6_bkfly"]
 [ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="7_ad5fq"]
+[ext_resource type="Script" uid="uid://cb42qv5fv2c5k" path="res://场景与代码/ui场景/人物界面/背包/背包栏位.gd" id="9_nsrdc"]
 
 [node name="人物界面" type="Control" unique_id=1519760193]
 layout_mode = 3
@@ -16,7 +18,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="背景" type="Sprite2D" parent="." unique_id=759560381]
+position = Vector2(319.99997, 179.99998)
+scale = Vector2(3.3333333, 2.25)
+texture = ExtResource("1_gepx4")
+region_enabled = true
+region_rect = Rect2(3232, 3616, 192, 160)
+
 [node name="饰品部分" type="Control" parent="." unique_id=547540032 node_paths=PackedStringArray("equipped_slots", "inventory_container")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,10 +69,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -82.0
-offset_top = -59.0
-offset_right = 73.0
-offset_bottom = 75.0
+offset_left = -319.0
+offset_top = -45.0
+offset_right = 318.0
+offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -78,3 +88,109 @@ script = ExtResource("3_gepx4")
 layout_mode = 2
 texture_normal = ExtResource("7_ad5fq")
 script = ExtResource("3_gepx4")
+
+[node name="背包栏" type="Control" parent="." unique_id=1487636724]
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 163.0
+offset_right = 524.0
+offset_bottom = 335.0
+
+[node name="PlayerUIColumn" type="BaseButton" parent="背包栏" unique_id=1180799879 node_paths=PackedStringArray("column_texture", "column_texture_select")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 58.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("9_nsrdc")
+column_texture = NodePath("背景")
+column_texture_select = NodePath("选中标志")
+metadata/_custom_type_script = "uid://cb42qv5fv2c5k"
+
+[node name="背景" type="Sprite2D" parent="背包栏/PlayerUIColumn" unique_id=136579415]
+position = Vector2(25, 25)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("1_gepx4")
+region_enabled = true
+region_rect = Rect2(2656, 3760, 96, 96)
+
+[node name="选中标志" type="Sprite2D" parent="背包栏/PlayerUIColumn" unique_id=1928755529]
+position = Vector2(25, 25)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_gepx4")
+region_enabled = true
+region_rect = Rect2(2790, 3766, 84, 84)

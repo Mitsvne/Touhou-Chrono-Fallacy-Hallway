@@ -1,6 +1,6 @@
 extends Node
 
-enum State { 正常, 暂停, 结算 }
+enum State { 正常, 暂停, 结算, 背包 }
 signal state_changed(new_state: State)
 var _current_state: State = State.正常
 

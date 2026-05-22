@@ -4,6 +4,7 @@ extends Node
 @export var character2:PackedScene
 @export var result_scene:PackedScene
 @export var pause_scene:PackedScene
+var playerui_scene:PackedScene
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
@@ -23,6 +24,8 @@ func _ready():
 	GameState.current_state = GameState.State.正常   # 强制设为正常
 	AudioManager.stop_bgm(0)
 	add_pause_scene()   # 添加暂停页面并隐藏
+	# playerui_scene = load("res://场景与代码/ui场景/人物界面/人物界面.tscn")
+	# add_playerui_scene() # 添加人物界面（人物UI）
 	# 添加人物
 	character1_instance = character1.instantiate()
 	character2_instance = character2.instantiate()
@@ -82,3 +85,7 @@ func add_result_scene(result:String):
 func add_pause_scene():
 	var pause_instance = pause_scene.instantiate()
 	add_child(pause_instance)
+
+func add_playerui_scene():
+	var playerui_instance = playerui_scene.instantiate()
+	add_child(playerui_instance)
