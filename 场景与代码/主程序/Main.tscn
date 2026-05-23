@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="9_l38lg"]
 [ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/主体类/效果相关/指向箭头.gd" id="11_ds467"]
 
-[sub_resource type="PackedScene" id="PackedScene_ds467"]
-
 [sub_resource type="Gradient" id="Gradient_073jx"]
 colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
 
@@ -40,7 +38,6 @@ character1 = ExtResource("2_w1jva")
 character2 = ExtResource("3_gtwc4")
 result_scene = ExtResource("4_en0us")
 pause_scene = ExtResource("5_pvlsi")
-playerui_scene = SubResource("PackedScene_ds467")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1071782585]
 

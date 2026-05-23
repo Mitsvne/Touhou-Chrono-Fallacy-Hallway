@@ -16,7 +16,7 @@ extends Control
 @export var repeat_timer : Timer
 
 # ===== 内部变量 =====
-@export var card: Button                              # 卡片样张
+@export var card: Node                              # 卡片样张
 var items: Array = []                                 # 存储所有卡片节点
 var target_positions: Array = []                      # 每张卡片的目标位置
 var current_center_index: int                         # 当前居中卡片索引

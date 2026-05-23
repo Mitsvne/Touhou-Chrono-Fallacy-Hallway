@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://rx42iq7xppwb" path="res://场景与代码/ui场景/关卡选择页面/关卡选择.gd" id="1_0xtt7"]
 [ext_resource type="AudioStream" uid="uid://n1p3x148ua80" path="res://素材/音频素材/bgm/19 - Where The Winds Roam.mp3" id="1_6nj48"]
 [ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="2_uyobv"]
-[ext_resource type="Texture2D" uid="uid://elatdupqfgas" path="res://素材/地图素材/丘原/orig.png" id="2_wvhtr"]
 [ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="3_fp2f5"]
 [ext_resource type="Script" uid="uid://l5mwguom4fb0" path="res://场景与代码/ui场景/关卡选择页面/轮播菜单.gd" id="3_wvhtr"]
 [ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="4_7l1me"]
-[ext_resource type="Texture2D" uid="uid://c5j8iglpqledq" path="res://素材/地图素材/山脉/orig.png" id="4_weqc4"]
-[ext_resource type="Texture2D" uid="uid://2us8rgnwduo0" path="res://素材/地图素材/平原/orig.png" id="6_s83rs"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="8_cqui6"]
-[ext_resource type="Texture2D" uid="uid://l04jbcvwl7dr" path="res://素材/地图素材/小径/orig.png" id="9_a5if0"]
-[ext_resource type="Texture2D" uid="uid://43dw8p4183bc" path="res://素材/地图素材/极光/orig.png" id="10_34e8d"]
+[ext_resource type="PackedScene" uid="uid://cyovx778a3ut5" path="res://场景与代码/ui场景/关卡选择页面/关卡1.tscn" id="8_fp2f5"]
+[ext_resource type="PackedScene" uid="uid://l7xxmvcx3hjl" path="res://场景与代码/ui场景/关卡选择页面/关卡2.tscn" id="9_fp2f5"]
+[ext_resource type="PackedScene" uid="uid://bsm13kkc8uymg" path="res://场景与代码/ui场景/关卡选择页面/关卡3.tscn" id="10_7l1me"]
+[ext_resource type="PackedScene" uid="uid://bwm7n4r162mul" path="res://场景与代码/ui场景/关卡选择页面/关卡4.tscn" id="11_fp2f5"]
+[ext_resource type="PackedScene" uid="uid://iu1j58i036xf" path="res://场景与代码/ui场景/关卡选择页面/关卡5.tscn" id="12_7l1me"]
 
 [node name="关卡选择" type="Control" unique_id=1910587026 node_paths=PackedStringArray("audio_pressed", "audio_entered", "carousel_menu")]
 layout_mode = 3
@@ -37,6 +37,7 @@ stream = ExtResource("3_fp2f5")
 stream = ExtResource("4_7l1me")
 
 [node name="平原" parent="." unique_id=336795962 instance=ExtResource("2_uyobv")]
+metadata/_edit_lock_ = true
 
 [node name="关卡选择" type="Label" parent="." unique_id=2106543495]
 layout_mode = 1
@@ -61,93 +62,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_wvhtr")
 repeat_timer = NodePath("Timer")
-card = NodePath("山脉")
+card = NodePath("关卡1")
 metadata/_edit_lock_ = true
 
-[node name="山脉" type="Button" parent="轮播菜单" unique_id=1405624635 groups=["selectable_control"]]
+[node name="关卡1" parent="轮播菜单" unique_id=2100635663 instance=ExtResource("8_fp2f5")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -166.0
-offset_right = 292.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(292, 166)
-icon = ExtResource("4_weqc4")
+level_id = "初见"
 
-[node name="丘原" type="Button" parent="轮播菜单" unique_id=785272908 groups=["selectable_control"]]
+[node name="关卡2" parent="轮播菜单" unique_id=1628492839 instance=ExtResource("9_fp2f5")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -166.0
-offset_right = 292.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(292, 166)
-icon = ExtResource("2_wvhtr")
+level_id = "关卡2"
 
-[node name="平原" type="Button" parent="轮播菜单" unique_id=1080602271 groups=["selectable_control"]]
+[node name="关卡3" parent="轮播菜单" unique_id=373943670 instance=ExtResource("10_7l1me")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -166.0
-offset_right = 292.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(292, 166)
-icon = ExtResource("6_s83rs")
+level_id = "关卡3"
 
-[node name="极光" type="Button" parent="轮播菜单" unique_id=1802271843 groups=["selectable_control"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -166.0
-offset_right = 292.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(292, 166)
-icon = ExtResource("10_34e8d")
+[node name="关卡4" parent="轮播菜单" unique_id=143823797 instance=ExtResource("11_fp2f5")]
+layout_mode = 0
+anchors_preset = 0
+level_id = "关卡4"
 
-[node name="小径" type="Button" parent="轮播菜单" unique_id=871962727 groups=["selectable_control"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -166.0
-offset_right = 292.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(292, 166)
-icon = ExtResource("9_a5if0")
+[node name="关卡5" parent="轮播菜单" unique_id=982342498 instance=ExtResource("12_7l1me")]
+layout_mode = 0
+anchors_preset = 0
+level_id = "关卡4"
 
 [node name="Timer" type="Timer" parent="轮播菜单" unique_id=1090201811]
 
@@ -165,7 +103,7 @@ theme_override_fonts/font = ExtResource("8_cqui6")
 text = "返回
 "
 
-[node name="人物" type="Button" parent="." unique_id=1150451166]
+[node name="人物" type="Button" parent="." unique_id=1150451166 groups=["selectable_control"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -181,7 +119,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_cqui6")
 text = "人物"
 
-[connection signal="pressed" from="轮播菜单/山脉" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="轮播菜单/关卡1" to="." method="_on_level1_pressed"]
 [connection signal="timeout" from="轮播菜单/Timer" to="轮播菜单" method="_on_repeat_timer_timeout"]
 [connection signal="pressed" from="返回" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="人物" to="." method="_on_character_pressed"]

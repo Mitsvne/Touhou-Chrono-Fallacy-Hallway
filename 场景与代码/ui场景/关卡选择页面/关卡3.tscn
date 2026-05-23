@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bsm13kkc8uymg"]
+
+[ext_resource type="PackedScene" uid="uid://cyovx778a3ut5" path="res://场景与代码/ui场景/关卡选择页面/关卡1.tscn" id="1_t4ef1"]
+[ext_resource type="Texture2D" uid="uid://2us8rgnwduo0" path="res://素材/地图素材/平原/orig.png" id="2_m1nxt"]
+
+[node name="关卡" unique_id=2100635663 instance=ExtResource("1_t4ef1")]
+icon = ExtResource("2_m1nxt")

@@ -19,6 +19,9 @@ var character2_instance : Node2D
 # 可调整的偏移量，避免箭头紧贴边缘
 var custom_time: float = 0.0
 const EDGE_MARGIN := 20.0
+var player:CharacterBody2D
+
+
 
 func _ready():
 	GameState.current_state = GameState.State.正常   # 强制设为正常
@@ -48,6 +51,8 @@ func _ready():
 	print("main初始化完成")
 	add_child(character1_instance)
 	add_child(character2_instance)
+	player=character1_instance
+	print("player:",player)
 	character1_instance.character_main.character_is_dead.connect(game_over_fail)
 	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 	# 指向箭头与血条
@@ -66,20 +71,35 @@ func _physics_process(delta: float) -> void:
 ## 玩家胜利结算
 func game_over_victory(team):
 	print("游戏胜利，%s死亡"%[team])
-	add_result_scene("成功")
+	add_result_scene()
 
-## 玩家胜利结算
+## 玩家失败结算
 func game_over_fail(team):
 	print("游戏失败，%s死亡"%[team])
-	add_result_scene("失败")
+	add_result_scene()
 
 ## 添加结算页面
-func add_result_scene(result:String):
+func add_result_scene():
 	if GameState.current_state!=GameState.State.正常:
 		return
 	var result_instance = result_scene.instantiate()
-	result_instance.set_result(result)
+	var current_stars :int = calculate_stars()
+	GameData.set_stars("初见",current_stars)
+	GameData.set_current_level_id("初见")
 	add_child(result_instance)
+
+## 计算获得的星级
+func calculate_stars() -> int:
+	var hp:float=player.character_data.hp
+	var hp_max:float=player.character_data.hp_max
+	print(hp/hp_max)
+	if hp/hp_max>=0.9:
+		return 3
+	elif hp/hp_max>=0.6:
+		return 2
+	elif hp/hp_max>=0.3:
+		return 1
+	return 0
 
 ## 添加暂停页面
 func add_pause_scene():
@@ -89,3 +109,4 @@ func add_pause_scene():
 func add_playerui_scene():
 	var playerui_instance = playerui_scene.instantiate()
 	add_child(playerui_instance)
+	

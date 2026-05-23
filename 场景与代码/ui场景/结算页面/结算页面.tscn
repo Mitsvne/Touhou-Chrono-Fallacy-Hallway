@@ -1,12 +1,54 @@
 [gd_scene format=3 uid="uid://dptewmma7hr2j"]
 
 [ext_resource type="Script" uid="uid://bqpbskbb408mh" path="res://场景与代码/ui场景/结算页面/结算页面.gd" id="1_yp4sk"]
+[ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="2_aqhvt"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="2_lvraq"]
+[ext_resource type="Texture2D" uid="uid://cofrmrilut0ud" path="res://素材/ui素材/ui素材/星星1.png" id="3_gm5th"]
 
-[node name="结算页面" type="CanvasLayer" unique_id=404581363 node_paths=PackedStringArray("label", "reset_button")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqhvt"]
+shader = ExtResource("2_aqhvt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6x4ks"]
+shader = ExtResource("2_aqhvt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iu1vs"]
+shader = ExtResource("2_aqhvt")
+
+[node name="结算页面" type="CanvasLayer" unique_id=404581363 node_paths=PackedStringArray("star_textures", "label", "reset_button")]
 script = ExtResource("1_yp4sk")
+star_textures = [NodePath("星级/星星1"), NodePath("星级/星星2"), NodePath("星级/星星3")]
 label = NodePath("VBoxContainer/标题")
 reset_button = NodePath("VBoxContainer/HBoxContainer/重新开始")
+
+[node name="星级" type="HBoxContainer" parent="." unique_id=963678452]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(150, 50)
+
+[node name="星星1" type="TextureRect" parent="星级" unique_id=357603256]
+material = SubResource("ShaderMaterial_aqhvt")
+layout_mode = 2
+texture = ExtResource("3_gm5th")
+
+[node name="星星2" type="TextureRect" parent="星级" unique_id=2058360941]
+material = SubResource("ShaderMaterial_6x4ks")
+layout_mode = 2
+texture = ExtResource("3_gm5th")
+
+[node name="星星3" type="TextureRect" parent="星级" unique_id=753106467]
+material = SubResource("ShaderMaterial_iu1vs")
+layout_mode = 2
+texture = ExtResource("3_gm5th")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=914456664]
 anchors_preset = 8
@@ -14,32 +56,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.42999
-offset_top = -38.5
-offset_right = 74.57001
-offset_bottom = 38.5
+offset_left = -75.0
+offset_top = -100.0
+offset_right = 75.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(75, 100)
 alignment = 1
 
 [node name="标题" type="Label" parent="VBoxContainer" unique_id=398310503]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_lvraq")
 theme_override_font_sizes/font_size = 32
-text = "祓除"
+text = "祓除成功"
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=513559707]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1479297413]
 layout_mode = 2
 
 [node name="重新开始" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=897675844]
 layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_lvraq")
 text = "重新开始"
 
 [node name="返回标题" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1103807786]
 layout_mode = 2
-text = "返回标题
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_lvraq")
+text = "返回关卡
 "
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/重新开始" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/返回标题" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/返回标题" to="." method="_on_back_pressed"]

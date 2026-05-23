@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cyovx778a3ut5"]
+
+[ext_resource type="Script" uid="uid://f5b7s8agn5gk" path="res://场景与代码/ui场景/关卡选择页面/关卡.gd" id="1_7oknm"]
+[ext_resource type="Texture2D" uid="uid://c5j8iglpqledq" path="res://素材/地图素材/山脉/orig.png" id="2_uxc8b"]
+[ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="3_yo2kx"]
+[ext_resource type="Texture2D" uid="uid://cofrmrilut0ud" path="res://素材/ui素材/ui素材/星星1.png" id="4_nvcyx"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="5_cmtia"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2g2v2"]
+shader = ExtResource("3_yo2kx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vam4p"]
+shader = ExtResource("3_yo2kx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cobmd"]
+shader = ExtResource("3_yo2kx")
+
+[node name="关卡" type="Button" unique_id=2100635663 node_paths=PackedStringArray("star_displays") groups=["selectable_control"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -166.0
+offset_right = 292.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(292, 166)
+icon = ExtResource("2_uxc8b")
+script = ExtResource("1_7oknm")
+star_displays = [NodePath("星级/星星1"), NodePath("星级/星星2"), NodePath("星级/星星3")]
+
+[node name="星级" type="HBoxContainer" parent="." unique_id=1104760167]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.49988
+offset_top = -87.5
+offset_right = 67.50012
+offset_bottom = 12.5
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(150, 50)
+
+[node name="星星1" type="TextureRect" parent="星级" unique_id=1853646081]
+material = SubResource("ShaderMaterial_2g2v2")
+layout_mode = 2
+texture = ExtResource("4_nvcyx")
+
+[node name="星星2" type="TextureRect" parent="星级" unique_id=2098036963]
+material = SubResource("ShaderMaterial_vam4p")
+layout_mode = 2
+texture = ExtResource("4_nvcyx")
+
+[node name="星星3" type="TextureRect" parent="星级" unique_id=1650756604]
+material = SubResource("ShaderMaterial_cobmd")
+layout_mode = 2
+texture = ExtResource("4_nvcyx")
+
+[node name="标签" type="Label" parent="." unique_id=1004996369]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 4.5
+offset_right = 20.0
+offset_bottom = 67.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_cmtia")
+theme_override_font_sizes/font_size = 48
