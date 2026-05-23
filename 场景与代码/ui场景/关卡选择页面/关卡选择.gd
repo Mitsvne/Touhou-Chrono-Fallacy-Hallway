@@ -23,7 +23,10 @@ func _on_character_pressed() -> void:
 	audio_pressed.play()
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/人物界面/人物界面.tscn")
 
-
 func _on_level1_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/Main.tscn")
+	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/关卡/关卡1.tscn")
+
+func _on_level2_pressed() -> void:
+	audio_pressed.play()
+	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/关卡/关卡2.tscn")

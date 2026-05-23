@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c0qrts5vm4oqx"]
+
+[ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_purw1"]
+[ext_resource type="Texture2D" uid="uid://c1e51jre1lp1p" path="res://素材/ui素材/人物头像/箭头.png" id="1_y801o"]
+[ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/主体类/效果相关/指向箭头.gd" id="2_132w0"]
+[ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_qpplv"]
+[ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="3_8cpe1"]
+[ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_lqw3y"]
+[ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="4_b6lvy"]
+[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_puq4c"]
+[ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_iug7k"]
+[ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="5_purw1"]
+[ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="7_lqw3y"]
+
+[sub_resource type="Gradient" id="Gradient_073jx"]
+colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_puq4c"]
+gradient = SubResource("Gradient_073jx")
+width = 2592
+height = 486
+fill = 1
+fill_from = Vector2(0.65, 0)
+fill_to = Vector2(0.4923077, 1)
+
+[sub_resource type="Environment" id="Environment_iug7k"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.15
+glow_blend_mode = 0
+
+[node name="关卡2" type="Node" unique_id=1278968647 node_paths=PackedStringArray("map")]
+script = ExtResource("1_purw1")
+character1 = ExtResource("2_qpplv")
+character2 = ExtResource("3_lqw3y")
+result_scene = ExtResource("4_puq4c")
+pause_scene = ExtResource("5_iug7k")
+map = NodePath("平原")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=1856976602]
+
+[node name="箭头" type="Sprite2D" parent="ui" unique_id=4241746]
+texture = ExtResource("1_y801o")
+script = ExtResource("2_132w0")
+
+[node name="ui血条人物" parent="ui" unique_id=1116684798 instance=ExtResource("3_8cpe1")]
+anchor_right = 0.4
+anchor_bottom = 0.194
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 0.0
+offset_bottom = 0.15999603
+
+[node name="ui血条boss" parent="ui" unique_id=446108919 instance=ExtResource("4_b6lvy")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 70.0
+grow_horizontal = 0
+
+[node name="平原" parent="." unique_id=336795962 instance=ExtResource("5_purw1")]
+position = Vector2(0, 2)
+
+[node name="镜头" type="Camera2D" parent="." unique_id=275191344]
+position = Vector2(189, 205)
+process_callback = 0
+limit_left = 0
+limit_top = -50
+limit_right = 864
+limit_bottom = 436
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="1P位置" type="Node2D" parent="." unique_id=698581193]
+position = Vector2(189, 205)
+metadata/_edit_lock_ = true
+
+[node name="2P位置" type="Node2D" parent="." unique_id=1319467164]
+position = Vector2(467, 208)
+metadata/_edit_lock_ = true
+
+[node name="光源" type="PointLight2D" parent="." unique_id=1035690373]
+position = Vector2(0, 195)
+energy = 1.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_puq4c")
+metadata/_edit_lock_ = true
+
+[node name="阴影幕布" type="CanvasModulate" parent="." unique_id=580978625]
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="世界环境光" type="WorldEnvironment" parent="." unique_id=1711643611]
+environment = SubResource("Environment_iug7k")
+
+[node name="背景音乐" type="AudioStreamPlayer" parent="." unique_id=2073058474]
+stream = ExtResource("7_lqw3y")

@@ -17,6 +17,7 @@
 [node name="平原" type="Node2D" unique_id=336795962]
 
 [node name="背景" type="Node2D" parent="." unique_id=1161090485]
+position = Vector2(0, 15)
 
 [node name="蓝天" type="Parallax2D" parent="背景" unique_id=1049048258]
 repeat_size = Vector2(864, 0)
@@ -62,25 +63,39 @@ position = Vector2(432, 178)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_njy0t")
 
-[node name="地图边界" type="Node2D" parent="." unique_id=413617757]
+[node name="地图边界" type="Node2D" parent="." unique_id=1684409771]
 
-[node name="空气墙" type="StaticBody2D" parent="地图边界" unique_id=2026754754]
+[node name="空气墙上" type="StaticBody2D" parent="地图边界" unique_id=279974496]
+collision_layer = 16
+collision_mask = 2
 
-[node name="下" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1489637446]
-position = Vector2(329, 422)
+[node name="上" type="CollisionShape2D" parent="地图边界/空气墙上" unique_id=1677329503]
+position = Vector2(329, -49)
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_d430e")
 
-[node name="上" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1057991120]
-position = Vector2(329, -66)
-rotation = 3.1415927
+[node name="空气墙下" type="StaticBody2D" parent="地图边界" unique_id=1852277177]
+collision_layer = 32
+collision_mask = 2
+
+[node name="下" type="CollisionShape2D" parent="地图边界/空气墙下" unique_id=557369944]
+position = Vector2(329, 437)
 shape = SubResource("WorldBoundaryShape2D_hl4vn")
 
-[node name="左" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=1996297503]
+[node name="空气墙左" type="StaticBody2D" parent="地图边界" unique_id=781769080]
+collision_layer = 64
+collision_mask = 2
+
+[node name="左" type="CollisionShape2D" parent="地图边界/空气墙左" unique_id=2046331077]
 position = Vector2(-1, 202)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_smcg8")
 
-[node name="右" type="CollisionShape2D" parent="地图边界/空气墙" unique_id=468894559]
+[node name="空气墙右" type="StaticBody2D" parent="地图边界" unique_id=798291592]
+collision_layer = 128
+collision_mask = 2
+
+[node name="右" type="CollisionShape2D" parent="地图边界/空气墙右" unique_id=940072449]
 position = Vector2(864, 189)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_fhmfv")

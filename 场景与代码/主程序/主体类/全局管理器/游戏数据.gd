@@ -4,7 +4,9 @@ const SAVE_PATH := "user://save_data.cfg"
 
 # 存储每个关卡的最高星级，键是关卡ID（字符串），值是0~3的整数
 var level_stars := {}
-var current_level_id: String = ""
+var current_level_id: String = ""             #当前的关卡id
+var current_character: CharacterBody2D        #当前选择的角色
+
 func _ready() -> void:
 	load_data()
 

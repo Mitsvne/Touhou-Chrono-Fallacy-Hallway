@@ -4,13 +4,13 @@ extends Node
 @export var character2:PackedScene
 @export var result_scene:PackedScene
 @export var pause_scene:PackedScene
+@export var map: Node2D
 var playerui_scene:PackedScene
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
 @onready var arrow: Sprite2D = $ui/箭头
-@onready var map: Node2D = $山脉
 @onready var bar1: Control = $ui/ui血条人物
 @onready var bar2: Control = $ui/ui血条boss
 

@@ -118,6 +118,7 @@ theme_override_fonts/font = ExtResource("8_cqui6")
 text = "人物"
 
 [connection signal="pressed" from="轮播菜单/关卡1" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="轮播菜单/关卡2" to="." method="_on_level2_pressed"]
 [connection signal="timeout" from="轮播菜单/Timer" to="轮播菜单" method="_on_repeat_timer_timeout"]
 [connection signal="pressed" from="返回" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="人物" to="." method="_on_character_pressed"]
