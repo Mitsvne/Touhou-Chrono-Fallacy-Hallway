@@ -17,11 +17,8 @@ var character_name:String="博丽灵梦"
 @export var bullet2:PackedScene
 @export var bullet3:PackedScene
 
-
-
-
 func _ready():
-	print("4.character初始化完成:",character_name)
+	print("3.character初始化完成:",character_name)
 	
 	
 func _physics_process(_delta: float) -> void:

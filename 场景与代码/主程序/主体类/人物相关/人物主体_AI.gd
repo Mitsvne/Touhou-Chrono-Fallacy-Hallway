@@ -42,7 +42,7 @@ func _ready() -> void:
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	target = character_ctrler.get_target()
-	print("6.Character_AI_Main初始化完成:",character)
+	print("4.Character_AI_Main初始化完成:",character)
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
@@ -175,7 +175,8 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	var attack_effect_node = attack_effect.instantiate()
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
-	character_data.hp-=damage
+	if character_ctrler.get_is_allow_losehp():
+		character_data.hp-=damage
 	if character_data.hp<=0:
 		attack_effect_position=hitbox.global_position
 		attack_type=4

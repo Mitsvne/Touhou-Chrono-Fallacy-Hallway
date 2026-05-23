@@ -20,7 +20,7 @@ var character2_instance : Node2D
 var custom_time: float = 0.0
 const EDGE_MARGIN := 20.0
 var player:CharacterBody2D
-
+var boss:CharacterBody2D
 
 
 func _ready():
@@ -52,6 +52,7 @@ func _ready():
 	add_child(character1_instance)
 	add_child(character2_instance)
 	player=character1_instance
+	boss=character2_instance
 	print("player:",player)
 	character1_instance.character_main.character_is_dead.connect(game_over_fail)
 	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
@@ -71,11 +72,13 @@ func _physics_process(delta: float) -> void:
 ## 玩家胜利结算
 func game_over_victory(team):
 	print("游戏胜利，%s死亡"%[team])
+	player.character_ctrler.set_is_allow_losehp(false)
 	add_result_scene()
 
 ## 玩家失败结算
 func game_over_fail(team):
 	print("游戏失败，%s死亡"%[team])
+	boss.character_ctrler.set_is_allow_losehp(false)
 	add_result_scene()
 
 ## 添加结算页面

@@ -51,7 +51,7 @@ func _ready() -> void:
 	skill_timer.wait_time = character.skill_cd
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
-	print("5.Character_Main初始化完成:",character)
+	print("4.Character_Main初始化完成:",character)
 
 ## 每帧效果函数
 func _physics_process(delta: float) -> void:
@@ -214,7 +214,8 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	var attack_effect_node = attack_effect.instantiate()
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)
-	character_data.hp-=damage
+	if character_ctrler.get_is_allow_losehp():
+		character_data.hp-=damage
 	if character_data.hp<=0 and not final_hit:
 		final_hit=true
 		attack_effect_position=hitbox.global_position

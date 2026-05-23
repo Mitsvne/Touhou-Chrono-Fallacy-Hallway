@@ -30,7 +30,7 @@ var character_name:String="拉赫莱蒂"
 func _ready():
 	#await get_tree().process_frame
 	character_ctrler.add_prop(book,Vector2(0,-50))
-	print("4.character初始化完成:",character_name)
+	print("3.character初始化完成:",character_name)
 
 func _physics_process(_delta: float) -> void:
 	character_data.mp+=100

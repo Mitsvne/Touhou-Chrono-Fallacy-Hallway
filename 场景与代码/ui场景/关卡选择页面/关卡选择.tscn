@@ -78,13 +78,11 @@ layout_mode = 1
 level_id = "关卡3"
 
 [node name="关卡4" parent="轮播菜单" unique_id=143823797 instance=ExtResource("11_fp2f5")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 level_id = "关卡4"
 
 [node name="关卡5" parent="轮播菜单" unique_id=982342498 instance=ExtResource("12_7l1me")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 level_id = "关卡4"
 
 [node name="Timer" type="Timer" parent="轮播菜单" unique_id=1090201811]

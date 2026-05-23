@@ -4,7 +4,6 @@ class_name Character_Ctrler
 
 @export var character:CharacterBody2D #角色节点
 @export var character_data: Character_Data
-@export var character_input: Character_Input
 @export var anplayer: AnimationPlayer
 @export var warning_line:PackedScene
 
@@ -12,6 +11,7 @@ var is_key_moving:bool=true  # 是否按键移动
 var is_moving:bool=false  # 是否移动
 var is_gravity:bool=false  # 是否受重力
 var is_allow_behit:bool=true  # 是否可以受击
+var is_allow_losehp:bool=true  # 是否可以受击
 var is_penetrate:bool=true  # 是否可被穿透
 var is_invincible:bool=true  # 是否无敌
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float # 重力数值
@@ -23,7 +23,7 @@ var current_drag: Vector2 = Vector2.ZERO  # 当前阻力/加速度
 
 func _ready() -> void:
 	set_physics_process(false)
-	print("3.Character_Ctrler初始化完成")
+	print("2.Character_Ctrler初始化完成")
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -128,7 +128,15 @@ func apply_gravity(value:bool):
 func set_direction(value:int):
 	character_data.direction=value
 
-## 设置是否可以被打
+## 设置是否可以损失hp(有受击面，可以触发受击效果)
+func set_is_allow_losehp(value:bool):
+	is_allow_losehp=value
+
+## 获取可以损失hp
+func get_is_allow_losehp():
+	return  is_allow_losehp
+
+## 设置是否可以被打(有受击面，但无法触发受击效果)
 func set_is_allow_behit(value:bool):
 	is_allow_behit=value
 
@@ -157,7 +165,7 @@ func _get_hurtbox_collisionshapes() -> Array[CollisionShape2D]:
 			shapes.append(child)
 	return shapes
 
-## 设置是否无敌
+## 设置是否无敌(无受击面)
 func set_invincible(value:bool):
 	is_invincible=value
 	for shape in _get_hurtbox_collisionshapes():
@@ -167,10 +175,14 @@ func set_invincible(value:bool):
 func get_invincible():
 	return is_invincible
 
-## 设置是否可被穿越
+## 设置是否可穿越地图
 func set_penetrate(value:bool):
 	is_penetrate=value
 	_get_collisionshape().set_deferred("disabled", value)
+
+## 获取是否可穿越地图
+func get_penetrate():
+	return is_penetrate
 
 ## 跳转到动画的指定时间点（秒）
 func jump_to_time(anim_name: String, time: float, play_after: bool = true) -> void:
@@ -211,7 +223,7 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	else:
 		bullet_instance.rotation += PI - deg_to_rad(offset_rotation)
 	#print("飞行物自身角度：",rad_to_deg(bullet_instance.rotation))
-	
+
 
 ## 添加道具
 func add_prop(prop,offset:Vector2):
@@ -260,8 +272,6 @@ func add_effect(effect,generate_position:Vector2=character.global_position,offse
 	effect_instance.scale.x *= character_data.direction
 	get_parent().add_child(effect_instance)
 
-
-
 ## 获取道具
 func get_prop(pname:String):
 	var props = get_tree().get_nodes_in_group("props")
@@ -295,11 +305,6 @@ func get_target():
 func move_to_target(offect:Vector2=Vector2(0,0)):
 	offect.x*=character_data.direction
 	character.global_position=get_target().global_position+offect
-
-
-
-
-
 
 ## 播放音频
 func play_audio(audio_path: NodePath):
