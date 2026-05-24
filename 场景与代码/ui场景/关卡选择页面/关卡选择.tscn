@@ -89,14 +89,10 @@ level_id = "关卡4"
 
 [node name="返回" type="Button" parent="." unique_id=1948500099 groups=["selectable_control"]]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = -40.0
+offset_top = 10.0
 offset_right = 48.0
-offset_bottom = -11.0
-grow_vertical = 0
+offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("8_cqui6")
 text = "返回
 "

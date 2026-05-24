@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy6n7bo4pcw61"
-path="res://.godot/imported/stand006.png-ef851e3072cd1a5b1cf5cdb3acdfa048.ctex"
+uid="uid://s8eqsuj6q82e"
+path="res://.godot/imported/bulletAa000.png-ab04a18eacd5e8e3b3a0c812edbcd6a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/早苗/stand006.png"
-dest_files=["res://.godot/imported/stand006.png-ef851e3072cd1a5b1cf5cdb3acdfa048.ctex"]
+source_file="res://素材/人物素材/早苗/特效/bulletAa000.png"
+dest_files=["res://.godot/imported/bulletAa000.png-ab04a18eacd5e8e3b3a0c812edbcd6a0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6cj3t5n216hi"
-path="res://.godot/imported/stand002.png-97eb00b1ab8e9cfdbd3afe6134ce2d20.ctex"
+uid="uid://dgpr6s5shucf8"
+path="res://.godot/imported/dashBack003.png-c48dd47fffb49312a570009242531cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/早苗/stand002.png"
-dest_files=["res://.godot/imported/stand002.png-97eb00b1ab8e9cfdbd3afe6134ce2d20.ctex"]
+source_file="res://素材/人物素材/早苗/人物/dashBack003.png"
+dest_files=["res://.godot/imported/dashBack003.png-c48dd47fffb49312a570009242531cdb.ctex"]
 
 [params]
 

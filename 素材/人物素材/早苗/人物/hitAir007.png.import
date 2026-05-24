@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da81vm5mvuqfj"
-path="res://.godot/imported/stand003.png-924764377c0413418538fb780108bb06.ctex"
+uid="uid://2g1x12orwpuo"
+path="res://.godot/imported/hitAir007.png-d315a0ff38a30d0014a6206e69cea4e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/人物素材/早苗/stand003.png"
-dest_files=["res://.godot/imported/stand003.png-924764377c0413418538fb780108bb06.ctex"]
+source_file="res://素材/人物素材/早苗/人物/hitAir007.png"
+dest_files=["res://.godot/imported/hitAir007.png-d315a0ff38a30d0014a6206e69cea4e8.ctex"]
 
 [params]
 

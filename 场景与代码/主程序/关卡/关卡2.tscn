@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_purw1"]
 [ext_resource type="Texture2D" uid="uid://c1e51jre1lp1p" path="res://素材/ui素材/人物头像/箭头.png" id="1_y801o"]
 [ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/主体类/效果相关/指向箭头.gd" id="2_132w0"]
-[ext_resource type="PackedScene" uid="uid://b82iad0bxqhsp" path="res://场景与代码/人物/灵梦/灵梦.tscn" id="2_qpplv"]
+[ext_resource type="PackedScene" uid="uid://bwbev3uuivmkw" path="res://场景与代码/人物/早苗/早苗.tscn" id="2_purw1"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="3_8cpe1"]
 [ext_resource type="PackedScene" uid="uid://dhem3wxpj02v8" path="res://场景与代码/人物/拉赫/本体/拉赫.tscn" id="3_lqw3y"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="4_b6lvy"]
@@ -33,7 +33,7 @@ glow_blend_mode = 0
 
 [node name="关卡2" type="Node" unique_id=1278968647 node_paths=PackedStringArray("map")]
 script = ExtResource("1_purw1")
-character1 = ExtResource("2_qpplv")
+character1 = ExtResource("2_purw1")
 character2 = ExtResource("3_lqw3y")
 result_scene = ExtResource("4_puq4c")
 pause_scene = ExtResource("5_iug7k")

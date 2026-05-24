@@ -178,6 +178,9 @@ func start_move_towards(target_pos: Vector2, speed: float, drag: float = 0.0,
 		base_direction: Vector2 = Vector2.RIGHT) -> void:
 	if not is_instance_valid(bullet):
 		return
+	if not target_pos:
+		printerr("目标位置为空")
+		return
 	var to_target = target_pos - bullet.global_position
 	if to_target.is_zero_approx(): return
 	# 1. 获取当前逻辑朝向 (1 或 -1)
