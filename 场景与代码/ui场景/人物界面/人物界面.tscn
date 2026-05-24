@@ -284,18 +284,21 @@ texture = ExtResource("1_gepx4")
 region_enabled = true
 region_rect = Rect2(2790, 3766, 84, 84)
 
-[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "name_label", "hp_label", "mp_label", "energy_name", "power_name", "speed_name")]
+[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right")]
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 361.0
 script = ExtResource("10_on5sk")
 an = NodePath("人物/人物图像")
+btn_appearance = NodePath("人物/登场")
 name_label = NodePath("人物/人物名称")
 hp_label = NodePath("属性/HBoxContainer/VBoxContainer/血量")
 mp_label = NodePath("属性/HBoxContainer/VBoxContainer/魔力")
-energy_name = NodePath("属性/HBoxContainer/VBoxContainer/耐力")
-power_name = NodePath("属性/HBoxContainer/HBoxContainer/攻击")
-speed_name = NodePath("属性/HBoxContainer/HBoxContainer/移速")
+energy_label = NodePath("属性/HBoxContainer/VBoxContainer/耐力")
+power_label = NodePath("属性/HBoxContainer/HBoxContainer/攻击")
+speed_label = NodePath("属性/HBoxContainer/HBoxContainer/移速")
+btn_left = NodePath("人物/箭头左")
+btn_right = NodePath("人物/箭头右")
 
 [node name="人物" type="Control" parent="面板" unique_id=1530969487]
 anchors_preset = 0
@@ -322,13 +325,15 @@ flip_h = true
 
 [node name="人物名称" type="Label" parent="面板/人物" unique_id=1599031170]
 layout_mode = 0
-offset_left = 58.0
+offset_left = 5.0
 offset_top = 211.0
-offset_right = 176.0
+offset_right = 229.0
 offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
 text = "博丽灵梦"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="箭头右" type="TextureButton" parent="面板/人物" unique_id=1793078415]
 layout_mode = 0
@@ -338,6 +343,15 @@ offset_right = 349.0
 offset_bottom = 280.0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("28_ny3ie")
+
+[node name="登场" type="Button" parent="面板/人物" unique_id=581221716]
+layout_mode = 1
+offset_left = 59.0
+offset_top = 10.0
+offset_right = 97.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+text = "登场"
 
 [node name="属性" type="Control" parent="面板" unique_id=929963042]
 layout_mode = 1
@@ -445,8 +459,8 @@ text = "道具"
 layout_mode = 1
 offset_left = 11.0
 offset_top = 10.0
-offset_right = 51.0
-offset_bottom = 41.0
+offset_right = 49.0
+offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 text = "返回"
 
