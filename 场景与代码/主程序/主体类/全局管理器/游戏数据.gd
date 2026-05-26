@@ -5,7 +5,7 @@ const SAVE_PATH := "user://save_data.cfg"
 # 存储每个关卡的最高星级，键是关卡ID（字符串），值是0~3的整数
 var level_stars := {}
 var current_level_id: String = ""             #当前的关卡id
-var current_character: String = ""            #当前选择的角色
+var current_character: String = "博丽灵梦"            #当前选择的角色
 
 # 角色数据：字典的字典
 var characters: Dictionary = {
@@ -14,15 +14,23 @@ var characters: Dictionary = {
 		"mp": 100,  "mp_max": 100,
 		"energy": 100, "energy_max": 100,
 		"power": 10, "speed": 400,
+		"path":"res://场景与代码/人物/灵梦/本体/灵梦.tscn"
 	},
 	"东风谷早苗": {
 		"hp": 300, "hp_max": 300,
 		"mp": 120,  "mp_max": 120,
 		"energy": 80, "energy_max": 80,
 		"power": 8, "speed": 500,
+		"path":"res://场景与代码/人物/早苗/本体/早苗.tscn"
+	},
+	"拉赫莱蒂": {
+		"hp": 300, "hp_max": 300,
+		"mp": 100,  "mp_max": 100,
+		"energy": 100, "energy_max": 100,
+		"power": 10, "speed": 400,
+		"path":"res://场景与代码/人物/拉赫/本体/拉赫.tscn"
 	}
 }
-
 
 func _ready() -> void:
 	load_data()

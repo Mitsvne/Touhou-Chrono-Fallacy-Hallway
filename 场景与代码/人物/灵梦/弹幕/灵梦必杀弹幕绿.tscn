@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo8ufujvwynim"]
 
-[ext_resource type="Script" uid="uid://bs6juy5tplfwo" path="res://场景与代码/人物/灵梦/灵梦必杀弹幕.gd" id="1_1pres"]
+[ext_resource type="Script" uid="uid://bs6juy5tplfwo" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕.gd" id="1_1pres"]
 [ext_resource type="Texture2D" uid="uid://csw6swlb34x3w" path="res://素材/人物素材/灵梦/特效/spellBulletA002.png" id="2_1pres"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="3_76r6k"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_px5yt"]

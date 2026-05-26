@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh1hidu0qei23"]
 
-[ext_resource type="Script" uid="uid://0mquw1cwhl4u" path="res://场景与代码/人物/早苗/早苗普攻弹幕.gd" id="1_46byg"]
+[ext_resource type="Script" uid="uid://0mquw1cwhl4u" path="res://场景与代码/人物/早苗/弹幕/早苗普攻弹幕.gd" id="1_46byg"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="1_kcslg"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="2_46byg"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="3_togxl"]

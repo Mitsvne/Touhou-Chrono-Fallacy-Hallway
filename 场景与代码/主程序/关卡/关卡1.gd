@@ -1,58 +1,41 @@
 extends Node
 
-@export var character1:PackedScene
-@export var character2:PackedScene
+@export var boss_id:String
 @export var result_scene:PackedScene
 @export var pause_scene:PackedScene
-@export var map: Node2D
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
+@onready var map: Node2D = $山脉
 @onready var arrow: Sprite2D = $ui/箭头
 @onready var bar1: Control = $ui/ui血条人物
 @onready var bar2: Control = $ui/ui血条boss
 
-var character1_instance : Node2D
-var character2_instance : Node2D
-# 可调整的偏移量，避免箭头紧贴边缘
-var custom_time: float = 0.0
-const EDGE_MARGIN := 20.0
-var player:CharacterBody2D
-var boss:CharacterBody2D
+var character1:PackedScene
+var character2:PackedScene
+var character1_path:String
+var character2_path:String
+var character1_instance:Node2D
+var character2_instance:Node2D
 
+var custom_time: float = 0.0        # 存储的时间
 
 func _ready():
 	GameState.current_state = GameState.State.正常   # 强制设为正常
-	AudioManager.stop_bgm(0)
-	add_pause_scene()   # 添加暂停页面并隐藏
+	AudioManager.stop_bgm(0)                        # 关bgm
+	add_pause_scene()                               # 添加暂停页面并隐藏
 	# 添加人物
-	character1_instance = character1.instantiate()
-	character2_instance = character2.instantiate()
-	character1_instance.position=_1p_pos.position
-	character2_instance.position=_2p_pos.position
+	var pos1=_1p_pos.global_position
+	var pos2=_2p_pos.global_position
+	character1_instance=add_character(GameData.get_current_character(),"1P",pos1)
+	character2_instance=add_character(boss_id,"2P",pos2)
+	character1_instance.character_main.character_is_dead.connect(game_over_fail)
+	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
+	# 相机跟随与地图图层
 	camera.reparent(character1_instance)
 	camera.position = Vector2.ZERO
 	map.z_index = -1
-	var players = [character1_instance,character2_instance]
-	if players.size() > 0 and players[0].is_in_group("players"):
-		players[0].add_to_group("1P")
-		players[0].character_data.team="1P"
-		print("第一个角色:%s加入:%s"%
-		[players[0].character_name,players[0].character_data.team])
-	if players.size() > 1 and players[1].is_in_group("players"):
-		players[1].add_to_group("2P")
-		players[1].character_data.team="2P"
-		print("第一个角色:%s加入:%s"%
-		[players[1].character_name,players[1].character_data.team])
-	print("main初始化完成")
-	add_child(character1_instance)
-	add_child(character2_instance)
-	player=character1_instance
-	boss=character2_instance
-	print("player:",player)
-	character1_instance.character_main.character_is_dead.connect(game_over_fail)
-	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 	# 指向箭头与血条
 	arrow.player=character1_instance
 	arrow.enemy=character2_instance
@@ -60,22 +43,41 @@ func _ready():
 	bar1.character_data=character1_instance.character_data
 	bar2.character=character2_instance
 	bar2.character_data=character2_instance.character_data
+	print("main初始化完成")
 
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
 		custom_time += delta # 将累积的时间赋值给全局着色器参数
 		RenderingServer.global_shader_parameter_set("CUSTOM_TIME", custom_time)
 
+## 添加角色
+func add_character(id:String,team:String="1P",pos:Vector2=Vector2.ZERO):
+	var character:PackedScene
+	var character_path:String
+	var character_instance:Node2D
+	character_path=GameData.get_stat(id,"path")
+	if character_path != "":
+		character = load(character_path)
+	else:
+		printerr("错误：未找到角色路径")
+	character_instance = character.instantiate()
+	character_instance.add_to_group(team)
+	character_instance.character_data.team=team
+	print("%s加入:%s"%[character_instance.character_name,character_instance.character_data.team])
+	character_instance.global_position=pos
+	add_child(character_instance)
+	return character_instance
+
 ## 玩家胜利结算
 func game_over_victory(team):
 	print("游戏胜利，%s死亡"%[team])
-	player.character_ctrler.set_is_allow_losehp(false)
+	character1_instance.character_ctrler.set_is_allow_losehp(false)
 	add_result_scene()
 
 ## 玩家失败结算
 func game_over_fail(team):
 	print("游戏失败，%s死亡"%[team])
-	boss.character_ctrler.set_is_allow_losehp(false)
+	character2_instance.character_ctrler.set_is_allow_losehp(false)
 	add_result_scene()
 
 ## 添加结算页面
@@ -90,8 +92,8 @@ func add_result_scene():
 
 ## 计算获得的星级
 func calculate_stars() -> int:
-	var hp:float=player.character_data.hp
-	var hp_max:float=player.character_data.hp_max
+	var hp:float=character1_instance.character_data.hp
+	var hp_max:float=character1_instance.character_data.hp_max
 	print(hp/hp_max)
 	if hp/hp_max>=0.9:
 		return 3

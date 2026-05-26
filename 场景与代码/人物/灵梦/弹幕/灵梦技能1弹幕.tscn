@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwm05hjgmvlxs"]
 
-[ext_resource type="Script" uid="uid://doqkfq7hj2g4a" path="res://场景与代码/人物/灵梦/灵梦技能1弹幕.gd" id="1_ej0t6"]
+[ext_resource type="Script" uid="uid://doqkfq7hj2g4a" path="res://场景与代码/人物/灵梦/弹幕/灵梦技能1弹幕.gd" id="1_ej0t6"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="2_k06hx"]
 [ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="3_ry8f1"]
 [ext_resource type="Texture2D" uid="uid://ciymm4x3k6ewa" path="res://素材/人物素材/灵梦/特效/spellBulletGa001.png" id="4_yjhwv"]

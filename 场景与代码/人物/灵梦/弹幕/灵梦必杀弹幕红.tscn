@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://cevptb0cf01pl"]
+[gd_scene format=3 uid="uid://3lxrlcyhfxcd"]
 
-[ext_resource type="Script" uid="uid://bs6juy5tplfwo" path="res://场景与代码/人物/灵梦/灵梦必杀弹幕.gd" id="1_yt03v"]
-[ext_resource type="Texture2D" uid="uid://bp24iivn5tqkm" path="res://素材/人物素材/灵梦/特效/spellBulletA001.png" id="2_yt03v"]
-[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="3_ienvj"]
-[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_6s0f6"]
-[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_rqlia"]
-[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="6_ibs8p"]
-[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_y0o6p"]
-[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_ij41d"]
-[ext_resource type="AudioStream" uid="uid://rxnd45x7xxh2" path="res://素材/人物素材/灵梦/音效/弹幕发射3.wav" id="9_ienvj"]
-[ext_resource type="AudioStream" uid="uid://cbi6w30rsiwhf" path="res://素材/人物素材/灵梦/音效/lm_5-73.wav" id="10_6s0f6"]
+[ext_resource type="Script" uid="uid://bs6juy5tplfwo" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕.gd" id="1_qq37l"]
+[ext_resource type="Texture2D" uid="uid://bxk7dep80ik80" path="res://素材/人物素材/灵梦/特效/spellBulletA000.png" id="2_3hkdx"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="3_mcfyn"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_3hkdx"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_xe1f2"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="6_yim3i"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_5xo2j"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="9_o68x3"]
+[ext_resource type="AudioStream" uid="uid://rxnd45x7xxh2" path="res://素材/人物素材/灵梦/音效/弹幕发射3.wav" id="9_rg7m5"]
+[ext_resource type="AudioStream" uid="uid://cbi6w30rsiwhf" path="res://素材/人物素材/灵梦/音效/lm_5-73.wav" id="10_xe1f2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xo2j"]
 radius = 40.04997
@@ -21,7 +21,7 @@ blend_mode = 1
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yt03v")
+"texture": ExtResource("2_3hkdx")
 }],
 "loop": true,
 "name": &"default",
@@ -202,7 +202,7 @@ _data = {
 }
 
 [sub_resource type="Resource" id="Resource_5xo2j"]
-script = ExtResource("4_6s0f6")
+script = ExtResource("4_3hkdx")
 damage = 30.0
 attack_type = 3
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
@@ -213,10 +213,10 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_mcfyn"]
 offsets = PackedFloat32Array(0, 0.26666668, 0.5897436, 0.8974359, 1)
-colors = PackedColorArray(0.99138063, 0.62176794, 0.63713175, 0, 0, 0.91340774, 0.97375685, 0.78431374, 0.18902636, 0.5861478, 0.9290643, 0.78431374, 1, 0.94509804, 0.95686275, 0.5882353, 0, 0, 0, 0)
+colors = PackedColorArray(0.99138063, 0.62176794, 0.63713175, 0, 1, 0.72156864, 0.75686276, 0.78431374, 0.9254902, 0.34117648, 0.37254903, 0.78431374, 1, 0.94509804, 0.95686275, 0.5882353, 0, 0, 0, 0)
 
 [node name="灵梦必杀弹幕红" type="Area2D" unique_id=564191474 node_paths=PackedStringArray("an", "hitarea", "bullet_data", "bullet_ctrler", "effect_ctrler", "audio")]
-script = ExtResource("1_yt03v")
+script = ExtResource("1_qq37l")
 an = NodePath("动画")
 hitarea = NodePath("Hitbox/攻击面")
 bullet_data = NodePath("class/Bullet_Data")
@@ -225,7 +225,6 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 audio = NodePath("命中音效")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=428463632]
-visible = false
 shape = SubResource("CircleShape2D_5xo2j")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=30873285]
@@ -238,8 +237,7 @@ root_node = NodePath("../碰撞面")
 libraries/ = SubResource("AnimationLibrary_rg7m5")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=380120006]
-visible = false
-script = ExtResource("3_ienvj")
+script = ExtResource("3_mcfyn")
 attack_data = SubResource("Resource_5xo2j")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
@@ -249,22 +247,22 @@ shape = SubResource("CircleShape2D_5xo2j")
 [node name="class" type="Node" parent="." unique_id=1385722771]
 
 [node name="Bullet_Ctrler" type="Node" parent="class" unique_id=857295645 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
-script = ExtResource("5_rqlia")
+script = ExtResource("5_xe1f2")
 anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
 [node name="Bullet_Data" type="Node" parent="class" unique_id=2115027547]
-script = ExtResource("6_ibs8p")
+script = ExtResource("6_yim3i")
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1300993654]
-script = ExtResource("7_y0o6p")
+script = ExtResource("9_o68x3")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="拖尾" type="Node2D" parent="." unique_id=308750246 node_paths=PackedStringArray("line2d")]
-script = ExtResource("8_ij41d")
+script = ExtResource("8_5xo2j")
 line2d = NodePath("线")
 
 [node name="线" type="Line2D" parent="拖尾" unique_id=1755852765]
@@ -274,11 +272,11 @@ width = 50.0
 width_curve = SubResource("Curve_5xo2j")
 gradient = SubResource("Gradient_mcfyn")
 
-[node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=893476201]
-stream = ExtResource("9_ienvj")
+[node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=844789864]
+stream = ExtResource("9_rg7m5")
 autoplay = true
 
-[node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1097974849]
-stream = ExtResource("10_6s0f6")
+[node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1762880189]
+stream = ExtResource("10_xe1f2")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

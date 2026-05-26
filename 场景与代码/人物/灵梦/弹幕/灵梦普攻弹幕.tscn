@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhtpa5t1ogkki"]
 
-[ext_resource type="Script" uid="uid://o746ii6kllhf" path="res://场景与代码/人物/灵梦/灵梦普攻弹幕.gd" id="1_1ax1q"]
+[ext_resource type="Script" uid="uid://o746ii6kllhf" path="res://场景与代码/人物/灵梦/弹幕/灵梦普攻弹幕.gd" id="1_1ax1q"]
 [ext_resource type="Texture2D" uid="uid://bi7503dccqr0s" path="res://素材/人物素材/灵梦/特效/bulletEa000.png" id="2_rn2kp"]
 [ext_resource type="Texture2D" uid="uid://dppml02qs5b5t" path="res://素材/人物素材/灵梦/特效/bulletEa001.png" id="3_rn2kp"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="4_g87nq"]
