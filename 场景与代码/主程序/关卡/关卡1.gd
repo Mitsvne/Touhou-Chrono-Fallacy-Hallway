@@ -88,9 +88,9 @@ func add_result_scene():
 		return
 	var result_instance = result_scene.instantiate()
 	var current_stars :int = calculate_stars()
-	GameData.set_stars(level_id,current_stars)
-	GameData.set_current_level_id(level_id)
 	add_child(result_instance)
+	EventBus.level_complete.emit(level_id,current_stars)
+	GameData.set_stars(level_id,current_stars)
 
 ## 计算获得的星级
 func calculate_stars() -> int:

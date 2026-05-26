@@ -6,19 +6,22 @@ extends CanvasLayer
 @export var reset_button: Button
 
 var stars:int          #结算星级
-var level_id:String    #关卡id
 
 
 func _ready() -> void:
+	EventBus.level_complete.connect(_on_level_complete)
 	reset_button.grab_focus()
 	GameState.set_result(true)
-	level_id=GameData.get_current_level_id()
-	stars=GameData.get_stars(level_id)
-	set_label()
 	for star in star_textures:
 		star.modulate.a=0
-	animate_stars()
 	
+
+func _on_level_complete(level_id:String,stars_num:int):
+	stars=stars_num
+	GameData.set_stars(level_id,stars_num)
+	set_label()
+	animate_stars()
+
 ## 标题内容
 func set_label():
 	if not label:

@@ -66,5 +66,7 @@ func _on_right_pressed() -> void:
 
 ## 登场按钮，使当前角色登场
 func _on_appearance_pressed() -> void:
-	GameData.set_current_character(animation_list[current_index])
+	var character_name:String=animation_list[current_index]
+	GameData.set_current_character(character_name)
+	EventBus.character_changed.emit(character_name)
 	btn_appearance.text="登场角色："+GameData.get_current_character()

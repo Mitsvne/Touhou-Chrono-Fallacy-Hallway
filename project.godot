@@ -27,6 +27,7 @@ Math="*uid://b4toid6mxi21i"
 AudioManager="*uid://c3ngmw5ko4ldk"
 InputManager="*uid://cv4t1kr3hnjs2"
 VideoManager="*uid://bc7hw635f8y4"
+EventBus="*uid://dklim5gaw1jox"
 
 [display]
 
