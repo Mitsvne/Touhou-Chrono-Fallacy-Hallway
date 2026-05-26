@@ -29,9 +29,11 @@ glow_intensity = 1.0
 glow_bloom = 0.15
 glow_blend_mode = 0
 
-[node name="关卡1" type="Node" unique_id=1178706691]
+[node name="关卡1" type="Node" unique_id=1178706691 node_paths=PackedStringArray("map")]
 script = ExtResource("1_x7ath")
+level_id = "关卡1"
 boss_id = "拉赫莱蒂"
+map = NodePath("山脉")
 result_scene = ExtResource("4_w5sji")
 pause_scene = ExtResource("5_3df55")
 

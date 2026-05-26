@@ -19,7 +19,7 @@ var current_state: State = State.常态 :
 		if current_state == v: return
 		exit_state(current_state)
 		transition_state(current_state,v)
-		print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
+		#print("%s => %s"%[State.keys()[current_state],State.keys()[v]])
 		current_state=v
 		enter_state(v)
 var target :CharacterBody2D
@@ -227,7 +227,7 @@ func update_direction():
 ## 设置朝向：处理视觉翻转和逻辑数值同步
 func set_direction(_direct: float):
 	character.scale.x *=  -1
-	print("direction：",character_data.direction," scale.x：",character.scale.x)
+	#print("direction：",character_data.direction," scale.x：",character.scale.x)
 
 
 # ==========================================

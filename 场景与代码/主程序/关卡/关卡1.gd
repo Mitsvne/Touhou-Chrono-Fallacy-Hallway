@@ -1,13 +1,15 @@
 extends Node
 
+@export var level_id:String
 @export var boss_id:String
+@export var map:Node2D
 @export var result_scene:PackedScene
 @export var pause_scene:PackedScene
+
 
 @onready var _1p_pos: Node2D = $"1P位置"
 @onready var _2p_pos: Node2D = $"2P位置"
 @onready var camera: Camera2D = $镜头
-@onready var map: Node2D = $山脉
 @onready var arrow: Sprite2D = $ui/箭头
 @onready var bar1: Control = $ui/ui血条人物
 @onready var bar2: Control = $ui/ui血条boss
@@ -86,8 +88,8 @@ func add_result_scene():
 		return
 	var result_instance = result_scene.instantiate()
 	var current_stars :int = calculate_stars()
-	GameData.set_stars("初见",current_stars)
-	GameData.set_current_level_id("初见")
+	GameData.set_stars(level_id,current_stars)
+	GameData.set_current_level_id(level_id)
 	add_child(result_instance)
 
 ## 计算获得的星级

@@ -50,16 +50,19 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(150, 50)
 
 [node name="星星1" type="TextureRect" parent="星级" unique_id=1853646081]
+texture_filter = 2
 material = SubResource("ShaderMaterial_2g2v2")
 layout_mode = 2
 texture = ExtResource("4_nvcyx")
 
 [node name="星星2" type="TextureRect" parent="星级" unique_id=2098036963]
+texture_filter = 2
 material = SubResource("ShaderMaterial_vam4p")
 layout_mode = 2
 texture = ExtResource("4_nvcyx")
 
 [node name="星星3" type="TextureRect" parent="星级" unique_id=1650756604]
+texture_filter = 2
 material = SubResource("ShaderMaterial_cobmd")
 layout_mode = 2
 texture = ExtResource("4_nvcyx")

@@ -15,7 +15,7 @@ func _ready():
 	await get_tree().process_frame
 	target=prop_data.prop_owner
 	scale.x=prop_data.prop_direction
-	print("刻印之卷主人：",prop_data.prop_owner)
+	#print("刻印之卷主人：",prop_data.prop_owner)
 
 func _process(delta):
 	if not target:

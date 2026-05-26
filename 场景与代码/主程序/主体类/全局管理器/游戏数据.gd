@@ -4,8 +4,8 @@ const SAVE_PATH := "user://save_data.cfg"
 
 # 存储每个关卡的最高星级，键是关卡ID（字符串），值是0~3的整数
 var level_stars := {}
-var current_level_id: String = ""             #当前的关卡id
-var current_character: String = "博丽灵梦"            #当前选择的角色
+var current_level_id: String = "关卡1"                # 当前的关卡id
+var current_character: String = "博丽灵梦"             # 当前选择的角色
 
 # 角色数据：字典的字典
 var characters: Dictionary = {
@@ -35,12 +35,6 @@ var characters: Dictionary = {
 func _ready() -> void:
 	load_data()
 
-
-
-
-
-
-
 ## ==========================================
 ##         —— 安全的对外输入接口 ——
 ## ==========================================
@@ -55,6 +49,7 @@ func get_current_character() -> String:
 
 func set_current_character(character: String) -> void:
 	current_character=character
+	save_data()
 
 ## 获取关卡星级
 func get_stars(level_id: String) -> int:
@@ -91,6 +86,7 @@ func save_data() -> void:
 	var config := ConfigFile.new()
 	for level in level_stars:
 		config.set_value("stars", level, level_stars[level])
+	config.set_value("Player", "current_character", current_character)
 	for char_id in characters:
 		var stats = characters[char_id]
 		for stat in stats:
@@ -108,7 +104,10 @@ func load_data() -> void:
 	if config.has_section("stars"):
 		for level_key in config.get_section_keys("stars"):
 			level_stars[level_key] = config.get_value("stars", level_key)
-	# 2. 读取角色数据
+	# 2. 读取当前登场角色
+	if config.has_section("Player"):
+		current_character = config.get_value("Player", "current_character")
+	# 3. 读取角色数据
 	for section in config.get_sections():
 		# 只处理以 "char_" 开头的节（表示角色数据）
 		if section.begins_with("char_"):

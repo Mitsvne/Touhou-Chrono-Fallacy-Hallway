@@ -41,7 +41,6 @@ func _physics_process(_delta: float) -> void:
 func skill1():
 	var current_position=self.global_position
 	for i in range(-10,11):
-		print(i)
 		character_ctrler.add_warning_line(current_position,Vector2(-700,100*i),0,2000)
 		character_ctrler.add_warning_line(current_position,Vector2(100*i,-700),90,2000)
 	await get_tree().create_timer(1.0, false).timeout

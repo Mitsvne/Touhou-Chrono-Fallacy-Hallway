@@ -12,7 +12,7 @@ extends Control
 @export var btn_right: TextureButton
 
 var animation_list: PackedStringArray  = []   # 所有动画的名称列表
-var current_index: int = 0
+var current_index: int = 1
 
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 	btn_right.pressed.connect(_on_right_pressed)
 	btn_appearance.pressed.connect(_on_appearance_pressed)
 	if not animation_list.is_empty():
-		play_animation_at_index(0)
+		play_animation_at_index(current_index)
 	update_content()
 
 

@@ -67,7 +67,7 @@ metadata/_edit_lock_ = true
 
 [node name="关卡1" parent="轮播菜单" unique_id=2100635663 instance=ExtResource("8_fp2f5")]
 layout_mode = 1
-level_id = "初见"
+level_id = "关卡1"
 
 [node name="关卡2" parent="轮播菜单" unique_id=1628492839 instance=ExtResource("9_fp2f5")]
 layout_mode = 1
@@ -75,15 +75,15 @@ level_id = "关卡2"
 
 [node name="关卡3" parent="轮播菜单" unique_id=373943670 instance=ExtResource("10_7l1me")]
 layout_mode = 1
-level_id = "关卡3"
+level_id = "关卡3未开发"
 
 [node name="关卡4" parent="轮播菜单" unique_id=143823797 instance=ExtResource("11_fp2f5")]
 layout_mode = 1
-level_id = "关卡4"
+level_id = "关卡4未开发"
 
 [node name="关卡5" parent="轮播菜单" unique_id=982342498 instance=ExtResource("12_7l1me")]
 layout_mode = 1
-level_id = "关卡4"
+level_id = "关卡4未开发"
 
 [node name="Timer" type="Timer" parent="轮播菜单" unique_id=1090201811]
 

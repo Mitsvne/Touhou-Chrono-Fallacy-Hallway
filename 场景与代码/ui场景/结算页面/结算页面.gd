@@ -14,7 +14,6 @@ func _ready() -> void:
 	GameState.set_result(true)
 	level_id=GameData.get_current_level_id()
 	stars=GameData.get_stars(level_id)
-	print(level_id,stars)
 	set_label()
 	for star in star_textures:
 		star.modulate.a=0

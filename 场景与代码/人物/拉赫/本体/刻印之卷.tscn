@@ -808,6 +808,7 @@ autoplay = "idea"
 [node name="书攻击特效" type="AnimatedSprite2D" parent="素材库" unique_id=667068883]
 visible = false
 self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+texture_filter = 2
 material = SubResource("ShaderMaterial_4dkra")
 position = Vector2(2, -10)
 scale = Vector2(0.5, 0.5)
@@ -820,6 +821,7 @@ autoplay = &"常态"
 
 [node name="书全局特效" type="AnimatedSprite2D" parent="." unique_id=1142687465]
 self_modulate = Color(2.454227, 2.454227, 2.454227, 0.5882353)
+texture_filter = 2
 material = SubResource("ShaderMaterial_4dkra")
 position = Vector2(2, -10)
 scale = Vector2(0.5, 0.5)
@@ -829,7 +831,6 @@ autoplay = "气息"
 
 [node name="音效" type="AudioStreamPlayer" parent="." unique_id=189264982]
 stream = ExtResource("34_oiso3")
-bus = &"Se"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=43201303]
 script = ExtResource("34_c8ads")
