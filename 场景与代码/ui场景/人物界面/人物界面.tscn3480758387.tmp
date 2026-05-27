@@ -108,7 +108,7 @@ texture = ExtResource("1_gepx4")
 region_enabled = true
 region_rect = Rect2(880, 2288, 768, 529)
 
-[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right", "skill_label", "ultimate_label", "btn_skill1", "btn_skill2", "btn_ultimate1", "btn_ultimate2")]
+[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right", "btn_skill1", "btn_skill2", "btn_ultimate1", "btn_ultimate2")]
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 361.0
@@ -123,8 +123,6 @@ power_label = NodePath("属性/HBoxContainer/HBoxContainer/攻击")
 speed_label = NodePath("属性/HBoxContainer/HBoxContainer/移速")
 btn_left = NodePath("人物/箭头左")
 btn_right = NodePath("人物/箭头右")
-skill_label = NodePath("技能选择/技能")
-ultimate_label = NodePath("技能选择/必杀")
 btn_skill1 = NodePath("技能选择/HBoxContainer/Button1")
 btn_skill2 = NodePath("技能选择/HBoxContainer/Button2")
 btn_ultimate1 = NodePath("技能选择/HBoxContainer2/Button3")
@@ -246,22 +244,13 @@ grow_horizontal = 0
 
 [node name="技能" type="Label" parent="面板/技能选择" unique_id=864662840]
 layout_mode = 1
+offset_left = 3.0
 offset_top = 15.0
-offset_right = 150.0
+offset_right = 121.0
 offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
-text = "当前技能："
-
-[node name="必杀" type="Label" parent="面板/技能选择" unique_id=1223525393]
-layout_mode = 1
-offset_left = 190.0
-offset_top = 15.0
-offset_right = 340.0
-offset_bottom = 57.0
-theme_override_fonts/font = ExtResource("34_md5pp")
-theme_override_font_sizes/font_size = 32
-text = "当前必杀："
+text = "技能"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="面板/技能选择" unique_id=768009274]
 layout_mode = 0
@@ -278,11 +267,21 @@ icon = ExtResource("23_wncqq")
 layout_mode = 2
 icon = ExtResource("24_5kdap")
 
+[node name="必杀" type="Label" parent="面板/技能选择" unique_id=1223525393]
+layout_mode = 1
+offset_left = 193.0
+offset_top = 18.0
+offset_right = 311.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("34_md5pp")
+theme_override_font_sizes/font_size = 32
+text = "必杀"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="面板/技能选择" unique_id=1507536211]
 layout_mode = 0
-offset_left = 190.0
+offset_left = 194.0
 offset_top = 75.0
-offset_right = 292.0
+offset_right = 296.0
 offset_bottom = 148.0
 
 [node name="Button3" type="Button" parent="面板/技能选择/HBoxContainer2" unique_id=1218026913]

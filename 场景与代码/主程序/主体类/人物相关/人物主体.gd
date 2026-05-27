@@ -114,6 +114,7 @@ func enter_state(state:State):
 		State.技能,State.必杀:
 			update_direction()
 		State.死亡:
+			EventBus.character_dead.emit(team)
 			character_is_dead.emit(team)
 		pass
 
@@ -132,9 +133,10 @@ func transition_state(_from:State,to:State) -> void:
 		State.冲刺:
 			dash_animation()
 		State.技能:
-			an_paly("技能")
+			an_paly("技能1")
 		State.必杀:
-			an_paly("必杀")
+			#an_paly("必杀")
+			an_paly(GameData.get_stat(GameData.get_current_character(),"current_ultimate"))
 		State.死亡:
 			an_paly("死亡")
 

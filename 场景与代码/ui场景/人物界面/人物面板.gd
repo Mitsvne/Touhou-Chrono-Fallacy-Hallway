@@ -11,9 +11,17 @@ extends Control
 @export var btn_left: TextureButton
 @export var btn_right: TextureButton
 
+@export var skill_label: Label
+@export var ultimate_label: Label
+@export var btn_skill1: Button
+@export var btn_skill2: Button
+@export var btn_ultimate1: Button
+@export var btn_ultimate2: Button
+
+
 var animation_list: PackedStringArray  = []   # 所有动画的名称列表
 var current_index: int = 1
-
+var current_char_name: String
 
 func _ready() -> void:
 	if an.sprite_frames:
@@ -21,6 +29,10 @@ func _ready() -> void:
 	btn_left.pressed.connect(_on_left_pressed)
 	btn_right.pressed.connect(_on_right_pressed)
 	btn_appearance.pressed.connect(_on_appearance_pressed)
+	btn_skill1.pressed.connect(_on_skill1_pressed)
+	btn_skill2.pressed.connect(_on_skill2_pressed)
+	btn_ultimate1.pressed.connect(_on_ultimate1_pressed)
+	btn_ultimate2.pressed.connect(_on_ultimate2_pressed)
 	if not animation_list.is_empty():
 		play_animation_at_index(current_index)
 	update_content()
@@ -33,13 +45,20 @@ func _process(_delta: float) -> void:
 func update_content():
 	if GameData.get_current_character():
 		btn_appearance.text="登场角色："+GameData.get_current_character()
-	var char_id:String=animation_list[current_index]
-	name_label.text=char_id
-	hp_label.text="血量："+str(GameData.get_stat(char_id,"hp"))
-	mp_label.text="魔力："+str(GameData.get_stat(char_id,"mp"))
-	energy_label.text="耐力："+str(GameData.get_stat(char_id,"energy"))
-	power_label.text="攻击："+str(GameData.get_stat(char_id,"power"))
-	speed_label.text="移速："+str(GameData.get_stat(char_id,"speed"))
+	var char_name:String=animation_list[current_index]
+	current_char_name=char_name
+	name_label.text=char_name
+	hp_label.text="血量："+str(GameData.get_stat(char_name,"hp"))
+	mp_label.text="魔力："+str(GameData.get_stat(char_name,"mp"))
+	energy_label.text="耐力："+str(GameData.get_stat(char_name,"energy"))
+	power_label.text="攻击："+str(GameData.get_stat(char_name,"power"))
+	speed_label.text="移速："+str(GameData.get_stat(char_name,"speed"))
+	btn_skill1.icon=GameData.get_stat(char_name,"skill1_icon")
+	btn_skill2.icon=GameData.get_stat(char_name,"skill2_icon")
+	btn_ultimate1.icon=GameData.get_stat(char_name,"ultimate1_icon")
+	btn_ultimate2.icon=GameData.get_stat(char_name,"ultimate2_icon")
+	skill_label.text="当前："+GameData.get_stat(char_name,"current_skill")
+	ultimate_label.text="当前："+GameData.get_stat(char_name,"current_ultimate")
 
 ## 播放对应索引的动画
 func play_animation_at_index(index: int) -> void:
@@ -70,3 +89,19 @@ func _on_appearance_pressed() -> void:
 	GameData.set_current_character(character_name)
 	EventBus.character_changed.emit(character_name)
 	btn_appearance.text="登场角色："+GameData.get_current_character()
+	
+func _on_skill1_pressed() -> void:
+	GameData.set_character_stat(current_char_name,"current_skill","技能1")
+	update_content()
+
+func _on_skill2_pressed() -> void:
+	GameData.set_character_stat(current_char_name,"current_skill","技能2")
+	update_content()
+
+func _on_ultimate1_pressed() -> void:
+	GameData.set_character_stat(current_char_name,"current_ultimate","必杀1")
+	update_content()
+
+func _on_ultimate2_pressed() -> void:
+	GameData.set_character_stat(current_char_name,"current_ultimate","必杀2")
+	update_content()

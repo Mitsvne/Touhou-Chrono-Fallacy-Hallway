@@ -32,8 +32,6 @@ func _ready():
 	var pos2=_2p_pos.global_position
 	character1_instance=add_character(GameData.get_current_character(),"1P",pos1)
 	character2_instance=add_character(boss_id,"2P",pos2)
-	character1_instance.character_main.character_is_dead.connect(game_over_fail)
-	character2_instance.character_ai_main.character_is_dead.connect(game_over_victory)
 	# 相机跟随与地图图层
 	camera.reparent(character1_instance)
 	camera.position = Vector2.ZERO
@@ -45,6 +43,8 @@ func _ready():
 	bar1.character_data=character1_instance.character_data
 	bar2.character=character2_instance
 	bar2.character_data=character2_instance.character_data
+	# 角色死亡信号连接
+	EventBus.character_dead.connect(game_over)
 	print("main初始化完成")
 
 func _physics_process(delta: float) -> void:
@@ -70,16 +70,14 @@ func add_character(id:String,team:String="1P",pos:Vector2=Vector2.ZERO):
 	add_child(character_instance)
 	return character_instance
 
-## 玩家胜利结算
-func game_over_victory(team):
-	print("游戏胜利，%s死亡"%[team])
+## 游戏结束，进入结算
+func game_over(team):
 	character1_instance.character_ctrler.set_is_allow_losehp(false)
-	add_result_scene()
-
-## 玩家失败结算
-func game_over_fail(team):
-	print("游戏失败，%s死亡"%[team])
 	character2_instance.character_ctrler.set_is_allow_losehp(false)
+	if team=="1P":
+		print("信号游戏失败，%s死亡"%[team])
+	else:
+		print("信号游戏胜利，%s死亡"%[team])
 	add_result_scene()
 
 ## 添加结算页面

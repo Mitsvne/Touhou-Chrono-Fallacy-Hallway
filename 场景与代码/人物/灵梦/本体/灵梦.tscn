@@ -2152,9 +2152,9 @@ _data = {
 &"前进": SubResource("Animation_vrvly"),
 &"后退": SubResource("Animation_gxxbo"),
 &"常态": SubResource("Animation_syqf8"),
-&"必杀": SubResource("Animation_wpml1"),
+&"必杀1": SubResource("Animation_wpml1"),
 &"必杀2": SubResource("Animation_lt2rg"),
-&"技能": SubResource("Animation_h1ood"),
+&"技能1": SubResource("Animation_h1ood"),
 &"死亡": SubResource("Animation_4a6ux")
 }
 

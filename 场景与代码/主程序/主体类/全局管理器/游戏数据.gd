@@ -14,21 +14,26 @@ var characters: Dictionary = {
 		"mp": 100,  "mp_max": 100,
 		"energy": 100, "energy_max": 100,
 		"power": 10, "speed": 400,
-		"path":"res://场景与代码/人物/灵梦/本体/灵梦.tscn"
+		"current_skill":"技能1",
+		"current_ultimate":"必杀1",
+		"path":"res://场景与代码/人物/灵梦/本体/灵梦.tscn",
+		"skill1_icon":preload("res://素材/人物素材/灵梦/符卡/技能1.png"),
+		"skill2_icon":preload("res://素材/人物素材/灵梦/符卡/技能2.png"),
+		"ultimate1_icon":preload("res://素材/人物素材/灵梦/符卡/必杀1.png"),
+		"ultimate2_icon":preload("res://素材/人物素材/灵梦/符卡/必杀2.png")
 	},
 	"东风谷早苗": {
 		"hp": 300, "hp_max": 300,
 		"mp": 120,  "mp_max": 120,
 		"energy": 80, "energy_max": 80,
 		"power": 8, "speed": 500,
-		"path":"res://场景与代码/人物/早苗/本体/早苗.tscn"
-	},
-	"拉赫莱蒂": {
-		"hp": 300, "hp_max": 300,
-		"mp": 100,  "mp_max": 100,
-		"energy": 100, "energy_max": 100,
-		"power": 10, "speed": 400,
-		"path":"res://场景与代码/人物/拉赫/本体/拉赫.tscn"
+		"current_skill":"技能1",
+		"current_ultimate":"必杀1",
+		"path":preload("res://场景与代码/人物/早苗/本体/早苗.tscn"),
+		"skill1_icon":preload("res://素材/人物素材/早苗/符卡/技能1.png"),
+		"skill2_icon":preload("res://素材/人物素材/早苗/符卡/技能2.png"),
+		"ultimate1_icon":preload("res://素材/人物素材/早苗/符卡/必杀1.png"),
+		"ultimate2_icon":preload("res://素材/人物素材/早苗/符卡/必杀2.png")
 	}
 }
 
@@ -71,7 +76,7 @@ func get_stat(char_id: String, stat: String, default = 0):
 	return characters.get(char_id, {}).get(stat, default)
 
 ## 更新某个属性（同时触发保存）
-func set_character_stat(char_id: String, stat: String, value: int) -> void:
+func set_character_stat(char_id: String, stat: String, value) -> void:
 	if not characters.has(char_id):
 		return
 	characters[char_id][stat] = value

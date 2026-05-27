@@ -123,6 +123,7 @@ func get_next_state(state:State)->State:
 func enter_state(state:State):
 	match state:
 		State.死亡:
+			EventBus.character_dead.emit(team)
 			character_is_dead.emit(team)
 
 ## 状态退出时
