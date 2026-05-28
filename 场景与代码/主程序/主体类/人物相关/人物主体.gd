@@ -136,7 +136,7 @@ func transition_state(_from:State,to:State) -> void:
 			an_paly("技能1")
 		State.必杀:
 			#an_paly("必杀")
-			an_paly(GameData.get_stat(GameData.get_current_character(),"current_ultimate"))
+			an_paly(GameData.get_stat(GameData.get_current_character(),"ultimate"))
 		State.死亡:
 			an_paly("死亡")
 

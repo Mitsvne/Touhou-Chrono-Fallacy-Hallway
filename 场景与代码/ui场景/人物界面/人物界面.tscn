@@ -125,7 +125,7 @@ texture = ExtResource("1_gepx4")
 region_enabled = true
 region_rect = Rect2(880, 2288, 768, 529)
 
-[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right", "skill_label", "ultimate_label", "btn_skill1", "btn_skill2", "btn_ultimate1", "btn_ultimate2")]
+[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right", "skill_label", "ultimate_label", "skill_box", "ultimate_box", "btn_skill1", "btn_skill2", "btn_ultimate1", "btn_ultimate2", "item_card_box", "item_card_label")]
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 361.0
@@ -142,10 +142,14 @@ btn_left = NodePath("人物选择/箭头左")
 btn_right = NodePath("人物选择/箭头右")
 skill_label = NodePath("技能选择/技能")
 ultimate_label = NodePath("技能选择/必杀")
-btn_skill1 = NodePath("技能选择/技能按钮/Button1")
-btn_skill2 = NodePath("技能选择/技能按钮/Button2")
-btn_ultimate1 = NodePath("技能选择/必杀按钮/Button3")
-btn_ultimate2 = NodePath("技能选择/必杀按钮/Button4")
+skill_box = NodePath("技能选择/技能卡容器")
+ultimate_box = NodePath("技能选择/必杀卡容器")
+btn_skill1 = NodePath("技能选择/技能卡容器/技能1")
+btn_skill2 = NodePath("技能选择/技能卡容器/技能2")
+btn_ultimate1 = NodePath("技能选择/必杀卡容器/必杀1")
+btn_ultimate2 = NodePath("技能选择/必杀卡容器/必杀2")
+item_card_box = NodePath("道具选择/滚动列表/道具卡容器")
+item_card_label = NodePath("道具选择/道具卡")
 
 [node name="人物选择" type="Control" parent="面板" unique_id=1530969487]
 anchors_preset = 0
@@ -270,6 +274,21 @@ theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
 text = "当前技能："
 
+[node name="技能卡容器" type="HBoxContainer" parent="面板/技能选择" unique_id=768009274]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 75.0
+offset_right = 105.0
+offset_bottom = 148.0
+
+[node name="技能1" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1509725384]
+layout_mode = 2
+icon = ExtResource("23_wncqq")
+
+[node name="技能2" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1446396394]
+layout_mode = 2
+icon = ExtResource("24_5kdap")
+
 [node name="必杀" type="Label" parent="面板/技能选择" unique_id=1223525393]
 layout_mode = 1
 offset_left = 190.0
@@ -280,33 +299,18 @@ theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
 text = "当前必杀："
 
-[node name="技能按钮" type="HBoxContainer" parent="面板/技能选择" unique_id=768009274]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 75.0
-offset_right = 105.0
-offset_bottom = 148.0
-
-[node name="Button1" type="Button" parent="面板/技能选择/技能按钮" unique_id=1509725384]
-layout_mode = 2
-icon = ExtResource("23_wncqq")
-
-[node name="Button2" type="Button" parent="面板/技能选择/技能按钮" unique_id=1446396394]
-layout_mode = 2
-icon = ExtResource("24_5kdap")
-
-[node name="必杀按钮" type="HBoxContainer" parent="面板/技能选择" unique_id=1507536211]
+[node name="必杀卡容器" type="HBoxContainer" parent="面板/技能选择" unique_id=1507536211]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 75.0
 offset_right = 292.0
 offset_bottom = 148.0
 
-[node name="Button3" type="Button" parent="面板/技能选择/必杀按钮" unique_id=1218026913]
+[node name="必杀1" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=1218026913]
 layout_mode = 2
 icon = ExtResource("25_mxt0k")
 
-[node name="Button4" type="Button" parent="面板/技能选择/必杀按钮" unique_id=2144983865]
+[node name="必杀2" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=2144983865]
 layout_mode = 2
 icon = ExtResource("26_ny3ie")
 
@@ -322,15 +326,15 @@ offset_top = -180.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="道具" type="Label" parent="面板/道具选择" unique_id=565952284]
+[node name="道具卡" type="Label" parent="面板/道具选择" unique_id=565952284]
 layout_mode = 1
 offset_right = 118.0
 offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
-text = "道具"
+text = "道具卡"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="面板/道具选择" unique_id=406221092]
+[node name="滚动列表" type="ScrollContainer" parent="面板/道具选择" unique_id=406221092]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -342,76 +346,90 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="面板/道具选择/ScrollContainer" unique_id=993549485]
+[node name="道具卡容器" type="HBoxContainer" parent="面板/道具选择/滚动列表" unique_id=993549485]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 6
 
-[node name="Button" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1435814724]
+[node name="攻击提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1435814724]
 layout_mode = 2
 icon = ExtResource("27_88f5o")
 
-[node name="Button2" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=56540019]
+[node name="血量提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=56540019]
 layout_mode = 2
 icon = ExtResource("28_on5sk")
 
-[node name="Button3" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=536997134]
+[node name="魔力提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=536997134]
 layout_mode = 2
 icon = ExtResource("29_1m0wx")
 
-[node name="Button4" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1691169041]
+[node name="Button4" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1691169041]
+visible = false
 layout_mode = 2
 icon = ExtResource("30_2spmo")
 
-[node name="Button5" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1193859746]
+[node name="Button5" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1193859746]
+visible = false
 layout_mode = 2
 icon = ExtResource("31_ep4tj")
 
-[node name="Button6" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1157417321]
+[node name="Button6" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1157417321]
+visible = false
 layout_mode = 2
 icon = ExtResource("32_n4xpo")
 
-[node name="Button7" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=398305872]
+[node name="Button7" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=398305872]
+visible = false
 layout_mode = 2
 icon = ExtResource("33_r8x36")
 
-[node name="Button8" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1211673254]
+[node name="Button8" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1211673254]
+visible = false
 layout_mode = 2
 icon = ExtResource("34_gafpj")
 
-[node name="Button9" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=927463842]
+[node name="Button9" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=927463842]
+visible = false
 layout_mode = 2
 icon = ExtResource("35_5qkjf")
 
-[node name="Button10" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=511699629]
+[node name="Button10" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=511699629]
+visible = false
 layout_mode = 2
 icon = ExtResource("36_vy5sx")
 
-[node name="Button11" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=249109421]
+[node name="Button11" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=249109421]
+visible = false
 layout_mode = 2
 icon = ExtResource("37_jwqhd")
 
-[node name="Button12" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=762261436]
+[node name="Button12" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=762261436]
+visible = false
 layout_mode = 2
 icon = ExtResource("38_xj0qe")
 
-[node name="Button13" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=53045965]
+[node name="Button13" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=53045965]
+visible = false
 layout_mode = 2
 icon = ExtResource("39_bkog8")
 
-[node name="Button14" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=685279772]
+[node name="Button14" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=685279772]
+visible = false
 layout_mode = 2
 icon = ExtResource("40_uloqu")
 
-[node name="Button15" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1684589540]
+[node name="Button15" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1684589540]
+visible = false
 layout_mode = 2
 icon = ExtResource("41_l5wtj")
 
-[node name="Button16" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1512005012]
+[node name="Button16" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1512005012]
+visible = false
 layout_mode = 2
 icon = ExtResource("42_7sxqe")
 
-[node name="Button17" type="Button" parent="面板/道具选择/ScrollContainer/HBoxContainer" unique_id=1800391647]
+[node name="Button17" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1800391647]
+visible = false
 layout_mode = 2
 icon = ExtResource("43_48gml")
 
