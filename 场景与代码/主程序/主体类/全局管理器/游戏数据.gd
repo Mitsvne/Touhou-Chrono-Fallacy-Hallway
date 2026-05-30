@@ -1,12 +1,20 @@
 extends Node
 
 const SAVE_PATH := "user://save_data.cfg"
-
+const DEFAULT_CHARACTER = preload("res://场景与代码/人物/灵梦/本体/灵梦数据.tres")
+signal character_changed(new_data: CharacterData)
 # 存储每个关卡的最高星级，键是关卡ID（字符串），值是0~3的整数
 var level_stars := {}
 var current_level_id: String = "关卡1"                # 当前的关卡id
 var current_character: String = "博丽灵梦"             # 当前选择的角色
 
+var current_deploy_character_data:CharacterData=DEFAULT_CHARACTER
+var current_character_data: CharacterData:
+	set(value):
+			current_character_data = value
+			character_changed.emit(value)
+
+var all_owned_cards: Array[ItemCardData] = []
 # 角色数据：字典的字典
 var characters: Dictionary = {
 	"博丽灵梦": {
@@ -40,6 +48,13 @@ var characters: Dictionary = {
 }
 
 func _ready() -> void:
+	var card1 = load("res://场景与代码/道具卡/体力提升/体力提升.tres")
+	var card2 = load("res://场景与代码/道具卡/灵力提升/灵力提升.tres")
+	var card3 = load("res://场景与代码/道具卡/符卡威力提升/符卡威力提升.tres")
+	#var card4 = load()
+	all_owned_cards.append(card1)
+	all_owned_cards.append(card2)
+	all_owned_cards.append(card3)
 	load_data()
 
 ## ==========================================

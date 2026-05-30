@@ -28,6 +28,7 @@ AudioManager="*uid://c3ngmw5ko4ldk"
 InputManager="*uid://cv4t1kr3hnjs2"
 VideoManager="*uid://bc7hw635f8y4"
 EventBus="*uid://dklim5gaw1jox"
+CardManager="*uid://77vlxyak0lca"
 
 [display]
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemCardData" format=3 uid="uid://drw1b5bmbnis4"]
+
+[ext_resource type="Script" uid="uid://c1h7u2a1umpox" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡效果基类.gd" id="1_rb2x6"]
+[ext_resource type="Script" uid="uid://crbqo3jn4q5d5" path="res://场景与代码/道具卡/通用效果/速度提升.gd" id="2_2o40u"]
+[ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="2_3m503"]
+[ext_resource type="Texture2D" uid="uid://c3hhnv56s22fo" path="res://素材/特效素材/通用道具/道具_体力提升.png" id="2_c7yg5"]
+
+[sub_resource type="Resource" id="Resource_08fyj"]
+script = ExtResource("2_2o40u")
+speed_add_value = 200.0
+metadata/_custom_type_script = "uid://crbqo3jn4q5d5"
+
+[resource]
+script = ExtResource("2_3m503")
+card_id = "体力提升"
+card_name = "体力提升"
+icon = ExtResource("2_c7yg5")
+description = "血量提升50%，耐力提升25%"
+effects = Array[ExtResource("1_rb2x6")]([SubResource("Resource_08fyj")])
+metadata/_custom_type_script = "uid://donfkw40y1usn"

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
 [ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物/灵梦/本体/灵梦.gd" id="1_ig6o6"]
 [ext_resource type="PackedScene" uid="uid://bhtpa5t1ogkki" path="res://场景与代码/人物/灵梦/弹幕/灵梦普攻弹幕.tscn" id="2_g1kd8"]
+[ext_resource type="Resource" uid="uid://l41whiw04qvf" path="res://场景与代码/人物/灵梦/本体/灵梦数据.tres" id="2_hhs80"]
 [ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="2_ig6o6"]
 [ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物/灵梦/弹幕/灵梦技能1弹幕.tscn" id="3_8vesq"]
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
@@ -59,7 +60,6 @@
 [ext_resource type="PackedScene" uid="uid://3lxrlcyhfxcd" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕红.tscn" id="56_wmq54"]
 [ext_resource type="PackedScene" uid="uid://cevptb0cf01pl" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕蓝.tscn" id="57_kgnp6"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="59_0mxg6"]
-[ext_resource type="Script" uid="uid://bpvq5t7ax0ymu" path="res://场景与代码/人物/灵梦/本体/饰品.gd" id="60_k3vqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
 size = Vector2(39, 39)
@@ -2174,6 +2174,7 @@ collision_layer = 2
 collision_mask = 240
 motion_mode = 1
 script = ExtResource("1_ig6o6")
+characterdata = ExtResource("2_hhs80")
 character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
@@ -2186,8 +2187,6 @@ bullet3 = SubResource("PackedScene_bo27d")
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
-hp_max = 300.0
-energy_regen = 20.0
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "anplayer")]
@@ -2272,8 +2271,5 @@ bus = &"SFX"
 stream = ExtResource("39_3568u")
 volume_db = -5.0
 bus = &"SFX"
-
-[node name="饰品" type="Node" parent="." unique_id=794604284]
-script = ExtResource("60_k3vqu")
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmdbjolruty1"
-path="res://.godot/imported/道具_攻击力提升.png-7aaeb6c844cbf36e5358dca919f3b51f.ctex"
+uid="uid://c3hhnv56s22fo"
+path="res://.godot/imported/道具_体力提升.png-e092e9852bb1ebbb4a773208556c2fb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/特效素材/通用道具/道具_攻击力提升.png"
-dest_files=["res://.godot/imported/道具_攻击力提升.png-7aaeb6c844cbf36e5358dca919f3b51f.ctex"]
+source_file="res://素材/特效素材/通用道具/道具_体力提升.png"
+dest_files=["res://.godot/imported/道具_体力提升.png-e092e9852bb1ebbb4a773208556c2fb2.ctex"]
 
 [params]
 

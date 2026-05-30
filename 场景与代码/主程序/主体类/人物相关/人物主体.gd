@@ -24,10 +24,7 @@ var current_state: State = State.常态 :
 
 var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
-var move_speed:int
 var current_velocity: Vector2 = Vector2.ZERO
-var acceleration: float
-var friction: float
 var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
@@ -39,16 +36,13 @@ var final_hit:bool=false
 func _ready() -> void:
 	await character.ready                          #等人物先加载
 	team=character_data.team                       #队伍
-	move_speed=character.move_speed                #移速
-	acceleration=character.acceleration            #加速度
-	friction=character.friction                    #减速度
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	#普攻和技能cd计时器
-	attack_timer.wait_time = character.attack_interval
+	attack_timer.wait_time =  character_data.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
-	skill_timer.wait_time = character.skill_cd
+	skill_timer.wait_time = character_data.skill_cd
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
 	print("4.Character_Main初始化完成:",character)
@@ -63,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		current_velocity.y += gravity * delta
 	is_allow_key_move=character_ctrler.get_is_key_moving()
 	if is_allow_key_move and not is_dead() and not character_ctrler.get_is_moving():
-		move(move_speed,delta)
+		move(character_data.move_speed,delta)
 
 ## 状态每帧的效果函数
 func tick_physics(state:State,_delta: float) -> void:
@@ -242,9 +236,9 @@ func move(max_speed:float,delta):
 			if dot < 0:  # 按方向相反的键急停（夹角大于90度）
 				current_velocity = Vector2.ZERO
 		var target_velocity = target_direction*max_speed
-		current_velocity = current_velocity.move_toward(target_velocity, acceleration * delta)
+		current_velocity = current_velocity.move_toward(target_velocity, character_data.acceleration * delta)
 	else:
-		current_velocity = current_velocity.move_toward(Vector2.ZERO, friction * delta)
+		current_velocity = current_velocity.move_toward(Vector2.ZERO, character_data.friction * delta)
 	character.velocity = current_velocity
 	character.move_and_slide()
 

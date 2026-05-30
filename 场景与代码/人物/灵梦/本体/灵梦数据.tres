@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://l41whiw04qvf"]
+
+[ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_2nf7d"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_1hp7q"]
+
+[resource]
+script = ExtResource("2_1hp7q")
+character_id = "博丽灵梦"
+character_name = "博丽灵梦"
+metadata/_custom_type_script = "uid://ca3irylcnbh3j"

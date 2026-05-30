@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3hhnv56s22fo"
-path="res://.godot/imported/道具_血量提升.png-84013d0b4e35683ac3b2315dda7f8e6f.ctex"
+uid="uid://86non2i675ix"
+path="res://.godot/imported/道具_灵力提升.png-24b11699198280b966e4436d3849bcc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/特效素材/通用道具/道具_血量提升.png"
-dest_files=["res://.godot/imported/道具_血量提升.png-84013d0b4e35683ac3b2315dda7f8e6f.ctex"]
+source_file="res://素材/特效素材/通用道具/道具_灵力提升.png"
+dest_files=["res://.godot/imported/道具_灵力提升.png-24b11699198280b966e4436d3849bcc7.ctex"]
 
 [params]
 

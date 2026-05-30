@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
 [ext_resource type="Script" uid="uid://brnn8y1ssrusk" path="res://场景与代码/ui场景/人物界面/人物界面.gd" id="1_h7faq"]
+[ext_resource type="Script" uid="uid://cd3y2fw016sqr" path="res://场景与代码/ui场景/人物界面/人物选择.gd" id="4_yyjmi"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="5_88f5o"]
+[ext_resource type="Resource" uid="uid://l41whiw04qvf" path="res://场景与代码/人物/灵梦/本体/灵梦数据.tres" id="6_on5sk"]
+[ext_resource type="Resource" uid="uid://565h26jt54n7" path="res://场景与代码/人物/早苗/本体/早苗数据.tres" id="7_1m0wx"]
 [ext_resource type="Script" uid="uid://btpmddgwr7g7y" path="res://场景与代码/ui场景/人物界面/人物面板.gd" id="10_on5sk"]
 [ext_resource type="Texture2D" uid="uid://b0b2j5uiwmwr5" path="res://素材/人物素材/早苗/人物/stand001.png" id="17_gafpj"]
 [ext_resource type="Texture2D" uid="uid://6cj3t5n216hi" path="res://素材/人物素材/早苗/人物/stand002.png" id="18_fiia1"]
@@ -17,32 +21,19 @@
 [ext_resource type="Texture2D" uid="uid://cta7tn20b7tjw" path="res://素材/人物素材/灵梦/符卡/必杀1.png" id="25_mxt0k"]
 [ext_resource type="Texture2D" uid="uid://du26wxfv34mq8" path="res://素材/人物素材/灵梦/人物/stand002.png" id="26_7sxqe"]
 [ext_resource type="Texture2D" uid="uid://dse4u1yg5n2e0" path="res://素材/人物素材/灵梦/符卡/必杀2.png" id="26_ny3ie"]
+[ext_resource type="Script" uid="uid://bjr0brfv36tq6" path="res://场景与代码/ui场景/人物界面/属性显示.gd" id="27_1m0wx"]
 [ext_resource type="Texture2D" uid="uid://by11ph7on2qjp" path="res://素材/人物素材/灵梦/人物/stand003.png" id="27_48gml"]
-[ext_resource type="Texture2D" uid="uid://dmdbjolruty1" path="res://素材/特效素材/通用道具/道具_攻击力提升.png" id="27_88f5o"]
+[ext_resource type="Script" uid="uid://xyhykvswl1f7" path="res://场景与代码/ui场景/人物界面/道具卡选择.gd" id="28_cyw8p"]
 [ext_resource type="Texture2D" uid="uid://ceqvmib5nusjk" path="res://素材/人物素材/灵梦/人物/stand004.png" id="28_fcjc1"]
 [ext_resource type="Texture2D" uid="uid://c07oo3kgcrkg5" path="res://素材/ui素材/ui素材/箭头2.png" id="28_ny3ie"]
-[ext_resource type="Texture2D" uid="uid://c3hhnv56s22fo" path="res://素材/特效素材/通用道具/道具_血量提升.png" id="28_on5sk"]
-[ext_resource type="Texture2D" uid="uid://86non2i675ix" path="res://素材/特效素材/通用道具/道具_魔力提升.png" id="29_1m0wx"]
 [ext_resource type="Texture2D" uid="uid://bcw6vq1qqbpns" path="res://素材/人物素材/灵梦/人物/stand005.png" id="29_tx8m0"]
-[ext_resource type="Texture2D" uid="uid://dl4s3i4qofudu" path="res://素材/特效素材/通用道具/card006.png" id="30_2spmo"]
 [ext_resource type="Texture2D" uid="uid://csnaneetaftq2" path="res://素材/人物素材/灵梦/人物/stand006.png" id="30_g7hsp"]
 [ext_resource type="Texture2D" uid="uid://biuy0nqiijgef" path="res://素材/人物素材/灵梦/人物/stand007.png" id="31_3s75x"]
-[ext_resource type="Texture2D" uid="uid://p6uc7c1378iv" path="res://素材/特效素材/通用道具/card007.png" id="31_ep4tj"]
 [ext_resource type="Texture2D" uid="uid://cf7q58k5mlc5y" path="res://素材/人物素材/灵梦/人物/stand008.png" id="32_g2vdo"]
-[ext_resource type="Texture2D" uid="uid://bevtxs8rd582p" path="res://素材/特效素材/通用道具/card008.png" id="32_n4xpo"]
 [ext_resource type="Texture2D" uid="uid://dk8kauf55ywnh" path="res://素材/人物素材/灵梦/人物/stand009.png" id="33_1ej85"]
-[ext_resource type="Texture2D" uid="uid://cceeib7bfasom" path="res://素材/特效素材/通用道具/card009.png" id="33_r8x36"]
-[ext_resource type="Texture2D" uid="uid://dnx0iet0w1xpp" path="res://素材/特效素材/通用道具/card010.png" id="34_gafpj"]
+[ext_resource type="PackedScene" uid="uid://b7fbkcpe7fbhi" path="res://场景与代码/ui场景/人物界面/道具卡ui.tscn" id="34_2spmo"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="34_md5pp"]
-[ext_resource type="Texture2D" uid="uid://0bn5jxv0opl2" path="res://素材/特效素材/通用道具/card011.png" id="35_5qkjf"]
-[ext_resource type="Texture2D" uid="uid://bfugvjwqqk2r6" path="res://素材/特效素材/通用道具/card012.png" id="36_vy5sx"]
-[ext_resource type="Texture2D" uid="uid://cu7jiqe377lw2" path="res://素材/特效素材/通用道具/card013.png" id="37_jwqhd"]
-[ext_resource type="Texture2D" uid="uid://dq0xwje6v1475" path="res://素材/特效素材/通用道具/card014.png" id="38_xj0qe"]
-[ext_resource type="Texture2D" uid="uid://bl4fk8devtosi" path="res://素材/特效素材/通用道具/card015.png" id="39_bkog8"]
-[ext_resource type="Texture2D" uid="uid://cortsic7y25ci" path="res://素材/特效素材/通用道具/card016.png" id="40_uloqu"]
-[ext_resource type="Texture2D" uid="uid://c81d3afcnvi4" path="res://素材/特效素材/通用道具/card017.png" id="41_l5wtj"]
-[ext_resource type="Texture2D" uid="uid://cb8r5igyyjba" path="res://素材/特效素材/通用道具/card018.png" id="42_7sxqe"]
-[ext_resource type="Texture2D" uid="uid://bhx0ol0fn4bja" path="res://素材/特效素材/通用道具/card019.png" id="43_48gml"]
+[ext_resource type="Script" uid="uid://btxusn157olkj" path="res://场景与代码/ui场景/人物界面/按钮道具卡.gd" id="44_vy5sx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnptm"]
 animations = [{
@@ -125,36 +116,23 @@ texture = ExtResource("1_gepx4")
 region_enabled = true
 region_rect = Rect2(880, 2288, 768, 529)
 
-[node name="面板" type="Control" parent="." unique_id=565121524 node_paths=PackedStringArray("an", "btn_appearance", "name_label", "hp_label", "mp_label", "energy_label", "power_label", "speed_label", "btn_left", "btn_right", "skill_label", "ultimate_label", "skill_box", "ultimate_box", "btn_skill1", "btn_skill2", "btn_ultimate1", "btn_ultimate2", "item_card_box", "item_card_label")]
+[node name="面板" type="Control" parent="." unique_id=565121524]
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 361.0
 script = ExtResource("10_on5sk")
-an = NodePath("人物选择/人物图像")
-btn_appearance = NodePath("人物选择/登场")
-name_label = NodePath("人物选择/人物名称")
-hp_label = NodePath("属性显示/HBoxContainer/VBoxContainer1/血量")
-mp_label = NodePath("属性显示/HBoxContainer/VBoxContainer1/魔力")
-energy_label = NodePath("属性显示/HBoxContainer/VBoxContainer1/耐力")
-power_label = NodePath("属性显示/HBoxContainer/VBoxContainer2/攻击")
-speed_label = NodePath("属性显示/HBoxContainer/VBoxContainer2/移速")
-btn_left = NodePath("人物选择/箭头左")
-btn_right = NodePath("人物选择/箭头右")
-skill_label = NodePath("技能选择/技能")
-ultimate_label = NodePath("技能选择/必杀")
-skill_box = NodePath("技能选择/技能卡容器")
-ultimate_box = NodePath("技能选择/必杀卡容器")
-btn_skill1 = NodePath("技能选择/技能卡容器/技能1")
-btn_skill2 = NodePath("技能选择/技能卡容器/技能2")
-btn_ultimate1 = NodePath("技能选择/必杀卡容器/必杀1")
-btn_ultimate2 = NodePath("技能选择/必杀卡容器/必杀2")
-item_card_box = NodePath("道具选择/滚动列表/道具卡容器")
-item_card_label = NodePath("道具选择/道具卡")
 
-[node name="人物选择" type="Control" parent="面板" unique_id=1530969487]
+[node name="人物选择" type="Control" parent="面板" unique_id=1530969487 node_paths=PackedStringArray("left_button", "right_button", "name_label", "an", "deploy")]
 anchors_preset = 0
 offset_right = 254.0
 offset_bottom = 248.0
+script = ExtResource("4_yyjmi")
+character_resources = Array[ExtResource("5_88f5o")]([ExtResource("6_on5sk"), ExtResource("7_1m0wx")])
+left_button = NodePath("箭头左")
+right_button = NodePath("箭头右")
+name_label = NodePath("人物名称")
+an = NodePath("人物图像")
+deploy = NodePath("登场")
 
 [node name="人物图像" type="AnimatedSprite2D" parent="面板/人物选择" unique_id=1966836913]
 position = Vector2(125, 124)
@@ -204,53 +182,55 @@ offset_bottom = 39.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 text = "登场"
 
-[node name="属性显示" type="Control" parent="面板" unique_id=929963042]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -111.0
-offset_right = 250.0
-grow_vertical = 0
+[node name="属性显示" type="Control" parent="面板" unique_id=677292110 node_paths=PackedStringArray("hp_label", "mp_label", "energy_label", "power_label", "speed_label")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("27_1m0wx")
+hp_label = NodePath("属性容器/VBoxContainer1/血量")
+mp_label = NodePath("属性容器/VBoxContainer1/魔力")
+energy_label = NodePath("属性容器/VBoxContainer1/耐力")
+power_label = NodePath("属性容器/VBoxContainer2/攻击")
+speed_label = NodePath("属性容器/VBoxContainer2/移速")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="面板/属性显示" unique_id=1457799323]
+[node name="属性容器" type="HBoxContainer" parent="面板/属性显示" unique_id=1457799323]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 9.0
+offset_top = 259.0
 offset_right = 229.0
-offset_bottom = 98.0
+offset_bottom = 348.0
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="面板/属性显示/HBoxContainer" unique_id=1704632554]
+[node name="VBoxContainer1" type="VBoxContainer" parent="面板/属性显示/属性容器" unique_id=1704632554]
 layout_mode = 2
 
-[node name="血量" type="Label" parent="面板/属性显示/HBoxContainer/VBoxContainer1" unique_id=1854106273]
+[node name="血量" type="Label" parent="面板/属性显示/属性容器/VBoxContainer1" unique_id=1854106273]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
 text = "血量：300"
 
-[node name="魔力" type="Label" parent="面板/属性显示/HBoxContainer/VBoxContainer1" unique_id=865846694]
+[node name="魔力" type="Label" parent="面板/属性显示/属性容器/VBoxContainer1" unique_id=865846694]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
 text = "魔力：100"
 
-[node name="耐力" type="Label" parent="面板/属性显示/HBoxContainer/VBoxContainer1" unique_id=2024764632]
+[node name="耐力" type="Label" parent="面板/属性显示/属性容器/VBoxContainer1" unique_id=2024764632]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
 text = "耐力：100"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="面板/属性显示/HBoxContainer" unique_id=1578370104]
+[node name="VBoxContainer2" type="VBoxContainer" parent="面板/属性显示/属性容器" unique_id=1578370104]
 layout_mode = 2
 
-[node name="攻击" type="Label" parent="面板/属性显示/HBoxContainer/VBoxContainer2" unique_id=1588301036]
+[node name="攻击" type="Label" parent="面板/属性显示/属性容器/VBoxContainer2" unique_id=1588301036]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
 text = "攻击：10"
 
-[node name="移速" type="Label" parent="面板/属性显示/HBoxContainer/VBoxContainer2" unique_id=1588083306]
+[node name="移速" type="Label" parent="面板/属性显示/属性容器/VBoxContainer2" unique_id=1588083306]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
@@ -281,13 +261,19 @@ offset_top = 75.0
 offset_right = 105.0
 offset_bottom = 148.0
 
-[node name="技能1" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1509725384]
+[node name="ButtonCard1" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1933714519]
 layout_mode = 2
 icon = ExtResource("23_wncqq")
+script = ExtResource("44_vy5sx")
+id = "技能1"
+metadata/_custom_type_script = "uid://btxusn157olkj"
 
-[node name="技能2" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1446396394]
+[node name="ButtonCard2" type="Button" parent="面板/技能选择/技能卡容器" unique_id=2131211785]
 layout_mode = 2
 icon = ExtResource("24_5kdap")
+script = ExtResource("44_vy5sx")
+id = "技能2"
+metadata/_custom_type_script = "uid://btxusn157olkj"
 
 [node name="必杀" type="Label" parent="面板/技能选择" unique_id=1223525393]
 layout_mode = 1
@@ -306,15 +292,21 @@ offset_top = 75.0
 offset_right = 292.0
 offset_bottom = 148.0
 
-[node name="必杀1" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=1218026913]
+[node name="ButtonCard1" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=614580267]
 layout_mode = 2
 icon = ExtResource("25_mxt0k")
+script = ExtResource("44_vy5sx")
+id = "必杀1"
+metadata/_custom_type_script = "uid://btxusn157olkj"
 
-[node name="必杀2" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=2144983865]
+[node name="ButtonCard2" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=132565935]
 layout_mode = 2
 icon = ExtResource("26_ny3ie")
+script = ExtResource("44_vy5sx")
+id = "必杀2"
+metadata/_custom_type_script = "uid://btxusn157olkj"
 
-[node name="道具选择" type="Control" parent="面板" unique_id=875759774]
+[node name="道具卡选择" type="Control" parent="面板" unique_id=875759774 node_paths=PackedStringArray("equipped_slots", "inventory_grid")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -325,8 +317,11 @@ offset_left = -380.0
 offset_top = -180.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("28_cyw8p")
+equipped_slots = NodePath("装备栏")
+inventory_grid = NodePath("仓库栏/道具卡容器")
 
-[node name="道具卡" type="Label" parent="面板/道具选择" unique_id=565952284]
+[node name="道具卡" type="Label" parent="面板/道具卡选择" unique_id=565952284]
 layout_mode = 1
 offset_right = 118.0
 offset_bottom = 42.0
@@ -334,104 +329,56 @@ theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
 text = "道具卡"
 
-[node name="滚动列表" type="ScrollContainer" parent="面板/道具选择" unique_id=406221092]
+[node name="装备栏" type="HBoxContainer" parent="面板/道具卡选择" unique_id=1334358236]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 120.0
+offset_bottom = 90.0
+grow_vertical = 2
+
+[node name="道具卡UI1" parent="面板/道具卡选择/装备栏" unique_id=1911401838 instance=ExtResource("34_2spmo")]
+custom_minimum_size = Vector2(41, 65)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="道具卡UI2" parent="面板/道具卡选择/装备栏" unique_id=421885613 instance=ExtResource("34_2spmo")]
+custom_minimum_size = Vector2(41, 65)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="仓库栏" type="ScrollContainer" parent="面板/道具卡选择" unique_id=406221092]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -49.0
+offset_left = 150.0
+offset_top = -50.0
 offset_right = -10.0
-offset_bottom = 55.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="道具卡容器" type="HBoxContainer" parent="面板/道具选择/滚动列表" unique_id=993549485]
+[node name="道具卡容器" type="HBoxContainer" parent="面板/道具卡选择/仓库栏" unique_id=993549485]
+custom_minimum_size = Vector2(123, 65)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="攻击提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1435814724]
+[node name="道具卡UI1" parent="面板/道具卡选择/仓库栏/道具卡容器" unique_id=1784693272 instance=ExtResource("34_2spmo")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("27_88f5o")
 
-[node name="血量提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=56540019]
+[node name="道具卡UI2" parent="面板/道具卡选择/仓库栏/道具卡容器" unique_id=1326402260 instance=ExtResource("34_2spmo")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("28_on5sk")
 
-[node name="魔力提升" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=536997134]
+[node name="道具卡UI3" parent="面板/道具卡选择/仓库栏/道具卡容器" unique_id=617797460 instance=ExtResource("34_2spmo")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("29_1m0wx")
-
-[node name="Button4" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1691169041]
-visible = false
-layout_mode = 2
-icon = ExtResource("30_2spmo")
-
-[node name="Button5" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1193859746]
-visible = false
-layout_mode = 2
-icon = ExtResource("31_ep4tj")
-
-[node name="Button6" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1157417321]
-visible = false
-layout_mode = 2
-icon = ExtResource("32_n4xpo")
-
-[node name="Button7" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=398305872]
-visible = false
-layout_mode = 2
-icon = ExtResource("33_r8x36")
-
-[node name="Button8" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1211673254]
-visible = false
-layout_mode = 2
-icon = ExtResource("34_gafpj")
-
-[node name="Button9" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=927463842]
-visible = false
-layout_mode = 2
-icon = ExtResource("35_5qkjf")
-
-[node name="Button10" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=511699629]
-visible = false
-layout_mode = 2
-icon = ExtResource("36_vy5sx")
-
-[node name="Button11" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=249109421]
-visible = false
-layout_mode = 2
-icon = ExtResource("37_jwqhd")
-
-[node name="Button12" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=762261436]
-visible = false
-layout_mode = 2
-icon = ExtResource("38_xj0qe")
-
-[node name="Button13" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=53045965]
-visible = false
-layout_mode = 2
-icon = ExtResource("39_bkog8")
-
-[node name="Button14" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=685279772]
-visible = false
-layout_mode = 2
-icon = ExtResource("40_uloqu")
-
-[node name="Button15" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1684589540]
-visible = false
-layout_mode = 2
-icon = ExtResource("41_l5wtj")
-
-[node name="Button16" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1512005012]
-visible = false
-layout_mode = 2
-icon = ExtResource("42_7sxqe")
-
-[node name="Button17" type="Button" parent="面板/道具选择/滚动列表/道具卡容器" unique_id=1800391647]
-visible = false
-layout_mode = 2
-icon = ExtResource("43_48gml")
 
 [node name="返回" type="Button" parent="." unique_id=1144151725]
 layout_mode = 1

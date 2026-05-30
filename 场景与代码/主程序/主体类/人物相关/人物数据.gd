@@ -1,5 +1,5 @@
 extends Node
-## 人物数据类：记录基础数据
+## 人物数据类：记录人物在局内数据
 class_name Character_Data
 
 signal hp_changed
@@ -7,18 +7,27 @@ signal mp_changed
 signal energy_changed
 signal direction_changed
 
+var team:String="1P"                 #队伍
+var character_name:String="未命名"    #角色名称
+var move_speed:int=400               #移动速度
+var acceleration: float = 1600.0     #加速度（像素/秒²）
+var friction: float = 1200.0         #减速度（像素/秒²）
+var hp_max:float=200                 #血量上限
+var mp_max:float=100                 #魔力值上限
+var energy_max:float=100             #耐力上限
+var energy_regen:float=10            #耐力恢复速度
+var attack_interval:float=0.3        #普攻间隔
+var skill_cd:float=3.0               #通用技能cd
 
-@onready var team:String
+
 @onready var direction:float=1.0:
 	set(v):
 		if (v==1 or v==-1) and direction!=v:
 			direction=v
 			direction_changed.emit(direction)
 		else:
-			#push_warning("direction 只能赋值为 1 或 -1，当前值不变")
 			return
 
-@export var hp_max:float=200#血量上限
 @onready var hp:float=hp_max:#血量
 	set(v):
 		v=clampf(v,0.0,hp_max)
@@ -27,8 +36,6 @@ signal direction_changed
 		hp=v
 		hp_changed.emit(hp,hp_max)
 
-@export var energy_max:float=100#耐力上限
-@export var energy_regen:float=10#耐力恢复速度
 @onready var energy:float=energy_max:#耐力
 	set(v):
 		v=clampf(v,0.0,energy_max)
@@ -37,7 +44,6 @@ signal direction_changed
 		energy=v
 		energy_changed.emit(energy,energy_max)
 
-@export var mp_max:float=100#魔力值上限
 @onready var mp:float=mp_max:#魔力值
 	set(v):
 		v=clampf(v,0.0,mp_max)
@@ -47,10 +53,22 @@ signal direction_changed
 		mp_changed.emit(mp,mp_max)
 
 func _ready() -> void:
-	if team=="1P":
-		direction=1.0
-	else:
-		direction=-1.0
+	if GameData and GameData.current_deploy_character_data:
+		var blueprint = GameData.current_deploy_character_data
+		character_name=blueprint.character_name
+		move_speed=blueprint.base_speed
+		acceleration=blueprint.base_acceleration
+		friction=blueprint.base_friction
+		hp_max=blueprint.base_hp
+		mp_max=blueprint.base_mp
+		energy_max=blueprint.base_energy
+		energy_regen=blueprint.base_energy_regen
+		attack_interval=blueprint.base_attack_interval
+		skill_cd=blueprint.base_skill_cd
+		print("Character_Data数据组件：成功同步来自 ", character_name, " 的配置数据！")
+	hp = hp_max
+	mp = mp_max
+	energy = energy_max
 	print("1.Character_Data初始化完成")
 	pass
 

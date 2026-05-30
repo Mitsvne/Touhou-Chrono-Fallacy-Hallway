@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://86non2i675ix"
-path="res://.godot/imported/道具_魔力提升.png-92e990c2f456f3221d343c0b07a6602a.ctex"
+uid="uid://bm3hfnpjiahsh"
+path="res://.godot/imported/空卡.png-db04d93788ebe2bf20899645486ff288.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/特效素材/通用道具/道具_魔力提升.png"
-dest_files=["res://.godot/imported/道具_魔力提升.png-92e990c2f456f3221d343c0b07a6602a.ctex"]
+source_file="res://素材/特效素材/通用道具/空卡.png"
+dest_files=["res://.godot/imported/空卡.png-db04d93788ebe2bf20899645486ff288.ctex"]
 
 [params]
 

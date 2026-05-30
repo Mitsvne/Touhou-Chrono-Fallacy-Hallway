@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://565h26jt54n7"]
+
+[ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_ijgsh"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_xr31t"]
+
+[resource]
+script = ExtResource("2_xr31t")
+character_id = "东风谷早苗"
+character_name = "东风谷早苗"
+base_speed = 500.0
+base_power = 8.0
+base_energy = 80.0
+metadata/_custom_type_script = "uid://ca3irylcnbh3j"

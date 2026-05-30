@@ -1,5 +1,5 @@
 extends Control
-
+'''
 @export var an: AnimatedSprite2D
 @export var btn_appearance: Button
 @export var name_label: Label
@@ -35,17 +35,13 @@ func _ready() -> void:
 	btn_appearance.pressed.connect(_on_appearance_pressed)
 	for skill in skill_box.get_children():
 		if skill is Button:
-			skill.pressed.connect(_on_skill_pressed.bind(skill.name))
+			skill.pressed.connect(_on_skill_pressed.bind(skill.id))
 	for ultimate in ultimate_box.get_children():
 		if ultimate is Button:
-			ultimate.pressed.connect(_on_ultimate_pressed.bind(ultimate.name))
-	#btn_skill1.pressed.connect(_on_skill1_pressed)
-	#btn_skill2.pressed.connect(_on_skill2_pressed)
-	#btn_ultimate1.pressed.connect(_on_ultimate1_pressed)
-	#btn_ultimate2.pressed.connect(_on_ultimate2_pressed)
+			ultimate.pressed.connect(_on_ultimate_pressed.bind(ultimate.id))
 	for card in item_card_box.get_children():
 		if card is Button:
-			card.pressed.connect(_on_card_pressed.bind(card.name))
+			card.pressed.connect(_on_card_pressed.bind(card.id))
 	if not animation_list.is_empty():
 		play_animation_at_index(current_index)
 	update_content()
@@ -115,3 +111,4 @@ func _on_ultimate_pressed(id: String) -> void:
 func _on_card_pressed(id: String) -> void:
 	GameData.set_character_stat(current_char_name,"item_card",id)
 	update_content()
+'''
