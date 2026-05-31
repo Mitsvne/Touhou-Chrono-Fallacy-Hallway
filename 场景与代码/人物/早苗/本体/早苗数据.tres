@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://565h26jt54n7"]
 
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_5d004"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_ijgsh"]
+[ext_resource type="Resource" uid="uid://dmv2vk5fak55w" path="res://场景与代码/人物/早苗/本体/技能1.tres" id="2_jcer5"]
 [ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_xr31t"]
+[ext_resource type="Resource" uid="uid://kiuxmqlx4ijp" path="res://场景与代码/人物/早苗/本体/技能2.tres" id="3_gr3qn"]
+[ext_resource type="Resource" uid="uid://b337luntahqm4" path="res://场景与代码/人物/早苗/本体/必杀1.tres" id="4_kbb5n"]
+[ext_resource type="Resource" uid="uid://dpx1x3q2ljfa6" path="res://场景与代码/人物/早苗/本体/必杀2.tres" id="5_qj8if"]
 
 [resource]
 script = ExtResource("2_xr31t")
@@ -11,4 +16,6 @@ character_name = "东风谷早苗"
 base_speed = 500.0
 base_power = 8.0
 base_energy = 80.0
+available_skills = Array[ExtResource("1_5d004")]([ExtResource("2_jcer5"), ExtResource("3_gr3qn")])
+available_ultimates = Array[ExtResource("1_5d004")]([ExtResource("4_kbb5n"), ExtResource("5_qj8if")])
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

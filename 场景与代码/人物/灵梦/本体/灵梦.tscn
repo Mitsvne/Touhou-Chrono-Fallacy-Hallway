@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://3npbpqrxmqi" path="res://素材/人物素材/灵梦/人物/dashFrontAir003.png" id="1_1l8ri"]
 [ext_resource type="Script" uid="uid://dsl6gwm6mqrre" path="res://场景与代码/人物/灵梦/本体/灵梦.gd" id="1_ig6o6"]
 [ext_resource type="PackedScene" uid="uid://bhtpa5t1ogkki" path="res://场景与代码/人物/灵梦/弹幕/灵梦普攻弹幕.tscn" id="2_g1kd8"]
-[ext_resource type="Resource" uid="uid://l41whiw04qvf" path="res://场景与代码/人物/灵梦/本体/灵梦数据.tres" id="2_hhs80"]
 [ext_resource type="Texture2D" uid="uid://cw75jv8m4p14s" path="res://素材/人物素材/灵梦/人物/dashFrontAir004.png" id="2_ig6o6"]
 [ext_resource type="PackedScene" uid="uid://dwm05hjgmvlxs" path="res://场景与代码/人物/灵梦/弹幕/灵梦技能1弹幕.tscn" id="3_8vesq"]
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="5_imqij"]
@@ -1776,167 +1775,6 @@ tracks/3/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_wpml1"]
-resource_name = "必杀1"
-length = 1.1333368
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:sprite_frames")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("SpriteFrames_k3vqu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"必杀"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.9, 0.9333334, 1.0000001, 1.0666668),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(29, -34), Vector2(29, -34), Vector2(0, -18), Vector2(-5, -16), Vector2(-10, -14)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.8000001, 0.8666667, 0.9333334, 1.0000001, 1.0666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.33333334, 0.4333333, 0.53333336, 0.6333333, 0.73333335),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"values": [{
-"args": [ExtResource("56_wmq54"), Vector2(0, 0), 0.0, Vector2(0, 0)],
-"method": &"shoot"
-}, {
-"args": [ExtResource("50_kgnp6"), Vector2(0, 0), 72.0, Vector2(0, 0)],
-"method": &"shoot"
-}, {
-"args": [ExtResource("57_kgnp6"), Vector2(0, 0), 144.0, Vector2(0, 0)],
-"method": &"shoot"
-}, {
-"args": [ExtResource("56_wmq54"), Vector2(0, 0), 90.0, Vector2(0, 0)],
-"method": &"shoot"
-}, {
-"args": [ExtResource("50_kgnp6"), Vector2(0, 0), 288.0, Vector2(0, 0)],
-"method": &"shoot"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_lt2rg"]
-resource_name = "必杀2"
-length = 3.2333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:sprite_frames")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("SpriteFrames_k3vqu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"必杀2"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.36666667, 2.9, 2.9333334, 2.966667, 3, 3.1000001, 3.1666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(4, -16), Vector2(23, -12), Vector2(23, -15), Vector2(23, -17), Vector2(23, -19), Vector2(23, -25), Vector2(23, -25), Vector2(23, -20), Vector2(23, -15), Vector2(3, -16), Vector2(-6, -14), Vector2(-10, -13)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.26666668, 0.36666667, 0.49999985, 0.5999999, 0.69999987, 0.7999999, 0.8999999, 0.9999999, 1.0999999, 1.1999999, 1.3, 1.3999999, 1.4999999, 1.5999999, 1.6999999, 1.8, 1.9, 2, 2.1, 2.2, 2.3000002, 2.4, 2.5000002, 2.6000001, 2.7000003, 2.8000002, 2.9, 3, 3.1, 3.1666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [ExtResource("48_xn1ji"), Vector2(30, 10)],
-"method": &"shoot"
-}]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../class/Character_Ctrler")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [false],
-"method": &"set_key_move"
-}, {
-"args": [true],
-"method": &"set_key_move"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_h1ood"]
 resource_name = "技能1"
 length = 0.9
@@ -2034,6 +1872,84 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.36666667)
 }
 tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_wpml1"]
+resource_name = "必杀1"
+length = 1.1333368
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_k3vqu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"必杀"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 0.9333334, 1.0000001, 1.0666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(29, -34), Vector2(29, -34), Vector2(0, -18), Vector2(-5, -16), Vector2(-10, -14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.8000001, 0.8666667, 0.9333334, 1.0000001, 1.0666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.33333334, 0.4333333, 0.53333336, 0.6333333, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [ExtResource("56_wmq54"), Vector2(0, 0), 0.0, Vector2(0, 0)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("50_kgnp6"), Vector2(0, 0), 72.0, Vector2(0, 0)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("57_kgnp6"), Vector2(0, 0), 144.0, Vector2(0, 0)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("56_wmq54"), Vector2(0, 0), 90.0, Vector2(0, 0)],
+"method": &"shoot"
+}, {
+"args": [ExtResource("50_kgnp6"), Vector2(0, 0), 288.0, Vector2(0, 0)],
+"method": &"shoot"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4a6ux"]
 resource_name = "死亡"
@@ -2144,6 +2060,89 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_lt2rg"]
+resource_name = "必杀2"
+length = 3.2333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_k3vqu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"必杀2"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.36666667, 2.9, 2.9333334, 2.966667, 3, 3.1000001, 3.1666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(4, -16), Vector2(23, -12), Vector2(23, -15), Vector2(23, -17), Vector2(23, -19), Vector2(23, -25), Vector2(23, -25), Vector2(23, -20), Vector2(23, -15), Vector2(3, -16), Vector2(-6, -14), Vector2(-10, -13)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.26666668, 0.36666667, 0.49999985, 0.5999999, 0.69999987, 0.7999999, 0.8999999, 0.9999999, 1.0999999, 1.1999999, 1.3, 1.3999999, 1.4999999, 1.5999999, 1.6999999, 1.8, 1.9, 2, 2.1, 2.2, 2.3000002, 2.4, 2.5000002, 2.6000001, 2.7000003, 2.8000002, 2.9, 3, 3.1, 3.1666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("48_xn1ji"), Vector2(30, 10)],
+"method": &"shoot"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_key_move"
+}, {
+"args": [true],
+"method": &"set_key_move"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcne1"]
 _data = {
 &"RESET": SubResource("Animation_s8042"),
@@ -2152,10 +2151,10 @@ _data = {
 &"前进": SubResource("Animation_vrvly"),
 &"后退": SubResource("Animation_gxxbo"),
 &"常态": SubResource("Animation_syqf8"),
-&"必杀1": SubResource("Animation_wpml1"),
-&"必杀2": SubResource("Animation_lt2rg"),
 &"技能1": SubResource("Animation_h1ood"),
-&"死亡": SubResource("Animation_4a6ux")
+&"梦想封印": SubResource("Animation_wpml1"),
+&"死亡": SubResource("Animation_4a6ux"),
+&"阴阳宝玉": SubResource("Animation_lt2rg")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xq80m"]
@@ -2174,7 +2173,6 @@ collision_layer = 2
 collision_mask = 240
 motion_mode = 1
 script = ExtResource("1_ig6o6")
-characterdata = ExtResource("2_hhs80")
 character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")

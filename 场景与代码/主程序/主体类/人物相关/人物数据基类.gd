@@ -4,6 +4,8 @@ extends Resource
 @export_file("*.tscn") var character_scene_path: String
 @export var character_id: String = ""
 @export var character_name: String = ""
+
+@export_group("基础属性", "")
 @export var base_hp: float = 200.0
 @export var base_mp: float = 100.0
 @export var base_speed: float = 400.0
@@ -13,11 +15,20 @@ extends Resource
 @export var base_energy: float = 100.0
 @export var base_energy_regen: float = 10.0
 @export var base_attack_interval:float=0.3
-@export var base_skill_cd:float=3.0
+
+@export_group("技能配置池", "")
+@export var available_skills: Array[SkillData] = []     # 存放 2 个普通技能资源
+@export var available_ultimates: Array[SkillData] = []  # 存放 2 个必杀技资源
+
+@export_group("当前装备的技能", "")
+@export var equipped_skill: SkillData
+@export var equipped_ultimate: SkillData
+
+@export_group("道具卡", "")
+@export var equipped_cards: Array[ItemCardData] = []
 
 # 每个角色独享自己的道具卡插槽
 const MAX_SLOTS = 2
-@export var equipped_cards: Array[ItemCardData] = []
 
 # 初始化插槽数量
 func _init() -> void:

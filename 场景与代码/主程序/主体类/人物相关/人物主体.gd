@@ -39,7 +39,7 @@ func _ready() -> void:
 	attack_timer.wait_time =  character_data.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
-	skill_timer.wait_time = character_data.skill_cd
+	skill_timer.wait_time = 3
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
 	print("4.Character_Main初始化完成:",character)
@@ -125,7 +125,8 @@ func transition_state(_from:State,to:State) -> void:
 		State.技能:
 			an_paly("技能1")
 		State.必杀:
-			an_paly("必杀1")
+			#an_paly("必杀1")
+			an_paly(character_data.current_ultimate.skill_name)
 		State.死亡:
 			an_paly("死亡")
 

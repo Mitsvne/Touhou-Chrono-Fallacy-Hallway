@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://3x0u8a3a4upl"]
+
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_4dvs6"]
+[ext_resource type="Texture2D" uid="uid://15yxsdc8diok" path="res://素材/人物素材/灵梦/符卡/技能1.png" id="1_pffcd"]
+
+[resource]
+script = ExtResource("1_4dvs6")
+icon = ExtResource("1_pffcd")
+metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

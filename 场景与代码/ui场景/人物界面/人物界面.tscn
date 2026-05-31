@@ -11,13 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://c526qxegdpbpt" path="res://素材/人物素材/早苗/人物/stand005.png" id="21_jwqhd"]
 [ext_resource type="Texture2D" uid="uid://dy6n7bo4pcw61" path="res://素材/人物素材/早苗/人物/stand006.png" id="22_xj0qe"]
 [ext_resource type="Texture2D" uid="uid://c2bqdfsuu3dqp" path="res://素材/人物素材/早苗/人物/stand007.png" id="23_bkog8"]
-[ext_resource type="Texture2D" uid="uid://15yxsdc8diok" path="res://素材/人物素材/灵梦/符卡/技能1.png" id="23_wncqq"]
-[ext_resource type="Texture2D" uid="uid://dfy1yd73h4tto" path="res://素材/人物素材/灵梦/符卡/技能2.png" id="24_5kdap"]
 [ext_resource type="Texture2D" uid="uid://cn02qekq2uac3" path="res://素材/人物素材/灵梦/人物/stand000.png" id="24_uloqu"]
 [ext_resource type="Texture2D" uid="uid://gw13lqx1eebq" path="res://素材/人物素材/灵梦/人物/stand001.png" id="25_l5wtj"]
-[ext_resource type="Texture2D" uid="uid://cta7tn20b7tjw" path="res://素材/人物素材/灵梦/符卡/必杀1.png" id="25_mxt0k"]
+[ext_resource type="Script" uid="uid://d0yjxxkcfipca" path="res://场景与代码/ui场景/人物界面/技能选择.gd" id="25_yyjmi"]
 [ext_resource type="Texture2D" uid="uid://du26wxfv34mq8" path="res://素材/人物素材/灵梦/人物/stand002.png" id="26_7sxqe"]
-[ext_resource type="Texture2D" uid="uid://dse4u1yg5n2e0" path="res://素材/人物素材/灵梦/符卡/必杀2.png" id="26_ny3ie"]
+[ext_resource type="PackedScene" uid="uid://b87rxsf5hvw7i" path="res://场景与代码/ui场景/人物界面/技能卡ui.tscn" id="26_mxt0k"]
 [ext_resource type="Script" uid="uid://bjr0brfv36tq6" path="res://场景与代码/ui场景/人物界面/属性显示.gd" id="27_1m0wx"]
 [ext_resource type="Texture2D" uid="uid://by11ph7on2qjp" path="res://素材/人物素材/灵梦/人物/stand003.png" id="27_48gml"]
 [ext_resource type="Script" uid="uid://xyhykvswl1f7" path="res://场景与代码/ui场景/人物界面/道具卡选择.gd" id="28_cyw8p"]
@@ -30,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://dk8kauf55ywnh" path="res://素材/人物素材/灵梦/人物/stand009.png" id="33_1ej85"]
 [ext_resource type="PackedScene" uid="uid://b7fbkcpe7fbhi" path="res://场景与代码/ui场景/人物界面/道具卡ui.tscn" id="34_2spmo"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="34_md5pp"]
-[ext_resource type="Script" uid="uid://btxusn157olkj" path="res://场景与代码/ui场景/人物界面/按钮道具卡.gd" id="44_vy5sx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnptm"]
 animations = [{
@@ -232,7 +229,7 @@ theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 20
 text = "移速：400"
 
-[node name="技能选择" type="Control" parent="面板" unique_id=409632289]
+[node name="技能选择" type="Control" parent="面板" unique_id=409632289 node_paths=PackedStringArray("reg_slot_1", "reg_slot_2", "ult_slot_1", "ult_slot_2")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -240,6 +237,11 @@ anchor_right = 1.0
 offset_left = -380.0
 offset_bottom = 160.0
 grow_horizontal = 0
+script = ExtResource("25_yyjmi")
+reg_slot_1 = NodePath("技能卡容器/技能卡ui1")
+reg_slot_2 = NodePath("技能卡容器/技能卡ui2")
+ult_slot_1 = NodePath("必杀卡容器/技能卡ui1")
+ult_slot_2 = NodePath("必杀卡容器/技能卡ui2")
 
 [node name="技能" type="Label" parent="面板/技能选择" unique_id=864662840]
 layout_mode = 1
@@ -248,28 +250,26 @@ offset_right = 150.0
 offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
-text = "当前技能："
+text = "技能卡："
 
 [node name="技能卡容器" type="HBoxContainer" parent="面板/技能选择" unique_id=768009274]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 75.0
-offset_right = 105.0
-offset_bottom = 148.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 120.0
+grow_vertical = 0
 
-[node name="ButtonCard1" type="Button" parent="面板/技能选择/技能卡容器" unique_id=1933714519]
+[node name="技能卡ui1" parent="面板/技能选择/技能卡容器" unique_id=975733476 instance=ExtResource("26_mxt0k")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("23_wncqq")
-script = ExtResource("44_vy5sx")
-id = "技能1"
-metadata/_custom_type_script = "uid://btxusn157olkj"
+size_flags_vertical = 4
 
-[node name="ButtonCard2" type="Button" parent="面板/技能选择/技能卡容器" unique_id=2131211785]
+[node name="技能卡ui2" parent="面板/技能选择/技能卡容器" unique_id=933434169 instance=ExtResource("26_mxt0k")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("24_5kdap")
-script = ExtResource("44_vy5sx")
-id = "技能2"
-metadata/_custom_type_script = "uid://btxusn157olkj"
+size_flags_vertical = 4
 
 [node name="必杀" type="Label" parent="面板/技能选择" unique_id=1223525393]
 layout_mode = 1
@@ -279,28 +279,30 @@ offset_right = 340.0
 offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
-text = "当前必杀："
+text = "必杀卡："
 
 [node name="必杀卡容器" type="HBoxContainer" parent="面板/技能选择" unique_id=1507536211]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 75.0
-offset_right = 292.0
-offset_bottom = 148.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -188.0
+offset_top = -100.0
+offset_right = -68.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="ButtonCard1" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=614580267]
+[node name="技能卡ui1" parent="面板/技能选择/必杀卡容器" unique_id=563011400 instance=ExtResource("26_mxt0k")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("25_mxt0k")
-script = ExtResource("44_vy5sx")
-id = "必杀1"
-metadata/_custom_type_script = "uid://btxusn157olkj"
+size_flags_vertical = 4
 
-[node name="ButtonCard2" type="Button" parent="面板/技能选择/必杀卡容器" unique_id=132565935]
+[node name="技能卡ui2" parent="面板/技能选择/必杀卡容器" unique_id=1515772905 instance=ExtResource("26_mxt0k")]
+custom_minimum_size = Vector2(41, 65)
 layout_mode = 2
-icon = ExtResource("26_ny3ie")
-script = ExtResource("44_vy5sx")
-id = "必杀2"
-metadata/_custom_type_script = "uid://btxusn157olkj"
+size_flags_vertical = 4
 
 [node name="道具卡选择" type="Control" parent="面板" unique_id=875759774 node_paths=PackedStringArray("equipped_slots", "inventory_grid")]
 layout_mode = 1
@@ -323,15 +325,16 @@ offset_right = 118.0
 offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("34_md5pp")
 theme_override_font_sizes/font_size = 32
-text = "道具卡"
+text = "道具卡："
 
 [node name="装备栏" type="HBoxContainer" parent="面板/道具卡选择" unique_id=1334358236]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 5.0
 offset_top = -50.0
-offset_right = 120.0
+offset_right = 125.0
 offset_bottom = 90.0
 grow_vertical = 2
 

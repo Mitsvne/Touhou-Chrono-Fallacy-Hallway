@@ -1,11 +1,18 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://l41whiw04qvf"]
 
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_1hp7q"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_2nf7d"]
 [ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_1hp7q"]
+[ext_resource type="Resource" uid="uid://dv1xunr1ko5b1" path="res://场景与代码/人物/灵梦/本体/必杀1梦想封印.tres" id="2_kxqde"]
+[ext_resource type="Resource" uid="uid://3x0u8a3a4upl" path="res://场景与代码/人物/灵梦/本体/技能1数据.tres" id="2_m7ufo"]
+[ext_resource type="Resource" uid="uid://chbioif4vj8c0" path="res://场景与代码/人物/灵梦/本体/技能2数据.tres" id="3_qgh4v"]
+[ext_resource type="Resource" uid="uid://dartd4wps0k3c" path="res://场景与代码/人物/灵梦/本体/必杀2阴阳宝玉.tres" id="3_ysw4u"]
 
 [resource]
 script = ExtResource("2_1hp7q")
 character_scene_path = "uid://b82iad0bxqhsp"
 character_id = "博丽灵梦"
 character_name = "博丽灵梦"
+available_skills = Array[ExtResource("1_1hp7q")]([ExtResource("2_m7ufo"), ExtResource("3_qgh4v")])
+available_ultimates = Array[ExtResource("1_1hp7q")]([ExtResource("2_kxqde"), ExtResource("3_ysw4u")])
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

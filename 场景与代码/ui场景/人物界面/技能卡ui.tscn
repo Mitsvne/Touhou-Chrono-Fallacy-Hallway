@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b87rxsf5hvw7i"]
+
+[ext_resource type="Script" uid="uid://ct6vgi6ufrvvx" path="res://场景与代码/ui场景/人物界面/技能卡ui.gd" id="1_wo0j7"]
+[ext_resource type="Texture2D" uid="uid://bm3hfnpjiahsh" path="res://素材/特效素材/通用道具/空卡.png" id="2_utn2h"]
+
+[node name="技能卡ui" type="Control" unique_id=975733476 node_paths=PackedStringArray("icon_rect", "select_border", "tooltip_panel", "tooltip_rich_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wo0j7")
+icon_rect = NodePath("技能图标")
+select_border = NodePath("选中样式")
+tooltip_panel = NodePath("文本框")
+tooltip_rich_text = NodePath("文本框/详情文本")
+
+[node name="卡牌背景边框" type="TextureRect" parent="." unique_id=1016589683]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 65.0
+pivot_offset = Vector2(20.5, 32.5)
+texture = ExtResource("2_utn2h")
+
+[node name="技能图标" type="TextureRect" parent="." unique_id=1396762456]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 65.0
+
+[node name="选中样式" type="TextureRect" parent="." unique_id=24092674]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 65.0
+
+[node name="文本框" type="PanelContainer" parent="." unique_id=1829793121]
+visible = false
+top_level = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 150.0
+
+[node name="详情文本" type="RichTextLabel" parent="文本框" unique_id=1437255269]
+layout_mode = 2

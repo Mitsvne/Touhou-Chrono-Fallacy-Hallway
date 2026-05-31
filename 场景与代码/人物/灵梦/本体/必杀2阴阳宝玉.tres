@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://dartd4wps0k3c"]
+
+[ext_resource type="Texture2D" uid="uid://dse4u1yg5n2e0" path="res://素材/人物素材/灵梦/符卡/必杀2.png" id="1_43yev"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="2_cp116"]
+
+[resource]
+script = ExtResource("2_cp116")
+skill_id = "阴阳宝玉"
+skill_name = "阴阳宝玉"
+skill_type = 1
+icon = ExtResource("1_43yev")
+mp_cost = 100.0
+metadata/_custom_type_script = "uid://cf6hh8wjk18uk"
