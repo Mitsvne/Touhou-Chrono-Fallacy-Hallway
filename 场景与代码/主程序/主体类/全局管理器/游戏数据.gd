@@ -1,53 +1,38 @@
 extends Node
 
 const SAVE_PATH := "user://save_data.cfg"
-const DEFAULT_CHARACTER = preload("res://场景与代码/人物/灵梦/本体/灵梦数据.tres")
+
 signal character_changed(new_data: CharacterData)
+signal deploy_character_changed(new_data: CharacterData)
+
 # 存储每个关卡的最高星级，键是关卡ID（字符串），值是0~3的整数
 var level_stars := {}
-var current_level_id: String = "关卡1"                # 当前的关卡id
-var current_character: String = "博丽灵梦"             # 当前选择的角色
-
-var current_deploy_character_data:CharacterData=DEFAULT_CHARACTER
+# 当前的关卡id
+var current_level_id: String = "关卡1"
+#全游戏所有的角色
+var all_characters: Array[CharacterData] = [
+	preload("res://场景与代码/人物/灵梦/本体/灵梦数据.tres"),
+	preload("res://场景与代码/人物/早苗/本体/早苗数据.tres"),
+	preload("res://场景与代码/人物/拉赫/本体/拉赫数据.tres")
+]
+#当前确认出战的角色
+var current_deploy_character_data:CharacterData:
+	set(value):
+			current_deploy_character_data = value
+			deploy_character_changed.emit(value)
+#当前页面显示的角色
 var current_character_data: CharacterData:
 	set(value):
 			current_character_data = value
 			character_changed.emit(value)
-
+#玩家当前已经解锁的角色
+var unlocked_characters: Array[CharacterData] = []
+#所有拥有的道具卡
 var all_owned_cards: Array[ItemCardData] = []
-# 角色数据：字典的字典
-var characters: Dictionary = {
-	"博丽灵梦": {
-		"hp": 300, "hp_max": 300,
-		"mp": 100,  "mp_max": 100,
-		"energy": 100, "energy_max": 100,
-		"power": 10, "speed": 400,
-		"skill":"技能1",
-		"ultimate":"必杀1",
-		"item_card":"",
-		"path":"res://场景与代码/人物/灵梦/本体/灵梦.tscn",
-		"skill1_icon":preload("res://素材/人物素材/灵梦/符卡/技能1.png"),
-		"skill2_icon":preload("res://素材/人物素材/灵梦/符卡/技能2.png"),
-		"ultimate1_icon":preload("res://素材/人物素材/灵梦/符卡/必杀1.png"),
-		"ultimate2_icon":preload("res://素材/人物素材/灵梦/符卡/必杀2.png")
-	},
-	"东风谷早苗": {
-		"hp": 300, "hp_max": 300,
-		"mp": 120,  "mp_max": 120,
-		"energy": 80, "energy_max": 80,
-		"power": 8, "speed": 500,
-		"skill":"技能1",
-		"ultimate":"必杀1",
-		"item_card":"",
-		"path":preload("res://场景与代码/人物/早苗/本体/早苗.tscn"),
-		"skill1_icon":preload("res://素材/人物素材/早苗/符卡/技能1.png"),
-		"skill2_icon":preload("res://素材/人物素材/早苗/符卡/技能2.png"),
-		"ultimate1_icon":preload("res://素材/人物素材/早苗/符卡/必杀1.png"),
-		"ultimate2_icon":preload("res://素材/人物素材/早苗/符卡/必杀2.png")
-	}
-}
+
 
 func _ready() -> void:
+	# 加载初始道具卡数据
 	var card1 = load("res://场景与代码/道具卡/体力提升/体力提升.tres")
 	var card2 = load("res://场景与代码/道具卡/灵力提升/灵力提升.tres")
 	var card3 = load("res://场景与代码/道具卡/符卡威力提升/符卡威力提升.tres")
@@ -55,23 +40,23 @@ func _ready() -> void:
 	all_owned_cards.append(card1)
 	all_owned_cards.append(card2)
 	all_owned_cards.append(card3)
+	# 加载初始人物数据
+	unlocked_characters.append(all_characters[0])
+	unlocked_characters.append(all_characters[1])
+	current_deploy_character_data=unlocked_characters[0]
+	current_character_data=unlocked_characters[0]
 	load_data()
 
 ## ==========================================
 ##         —— 安全的对外输入接口 ——
 ## ==========================================
+## 获取当前关卡id
 func get_current_level_id() -> String:
 	return current_level_id
 
+## 设置当前关卡id
 func set_current_level_id(level_id: String) -> void:
 	current_level_id=level_id
-
-func get_current_character() -> String:
-	return current_character
-
-func set_current_character(character: String) -> void:
-	current_character=character
-	save_data()
 
 ## 获取关卡星级
 func get_stars(level_id: String) -> int:
@@ -84,23 +69,13 @@ func set_stars(level_id: String, stars: int) -> void:
 		level_stars[level_id] = stars
 		save_data()
 
-## 获取某个角色的完整数据
-func get_character(char_id: String) -> Dictionary:
-	return characters.get(char_id, {})
-	
-## 获取某个角色的某个数据
-func get_stat(char_id: String, stat: String, default = 0):
-	return characters.get(char_id, {}).get(stat, default)
-
-## 更新某个属性（同时触发保存）
-func set_character_stat(char_id: String, stat: String, value) -> void:
-	if not characters.has(char_id):
-		return
-	characters[char_id][stat] = value
-	save_data()   # 沿用你已有的保存机制
-
-
-
+## 通过名字快速获取某角色的静态资源
+func get_character_data(char_name: String) -> CharacterData:
+	for char_data in all_characters:
+		if char_data.character_name == char_name:
+			return char_data
+	push_error("未找到名为 " + char_name + " 的角色资源")
+	return null
 
 
 ## 保存数据
@@ -108,11 +83,6 @@ func save_data() -> void:
 	var config := ConfigFile.new()
 	for level in level_stars:
 		config.set_value("stars", level, level_stars[level])
-	config.set_value("Player", "current_character", current_character)
-	for char_id in characters:
-		var stats = characters[char_id]
-		for stat in stats:
-			config.set_value("char_" + char_id, stat, stats[stat])
 	config.save(SAVE_PATH)
 
 ## 加载数据
@@ -126,17 +96,3 @@ func load_data() -> void:
 	if config.has_section("stars"):
 		for level_key in config.get_section_keys("stars"):
 			level_stars[level_key] = config.get_value("stars", level_key)
-	# 2. 读取当前登场角色
-	if config.has_section("Player"):
-		current_character = config.get_value("Player", "current_character")
-	# 3. 读取角色数据
-	for section in config.get_sections():
-		# 只处理以 "char_" 开头的节（表示角色数据）
-		if section.begins_with("char_"):
-			var char_id = section.substr(5)   # 去掉前缀得到角色ID，如 "warrior"
-			# 确保角色字典中有这个ID的入口（如果默认没有，则创建一个空字典，防止新角色丢失）
-			if not characters.has(char_id):
-				characters[char_id] = {}
-			# 逐个读取角色属性，若存档中缺少某个属性，则保留当前默认值（不清空）
-			for stat in config.get_section_keys(section):
-				characters[char_id][stat] = config.get_value(section, stat)

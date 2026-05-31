@@ -1,6 +1,7 @@
 class_name CharacterData
 extends Resource
 
+@export_file("*.tscn") var character_scene_path: String
 @export var character_id: String = ""
 @export var character_name: String = ""
 @export var base_hp: float = 200.0

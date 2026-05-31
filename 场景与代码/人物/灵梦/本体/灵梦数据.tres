@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_1hp7q")
+character_scene_path = "uid://b82iad0bxqhsp"
 character_id = "博丽灵梦"
 character_name = "博丽灵梦"
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

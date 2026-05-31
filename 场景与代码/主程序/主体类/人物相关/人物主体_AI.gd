@@ -11,8 +11,6 @@ class_name Character_AI_Main
 @export var damage_number:PackedScene
 @export var attack_effect:PackedScene
 
-signal character_is_dead(team:String)
-
 enum State{NONE,常态,移动,技能1,技能2,技能3,技能4,必杀,死亡}
 var current_state: State = State.常态 :
 	set(v):
@@ -23,22 +21,14 @@ var current_state: State = State.常态 :
 		current_state=v
 		enter_state(v)
 var target :CharacterBody2D
-var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
-var move_speed:int
 var current_velocity: Vector2 = Vector2.ZERO
-var acceleration: float
-var friction: float
 var is_allow_key_move:bool=true
 var is_alive:bool=true
 
 ## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
-	team=character_data.team                       #队伍
-	move_speed=character.move_speed                #移速
-	acceleration=character.acceleration            #加速度
-	friction=character.friction                    #减速度
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	target = character_ctrler.get_target()
@@ -54,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	if character_ctrler.is_gravity:
 		current_velocity.y += gravity * delta
 	if not bt_player.active:
-		move(move_speed,delta)
+		move(character_data.move_speed,delta)
 	if target.character_main.is_alive==false:
 		bt_player.active=false
 
@@ -123,8 +113,7 @@ func get_next_state(state:State)->State:
 func enter_state(state:State):
 	match state:
 		State.死亡:
-			EventBus.character_dead.emit(team)
-			character_is_dead.emit(team)
+			EventBus.character_dead.emit(character_data.team)
 
 ## 状态退出时
 func exit_state(state:State):
@@ -206,9 +195,9 @@ func move(max_speed:float,delta):
 			if dot < 0:  # 按方向相反的键急停（夹角大于90度）
 				current_velocity = Vector2.ZERO
 		var target_velocity = target_direction*max_speed
-		current_velocity = current_velocity.move_toward(target_velocity, acceleration * delta)
+		current_velocity = current_velocity.move_toward(target_velocity, character_data.acceleration * delta)
 	else:
-		current_velocity = current_velocity.move_toward(Vector2.ZERO, friction * delta)
+		current_velocity = current_velocity.move_toward(Vector2.ZERO, character_data.friction * delta)
 	character.velocity = current_velocity
 	character.move_and_slide()
 

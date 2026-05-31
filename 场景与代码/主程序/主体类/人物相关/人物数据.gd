@@ -7,8 +7,8 @@ signal mp_changed
 signal energy_changed
 signal direction_changed
 
+@export var character_name:String="未命名"    #角色名称
 var team:String="1P"                 #队伍
-var character_name:String="未命名"    #角色名称
 var move_speed:int=400               #移动速度
 var acceleration: float = 1600.0     #加速度（像素/秒²）
 var friction: float = 1200.0         #减速度（像素/秒²）
@@ -53,8 +53,8 @@ var skill_cd:float=3.0               #通用技能cd
 		mp_changed.emit(mp,mp_max)
 
 func _ready() -> void:
-	if GameData and GameData.current_deploy_character_data:
-		var blueprint = GameData.current_deploy_character_data
+	if GameData and GameData.get_character_data(character_name):
+		var blueprint = GameData.get_character_data(character_name)
 		character_name=blueprint.character_name
 		move_speed=blueprint.base_speed
 		acceleration=blueprint.base_acceleration

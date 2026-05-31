@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
 [ext_resource type="Script" uid="uid://brnn8y1ssrusk" path="res://场景与代码/ui场景/人物界面/人物界面.gd" id="1_h7faq"]
 [ext_resource type="Script" uid="uid://cd3y2fw016sqr" path="res://场景与代码/ui场景/人物界面/人物选择.gd" id="4_yyjmi"]
-[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="5_88f5o"]
-[ext_resource type="Resource" uid="uid://l41whiw04qvf" path="res://场景与代码/人物/灵梦/本体/灵梦数据.tres" id="6_on5sk"]
-[ext_resource type="Resource" uid="uid://565h26jt54n7" path="res://场景与代码/人物/早苗/本体/早苗数据.tres" id="7_1m0wx"]
 [ext_resource type="Script" uid="uid://btpmddgwr7g7y" path="res://场景与代码/ui场景/人物界面/人物面板.gd" id="10_on5sk"]
 [ext_resource type="Texture2D" uid="uid://b0b2j5uiwmwr5" path="res://素材/人物素材/早苗/人物/stand001.png" id="17_gafpj"]
 [ext_resource type="Texture2D" uid="uid://6cj3t5n216hi" path="res://素材/人物素材/早苗/人物/stand002.png" id="18_fiia1"]
@@ -127,7 +124,6 @@ anchors_preset = 0
 offset_right = 254.0
 offset_bottom = 248.0
 script = ExtResource("4_yyjmi")
-character_resources = Array[ExtResource("5_88f5o")]([ExtResource("6_on5sk"), ExtResource("7_1m0wx")])
 left_button = NodePath("箭头左")
 right_button = NodePath("箭头右")
 name_label = NodePath("人物名称")

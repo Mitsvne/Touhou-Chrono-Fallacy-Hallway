@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://cf3r8nbxcdt7i"]
+
+[ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_wk0fg"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_y2ld2"]
+
+[resource]
+script = ExtResource("2_y2ld2")
+character_scene_path = "uid://dhem3wxpj02v8"
+character_id = "拉赫莱蒂"
+character_name = "拉赫莱蒂"
+base_hp = 1000.0
+metadata/_custom_type_script = "uid://ca3irylcnbh3j"

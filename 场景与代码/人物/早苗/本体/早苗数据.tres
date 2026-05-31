@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_xr31t")
+character_scene_path = "uid://bwbev3uuivmkw"
 character_id = "东风谷早苗"
 character_name = "东风谷早苗"
 base_speed = 500.0

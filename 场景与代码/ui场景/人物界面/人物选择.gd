@@ -1,23 +1,17 @@
 class_name CharacterSelector
 extends Control
 
-# 在 Inspector 中拖入所有角色的 .tres 资源文件
-@export var character_resources: Array[CharacterData] = []
-
-# 自动获取内部按钮和文本节点的引用
 @export var left_button: TextureButton
 @export var right_button: TextureButton
 @export var name_label: Label
 @export var an: AnimatedSprite2D
 @export var deploy: Button
 
-# 核心指针：记录当前正在看第几个角色
+var character_resources: Array[CharacterData] = []
 var current_index: int = 0
 
 func _ready() -> void:
-	if character_resources.is_empty():
-		push_error("CharacterSelector: 角色资源列表为空，请在 Inspector 中添加 CharacterData 资源！")
-		return
+	character_resources=GameData.unlocked_characters
 	# 1. 绑定左右箭头的点击事件
 	left_button.pressed.connect(_on_left_arrow_pressed)
 	right_button.pressed.connect(_on_right_arrow_pressed)

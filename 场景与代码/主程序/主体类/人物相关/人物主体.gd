@@ -10,7 +10,6 @@ class_name Character_Main
 @export var damage_number:PackedScene
 @export var attack_bullet:PackedScene
 @export var attack_effect:PackedScene
-signal character_is_dead(team:String)
 
 enum State{NONE,常态,移动,冲刺,技能,必杀,死亡}
 var current_state: State = State.常态 :
@@ -22,7 +21,6 @@ var current_state: State = State.常态 :
 		current_state=v
 		enter_state(v)
 
-var team:String
 var gravity:=ProjectSettings.get("physics/2d/default_gravity") as float
 var current_velocity: Vector2 = Vector2.ZERO
 var is_allow_key_move:bool=true
@@ -35,7 +33,6 @@ var final_hit:bool=false
 ## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
-	team=character_data.team                       #队伍
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	#普攻和技能cd计时器
@@ -108,8 +105,7 @@ func enter_state(state:State):
 		State.技能,State.必杀:
 			update_direction()
 		State.死亡:
-			EventBus.character_dead.emit(team)
-			character_is_dead.emit(team)
+			EventBus.character_dead.emit(character_data.team)
 		pass
 
 ## 状态退出时
@@ -129,8 +125,7 @@ func transition_state(_from:State,to:State) -> void:
 		State.技能:
 			an_paly("技能1")
 		State.必杀:
-			#an_paly("必杀")
-			an_paly(GameData.get_stat(GameData.get_current_character(),"ultimate"))
+			an_paly("必杀1")
 		State.死亡:
 			an_paly("死亡")
 

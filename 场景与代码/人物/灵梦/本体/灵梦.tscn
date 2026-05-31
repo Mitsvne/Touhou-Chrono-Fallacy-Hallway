@@ -2187,6 +2187,7 @@ bullet3 = SubResource("PackedScene_bo27d")
 
 [node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
+character_name = "博丽灵梦"
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "anplayer")]
