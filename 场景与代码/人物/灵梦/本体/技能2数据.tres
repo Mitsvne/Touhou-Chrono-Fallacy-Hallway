@@ -5,5 +5,8 @@
 
 [resource]
 script = ExtResource("1_ygkq8")
+skill_id = "封魔亚空穴"
+skill_name = "封魔亚空穴"
 icon = ExtResource("1_n6w2k")
+description = "转移后乱射出5枚高速的封魔针。"
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

@@ -5,6 +5,11 @@
 
 [resource]
 script = ExtResource("1_7vmyl")
+skill_id = "秘术「遗忘之祭仪」"
+skill_name = "秘术「遗忘之祭仪」"
 skill_type = 1
 icon = ExtResource("1_tq5gh")
+description = "结成巨大的五芒星印，将周围空间化为不可侵入的结界。"
+cd = 10.0
+mp_cost = 100.0
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

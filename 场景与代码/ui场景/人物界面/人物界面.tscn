@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
 [ext_resource type="Script" uid="uid://brnn8y1ssrusk" path="res://场景与代码/ui场景/人物界面/人物界面.gd" id="1_h7faq"]
 [ext_resource type="Script" uid="uid://cd3y2fw016sqr" path="res://场景与代码/ui场景/人物界面/人物选择.gd" id="4_yyjmi"]
-[ext_resource type="Script" uid="uid://btpmddgwr7g7y" path="res://场景与代码/ui场景/人物界面/人物面板.gd" id="10_on5sk"]
 [ext_resource type="Texture2D" uid="uid://b0b2j5uiwmwr5" path="res://素材/人物素材/早苗/人物/stand001.png" id="17_gafpj"]
 [ext_resource type="Texture2D" uid="uid://6cj3t5n216hi" path="res://素材/人物素材/早苗/人物/stand002.png" id="18_fiia1"]
 [ext_resource type="Texture2D" uid="uid://da81vm5mvuqfj" path="res://素材/人物素材/早苗/人物/stand003.png" id="19_5qkjf"]
@@ -114,7 +113,6 @@ region_rect = Rect2(880, 2288, 768, 529)
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 361.0
-script = ExtResource("10_on5sk")
 
 [node name="人物选择" type="Control" parent="面板" unique_id=1530969487 node_paths=PackedStringArray("left_button", "right_button", "name_label", "an", "deploy")]
 anchors_preset = 0

@@ -5,5 +5,9 @@
 
 [resource]
 script = ExtResource("1_pigkm")
+skill_id = "钴蓝散射"
+skill_name = "钴蓝散射"
 icon = ExtResource("1_0tn51")
+description = "投出潜入地下的符纸，当符纸到达敌人面前时将化为炸裂弹从地下钻出。"
+cd = 5.0
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

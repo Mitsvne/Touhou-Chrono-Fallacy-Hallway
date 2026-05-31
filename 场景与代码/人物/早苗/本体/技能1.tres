@@ -5,5 +5,9 @@
 
 [resource]
 script = ExtResource("1_qjfle")
+skill_id = "星落"
+skill_name = "星落"
 icon = ExtResource("1_8oge7")
+description = "在上方出现闪耀的群星，广范围向下方落下。"
+cd = 7.0
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

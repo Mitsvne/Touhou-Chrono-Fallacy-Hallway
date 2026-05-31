@@ -12,14 +12,16 @@ signal slot_clicked(slot: SkillSlotUI)
 var skill_data: SkillData = null
 var is_equipped: bool = false
 var hover_timer: SceneTreeTimer = null
+
+# 【优化】引入专门的变量管理缩放动画
 var show_tween: Tween = null
+var scale_tween: Tween = null
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	gui_input.connect(_on_gui_input)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	# 初始透明且隐藏
 	if tooltip_panel:
 		tooltip_panel.modulate.a = 0.0
 		tooltip_panel.hide()
@@ -43,34 +45,45 @@ func _on_gui_input(event: InputEvent) -> void:
 # ==================== 效果 ====================
 
 func _on_mouse_entered() -> void:
-	# 放大反馈
+	# 【优化】安全杀死上一次的缩放动画，防止鬼畜摩擦
+	if scale_tween and scale_tween.is_valid(): scale_tween.kill()
 	pivot_offset = size / 2
-	create_tween().tween_property(self, "scale", Vector2(1.05, 1.05), 0.1)
-	# 立刻取消之前的显示动画（如果有）
+	scale_tween = create_tween()
+	scale_tween.tween_property(self, "scale", Vector2(1.05, 1.05), 0.1)
+	
 	_kill_show_tween()
 	if skill_data == null or tooltip_panel == null: return
-	# 启动延迟计时器
+	
 	hover_timer = get_tree().create_timer(0.4)
 	await hover_timer.timeout
-	if hover_timer == null: return   # 已被鼠标移出取消
-	# 组装文本（使用 append_text 保证 BBCode 正确渲染）
+	if hover_timer == null: return 
+	
+	# 组装文本
 	tooltip_rich_text.clear()
 	tooltip_rich_text.append_text("[color=#ffca3a]%s[/color]\n" % skill_data.skill_name)
 	tooltip_rich_text.append_text("[color=#8ac926]消耗: %d[/color]\n" % skill_data.mp_cost)
 	tooltip_rich_text.append_text("[color=#ff595e]CD: %.1fs[/color]\n" % skill_data.cd)
 	tooltip_rich_text.append_text("[i]%s[/i]" % skill_data.description)
-	# 固定位置：卡槽的右下角 + 预设偏移
-	tooltip_panel.global_position = global_position + size + tooltip_offset
+	
+	# 【优化】智能防出界算法：计算右下角坐标
+	var target_pos = global_position + size + tooltip_offset
+	# 如果超出了屏幕宽度，自动将弹窗往左边弹
+	var screen_width = get_viewport_rect().size.x
+	if target_pos.x + tooltip_panel.size.x > screen_width:
+		target_pos.x = global_position.x - tooltip_panel.size.x - tooltip_offset.x
+		
+	tooltip_panel.global_position = target_pos
 	tooltip_panel.show()
-	# 渐显动画
+	
 	show_tween = create_tween()
 	show_tween.tween_property(tooltip_panel, "modulate:a", 1.0, 0.15)
 
 func _on_mouse_exited() -> void:
-	create_tween().tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
-	# 取消延迟
+	# 【优化】安全杀死缩放动画并还原
+	if scale_tween and scale_tween.is_valid(): scale_tween.kill()
+	scale_tween = create_tween()
+	scale_tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
 	hover_timer = null
-	# 淡出悬浮窗
 	if tooltip_panel and tooltip_panel.visible:
 		_kill_show_tween()
 		show_tween = create_tween()

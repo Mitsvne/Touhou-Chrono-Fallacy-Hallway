@@ -37,7 +37,7 @@ offset_bottom = 65.0
 visible = false
 top_level = true
 layout_mode = 0
-offset_right = 100.0
+offset_right = 180.0
 offset_bottom = 150.0
 
 [node name="详情文本" type="RichTextLabel" parent="文本框" unique_id=1437255269]

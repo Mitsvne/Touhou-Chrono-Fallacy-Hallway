@@ -27,6 +27,6 @@ script = ExtResource("4_sr34d")
 card_id = "灵力提升"
 card_name = "灵力提升"
 icon = ExtResource("3_pvvse")
-description = "魔力值提升50%，必杀伤害提升20%"
+description = "魔力值提升50%，必杀伤害提升10%"
 effects = Array[ExtResource("1_eh5r6")]([SubResource("Resource_pvvse"), SubResource("Resource_sr34d"), SubResource("Resource_wwy2h")])
 metadata/_custom_type_script = "uid://donfkw40y1usn"
