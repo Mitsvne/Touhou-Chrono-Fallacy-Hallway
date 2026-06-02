@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="6_jsjuc"]
 [ext_resource type="Shader" uid="uid://bjfp3xblgq0de" path="res://场景与代码/着色器/火焰效果.tres" id="6_yc4gq"]
 [ext_resource type="Texture2D" uid="uid://bid7hygs1nt76" path="res://素材/特效素材/纹理图/火焰纹理.png" id="7_akm0r"]
-[ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/效果相关/视觉类.gd" id="7_l2ty5"]
 [ext_resource type="Texture2D" uid="uid://i16efq2a0i6g" path="res://素材/特效素材/纹理图/园地圆柱.jpg" id="8_8rqkx"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="8_bgfok"]
 [ext_resource type="AudioStream" uid="uid://ciu2nx33u4n08" path="res://素材/人物素材/拉赫/音效/火焰.wav" id="8_grlph"]
@@ -63,7 +62,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VisualNode/图形:material:shader_parameter/add")
+tracks/0/path = NodePath("图形:material:shader_parameter/add")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,7 +74,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VisualNode/图形:material:shader_parameter/add:fill_from")
+tracks/1/path = NodePath("图形:material:shader_parameter/add:fill_from")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +90,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VisualNode/图形:material:shader_parameter/add")
+tracks/0/path = NodePath("图形:material:shader_parameter/add")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +102,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VisualNode/图形:material:shader_parameter/add:fill_from")
+tracks/1/path = NodePath("图形:material:shader_parameter/add:fill_from")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,16 +123,9 @@ _data = {
 &"loop": SubResource("Animation_pl1q7")
 }
 
-[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("sprite", "an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler", "effect_ctrler") groups=["bullets"]]
+[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 groups=["bullets"]]
 script = ExtResource("1_yc4gq")
-sprite = NodePath("VisualNode/图形")
-an = NodePath("VisualNode/动画")
-aduio = ExtResource("8_grlph")
-hitarea = NodePath("Hitbox/攻击面")
-hurtarea = NodePath("Hurtbox/受击面")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+audio = ExtResource("8_grlph")
 metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=655721601]
@@ -160,20 +152,14 @@ metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 
-[node name="VisualNode" type="Node2D" parent="." unique_id=973445540 node_paths=PackedStringArray("data")]
-script = ExtResource("7_l2ty5")
-data = NodePath("../class/Bullet_Data")
-metadata/_custom_type_script = "uid://dtiqmbrkt75kr"
-
-[node name="图形" type="Sprite2D" parent="VisualNode" unique_id=601779241]
+[node name="图形" type="Sprite2D" parent="." unique_id=601779241]
 material = SubResource("ShaderMaterial_bgfok")
 rotation = -1.5707964
 scale = Vector2(60, 100)
 texture = SubResource("CompressedTexture2D_jsjuc")
 offset = Vector2(0.014131367, -0.27995527)
 
-[node name="动画" type="AnimationPlayer" parent="VisualNode" unique_id=1749077408]
-root_node = NodePath("../..")
+[node name="动画" type="AnimationPlayer" parent="." unique_id=1749077408]
 libraries/ = SubResource("AnimationLibrary_6iiro")
 
 [node name="class" type="Node" parent="." unique_id=298435156]
@@ -184,7 +170,7 @@ metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
 [node name="Bullet_Ctrler" type="Node" parent="class" unique_id=500749183 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("9_l2ty5")
-anplayer = NodePath("../../VisualNode/动画")
+anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
@@ -192,9 +178,3 @@ metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1332674033]
 script = ExtResource("11_akm0r")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
-
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1462564110]
-stream = ExtResource("8_grlph")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

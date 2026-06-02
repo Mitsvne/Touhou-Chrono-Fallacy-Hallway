@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="4_vt2mh"]
 [ext_resource type="Texture2D" uid="uid://s8eqsuj6q82e" path="res://素材/人物素材/早苗/特效/bulletAa000.png" id="5_7yaou"]
 [ext_resource type="Texture2D" uid="uid://irdre3j5gdwq" path="res://素材/人物素材/早苗/特效/bulletAb000.png" id="6_wal7f"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_s80hk"]
 [ext_resource type="Texture2D" uid="uid://rpthgdjjcgac" path="res://素材/人物素材/早苗/特效/bulletAb002.png" id="8_65ib3"]
 [ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="10_togxl"]
 [ext_resource type="AudioStream" uid="uid://b57ahwgfaansu" path="res://素材/人物素材/早苗/音效/弹幕发射1.wav" id="11_vt2mh"]
@@ -333,13 +334,9 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.9906977, 1)
 colors = PackedColorArray(0.5921569, 0.17254902, 0.59607846, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
 
-[node name="早苗普攻弹幕" type="Area2D" unique_id=199028768 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
+[node name="早苗普攻弹幕" type="Area2D" unique_id=199028768 groups=["bullets"]]
 script = ExtResource("1_46byg")
-an = NodePath("动画")
-hitarea = NodePath("Hitbox/攻击面")
-hurtarea = NodePath("Hurtbox/受击面")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
+audio = ExtResource("11_vt2mh")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1671648316]
 shape = SubResource("RectangleShape2D_vdwh2")
@@ -372,6 +369,10 @@ bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1307112073]
+script = ExtResource("7_s80hk")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
 [node name="动画" type="AnimationPlayer" parent="." unique_id=1942238643]
 libraries/ = SubResource("AnimationLibrary_xap8a")
 
@@ -400,12 +401,3 @@ max_points = 10
 top_level = true
 width_curve = SubResource("Curve_vt2mh")
 gradient = SubResource("Gradient_7yaou")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1118573291]
-stream = ExtResource("11_vt2mh")
-volume_db = -5.0
-autoplay = true
-bus = &"SFX"
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

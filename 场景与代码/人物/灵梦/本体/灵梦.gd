@@ -4,10 +4,10 @@ extends CharacterBody2D
 @export var character_data: Character_Data
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
-@export var audio: AudioStreamPlayer
 @export var attack_bullet:PackedScene
 @export var bullet2:PackedScene
 @export var bullet3:PackedScene
+@export var skill2_bullet:PackedScene
 
 var character_name:String="博丽灵梦"
 var active_effects: Array[CardEffect] = []
@@ -21,10 +21,6 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	pass
 
-
-func play_audio():
-	audio.play()
-	
 ## 1. 注入并激活属于该角色的所有卡牌
 func _initialize_card_effects() -> void:
 	# 安全检查：是否能拿到全局选择的角色数据
@@ -44,3 +40,7 @@ func _initialize_card_effects() -> void:
 			active_effects.append(runtime_effect)
 			# 立即触发被动钩子
 			runtime_effect.apply_passive(self)
+
+func skill2():
+	for i in range(1,6):
+		character_ctrler.shoot(skill2_bullet,Vector2.ZERO,60)

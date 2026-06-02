@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_l6f1w")
-skill_id = "神灵「梦想封印」"
+skill_id = "梦想封印"
 skill_name = "神灵「梦想封印」"
 skill_type = 1
 icon = ExtResource("1_h6mdj")

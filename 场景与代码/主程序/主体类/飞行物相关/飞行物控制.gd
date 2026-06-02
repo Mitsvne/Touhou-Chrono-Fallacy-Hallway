@@ -69,7 +69,7 @@ func _process_tracking(delta: float) -> void:
 	_apply_scalar_drag(delta)
 	var cur_spd = velocity.length()
 	if cur_spd < 0.1: return
-	# 计算理想方向：直接使用世界坐标差，不要乘以 bullet_direction
+	# 计算理想方向：直接使用世界坐标差，不要乘以 direction
 	var to_target_vec = tracking_target.global_position - bullet.global_position
 	var dist_sq = to_target_vec.length_squared()
 	# 螺旋收紧逻辑
@@ -99,7 +99,7 @@ func _apply_scalar_drag(delta: float) -> void:
 ## 矢量阻力/加速度处理（直线模式）
 func _apply_vector_drag(delta: float) -> void:
 	# 优化：直接在原向量上操作
-	velocity.x = _calculate_axis_drag(velocity.x, drag_vec.x, delta, bullet_data.bullet_direction)
+	velocity.x = _calculate_axis_drag(velocity.x, drag_vec.x, delta, bullet_data.direction)
 	velocity.y = _calculate_axis_drag(velocity.y, drag_vec.y, delta, -1.0)
 
 ## 对单个轴的速度分量进行阻力/加速度更新
@@ -114,7 +114,7 @@ func _calculate_axis_drag(val: float, drag: float, delta: float, def_dir: float)
 func _to_world_velocity() -> Vector2:
 	# 只有在 STRAIGHT 模式下才应用方向镜像逻辑
 	if current_mode == MovementMode.STRAIGHT:
-		return Vector2(velocity.x * bullet_data.bullet_direction, velocity.y)
+		return Vector2(velocity.x * bullet_data.direction, velocity.y)
 	return velocity
 
 ## 参数重置函数
@@ -144,7 +144,7 @@ func start_track(target: Node2D, spd: float, drag: float = 0.0, radius: float = 
 	drag_scalar = drag
 	min_turn_radius = radius
 	tighten_progress = 0.0
-	# 重要：追踪模式运行在世界坐标系，不应受 bullet_direction 的镜像影响
+	# 重要：追踪模式运行在世界坐标系，不应受 direction 的镜像影响
 	if is_moving and current_mode == MovementMode.STRAIGHT:
 		# 从直线模式切过来，必须把带镜像的速度转回真实的世界速度
 		velocity = _to_world_velocity()
@@ -161,9 +161,9 @@ func start_move_forward(speed: float, drag: float = 0.0, use_vector_drag: bool =
 	var direction = Vector2.RIGHT.rotated(bullet.global_rotation)
 	var init_velocity = direction * speed
 	if use_vector_drag:
-		# 如果使用矢量阻力，需要考虑 bullet_direction 镜像（直线模式）
+		# 如果使用矢量阻力，需要考虑 direction 镜像（直线模式）
 		# 这里的处理是为了抵消 _to_world_velocity 中的镜像，确保方向正确
-		init_velocity.x /= bullet_data.bullet_direction
+		init_velocity.x /= bullet_data.direction
 		start_move(init_velocity, Vector2(drag, drag))
 	else:
 		# 否则进入自由飞行模式（标量阻力，不考虑镜像）
@@ -184,7 +184,7 @@ func start_move_towards(target_pos: Vector2, speed: float, drag: float = 0.0,
 	var to_target = target_pos - bullet.global_position
 	if to_target.is_zero_approx(): return
 	# 1. 获取当前逻辑朝向 (1 或 -1)
-	var face_dir = bullet_data.bullet_direction
+	var face_dir = bullet_data.direction
 	# 2. 修正基准方向：如果朝左，基准方向也需要镜像
 	# 比如默认基准是 Vector2.RIGHT，朝左时逻辑基准变为 Vector2.LEFT
 	var effective_base_dir = base_direction
@@ -286,7 +286,7 @@ func apply_gravity(value: bool):
 
 ## 设置朝向（1=右，-1=左）
 func set_direction(value: int):
-	bullet_data.bullet_direction = value
+	bullet_data.direction = value
 	bullet.scale.x=value
 
 ## 获取场景内的物理碰撞层
@@ -340,7 +340,7 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	bullet_instance.add_to_group(bullet_data.team)
 	bullet_instance.bullet_data.bullet_team=bullet_data.team
 	bullet_instance.bullet_data.bullet_owner=bullet
-	bullet_instance.bullet_data.bullet_direction=bullet_data.direction
+	bullet_instance.bullet_data.direction=bullet_data.direction
 	#位置偏移
 	var origin = generate_position if generate_position.length() != 0 else bullet.global_position
 	bullet_instance.global_position.x = origin.x + offset.x * bullet_data.direction
@@ -352,18 +352,9 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	else:
 		bullet_instance.rotation = PI - deg_to_rad(offset_rotation)
 
-
-
-
-
-
-
-
-
-
 ## 获取敌人节点
 func get_target():
-	var team = bullet_data.bullet_team
+	var team = bullet_data.team
 	var characters = get_tree().get_nodes_in_group("characters")
 	for character in characters:
 		if character is CharacterBody2D and not character.is_in_group(team):
@@ -387,13 +378,8 @@ func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after:
 	var time = frame / fps
 	jump_to_time(anim_name, time, play_after)
 
-## 播放音频
-func play_audio(audio_path: NodePath):
-	var audio_node = get_node(audio_path)
-	if audio_node == null:
-		printerr("找不到节点: ", audio_path)
-		return
-	if audio_node is AudioStreamPlayer:
-		audio_node.play()
-	else:
-		printerr("该节点不是AudioStreamPlayer")
+## 设置box
+func disable_box(box:Area2D,value:bool):
+	for i in box.get_children():
+		if i is CollisionShape2D:
+			i.set_deferred("disabled", value)

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_cp116")
-skill_id = "宝具「阴阳鬼神玉」"
+skill_id = "阴阳鬼神玉"
 skill_name = "宝具「阴阳鬼神玉」"
 skill_type = 1
 icon = ExtResource("1_43yev")

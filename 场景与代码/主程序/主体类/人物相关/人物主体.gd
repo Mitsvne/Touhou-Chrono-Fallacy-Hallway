@@ -125,8 +125,8 @@ func transition_state(_from:State,to:State) -> void:
 		State.技能:
 			an_paly("技能1")
 		State.必杀:
-			#an_paly("必杀1")
-			an_paly(character_data.current_ultimate.skill_name)
+			an_paly("梦想封印")
+			#an_paly(character_data.current_ultimate.skill_id)
 		State.死亡:
 			an_paly("死亡")
 

@@ -25,7 +25,7 @@ func _physics_process(delta: float):
 
 func _on_area_entered(area: Area2D):
 	if owner.is_in_group("bullets"):
-		team = owner.bullet_data.bullet_team
+		team = owner.bullet_data.team
 	if owner.is_in_group("props"):
 		team = owner.prop_data.prop_team
 	if owner.is_in_group("characters"):

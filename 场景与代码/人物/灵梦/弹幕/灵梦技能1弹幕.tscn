@@ -281,16 +281,10 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.1704918, 0.41967213, 0.6786885, 0.852459, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.98039216, 1, 1, 0.5882353, 0.76862746, 0.9764706, 0.9843137, 0.5882353, 0.1764706, 0.33333334, 0.79607844, 0.5882353, 0.09803922, 0.1254902, 0.6392157, 0.5882353, 0, 0, 0, 0)
 
-[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 node_paths=PackedStringArray("Sprite", "an", "audio", "hitarea", "hurtarea", "bullet_data", "effect_ctrler", "bullet_ctrler") groups=["bullets"]]
+[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 groups=["bullets"]]
 script = ExtResource("1_ej0t6")
-Sprite = NodePath("素材库")
-an = NodePath("动画")
-audio = NodePath("命中音效")
-hitarea = NodePath("Hitbox/碰撞面")
-hurtarea = NodePath("Hurtbox/碰撞面")
-bullet_data = NodePath("class/Bullet_Data")
-effect_ctrler = NodePath("class/Effect_Ctrler")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
+add_audio = ExtResource("7_c10u1")
+hit_audio = ExtResource("6_yt1m0")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=2044055847]
 shape = SubResource("CircleShape2D_2v2es")
@@ -331,11 +325,12 @@ gradient = SubResource("Gradient_q5ldj")
 
 [node name="Bullet_Data" type="Node" parent="class" unique_id=686749802]
 script = ExtResource("9_ocnon")
-bullet_hp_max = 50.0
+hp_max = 60.0
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=1131777314 node_paths=PackedStringArray("bullet_data", "bullet")]
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=1131777314 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("10_k06hx")
+anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
@@ -343,17 +338,3 @@ metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=849701786]
 script = ExtResource("2_k06hx")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
-
-[node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=1123507937]
-stream = ExtResource("6_yt1m0")
-volume_db = -5.0
-bus = &"Se"
-
-[node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=1222591856]
-stream = ExtResource("7_c10u1")
-volume_db = -6.0
-autoplay = true
-bus = &"Se"
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

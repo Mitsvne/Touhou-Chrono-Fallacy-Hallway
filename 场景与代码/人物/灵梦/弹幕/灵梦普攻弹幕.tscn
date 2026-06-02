@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="6_f2vet"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="7_7fhjk"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="7_x7voj"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="9_3symv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfn0"]
 size = Vector2(24, 10)
@@ -260,13 +261,9 @@ _data = {
 &"loop": SubResource("Animation_rn2kp")
 }
 
-[node name="灵梦普攻弹幕" type="Area2D" unique_id=81166135 node_paths=PackedStringArray("an", "hitarea", "hurtarea", "bullet_data", "bullet_ctrler") groups=["bullets"]]
+[node name="灵梦普攻弹幕" type="Area2D" unique_id=81166135 groups=["bullets"]]
 script = ExtResource("1_1ax1q")
-an = NodePath("动画")
-hitarea = NodePath("Hitbox/碰撞面")
-hurtarea = NodePath("Hurtbox/碰撞面")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
+audio = ExtResource("6_ds2uh")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=35290016]
 shape = SubResource("RectangleShape2D_vxfn0")
@@ -312,11 +309,6 @@ bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=1941379380 groups=["bullets"]]
-stream = ExtResource("6_ds2uh")
-volume_db = -6.0
-autoplay = true
-bus = &"Se"
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=195744497]
+script = ExtResource("9_3symv")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"

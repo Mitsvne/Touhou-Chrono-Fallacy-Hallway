@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_2rc5h"]
 [ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_6ur1o"]
 [ext_resource type="AudioStream" uid="uid://rxnd45x7xxh2" path="res://素材/人物素材/灵梦/音效/弹幕发射3.wav" id="9_76r6k"]
-[ext_resource type="AudioStream" uid="uid://cbi6w30rsiwhf" path="res://素材/人物素材/灵梦/音效/lm_5-73.wav" id="10_px5yt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xo2j"]
 radius = 40.04997
@@ -215,14 +214,9 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.26666668, 0.5897436, 0.8974359, 1)
 colors = PackedColorArray(9.62615e-08, 0.88357574, 0.44747853, 0, 0.53366125, 0.9099579, 0.57926273, 0.78431374, 0.34345433, 0.64511395, 0.43511724, 0.78431374, 1, 0.94509804, 0.95686275, 0.5882353, 0, 0, 0, 0)
 
-[node name="灵梦必杀弹幕红" type="Area2D" unique_id=564191474 node_paths=PackedStringArray("an", "hitarea", "bullet_data", "bullet_ctrler", "effect_ctrler", "audio")]
+[node name="灵梦必杀弹幕红" type="Area2D" unique_id=564191474]
 script = ExtResource("1_1pres")
-an = NodePath("动画")
-hitarea = NodePath("Hitbox/攻击面")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
-audio = NodePath("命中音效")
+audio = ExtResource("9_76r6k")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=428463632]
 visible = false
@@ -273,12 +267,3 @@ points = PackedVector2Array(103, 22)
 width = 50.0
 width_curve = SubResource("Curve_5xo2j")
 gradient = SubResource("Gradient_mcfyn")
-
-[node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=475169982]
-stream = ExtResource("9_76r6k")
-autoplay = true
-
-[node name="命中音效" type="AudioStreamPlayer" parent="." unique_id=795714289]
-stream = ExtResource("10_px5yt")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

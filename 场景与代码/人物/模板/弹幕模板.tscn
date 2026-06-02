@@ -12,11 +12,8 @@
 script = ExtResource("2_iolgs")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="弹幕模板" type="Area2D" unique_id=256754848 node_paths=PackedStringArray("an", "bullet_data", "bullet_ctrler")]
+[node name="弹幕模板" type="Area2D" unique_id=256754848]
 script = ExtResource("1_iolgs")
-an = NodePath("动画")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=2145647031]
 
@@ -31,8 +28,6 @@ metadata/_custom_type_script = "uid://dtwddbmde8lh"
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1110565936]
 script = ExtResource("4_sudlh")
 metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="音效" type="AudioStreamPlayer" parent="." unique_id=142179356]
 
 [node name="class" type="Node" parent="." unique_id=935622526]
 

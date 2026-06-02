@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_4dvs6")
-skill_id = "珠符「明珠暗投」"
+skill_id = "明珠暗投"
 skill_name = "珠符「明珠暗投」"
 icon = ExtResource("1_pffcd")
 description = "抛射3枚阴阳玉。"

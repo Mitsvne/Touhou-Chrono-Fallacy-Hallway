@@ -56,9 +56,15 @@
 [ext_resource type="PackedScene" uid="uid://c3rabsfr17fmj" path="res://场景与代码/人物/灵梦/弃用/灵梦必杀2弹幕.tscn" id="48_xn1ji"]
 [ext_resource type="PackedScene" uid="uid://bo8ufujvwynim" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕绿.tscn" id="50_kgnp6"]
 [ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="52_kgnp6"]
+[ext_resource type="PackedScene" uid="uid://bshr3sluuy2u3" path="res://场景与代码/人物/灵梦/弹幕/灵梦技能2弹幕.tscn" id="56_12oeg"]
+[ext_resource type="Texture2D" uid="uid://4iph2qrcebbm" path="res://素材/人物素材/灵梦/人物/standUp003.png" id="56_ooy6v"]
 [ext_resource type="PackedScene" uid="uid://3lxrlcyhfxcd" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕红.tscn" id="56_wmq54"]
+[ext_resource type="Texture2D" uid="uid://c58ptife5ago" path="res://素材/人物素材/灵梦/人物/standUp004.png" id="57_12oeg"]
 [ext_resource type="PackedScene" uid="uid://cevptb0cf01pl" path="res://场景与代码/人物/灵梦/弹幕/灵梦必杀弹幕蓝.tscn" id="57_kgnp6"]
+[ext_resource type="Texture2D" uid="uid://dxo7vq1f64dly" path="res://素材/人物素材/灵梦/人物/standUp005.png" id="58_j71ox"]
 [ext_resource type="Shader" uid="uid://be15g150kh71b" path="res://场景与代码/着色器/浮动效果全局.gdshader" id="59_0mxg6"]
+[ext_resource type="Texture2D" uid="uid://b03o0nsetpa" path="res://素材/人物素材/灵梦/人物/standUp006.png" id="59_5q8lb"]
+[ext_resource type="Texture2D" uid="uid://dk6404y3qetpa" path="res://素材/人物素材/灵梦/人物/standUp007.png" id="60_puycj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_256k3"]
 size = Vector2(39, 39)
@@ -1291,6 +1297,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("56_ooy6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_12oeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_j71ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_5q8lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_puycj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_20d74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fc6ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c73gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x7guv")
+}],
+"loop": true,
+"name": &"技能2",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("32_3568u")
 }, {
 "duration": 1.0,
@@ -1873,6 +1911,97 @@ tracks/6/keys = {
 }
 tracks/6/use_blend = true
 
+[sub_resource type="Animation" id="Animation_ymbms"]
+resource_name = "技能2"
+length = 0.8666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"技能2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666669, 0.13333333, 0.20000003, 0.26666668, 0.33333337, 0.4, 0.4666667, 0.53333336, 0.6, 0.6666667, 0.7333334, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 1, 2, 3, 4, 0, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 0.73333347, 0.80000013),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -18), Vector2(-11, -16), Vector2(-13, -14)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../class/Character_Ctrler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [800.0, 1600.0],
+"method": &"start_dash"
+}, {
+"args": [],
+"method": &"stop_dash"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../class/Effect_Ctrler")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [NodePath("../../素材库"), Color(1, 1, 1, 0.5), 0.1, 0.5],
+"method": &"start_shadow"
+}, {
+"args": [],
+"method": &"stop_shadow"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"skill2"
+}, {
+"args": [],
+"method": &"skill2"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_wpml1"]
 resource_name = "必杀1"
 length = 1.1333368
@@ -2152,9 +2281,10 @@ _data = {
 &"后退": SubResource("Animation_gxxbo"),
 &"常态": SubResource("Animation_syqf8"),
 &"技能1": SubResource("Animation_h1ood"),
+&"技能2": SubResource("Animation_ymbms"),
 &"梦想封印": SubResource("Animation_wpml1"),
 &"死亡": SubResource("Animation_4a6ux"),
-&"阴阳宝玉": SubResource("Animation_lt2rg")
+&"阴阳鬼神宝玉": SubResource("Animation_lt2rg")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xq80m"]
@@ -2180,6 +2310,7 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 attack_bullet = ExtResource("2_g1kd8")
 bullet2 = ExtResource("3_8vesq")
 bullet3 = SubResource("PackedScene_bo27d")
+skill2_bullet = ExtResource("56_12oeg")
 
 [node name="class" type="Node" parent="." unique_id=213625171]
 
