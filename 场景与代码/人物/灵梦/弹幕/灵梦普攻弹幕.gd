@@ -20,6 +20,10 @@ func _ready():
 	await get_tree().create_timer(2, false).timeout
 	queue_free()
 
+func init_damage():
+	pass
+
+
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.team) and area.owner.is_in_group("characters"):
 		bullet_data.bullet_owner.character_data.mp+=mp

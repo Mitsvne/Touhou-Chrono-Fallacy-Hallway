@@ -9,6 +9,7 @@ signal direction_changed
 
 @export var character_name:String="未命名"    #角色名称
 var team:String="1P"                 #队伍
+var power:float=10                   #攻击力
 var move_speed:int=400               #移动速度
 var acceleration: float = 1600.0     #加速度（像素/秒²）
 var friction: float = 1200.0         #减速度（像素/秒²）
@@ -56,6 +57,7 @@ func _ready() -> void:
 	if GameData and GameData.get_character_data(character_name):
 		var blueprint = GameData.get_character_data(character_name)
 		character_name=blueprint.character_name
+		power=blueprint.base_power
 		move_speed=blueprint.base_speed
 		acceleration=blueprint.base_acceleration
 		friction=blueprint.base_friction
@@ -77,4 +79,18 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	energy+=energy_regen*delta #时刻恢复耐力
-	
+
+func calculate_final_damage(attack_resource: AttackData) -> int:
+	if attack_resource == null: 
+		push_warning("攻击数据资源为空，返回0伤害")
+		return 0
+	# 核心公式
+	var raw_damage = power * attack_resource.damage_multiplier
+	# 四舍五入取整
+	var final_damage = roundi(raw_damage)
+	# 打印测试
+	print(character_name, "准备发起攻击: ", attack_resource.attack_name, 
+		 " | 属性(力量): ", power, 
+		 " | 倍率: ", attack_resource.damage_multiplier, 
+		 " | 最终快照伤害: ", final_damage)
+	return final_damage

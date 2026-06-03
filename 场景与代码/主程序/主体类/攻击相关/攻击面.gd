@@ -7,6 +7,7 @@ signal hit(hurtbox)
 var team: String
 var hurtboxes: Array[Hurtbox] = []
 var _cooldown_timers: Dictionary = {}
+
 func _ready():
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)

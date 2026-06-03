@@ -216,13 +216,10 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	var origin = generate_position if generate_position.length() != 0 else character.global_position
 	bullet_instance.global_position.x = origin.x + offset.x * character_data.direction
 	bullet_instance.global_position.y = origin.y + offset.y
-	#飞行物根据朝向镜像
-	#bullet_instance.bullet_ctrler.initialize_mirror(character_data.direction)
 	if character_data.direction == 1:
 		bullet_instance.rotation += deg_to_rad(offset_rotation)
 	else:
 		bullet_instance.rotation += PI - deg_to_rad(offset_rotation)
-	#print("飞行物自身角度：",rad_to_deg(bullet_instance.rotation))
 
 
 ## 添加道具
