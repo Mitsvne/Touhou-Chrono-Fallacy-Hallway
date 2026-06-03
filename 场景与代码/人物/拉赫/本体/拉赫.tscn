@@ -91,7 +91,7 @@
 [ext_resource type="Texture2D" uid="uid://bp82gn2ppcb2u" path="res://素材/人物素材/拉赫/人物/动作4/xem_2740-11.png" id="55_x5oo0"]
 [ext_resource type="Texture2D" uid="uid://dley5smwipe3v" path="res://素材/人物素材/拉赫/人物/动作4/xem_2740-12.png" id="56_kgsoa"]
 [ext_resource type="Texture2D" uid="uid://bynge4haeuo2g" path="res://素材/人物素材/拉赫/人物/动作4/xem_2740-13.png" id="57_73f7b"]
-[ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥.wav" id="58_i3xqp"]
+[ext_resource type="AudioStream" uid="uid://bq5xvv3ek60rp" path="res://素材/人物素材/灵梦/音效/轻挥1.wav" id="58_i3xqp"]
 [ext_resource type="Texture2D" uid="uid://pr4nwxpy5uk1" path="res://素材/人物素材/拉赫/人物/动作4/xem_2740-14.png" id="58_nmung"]
 [ext_resource type="Texture2D" uid="uid://cvkrvw6rice1u" path="res://素材/人物素材/拉赫/人物/动作5/xem_2700-0.png" id="59_awkxp"]
 [ext_resource type="Texture2D" uid="uid://cf0twh8afs7a" path="res://素材/人物素材/拉赫/人物/动作5/xem_2700-1.png" id="60_qsndw"]

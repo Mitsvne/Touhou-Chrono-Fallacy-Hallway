@@ -38,7 +38,7 @@ func _on_right_arrow_pressed() -> void:
 ## 登场按钮：切换当前角色为登场角色
 func _on_deploy_pressed() -> void:
 	GameData.current_deploy_character_data=GameData.current_character_data
-	deploy.text="当前登场："+GameData.current_deploy_character_data.character_name
+	_update_selection()
 
 ## ==================== 数据同步中心 ====================
 
@@ -49,3 +49,4 @@ func _update_selection() -> void:
 	if an:
 		an.play(target_char_data.character_name)
 	GameData.current_character_data = target_char_data
+	deploy.text="当前登场："+GameData.current_deploy_character_data.character_name

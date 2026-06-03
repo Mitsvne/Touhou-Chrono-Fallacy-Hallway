@@ -18,6 +18,7 @@ var add_audio = preload("res://素材/人物素材/灵梦/音效/弹幕发射2.w
 func _ready():
 	self.area_entered.connect(_on_area_entered)
 	hurtbox.hurt.connect(_on_hurtbox_hurt)
+	await get_tree().process_frame
 	bullet_ctrler.start_move_forward(speed,drag)
 	await get_tree().create_timer(2, false).timeout
 	queue_free()

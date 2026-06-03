@@ -41,6 +41,10 @@ func _initialize_card_effects() -> void:
 			# 立即触发被动钩子
 			runtime_effect.apply_passive(self)
 
-func skill2():
-	for i in range(1,6):
-		character_ctrler.shoot(skill2_bullet,Vector2.ZERO,60)
+func skill2(start_angle:int=30):
+	for i in range(6):
+		var current_angle_deg = start_angle + i * 5
+		var current_angle_rad = deg_to_rad(current_angle_deg)
+		var x = 100 * cos(current_angle_rad)
+		var y = 100 * sin(current_angle_rad)
+		character_ctrler.shoot(skill2_bullet,Vector2(x,y),current_angle_deg)

@@ -378,8 +378,20 @@ func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after:
 	var time = frame / fps
 	jump_to_time(anim_name, time, play_after)
 
+
 ## 设置box
 func disable_box(box:Area2D,value:bool):
 	for i in box.get_children():
 		if i is CollisionShape2D:
 			i.set_deferred("disabled", value)
+
+func play_audio(audio_path: NodePath, type: String = "SFX"):
+	var audio_node = get_node(audio_path)
+	var stream = audio_node.stream
+	if type == "BGM":
+		AudioManager.play_bgm(stream)
+	elif type == "SFX":
+		AudioManager.play_sfx(stream)
+	elif type == "Voice":
+		AudioManager.play_voice(stream)
+	
