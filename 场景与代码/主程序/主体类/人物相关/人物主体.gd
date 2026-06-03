@@ -39,7 +39,7 @@ func _ready() -> void:
 	attack_timer.wait_time =  character_data.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
-	skill_timer.wait_time = 3
+	skill_timer.wait_time = GameData.current_deploy_character_data.equipped_skill.cd
 	skill_timer.timeout.connect(_on_skill_timer_timeout)
 	add_child(skill_timer)
 	print("4.Character_Main初始化完成:",character)
