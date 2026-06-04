@@ -212,6 +212,9 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	bullet_instance.bullet_data.team=character_data.team
 	bullet_instance.bullet_data.bullet_owner=character
 	bullet_instance.bullet_data.direction=character_data.direction
+	bullet_instance.bullet_data.power=character_data.power
+	if bullet_instance.has_method("init_damage"):
+		bullet_instance.init_damage()
 	#位置偏移
 	var origin = generate_position if generate_position.length() != 0 else character.global_position
 	bullet_instance.global_position.x = origin.x + offset.x * character_data.direction

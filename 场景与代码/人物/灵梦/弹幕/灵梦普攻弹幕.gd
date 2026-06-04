@@ -21,8 +21,14 @@ func _ready():
 	queue_free()
 
 func init_damage():
-	pass
-
+	var final_damage:float
+	if hitbox.attack_data.skill_data and hitbox.attack_data.skill_data.hits:
+		final_damage=bullet_data.power*hitbox.attack_data.skill_data.damage_multiplier
+	elif hitbox.attack_data.damage_multiplier!=0:
+		final_damage=bullet_data.power*hitbox.attack_data.damage_multiplier
+	else:
+		final_damage=hitbox.attack_data.damage
+	hitbox.attack_data.damage=final_damage
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.team) and area.owner.is_in_group("characters"):

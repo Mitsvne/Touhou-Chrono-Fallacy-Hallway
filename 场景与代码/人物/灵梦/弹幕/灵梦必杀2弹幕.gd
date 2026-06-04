@@ -1,21 +1,29 @@
 extends Area2D
 
-@export var speed:float=400
-@export var drag:float=0
-@export var mp:float=5
-@export var audio: AudioStream
-
 @onready var an: AnimationPlayer = $动画
 @onready var bullet_data: Bullet_Data = $class/Bullet_Data
 @onready var bullet_ctrler: Bullet_Ctrler = $class/Bullet_Ctrler
 @onready var effect_ctrler: Effect_Ctrler = $class/Effect_Ctrler
+@onready var hitbox: Hitbox = $Hitbox
+@onready var hitbox2: Hitbox = $Hitbox2
 
 func _ready():
 	await get_tree().process_frame
 	await an.animation_finished
-	#await get_tree().create_timer(2, false).timeout
 	queue_free()
 
-func _physics_process(_delta):
-	#不要直接删除
-	pass
+func init_damage():
+	hitbox.attack_data.damage=_calculate_damage(hitbox)
+	hitbox2.attack_data.damage=_calculate_damage(hitbox2)
+
+func _calculate_damage(box:Hitbox):
+	var final_damage:float
+	if box.attack_data.skill_data and box.attack_data.skill_data.hits:
+		var hits_array = box.attack_data.skill_data.hits
+		var current_hit_data: SkillHitData = hits_array[box.hit_index]
+		final_damage=bullet_data.power*current_hit_data.damage_multiplier
+	elif box.attack_data.damage_multiplier!=0:
+		final_damage=bullet_data.power*box.attack_data.damage_multiplier
+	else:
+		final_damage=box.attack_data.damage
+	return final_damage

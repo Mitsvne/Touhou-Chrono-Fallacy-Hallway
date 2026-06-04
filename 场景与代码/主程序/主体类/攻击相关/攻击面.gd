@@ -4,6 +4,7 @@ class_name Hitbox
 signal hit(hurtbox)
 
 @export var attack_data: AttackData
+@export var hit_index: int = 0
 var team: String
 var hurtboxes: Array[Hurtbox] = []
 var _cooldown_timers: Dictionary = {}

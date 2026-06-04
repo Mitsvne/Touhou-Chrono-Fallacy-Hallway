@@ -4,7 +4,7 @@ class_name Bullet_Data
 
 var team: String
 var bullet_owner: CharacterBody2D
-
+var power:float
 @export var bullet_name: String
 @export var hp_max:float=10
 @onready var hp:float=hp_max:

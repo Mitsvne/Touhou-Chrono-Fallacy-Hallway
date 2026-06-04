@@ -20,6 +20,18 @@ func _ready():
 	await get_tree().create_timer(4, false).timeout
 	queue_free()
 
+func init_damage():
+	var final_damage:float
+	if hitbox.attack_data.skill_data and hitbox.attack_data.skill_data.hits:
+		var hits_array = hitbox.attack_data.skill_data.hits
+		var current_hit_data: SkillHitData = hits_array[hitbox.hit_index]
+		final_damage=bullet_data.power*current_hit_data.damage_multiplier
+	elif hitbox.attack_data.damage_multiplier!=0:
+		final_damage=bullet_data.power*hitbox.attack_data.damage_multiplier
+	else:
+		final_damage=hitbox.attack_data.damage
+	hitbox.attack_data.damage=final_damage
+
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hurtbox and not area.owner.is_in_group(bullet_data.team) and area.owner.is_in_group("characters"):
 		effect_ctrler.shake_once(Vector2(2,2))
@@ -31,7 +43,6 @@ func _on_area_entered(area: Area2D) -> void:
 		AudioManager.play_sfx(hit_audio)
 		await an.animation_finished
 		queue_free()
-
 
 func _on_hurtbox_hurt(box: Hitbox, attack_data: AttackData) -> void:
 	if box.owner.is_in_group("bullets"):

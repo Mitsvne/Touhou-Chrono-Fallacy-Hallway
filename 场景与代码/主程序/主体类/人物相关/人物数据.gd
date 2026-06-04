@@ -79,18 +79,3 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	energy+=energy_regen*delta #时刻恢复耐力
-
-func calculate_final_damage(attack_resource: AttackData) -> int:
-	if attack_resource == null: 
-		push_warning("攻击数据资源为空，返回0伤害")
-		return 0
-	# 核心公式
-	var raw_damage = power * attack_resource.damage_multiplier
-	# 四舍五入取整
-	var final_damage = roundi(raw_damage)
-	# 打印测试
-	print(character_name, "准备发起攻击: ", attack_resource.attack_name, 
-		 " | 属性(力量): ", power, 
-		 " | 倍率: ", attack_resource.damage_multiplier, 
-		 " | 最终快照伤害: ", final_damage)
-	return final_damage

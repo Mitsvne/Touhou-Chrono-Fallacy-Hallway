@@ -601,7 +601,7 @@ effect_ctrler = NodePath("class/Effect_Ctrler")
 
 [node name="Character_Data" type="Node" parent="class" unique_id=599572917]
 script = ExtResource("1_vaafk")
-energy_regen = 20.0
+character_name = "东风谷早苗"
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
 [node name="Character_Ctrler" type="Node" parent="class" unique_id=1798524882 node_paths=PackedStringArray("character", "character_data", "anplayer")]

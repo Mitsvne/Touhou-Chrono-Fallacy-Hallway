@@ -12,4 +12,4 @@ enum SkillType { REGULAR, ULTIMATE } # 技能类型：普通技能、必杀技
 # 战斗核心数值
 @export var cd: float = 3.0       # 冷却时间
 @export var mp_cost: float = 0.0        # 消耗魔力
-@export var damage_multiplier: float = 1.0 # 伤害倍率
+@export var hits: Array[SkillHitData] = []

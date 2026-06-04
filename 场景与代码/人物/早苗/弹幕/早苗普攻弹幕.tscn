@@ -18,7 +18,7 @@ size = Vector2(22, 10)
 
 [sub_resource type="Resource" id="Resource_7yaou"]
 script = ExtResource("3_vt2mh")
-damage = 4.0
+damage_multiplier = 0.5
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Animation" id="Animation_gxu3o"]
