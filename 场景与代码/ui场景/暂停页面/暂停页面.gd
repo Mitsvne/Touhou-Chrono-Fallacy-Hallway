@@ -42,9 +42,13 @@ func _on_reset_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_back_to_level_pressed() -> void:
-	GameState.set_pause(false)
+	#GameState.set_pause(false)
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
 func _on_back_to_menu_pressed() -> void:
 	GameState.set_pause(false)
 	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+
+func _on_character_pressed() -> void:
+	GameState.set_pause(false)
+	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/人物界面/人物界面.tscn")
