@@ -13,7 +13,7 @@ func _enter() -> void:
 	time = 0.0
 	dir = Vector2.LEFT * agent.character_data.direction
 	#print(dir)
-	var speed: float = agent.move_speed
+	var speed: float = agent.character_data.move_speed
 	var rand_angle = randf_range(-max_angle_deviation, max_angle_deviation)
 	desired_velocity = dir.rotated(rand_angle) * speed
 

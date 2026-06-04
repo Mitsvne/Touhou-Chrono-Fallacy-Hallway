@@ -209,8 +209,8 @@ func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	get_parent().add_child(bullet_instance)
 	bullet_instance.add_to_group("bullets")
 	bullet_instance.add_to_group(character_data.team)
-	bullet_instance.bullet_data.team=character_data.team
 	bullet_instance.bullet_data.bullet_owner=character
+	bullet_instance.bullet_data.team=character_data.team
 	bullet_instance.bullet_data.direction=character_data.direction
 	bullet_instance.bullet_data.power=character_data.power
 	if bullet_instance.has_method("init_damage"):
@@ -233,12 +233,9 @@ func add_prop(prop,offset:Vector2):
 	get_parent().add_child(prop_instance)
 	prop_instance.add_to_group("props")
 	prop_instance.add_to_group(character_data.team)
-	prop_instance.prop_data.prop_team=character_data.team
 	prop_instance.prop_data.prop_owner=character
-	prop_instance.prop_data.prop_direction=character_data.direction
-	#print("道具所在组：",prop_instance.get_groups())
-	#print("道具队伍："+prop_instance.prop_data.bullet_team)
-	#print("道具主人：",prop_instance.prop_data.prop_owner)
+	prop_instance.prop_data.team=character_data.team
+	prop_instance.prop_data.direction=character_data.direction
 	prop_instance.global_position.x = character.global_position.x + offset.x * character_data.direction
 	prop_instance.global_position.y = character.global_position.y + offset.y
 	prop_instance.rotation = character.rotation

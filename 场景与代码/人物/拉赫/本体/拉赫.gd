@@ -7,11 +7,6 @@ extends CharacterBody2D
 @export var effect_ctrler: Effect_Ctrler
 @export var bt_player: BTPlayer
 
-var move_speed:int=400
-var acceleration: float = 1600.0   # 加速度（像素/秒²）
-var friction: float = 1200.0      # 减速度（像素/秒²）
-var attack_interval:float=0.5
-var skill_cd:float=1.0
 var character_name:String="拉赫莱蒂"
 
 @export var book:PackedScene
@@ -63,10 +58,11 @@ func skill3():
 	await get_tree().create_timer(0.2, false).timeout
 
 
-
+## 书攻击
 func book_attack():
 	character_ctrler.get_prop("刻印之卷").prop_ctrler.jump_to_frame("攻击激光",0)
-	
+
+## 添加特效
 func add_shine_star():
 	character_ctrler.add_effect(shine_star,self.global_position,Vector2(0,50))
 
@@ -76,6 +72,7 @@ func add_magic_array():
 func add_magic_array2():
 	character_ctrler.add_effect(magic_array2,self.global_position,Vector2(0,0))
 
+## 幽坠恒星：下坠，落地后迸发大量火球
 func deep_falling_star():
 	var current_position=self.global_position
 	var angles: Array[float] = Math.random_num(10,-140,-40)
@@ -88,6 +85,7 @@ func deep_falling_star():
 	for i in range(angles.size()):
 		character_ctrler.shoot(fire_bullet, Vector2(x[i], y), angles[i], current_position)
 
+## 严寒冰牢：四散冰锥
 func severe_ice_prison():
 	var current_position=self.global_position
 	ice_audio.play()

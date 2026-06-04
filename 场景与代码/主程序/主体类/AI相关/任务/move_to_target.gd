@@ -20,7 +20,7 @@ func _tick(delta: float) -> Status:
 	var target_pos: Vector2 = target.global_position
 	if target_pos.distance_to(agent.global_position) < tolerance:
 		return SUCCESS
-	var speed: float = agent.move_speed
+	var speed: float = agent.character_data.move_speed
 	var dist: float = absf(agent.global_position.y - target_pos.y)
 	var dir: Vector2 = agent.global_position.direction_to(target_pos)
 	var horizontal_factor: float = remap(dist, 200.0, 500.0, 1.0, 0.0)

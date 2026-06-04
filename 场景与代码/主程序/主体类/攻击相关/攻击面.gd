@@ -29,7 +29,7 @@ func _on_area_entered(area: Area2D):
 	if owner.is_in_group("bullets"):
 		team = owner.bullet_data.team
 	if owner.is_in_group("props"):
-		team = owner.prop_data.prop_team
+		team = owner.prop_data.team
 	if owner.is_in_group("characters"):
 		team = owner.character_data.team
 	if area is Hurtbox and not area.owner.is_in_group(team):
