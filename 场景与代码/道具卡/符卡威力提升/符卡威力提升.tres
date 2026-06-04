@@ -3,18 +3,24 @@
 [ext_resource type="Script" uid="uid://c1h7u2a1umpox" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡效果基类.gd" id="1_47h3k"]
 [ext_resource type="Texture2D" uid="uid://dmdbjolruty1" path="res://素材/特效素材/通用道具/道具_符卡威力提升.png" id="2_ioiof"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="2_j77ql"]
-[ext_resource type="Script" uid="uid://bmj7jwxu53d31" path="res://场景与代码/道具卡/通用效果/攻击提升.gd" id="2_wcchc"]
+[ext_resource type="Script" uid="uid://cpc2gv75u1vms" path="res://场景与代码/道具卡/通用效果/技能伤害提升.gd" id="3_wcchc"]
+[ext_resource type="Script" uid="uid://csk205vplsx6h" path="res://场景与代码/道具卡/通用效果/必杀伤害提升.gd" id="4_10jfd"]
 
-[sub_resource type="Resource" id="Resource_10jfd"]
-script = ExtResource("2_wcchc")
-power_add_percent = 0.2
-metadata/_custom_type_script = "uid://bmj7jwxu53d31"
+[sub_resource type="Resource" id="Resource_ipyum"]
+script = ExtResource("3_wcchc")
+damage_add_percent = 0.2
+metadata/_custom_type_script = "uid://cpc2gv75u1vms"
+
+[sub_resource type="Resource" id="Resource_ch58h"]
+script = ExtResource("4_10jfd")
+damage_add_percent = 0.2
+metadata/_custom_type_script = "uid://csk205vplsx6h"
 
 [resource]
 script = ExtResource("2_j77ql")
 card_id = "符卡威力提升"
 card_name = "符卡威力提升"
 icon = ExtResource("2_ioiof")
-description = "攻击力提升20%，技能伤害提升20%，必杀伤害提升20%"
-effects = Array[ExtResource("1_47h3k")]([SubResource("Resource_10jfd")])
+description = "技能伤害提升20%，必杀伤害提升20%"
+effects = Array[ExtResource("1_47h3k")]([SubResource("Resource_ipyum"), SubResource("Resource_ch58h")])
 metadata/_custom_type_script = "uid://donfkw40y1usn"

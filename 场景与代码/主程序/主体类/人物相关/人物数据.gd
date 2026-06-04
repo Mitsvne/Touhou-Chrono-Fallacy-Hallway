@@ -20,6 +20,8 @@ var energy_regen:float=10            #耐力恢复速度
 var attack_interval:float=0.3        #普攻间隔
 var current_skill: SkillData
 var current_ultimate: SkillData
+var available_skills: Array[SkillData] = []
+var available_ultimates: Array[SkillData] = []
 
 @onready var direction:float=1.0:
 	set(v):
@@ -66,8 +68,10 @@ func _ready() -> void:
 		energy_max=blueprint.base_energy
 		energy_regen=blueprint.base_energy_regen
 		attack_interval=blueprint.base_attack_interval
-		current_skill = blueprint.equipped_skill
-		current_ultimate = blueprint.equipped_ultimate
+		current_skill=blueprint.equipped_skill
+		current_ultimate=blueprint.equipped_ultimate
+		available_skills=blueprint.available_skills
+		available_ultimates=blueprint.available_ultimates
 		if current_skill: print("局内加载技能：", current_skill.skill_name)
 		if current_ultimate: print("局内加载必杀：", current_ultimate.skill_name)
 		print("Character_Data数据组件：成功同步来自 ", character_name, " 的配置数据！")

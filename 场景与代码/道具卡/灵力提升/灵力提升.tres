@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1h7u2a1umpox" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡效果基类.gd" id="1_eh5r6"]
 [ext_resource type="Script" uid="uid://ct8hkhrh8eupi" path="res://场景与代码/道具卡/通用效果/魔力增加.gd" id="2_1uckm"]
-[ext_resource type="Script" uid="uid://crbqo3jn4q5d5" path="res://场景与代码/道具卡/通用效果/速度提升.gd" id="3_1uckm"]
+[ext_resource type="Script" uid="uid://csk205vplsx6h" path="res://场景与代码/道具卡/通用效果/必杀伤害提升.gd" id="3_1uckm"]
 [ext_resource type="Texture2D" uid="uid://86non2i675ix" path="res://素材/特效素材/通用道具/道具_灵力提升.png" id="3_pvvse"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="4_sr34d"]
 
@@ -10,16 +10,16 @@
 script = ExtResource("2_1uckm")
 metadata/_custom_type_script = "uid://ct8hkhrh8eupi"
 
-[sub_resource type="Resource" id="Resource_1uckm"]
+[sub_resource type="Resource" id="Resource_pvvse"]
 script = ExtResource("3_1uckm")
-speed_add_percent = 0.2
-metadata/_custom_type_script = "uid://crbqo3jn4q5d5"
+damage_add_percent = 0.4
+metadata/_custom_type_script = "uid://csk205vplsx6h"
 
 [resource]
 script = ExtResource("4_sr34d")
 card_id = "灵力提升"
 card_name = "灵力提升"
 icon = ExtResource("3_pvvse")
-description = "魔力值提升50%，速度提升20%"
-effects = Array[ExtResource("1_eh5r6")]([SubResource("Resource_eh5r6"), SubResource("Resource_1uckm")])
+description = "魔力值提升50%，必杀伤害提升40%"
+effects = Array[ExtResource("1_eh5r6")]([SubResource("Resource_eh5r6"), SubResource("Resource_pvvse")])
 metadata/_custom_type_script = "uid://donfkw40y1usn"
