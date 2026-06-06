@@ -6,6 +6,8 @@ signal hp_changed
 signal mp_changed
 signal energy_changed
 signal direction_changed
+signal skill_ready
+signal ultimate_ready
 
 @export var character_name:String="未命名"    #角色名称
 var team:String="1P"                 #队伍
@@ -20,8 +22,8 @@ var energy_regen:float=10            #耐力恢复速度
 var attack_interval:float=0.3        #普攻间隔
 var current_skill: SkillData
 var current_ultimate: SkillData
-var available_skills: Array[SkillData] = []
-var available_ultimates: Array[SkillData] = []
+var skill_cd_timer: float = 0.0
+var ultimate_cd_timer: float = 0.0
 
 @onready var direction:float=1.0:
 	set(v):
@@ -70,11 +72,11 @@ func _ready() -> void:
 		attack_interval=blueprint.base_attack_interval
 		current_skill=blueprint.equipped_skill
 		current_ultimate=blueprint.equipped_ultimate
-		available_skills=blueprint.available_skills
-		available_ultimates=blueprint.available_ultimates
 		if current_skill: print("局内加载技能：", current_skill.skill_name)
 		if current_ultimate: print("局内加载必杀：", current_ultimate.skill_name)
 		print("Character_Data数据组件：成功同步来自 ", character_name, " 的配置数据！")
+	skill_cd_timer = 0.0
+	ultimate_cd_timer = 0.0
 	hp = hp_max
 	mp = mp_max
 	energy = energy_max
@@ -83,3 +85,29 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	energy+=energy_regen*delta #时刻恢复耐力
+	if skill_cd_timer > 0.0:
+		skill_cd_timer = maxf(skill_cd_timer - delta, 0.0)
+		if skill_cd_timer == 0.0:
+			skill_ready.emit()
+	if ultimate_cd_timer > 0.0:
+		ultimate_cd_timer = maxf(ultimate_cd_timer - delta, 0.0)
+		if ultimate_cd_timer == 0.0:
+			ultimate_ready.emit()
+
+## 检测普通技能是否可用（有技能且 CD 为 0）
+func is_skill_ready() -> bool:
+	return current_skill != null and skill_cd_timer <= 0.0
+
+## 检测必杀技是否可用
+func is_ultimate_ready() -> bool:
+	return current_ultimate != null and ultimate_cd_timer <= 0.0
+
+## 触发普通技能 CD
+func start_skill_cooldown() -> void:
+	if current_skill:
+		skill_cd_timer = current_skill.cd
+
+## 触发必杀技 CD
+func start_ultimate_cooldown() -> void:
+	if current_ultimate:
+		ultimate_cd_timer = current_ultimate.cd

@@ -1724,6 +1724,7 @@ bus = &"SFX"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
+active = false
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_AI_Main" method="_on_hurtbox_hurt"]

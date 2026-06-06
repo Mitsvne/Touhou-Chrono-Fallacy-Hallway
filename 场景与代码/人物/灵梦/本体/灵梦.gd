@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var character_data: Character_Data
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
+@export var skill_component: SkillComponent
+
 @export var attack_bullet:PackedScene
 @export var bullet2:PackedScene
 @export var bullet3:PackedScene

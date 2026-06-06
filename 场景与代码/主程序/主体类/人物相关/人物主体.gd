@@ -26,7 +26,6 @@ var current_velocity: Vector2 = Vector2.ZERO
 var is_allow_key_move:bool=true
 var is_alive:bool=true
 var attack_timer = Timer.new()
-var skill_timer = Timer.new()
 var is_skill_timer_timeout:bool=true
 var final_hit:bool=false
 
@@ -39,9 +38,6 @@ func _ready() -> void:
 	attack_timer.wait_time =  character_data.attack_interval
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(attack_timer)
-	skill_timer.wait_time = GameData.current_deploy_character_data.equipped_skill.cd
-	skill_timer.timeout.connect(_on_skill_timer_timeout)
-	add_child(skill_timer)
 	print("4.Character_Main初始化完成:",character)
 
 ## 每帧效果函数
@@ -163,13 +159,13 @@ func an_paly(an_name:String):
 
 ## 常态，移动状态通用效果
 func idle_move() -> State:
-	if InputManager.is_action_just_pressed("skill") and is_skill_timer_timeout:
-		if skill_timer.is_stopped():
-			skill_timer.start()
-		is_skill_timer_timeout=false
+	if InputManager.is_action_just_pressed("skill") and character_data.is_skill_ready():
+		character_data.start_skill_cooldown()
 		return State.技能
-	if InputManager.is_action_just_pressed("ultimate") and character_data.mp>=100:
-		character_data.mp-=100
+	var mp_cost:float=character_data.current_ultimate.mp_cost
+	if InputManager.is_action_just_pressed("ultimate") and character_data.mp>=mp_cost and character_data.is_ultimate_ready():
+		character_data.mp-=mp_cost
+		character_data.start_ultimate_cooldown()
 		return State.必杀
 	if InputManager.is_action_just_pressed("dash") and character_data.energy>=25:
 		character_data.energy-=25
@@ -254,7 +250,3 @@ func fire_bullet():
 ## 计时结束的回调函数
 func _on_attack_timer_timeout():
 	attack_timer.stop()
-
-func _on_skill_timer_timeout():
-	is_skill_timer_timeout=true;
-	skill_timer.stop()

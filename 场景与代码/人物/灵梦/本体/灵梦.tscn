@@ -35,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
-[ext_resource type="Script" uid="uid://b7fvib7kvd7i8" path="res://场景与代码/人物/灵梦/本体/技能cd.gd" id="22_c73gp"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="22_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://1g0g5p1l2uky" path="res://素材/人物素材/灵梦/人物/attackS000.png" id="24_ktvnh"]
 [ext_resource type="Texture2D" uid="uid://b1e1rgppsr2ik" path="res://素材/人物素材/灵梦/人物/attackS001.png" id="25_xn1ji"]
@@ -1700,6 +1699,26 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xftrd"]
 
+[sub_resource type="GDScript" id="GDScript_gt33o"]
+script/source = "extends HBoxContainer
+@export var cd_label: Label
+@export var character_main: Character_Main
+
+var skill1_cd:Timer
+var cooldown_total = 1         # 总冷却时间（秒）
+var cooldown_remaining = 0     # 剩余冷却时间
+
+func _process(_delta):
+	skill1_cd=character_main.skill_timer
+	if not skill1_cd.is_stopped():
+		cooldown_total = skill1_cd.wait_time
+		cooldown_remaining = skill1_cd.time_left
+		if cooldown_remaining > 0:
+			cd_label.text = \"CD:\"+str(snapped(cooldown_remaining, 0.1)) + \"s\"
+	else:
+		cd_label.text = \"CD:Ready\"
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vesq"]
 size = Vector2(26, 25.5)
 
@@ -1718,9 +1737,9 @@ _bundled = {
 "names": PackedStringArray("灵梦", "CharacterBody2D", "characters", "players", "motion_mode", "script", "attack_bullet", "bullet2", "bullet3", "character_main", "character_data", "character_input", "character_ctrler", "effect_ctrler", "class", "Node", "Character_Data", "Node", "script", "energy_regen", "metadata/_custom_type_script", "Character_Input", "Node", "script", "metadata/_custom_type_script", "Character_Ctrler", "Node", "script", "character", "character_data", "character_input", "anplayer", "metadata/_custom_type_script", "Character_Main", "Node", "script", "character_data", "character_ctrler", "character_input", "character", "anplayer", "hurtbox", "damage_number", "attack_bullet", "attack_effect", "metadata/_custom_type_script", "Effect_Ctrler", "Node", "script", "metadata/_custom_type_script", "碰撞箱", "CollisionShape2D", "visible", "shape", "动画", "AnimationPlayer", "root_node", "libraries/", "素材库", "AnimatedSprite2D", "material", "position", "sprite_frames", "animation", "autoplay", "血条ui", "CanvasLayer", "offset", "transform", "技能cd", "HBoxContainer", "offset_left", "offset_top", "offset_right", "offset_bottom", "script", "cd_label", "character_main", "Label", "Label", "layout_mode", "theme_override_fonts/font", "text", "ui血条", "offset_right", "character", "character_data", "Hurtbox", "Area2D", "visible", "position", "script", "metadata/_custom_type_script", "受击面1", "CollisionShape2D", "position", "shape", "受击面2", "CollisionShape2D", "position", "shape", "受击面3", "CollisionShape2D", "position", "shape", "位置参考", "Sprite2D", "self_modulate", "position", "texture", "音效", "Node", "通用音效节点", "AudioStreamPlayer", "bus", "冲刺音效", "AudioStreamPlayer", "stream", "volume_db", "bus", "_on_hurtbox_hurt", "hurt"),
 "node_count": 22,
 "node_ids": PackedInt32Array(886790246, 213625171, 1126898524, 1488286937, 147134082, 536123270, 702969427, 2014086127, 657560165, 7809292, 715815698, 2034803199, 1552755159, 1721267738, 719264059, 141437388, 492346501, 953773224, 1800762608, 530592448, 341833494, 1526758497),
-"node_paths": [NodePath("."), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./血条ui"), NodePath("./血条ui/技能cd"), NodePath("./血条ui"), NodePath("."), NodePath("./Hurtbox"), NodePath("./Hurtbox"), NodePath("./Hurtbox"), NodePath("."), NodePath("."), NodePath("./音效"), NodePath("./音效"), NodePath("class/Character_Main"), NodePath("Hurtbox")],
+"node_paths": [NodePath("."), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("./class"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(""), NodePath(""), NodePath(""), NodePath("."), NodePath("./Hurtbox"), NodePath("./Hurtbox"), NodePath("./Hurtbox"), NodePath("."), NodePath("."), NodePath("./音效"), NodePath("./音效"), NodePath("class/Character_Main"), NodePath("Hurtbox")],
 "nodes": PackedInt32Array(-1, -1, 1, 0, -1, 10, 4, 0, 5, 1, 6, 2, 7, 3, 8, 4, 1073741833, 5, 1073741834, 6, 1073741835, 7, 1073741836, 8, 1073741837, 9, 2, 2, 3, 1073741824, 0, 15, 14, -1, 0, 0, 1073741825, 0, 17, 16, -1, 3, 18, 10, 19, 11, 20, 12, 0, 1073741826, 0, 22, 21, -1, 2, 23, 13, 24, 14, 0, 1073741827, 0, 26, 25, -1, 6, 27, 15, 1073741852, 16, 1073741853, 17, 1073741854, 18, 1073741855, 19, 32, 20, 0, 1073741828, 0, 34, 33, -1, 11, 35, 21, 1073741860, 22, 1073741861, 23, 1073741862, 24, 1073741863, 25, 1073741864, 26, 1073741865, 27, 42, 28, 43, 29, 44, 30, 45, 31, 0, 1073741829, 0, 47, 46, -1, 2, 48, 32, 49, 33, 0, 1073741830, 0, 51, 50, -1, 2, 52, 34, 53, 35, 0, 1073741831, 0, 55, 54, -1, 2, 56, 36, 57, 37, 0, 1073741832, 0, 59, 58, -1, 5, 60, 38, 61, 39, 62, 40, 63, 41, 64, 42, 0, 1073741833, 0, 66, 65, -1, 2, 67, 43, 68, 44, 0, 1073741834, 0, 70, 69, -1, 7, 71, 45, 72, 46, 73, 47, 74, 48, 75, 49, 1073741900, 50, 1073741901, 51, 0, 1073741835, 0, 79, 78, -1, 3, 80, 52, 81, 53, 82, 54, 0, 1073741836, 0, 2147483647, 83, 55, 3, 84, 56, 1073741909, 57, 1073741910, 58, 0, 1073741837, 0, 88, 87, -1, 4, 89, 59, 90, 60, 91, 61, 92, 62, 0, 1073741838, 0, 94, 93, -1, 2, 95, 63, 96, 64, 0, 1073741839, 0, 98, 97, -1, 2, 99, 65, 100, 66, 0, 1073741840, 0, 102, 101, -1, 2, 103, 67, 104, 68, 0, 1073741841, 0, 106, 105, -1, 3, 107, 69, 108, 70, 109, 71, 0, 1073741842, 0, 111, 110, -1, 0, 0, 1073741843, 0, 113, 112, -1, 1, 114, 72, 0, 1073741844, 0, 116, 115, -1, 3, 117, 73, 118, 74, 119, 75, 0),
-"variants": [1, ExtResource("1_ig6o6"), ExtResource("2_g1kd8"), ExtResource("3_8vesq"), null, NodePath("class/Character_Main"), NodePath("class/Character_Data"), NodePath(""), NodePath("class/Character_Ctrler"), NodePath("class/Effect_Ctrler"), ExtResource("5_v3c6i"), 20.0, "uid://cevyll1q67gg6", ExtResource("10_kcrgq"), "uid://dcg22r72w0xss", ExtResource("32_tg32o"), NodePath("../.."), NodePath("../Character_Data"), NodePath("../Character_Input"), NodePath("../../动画"), "uid://cabbi4kg28hpl", ExtResource("10_23xpx"), NodePath("../Character_Data"), NodePath("../Character_Ctrler"), NodePath("../Character_Input"), NodePath("../.."), NodePath("../../动画"), NodePath("../../Hurtbox"), ExtResource("5_imqij"), ExtResource("2_g1kd8"), ExtResource("10_wmq54"), "uid://jclrroyodlts", ExtResource("35_rluf1"), "uid://cdreu0ksv31ve", false, SubResource("RectangleShape2D_256k3"), NodePath("../素材库"), SubResource("AnimationLibrary_wrpc5"), SubResource("ShaderMaterial_xftrd"), Vector2(-12, -12), SubResource("SpriteFrames_r340b"), &"飞行", "常态", Vector2(10, 10), Transform2D(1, 0, 0, 1, 10, 10), 61.0, 28.0, 101.0, 68.0, ExtResource("22_c73gp"), NodePath("Label"), NodePath("../../class/Character_Main"), 2, ExtResource("22_fc6ke"), "CD:", ExtResource("6_jxt28"), 65.0, NodePath("../.."), NodePath("../../class/Character_Data"), false, Vector2(6.5, 13), ExtResource("7_n1bbb"), "uid://wjwd1qtqs14e", Vector2(-19.5, -4.75), SubResource("RectangleShape2D_8vesq"), Vector2(1.5, -23.75), SubResource("RectangleShape2D_wmq54"), Vector2(-8.5, -14.75), SubResource("RectangleShape2D_kgnp6"), Color(1, 1, 1, 0.19607843), Vector2(-12, -12), ExtResource("1_1l8ri"), &"Se", ExtResource("39_3568u"), -5.0, &"Se"],
+"variants": [1, ExtResource("1_ig6o6"), ExtResource("2_g1kd8"), ExtResource("3_8vesq"), null, NodePath("class/Character_Main"), NodePath("class/Character_Data"), NodePath(""), NodePath("class/Character_Ctrler"), NodePath("class/Effect_Ctrler"), ExtResource("5_v3c6i"), 20.0, "uid://cevyll1q67gg6", ExtResource("10_kcrgq"), "uid://dcg22r72w0xss", ExtResource("32_tg32o"), NodePath("../.."), NodePath("../Character_Data"), NodePath("../Character_Input"), NodePath("../../动画"), "uid://cabbi4kg28hpl", ExtResource("10_23xpx"), NodePath("../Character_Data"), NodePath("../Character_Ctrler"), NodePath("../Character_Input"), NodePath("../.."), NodePath("../../动画"), NodePath("../../Hurtbox"), ExtResource("5_imqij"), ExtResource("2_g1kd8"), ExtResource("10_wmq54"), "uid://jclrroyodlts", ExtResource("35_rluf1"), "uid://cdreu0ksv31ve", false, SubResource("RectangleShape2D_256k3"), NodePath("../素材库"), SubResource("AnimationLibrary_wrpc5"), SubResource("ShaderMaterial_xftrd"), Vector2(-12, -12), SubResource("SpriteFrames_r340b"), &"飞行", "常态", Vector2(10, 10), Transform2D(1, 0, 0, 1, 10, 10), 61.0, 28.0, 101.0, 68.0, SubResource("GDScript_gt33o"), NodePath("Label"), NodePath("../../class/Character_Main"), 2, ExtResource("22_fc6ke"), "CD:", ExtResource("6_jxt28"), 65.0, NodePath("../.."), NodePath("../../class/Character_Data"), false, Vector2(6.5, 13), ExtResource("7_n1bbb"), "uid://wjwd1qtqs14e", Vector2(-19.5, -4.75), SubResource("RectangleShape2D_8vesq"), Vector2(1.5, -23.75), SubResource("RectangleShape2D_wmq54"), Vector2(-8.5, -14.75), SubResource("RectangleShape2D_kgnp6"), Color(1, 1, 1, 0.19607843), Vector2(-12, -12), ExtResource("1_1l8ri"), &"Se", ExtResource("39_3568u"), -5.0, &"Se"],
 "version": 3
 }
 
@@ -2957,7 +2976,7 @@ shader_parameter/amplitude = 10.000000475
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3vqu"]
 size = Vector2(40, 40)
 
-[node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
+[node name="灵梦" type="CharacterBody2D" unique_id=886790246 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler", "skill_component") groups=["characters", "players"]]
 collision_layer = 2
 collision_mask = 240
 motion_mode = 1
@@ -2966,6 +2985,7 @@ character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
+skill_component = NodePath("")
 attack_bullet = ExtResource("2_g1kd8")
 bullet2 = ExtResource("3_8vesq")
 bullet3 = SubResource("PackedScene_bo27d")
@@ -3016,24 +3036,6 @@ position = Vector2(-12, -12)
 sprite_frames = SubResource("SpriteFrames_k3vqu")
 animation = &"飞行"
 autoplay = "常态"
-
-[node name="血条ui" type="CanvasLayer" parent="." unique_id=715815698]
-offset = Vector2(10, 10)
-transform = Transform2D(1, 0, 0, 1, 10, 10)
-
-[node name="技能cd" type="HBoxContainer" parent="血条ui" unique_id=2034803199 node_paths=PackedStringArray("cd_label", "character_main")]
-offset_left = 61.0
-offset_top = 28.0
-offset_right = 101.0
-offset_bottom = 68.0
-script = ExtResource("22_c73gp")
-cd_label = NodePath("Label")
-character_main = NodePath("../../class/Character_Main")
-
-[node name="Label" type="Label" parent="血条ui/技能cd" unique_id=1552755159]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("22_fc6ke")
-text = "CD:"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=719264059]
 visible = false

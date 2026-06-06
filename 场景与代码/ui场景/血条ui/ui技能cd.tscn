@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cvs815biemnfx"]
+
+[ext_resource type="Script" uid="uid://cw1u1j6l3m8fd" path="res://场景与代码/ui场景/血条ui/ui技能cd.gd" id="1_22q26"]
+[ext_resource type="Texture2D" uid="uid://dl4s3i4qofudu" path="res://素材/特效素材/通用道具/card006.png" id="2_22q26"]
+[ext_resource type="Texture2D" uid="uid://c0trruhptaacw" path="res://素材/特效素材/通用道具/卡片黑幕.png" id="3_emqvc"]
+[ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="4_urbym"]
+
+[node name="ui技能cd" type="Control" unique_id=1753971355]
+layout_mode = 3
+anchor_right = 0.064
+anchor_bottom = 0.18100001
+offset_right = 0.0399971
+offset_bottom = -0.16000366
+script = ExtResource("1_22q26")
+
+[node name="图标" type="TextureRect" parent="." unique_id=1220527560]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_22q26")
+
+[node name="进度条" type="TextureProgressBar" parent="." unique_id=1008243043]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 4
+texture_progress = ExtResource("3_emqvc")
+
+[node name="cd" type="Label" parent="." unique_id=28761173]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 40.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("4_urbym")
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

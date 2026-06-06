@@ -13,6 +13,9 @@ extends Node
 @onready var arrow: Sprite2D = $ui/箭头
 @onready var bar1: Control = $ui/ui血条人物
 @onready var bar2: Control = $ui/ui血条boss
+@onready var skill_slot: Control = $ui/cd显示容器/技能cd显示
+@onready var ultimate_slot: Control = $ui/cd显示容器/必杀cd显示
+@onready var cd_box: HBoxContainer = $ui/cd显示容器
 
 
 var character1:PackedScene
@@ -40,10 +43,10 @@ func _ready():
 	# 指向箭头与血条
 	arrow.player=character1_instance
 	arrow.enemy=character2_instance
-	bar1.character=character1_instance
 	bar1.character_data=character1_instance.character_data
-	bar2.character=character2_instance
 	bar2.character_data=character2_instance.character_data
+	skill_slot.setup(character1_instance.character_data,false)
+	ultimate_slot.setup(character1_instance.character_data,true)
 	# 角色死亡信号连接
 	EventBus.character_dead.connect(game_over)
 	print("main初始化完成")
