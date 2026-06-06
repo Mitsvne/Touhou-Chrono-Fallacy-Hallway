@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="5_ojbqg"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="6_42bqx"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_6kgb3"]
-[ext_resource type="Resource" uid="uid://chbioif4vj8c0" path="res://场景与代码/人物/灵梦/本体/技能2封魔亚空穴.tres" id="7_hmv5y"]
 [ext_resource type="Texture2D" uid="uid://owrdg35odfms" path="res://素材/人物素材/灵梦/特效/BulletD001.png" id="8_xbkin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p22j"]
@@ -262,7 +261,7 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_qp8lg"]
 script = ExtResource("3_da24w")
-skill_data = ExtResource("7_hmv5y")
+damage_multiplier = 0.5
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [node name="灵梦技能2弹幕" type="Area2D" unique_id=1601646039]

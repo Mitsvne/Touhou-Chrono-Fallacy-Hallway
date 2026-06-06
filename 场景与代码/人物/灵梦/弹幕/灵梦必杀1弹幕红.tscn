@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="3_mcfyn"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_3hkdx"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_xe1f2"]
-[ext_resource type="Resource" uid="uid://dv1xunr1ko5b1" path="res://场景与代码/人物/灵梦/本体/必杀1梦想封印.tres" id="6_dn24f"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="6_yim3i"]
 [ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_5xo2j"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="9_o68x3"]
@@ -205,7 +204,6 @@ _data = {
 script = ExtResource("4_3hkdx")
 damage = 30.0
 attack_type = 3
-skill_data = ExtResource("6_dn24f")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Curve" id="Curve_5xo2j"]

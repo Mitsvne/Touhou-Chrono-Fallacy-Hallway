@@ -1574,7 +1574,7 @@ color_ramp = SubResource("GradientTexture1D_liacr")
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_1asjr"]
 
-[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_data", "character_ctrler", "effect_ctrler", "bt_player") groups=["bosses", "characters", "players"]]
+[node name="拉赫" type="CharacterBody2D" unique_id=2034340444 node_paths=PackedStringArray("character_ai_main", "character_data", "character_ctrler", "effect_ctrler", "bt_player") groups=["bosses", "characters"]]
 collision_layer = 2
 collision_mask = 240
 motion_mode = 1

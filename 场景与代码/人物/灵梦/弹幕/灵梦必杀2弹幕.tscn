@@ -64,7 +64,6 @@
 [ext_resource type="Texture2D" uid="uid://biumoijh0eo3" path="res://素材/人物素材/灵梦/特效/spellBulletE059.png" id="61_te84t"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="62_1hthm"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="63_412oy"]
-[ext_resource type="Resource" uid="uid://dartd4wps0k3c" path="res://场景与代码/人物/灵梦/本体/必杀2阴阳鬼神玉.tres" id="65_lv1sj"]
 [ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="65_o35pi"]
 [ext_resource type="AudioStream" uid="uid://damlr2mkxskqf" path="res://素材/人物素材/灵梦/音效/阴阳玉生成.wav" id="66_ggbd6"]
 [ext_resource type="AudioStream" uid="uid://bcg5l1w8mw7pu" path="res://素材/人物素材/灵梦/音效/阴阳玉爆炸2.wav" id="67_lv1sj"]
@@ -586,7 +585,6 @@ _data = {
 script = ExtResource("63_412oy")
 attack_type = 2
 attack_interval = 0.2
-skill_data = ExtResource("65_lv1sj")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Resource" id="Resource_h354q"]
@@ -594,7 +592,6 @@ script = ExtResource("63_412oy")
 damage = 30.0
 attack_type = 3
 hitstop = 0.2
-skill_data = ExtResource("65_lv1sj")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o35pi"]

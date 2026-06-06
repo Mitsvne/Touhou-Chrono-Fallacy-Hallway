@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://sb67ni56362n" path="res://素材/人物素材/灵梦/特效/spellBulletGa000.png" id="3_ry8f1"]
 [ext_resource type="Texture2D" uid="uid://ciymm4x3k6ewa" path="res://素材/人物素材/灵梦/特效/spellBulletGa001.png" id="4_yjhwv"]
 [ext_resource type="Texture2D" uid="uid://d0ump1qo8awpx" path="res://素材/人物素材/灵梦/特效/spellBulletHa000.png" id="5_0mcc7"]
-[ext_resource type="Resource" uid="uid://3x0u8a3a4upl" path="res://场景与代码/人物/灵梦/本体/技能1明珠暗投.tres" id="6_0pjqj"]
 [ext_resource type="AudioStream" uid="uid://bb72j7hhud64m" path="res://素材/人物素材/灵梦/音效/阴阳玉爆炸.wav" id="6_yt1m0"]
 [ext_resource type="AudioStream" uid="uid://ckw4j0j1t601" path="res://素材/人物素材/灵梦/音效/弹幕发射2.wav" id="7_c10u1"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="8_08j7y"]
@@ -23,7 +22,6 @@ script = ExtResource("9_ika7d")
 damage_multiplier = 1.5
 attack_type = 2
 hitstop = 0.01
-skill_data = ExtResource("6_0pjqj")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsngv"]

@@ -18,8 +18,8 @@ func init_damage():
 
 func _calculate_damage(box:Hitbox):
 	var final_damage:float
-	if box.attack_data.skill_data and box.attack_data.skill_data.hits:
-		var hits_array = box.attack_data.skill_data.hits
+	if bullet_data.skill_hits:
+		var hits_array = bullet_data.skill_hits
 		var current_hit_data: SkillHitData = hits_array[box.hit_index]
 		final_damage=bullet_data.power*current_hit_data.damage_multiplier
 	elif box.attack_data.damage_multiplier!=0:

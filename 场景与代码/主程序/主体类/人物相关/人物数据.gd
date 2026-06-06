@@ -24,6 +24,7 @@ var current_skill: SkillData
 var current_ultimate: SkillData
 var skill_cd_timer: float = 0.0
 var ultimate_cd_timer: float = 0.0
+var active_effects: Array[CardEffect] = []
 
 @onready var direction:float=1.0:
 	set(v):
@@ -70,8 +71,26 @@ func _ready() -> void:
 		energy_max=blueprint.base_energy
 		energy_regen=blueprint.base_energy_regen
 		attack_interval=blueprint.base_attack_interval
-		current_skill=blueprint.equipped_skill
-		current_ultimate=blueprint.equipped_ultimate
+		if blueprint.equipped_skill:
+			# 1. 复制外层技能数据
+			current_skill = blueprint.equipped_skill.duplicate(false)
+			# 2. 手动强行深拷贝内置的 Array[SkillHitData] 数组，破解 Godot 引擎 Bug
+			var unique_hits: Array[SkillHitData] = []
+			for hit in blueprint.equipped_skill.hits:
+				if hit:
+					unique_hits.append(hit.duplicate(true))
+			current_skill.hits = unique_hits # 重新挂载独一无二的伤害数据
+		else:
+			current_skill = null
+		if blueprint.equipped_ultimate:
+			current_ultimate = blueprint.equipped_ultimate.duplicate(false)
+			var unique_ult_hits: Array[SkillHitData] = []
+			for hit in blueprint.equipped_ultimate.hits:
+				if hit:
+					unique_ult_hits.append(hit.duplicate(true))
+			current_ultimate.hits = unique_ult_hits
+		else:
+			current_ultimate = null
 		if current_skill: print("局内加载技能：", current_skill.skill_name)
 		if current_ultimate: print("局内加载必杀：", current_ultimate.skill_name)
 		print("Character_Data数据组件：成功同步来自 ", character_name, " 的配置数据！")
@@ -80,6 +99,8 @@ func _ready() -> void:
 	hp = hp_max
 	mp = mp_max
 	energy = energy_max
+	if owner.is_in_group("players"):
+		_initialize_card_effects()
 	print("1.Character_Data初始化完成")
 	pass
 
@@ -93,6 +114,22 @@ func _physics_process(delta: float) -> void:
 		ultimate_cd_timer = maxf(ultimate_cd_timer - delta, 0.0)
 		if ultimate_cd_timer == 0.0:
 			ultimate_ready.emit()
+
+## 1. 注入并激活属于该角色的所有卡牌
+func _initialize_card_effects() -> void:
+	if GameData == null or GameData.current_character_data == null:
+		return
+	var char_data = GameData.current_character_data
+	# 遍历人物身上的所有装备卡
+	for card in char_data.equipped_cards:
+		if card == null: continue
+		for effect in card.effects:
+			if effect == null: continue
+			var runtime_effect = effect.duplicate() as CardEffect
+			active_effects.append(runtime_effect)
+			# 立即触发被动钩子
+			if owner is CharacterBody2D:
+				runtime_effect.apply_passive(owner)
 
 ## 检测普通技能是否可用（有技能且 CD 为 0）
 func is_skill_ready() -> bool:
