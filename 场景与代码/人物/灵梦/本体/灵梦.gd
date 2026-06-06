@@ -22,6 +22,10 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	pass
 
+
+func normal_attack():
+	character_ctrler.shoot(attack_bullet,Vector2(50,0))
+
 func skill1(offset:Vector2=Vector2(0,0)):
 	var skill_hits=character_data.current_skill.hits
 	character_ctrler.shoot(skill1_bullet,offset,0,Vector2(0,0),skill_hits)

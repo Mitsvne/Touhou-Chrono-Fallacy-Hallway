@@ -242,10 +242,10 @@ func is_dead():
 
 ## 普攻弹幕发射
 func fire_bullet():
-	if InputManager.is_action_pressed("attack"):
+	if InputManager.is_action_pressed("attack") and character.has_method("normal_attack"):
 		if attack_timer.is_stopped():
 			attack_timer.start()
-			character_ctrler.shoot(attack_bullet,Vector2(50,0))
+			character.normal_attack()
 
 ## 计时结束的回调函数
 func _on_attack_timer_timeout():

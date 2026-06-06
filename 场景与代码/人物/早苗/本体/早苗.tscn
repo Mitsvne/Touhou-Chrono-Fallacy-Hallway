@@ -596,6 +596,7 @@ character_main = NodePath("class/Character_Main")
 character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
+attack_bullet = ExtResource("6_r0h74")
 
 [node name="class" type="Node" parent="." unique_id=2083214994]
 
