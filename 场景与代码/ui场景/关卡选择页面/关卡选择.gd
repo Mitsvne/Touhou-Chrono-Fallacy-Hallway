@@ -17,16 +17,16 @@ func control_entered():
 
 func _on_back_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/主菜单页面/菜单.tscn")
+	GameStateManager.go_back()
 
 func _on_character_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/人物界面/人物界面.tscn")
+	GameStateManager.transition_to("人物面板","res://场景与代码/ui场景/人物界面/人物界面.tscn")
 
 func _on_level1_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/关卡/关卡1.tscn")
+	GameStateManager.transition_to("正常","res://场景与代码/主程序/关卡/关卡1.tscn")
 
 func _on_level2_pressed() -> void:
 	audio_pressed.play()
-	SceneTransition.change_scene_with_fade("res://场景与代码/主程序/关卡/关卡2.tscn")
+	GameStateManager.transition_to("正常","res://场景与代码/主程序/关卡/关卡2.tscn")

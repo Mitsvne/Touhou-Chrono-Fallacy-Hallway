@@ -9,5 +9,4 @@ script = ExtResource("2_y2ld2")
 character_scene_path = "uid://dhem3wxpj02v8"
 character_id = "拉赫莱蒂"
 character_name = "拉赫莱蒂"
-base_hp = 1000.0
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

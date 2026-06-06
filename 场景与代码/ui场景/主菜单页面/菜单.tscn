@@ -41,9 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/书特效/112.png" id="39_qjmqn"]
 [ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="40_uxrj1"]
 [ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="41_135dm"]
-[ext_resource type="Shader" uid="uid://dasvlfyphcha3" path="res://场景与代码/着色器/水平模糊.gdshader" id="44_hncoa"]
-[ext_resource type="Script" uid="uid://c8ebemjti840t" path="res://场景与代码/ui场景/主菜单页面/水平模糊.gd" id="45_x12e2"]
-[ext_resource type="Shader" uid="uid://dt63qnn76xlk2" path="res://场景与代码/着色器/垂直模糊.gdshader" id="46_s6i4g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fnar0"]
 font_size = 80
@@ -237,14 +234,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ib1xl"]
-shader = ExtResource("46_s6i4g")
-shader_parameter/strength = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x12e2"]
-shader = ExtResource("44_hncoa")
-shader_parameter/strength = 1.0
-
 [node name="菜单" type="Control" unique_id=1553493295 node_paths=PackedStringArray("v_box_container", "start_button", "horizontal_blur", "audio_pressed", "audio_entered")]
 layout_mode = 3
 anchors_preset = 15
@@ -256,7 +245,7 @@ theme = ExtResource("1_cuoyu")
 script = ExtResource("2_ppaiu")
 v_box_container = NodePath("ui/按钮盒竖状")
 start_button = NodePath("ui/按钮盒竖状/开始")
-horizontal_blur = NodePath("水平模糊效果/水平模糊")
+horizontal_blur = NodePath("")
 bgm = Object(AudioStreamPlayer,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","stream":ExtResource("30_43m20"),"volume_db":0.0,"pitch_scale":1.0,"autoplay":false,"stream_paused":false,"mix_target":0,"max_polyphony":1,"bus":&"BGM","playback_type":0,"script":null)
 
 audio_pressed = NodePath("音效/按钮按下音效")
@@ -509,31 +498,6 @@ stream = ExtResource("40_uxrj1")
 
 [node name="按钮选择音效" type="AudioStreamPlayer" parent="音效" unique_id=1784488945]
 stream = ExtResource("41_135dm")
-
-[node name="垂直模糊效果" type="CanvasLayer" parent="." unique_id=400354206]
-visible = false
-
-[node name="垂直模糊" type="ColorRect" parent="垂直模糊效果" unique_id=2086760662]
-visible = false
-material = SubResource("ShaderMaterial_ib1xl")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="水平模糊效果" type="CanvasLayer" parent="." unique_id=857373550]
-visible = false
-
-[node name="水平模糊" type="ColorRect" parent="水平模糊效果" unique_id=1361624797]
-material = SubResource("ShaderMaterial_x12e2")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("45_x12e2")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="ui/按钮盒竖状/开始" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ui/按钮盒竖状/设置" to="." method="_on_settings_pressed"]

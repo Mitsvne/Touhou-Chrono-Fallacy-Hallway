@@ -1,20 +1,16 @@
 extends CanvasLayer
 
-
 @export var star_textures: Array[TextureRect]  # 拖入三个星星节点
 @export var label: Label
 @export var reset_button: Button
 
 var stars:int          #结算星级
 
-
 func _ready() -> void:
 	EventBus.level_complete.connect(_on_level_complete)
 	reset_button.grab_focus()
-	GameState.set_result(true)
 	for star in star_textures:
 		star.modulate.a=0
-	
 
 func _on_level_complete(level_id:String,stars_num:int):
 	stars=stars_num
@@ -42,19 +38,14 @@ func animate_stars() -> void:
 		tween.tween_property(star_textures[i], "scale", Vector2(1.0, 1.0), 0.15)
 		await get_tree().create_timer(0.3).timeout
 
-## 离开场景树时（包括重置、返回、或手动移除）恢复正常状态
-func _exit_tree() -> void:
-	GameState.set_result(false)
-
 ## 重置关卡按钮
 func _on_reset_pressed() -> void:
-	GameState.set_result(false)
-	get_tree().paused = false
 	await get_tree().process_frame
 	get_tree().reload_current_scene()
 
 ## 返回选关
 func _on_back_pressed() -> void:
-	GameState.set_result(false)
-	get_tree().paused = false
-	SceneTransition.change_scene_with_fade("res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
+	var transition_state = GameStateManager.get_node("切换")
+	transition_state.next_scene_path = "res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn"
+	transition_state.next_state_name = "关卡选择"
+	GameStateManager.change_state("切换")

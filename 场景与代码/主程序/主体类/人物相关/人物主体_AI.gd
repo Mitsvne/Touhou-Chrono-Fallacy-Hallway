@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		current_velocity.y += gravity * delta
 	if not bt_player.active:
 		move(character_data.move_speed,delta)
-	if target.character_main.is_alive==false:
+	if not GameStateManager.is_current_state("正常"):
 		bt_player.active=false
 
 

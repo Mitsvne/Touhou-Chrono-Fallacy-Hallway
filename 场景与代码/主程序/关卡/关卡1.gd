@@ -24,9 +24,8 @@ var character2_instance:Node2D
 var custom_time: float = 0.0        # 存储的时间
 
 func _ready():
-	GameState.current_state = GameState.State.正常   # 强制设为正常
+	GameStateManager.change_state("正常")            # 强制设为正常
 	AudioManager.stop_bgm(0)                        # 关bgm
-	add_pause_scene()                               # 添加暂停页面并隐藏
 	# 添加人物
 	var pos1=_1p_pos.global_position
 	var pos2=_2p_pos.global_position
@@ -79,15 +78,8 @@ func game_over(team):
 		print("信号游戏失败，%s死亡"%[team])
 	else:
 		print("信号游戏胜利，%s死亡"%[team])
-	add_result_scene()
-
-## 添加结算页面
-func add_result_scene():
-	if GameState.current_state!=GameState.State.正常:
-		return
-	var result_instance = result_scene.instantiate()
 	var current_stars :int = calculate_stars()
-	add_child(result_instance)
+	GameStateManager.change_state("结算")
 	EventBus.level_complete.emit(level_id,current_stars)
 	GameData.set_stars(level_id,current_stars)
 
@@ -103,8 +95,3 @@ func calculate_stars() -> int:
 	elif hp/hp_max>=0.3:
 		return 1
 	return 0
-
-## 添加暂停页面
-func add_pause_scene():
-	var pause_instance = pause_scene.instantiate()
-	add_child(pause_instance)

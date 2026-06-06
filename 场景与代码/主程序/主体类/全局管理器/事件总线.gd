@@ -1,8 +1,12 @@
 extends Node
 
 @warning_ignore_start("unused_signal")
+
+##-----------局外-------------
 ## 角色改变
 signal character_changed(character_name: String)
+
+##-----------局内-------------
 ## 关卡完成
 signal level_complete(level_id:String,stars: int)
 ## 角色死亡

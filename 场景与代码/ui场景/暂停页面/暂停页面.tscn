@@ -62,8 +62,21 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_yog4p")
 text = "人物"
 
+[node name="设置" type="Button" parent="." unique_id=639075007]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 50.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_yog4p")
+text = "设置"
+
 [connection signal="pressed" from="VBoxContainer/继续游戏" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/游戏重置" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/回到关卡" to="." method="_on_back_to_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/回到主页" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="人物" to="." method="_on_character_pressed"]
+[connection signal="pressed" from="设置" to="." method="_on_settings_pressed"]
