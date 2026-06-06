@@ -5,6 +5,7 @@ extends CanvasLayer
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
 	continue_button.grab_focus()
+	layer+=1
 
 func init():
 	continue_button.grab_focus()
