@@ -172,27 +172,49 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857 node_paths=PackedStringArray("set_btn_move_up", "reset_btn_move_up", "set_btn_move_down", "reset_btn_move_down", "set_btn_move_left", "reset_btn_move_left", "set_btn_move_right", "reset_btn_move_right", "set_btn_attack", "reset_btn_attack", "set_btn_dash", "reset_btn_dash", "set_btn_skill", "reset_btn_skill", "set_btn_ultimate", "reset_btn_ultimate", "set_btn_assist", "reset_btn_assist")]
+[node name="按键" type="Control" parent="选项卡菜单" unique_id=1348914857 node_paths=PackedStringArray("set_btn_move_up", "reset_btn_move_up", "set_btn_move_up_2", "reset_btn_move_up_2", "set_btn_move_down", "reset_btn_move_down", "set_btn_move_down_2", "reset_btn_move_down_2", "set_btn_move_left", "reset_btn_move_left", "set_btn_move_left_2", "reset_btn_move_left_2", "set_btn_move_right", "reset_btn_move_right", "set_btn_move_right_2", "reset_btn_move_right_2", "set_btn_attack", "reset_btn_attack", "set_btn_attack_2", "reset_btn_attack_2", "set_btn_dash", "reset_btn_dash", "set_btn_dash_2", "reset_btn_dash_2", "set_btn_defense", "reset_btn_defense", "set_btn_defense_2", "reset_btn_defense_2", "set_btn_skill", "reset_btn_skill", "set_btn_skill_2", "reset_btn_skill_2", "set_btn_ultimate", "reset_btn_ultimate", "set_btn_ultimate_2", "reset_btn_ultimate_2", "set_btn_assist", "reset_btn_assist", "set_btn_assist_2", "reset_btn_assist_2")]
 layout_mode = 2
 script = ExtResource("4_ecuth")
 set_btn_move_up = NodePath("ScrollContainer/VBoxContainer/移动上/当前按键")
 reset_btn_move_up = NodePath("ScrollContainer/VBoxContainer/移动上/重置")
+set_btn_move_up_2 = NodePath("ScrollContainer/VBoxContainer/移动上/当前按键2")
+reset_btn_move_up_2 = NodePath("ScrollContainer/VBoxContainer/移动上/重置2")
 set_btn_move_down = NodePath("ScrollContainer/VBoxContainer/移动下/当前按键")
 reset_btn_move_down = NodePath("ScrollContainer/VBoxContainer/移动下/重置")
+set_btn_move_down_2 = NodePath("ScrollContainer/VBoxContainer/移动下/当前按键2")
+reset_btn_move_down_2 = NodePath("ScrollContainer/VBoxContainer/移动下/重置2")
 set_btn_move_left = NodePath("ScrollContainer/VBoxContainer/移动左/当前按键")
 reset_btn_move_left = NodePath("ScrollContainer/VBoxContainer/移动左/重置")
+set_btn_move_left_2 = NodePath("ScrollContainer/VBoxContainer/移动左/当前按键2")
+reset_btn_move_left_2 = NodePath("ScrollContainer/VBoxContainer/移动左/重置2")
 set_btn_move_right = NodePath("ScrollContainer/VBoxContainer/移动右/当前按键")
 reset_btn_move_right = NodePath("ScrollContainer/VBoxContainer/移动右/重置")
+set_btn_move_right_2 = NodePath("ScrollContainer/VBoxContainer/移动右/当前按键2")
+reset_btn_move_right_2 = NodePath("ScrollContainer/VBoxContainer/移动右/重置2")
 set_btn_attack = NodePath("ScrollContainer/VBoxContainer/普攻/当前按键")
 reset_btn_attack = NodePath("ScrollContainer/VBoxContainer/普攻/重置")
+set_btn_attack_2 = NodePath("ScrollContainer/VBoxContainer/普攻/当前按键2")
+reset_btn_attack_2 = NodePath("ScrollContainer/VBoxContainer/普攻/重置2")
 set_btn_dash = NodePath("ScrollContainer/VBoxContainer/冲刺/当前按键")
 reset_btn_dash = NodePath("ScrollContainer/VBoxContainer/冲刺/重置")
+set_btn_dash_2 = NodePath("ScrollContainer/VBoxContainer/冲刺/当前按键2")
+reset_btn_dash_2 = NodePath("ScrollContainer/VBoxContainer/冲刺/重置2")
+set_btn_defense = NodePath("ScrollContainer/VBoxContainer/防御/当前按键")
+reset_btn_defense = NodePath("ScrollContainer/VBoxContainer/防御/重置")
+set_btn_defense_2 = NodePath("ScrollContainer/VBoxContainer/防御/当前按键2")
+reset_btn_defense_2 = NodePath("ScrollContainer/VBoxContainer/防御/重置2")
 set_btn_skill = NodePath("ScrollContainer/VBoxContainer/技能/当前按键")
 reset_btn_skill = NodePath("ScrollContainer/VBoxContainer/技能/重置")
+set_btn_skill_2 = NodePath("ScrollContainer/VBoxContainer/技能/当前按键2")
+reset_btn_skill_2 = NodePath("ScrollContainer/VBoxContainer/技能/重置2")
 set_btn_ultimate = NodePath("ScrollContainer/VBoxContainer/必杀/当前按键")
 reset_btn_ultimate = NodePath("ScrollContainer/VBoxContainer/必杀/重置")
+set_btn_ultimate_2 = NodePath("ScrollContainer/VBoxContainer/必杀/当前按键2")
+reset_btn_ultimate_2 = NodePath("ScrollContainer/VBoxContainer/必杀/重置2")
 set_btn_assist = NodePath("ScrollContainer/VBoxContainer/援助/当前按键")
 reset_btn_assist = NodePath("ScrollContainer/VBoxContainer/援助/重置")
+set_btn_assist_2 = NodePath("ScrollContainer/VBoxContainer/援助/当前按键2")
+reset_btn_assist_2 = NodePath("ScrollContainer/VBoxContainer/援助/重置2")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="选项卡菜单/按键" unique_id=2028180318]
@@ -200,8 +222,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -101.5
-offset_right = 101.5
+offset_left = -173.5
+offset_right = 147.33337
 offset_bottom = 197.33333
 grow_horizontal = 2
 scale = Vector2(1.5, 1.5)
@@ -231,6 +253,19 @@ size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=216299115]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "W"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动上" unique_id=1384343328]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
 [node name="移动下" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=429719985]
 layout_mode = 2
 
@@ -247,6 +282,19 @@ theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "S"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1587813585]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=1590339375]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "S"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动下" unique_id=330051775]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
@@ -273,6 +321,19 @@ size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=934487683]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "A"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动左" unique_id=2129550422]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
 [node name="移动右" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=749666839]
 layout_mode = 2
 
@@ -294,23 +355,14 @@ size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
-[node name="冲刺" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=977375954]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_8kpsi")
-text = "冲刺："
-
-[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=1333029005]
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1382992783]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
-text = "L"
+text = "D"
 
-[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=897874923]
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/移动右" unique_id=1941567914]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
@@ -338,6 +390,89 @@ size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=875652011]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "J"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/普攻" unique_id=868179895]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="冲刺" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=649884727]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=977375954]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "冲刺："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=1333029005]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "L"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=897874923]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=99098384]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "L"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/冲刺" unique_id=431539244]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="防御" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1900868810]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/防御" unique_id=2028892896]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "防御："
+
+[node name="当前按键" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/防御" unique_id=1384873218]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "K"
+
+[node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/防御" unique_id=50732865]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/防御" unique_id=1455735703]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "K"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/防御" unique_id=904631459]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
 [node name="技能" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=321274902]
 layout_mode = 2
 
@@ -355,6 +490,19 @@ theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "U"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=1492693719]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=366123106]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "U"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/技能" unique_id=944317146]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
@@ -382,6 +530,19 @@ size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "重置"
 
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=1990608305]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "I"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/必杀" unique_id=266589219]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
 [node name="援助" type="HBoxContainer" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer" unique_id=1718825796]
 layout_mode = 2
 
@@ -399,6 +560,19 @@ theme_override_fonts/font = ExtResource("4_8kpsi")
 text = "O"
 
 [node name="重置" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=910081873]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "重置"
+
+[node name="当前按键2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1555023592]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_8kpsi")
+text = "O"
+
+[node name="重置2" type="Button" parent="选项卡菜单/按键/ScrollContainer/VBoxContainer/援助" unique_id=1175526741]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("4_8kpsi")
