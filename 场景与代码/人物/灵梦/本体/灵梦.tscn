@@ -29,10 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://bap1po8ebqv1j" path="res://素材/人物素材/灵梦/人物/dashBack001.png" id="13_7e6rl"]
 [ext_resource type="Texture2D" uid="uid://cipq787f7ylr7" path="res://素材/人物素材/灵梦/人物/spellDb007.png" id="13_80c0g"]
 [ext_resource type="Texture2D" uid="uid://biut32ypbggjo" path="res://素材/人物素材/灵梦/人物/dashBack000.png" id="13_n72kb"]
+[ext_resource type="Script" uid="uid://cxqji3shqsio3" path="res://场景与代码/主程序/主体类/人物相关/状态机/PlayerStateMachine.gd" id="14_h3cg4"]
 [ext_resource type="Texture2D" uid="uid://qfh7n002lcmc" path="res://素材/人物素材/灵梦/人物/dashBack002.png" id="14_n72kb"]
 [ext_resource type="Texture2D" uid="uid://4aq24olbuahd" path="res://素材/人物素材/灵梦/人物/dashFrontAir000.png" id="15_fc6ke"]
 [ext_resource type="Texture2D" uid="uid://dqspfa6alk63w" path="res://素材/人物素材/灵梦/人物/dashFrontAir001.png" id="16_c73gp"]
+[ext_resource type="Script" uid="uid://cadgf7s6e27sl" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DashState.gd" id="16_xsknn"]
+[ext_resource type="Script" uid="uid://cupen48kq8hvc" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DeadState.gd" id="17_pyxit"]
 [ext_resource type="Texture2D" uid="uid://b64meliktd2vb" path="res://素材/人物素材/灵梦/人物/dashFrontAir002.png" id="17_x7guv"]
+[ext_resource type="Script" uid="uid://ddw4arnigtdw1" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/IdleState.gd" id="18_gt33o"]
+[ext_resource type="Script" uid="uid://i6fkjnf0gjej" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/MoveState.gd" id="19_bjp0m"]
+[ext_resource type="Script" uid="uid://lbb5vplekxnp" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/SkillState.gd" id="20_u2ynm"]
+[ext_resource type="Script" uid="uid://cwmph5kjp5eo7" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/UltimateState.gd" id="21_6b1qv"]
 [ext_resource type="Texture2D" uid="uid://1g0g5p1l2uky" path="res://素材/人物素材/灵梦/人物/attackS000.png" id="24_ktvnh"]
 [ext_resource type="Texture2D" uid="uid://b1e1rgppsr2ik" path="res://素材/人物素材/灵梦/人物/attackS001.png" id="25_xn1ji"]
 [ext_resource type="Texture2D" uid="uid://bfp53vlvy1dx2" path="res://素材/人物素材/灵梦/人物/attackS002.png" id="26_b0bj7"]
@@ -1331,6 +1338,34 @@ damage_number = ExtResource("5_imqij")
 attack_bullet = ExtResource("2_g1kd8")
 attack_effect = ExtResource("10_wmq54")
 metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="PlayerStateMachine" type="Node" parent="class/Character_Main" unique_id=275546673]
+script = ExtResource("14_h3cg4")
+metadata/_custom_type_script = "uid://cxqji3shqsio3"
+
+[node name="IdleState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=592735723]
+script = ExtResource("18_gt33o")
+metadata/_custom_type_script = "uid://ddw4arnigtdw1"
+
+[node name="MoveState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=968620624]
+script = ExtResource("19_bjp0m")
+metadata/_custom_type_script = "uid://i6fkjnf0gjej"
+
+[node name="DashState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1229238208]
+script = ExtResource("16_xsknn")
+metadata/_custom_type_script = "uid://cadgf7s6e27sl"
+
+[node name="SkillState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=98850910]
+script = ExtResource("20_u2ynm")
+metadata/_custom_type_script = "uid://lbb5vplekxnp"
+
+[node name="UltimateState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1930724810]
+script = ExtResource("21_6b1qv")
+metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
+
+[node name="DeadState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=306251019]
+script = ExtResource("17_pyxit")
+metadata/_custom_type_script = "uid://cupen48kq8hvc"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
 script = ExtResource("35_rluf1")

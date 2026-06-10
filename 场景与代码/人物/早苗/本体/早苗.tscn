@@ -8,11 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="6_htwvp"]
 [ext_resource type="PackedScene" uid="uid://dh1hidu0qei23" path="res://场景与代码/人物/早苗/弹幕/早苗普攻弹幕.tscn" id="6_r0h74"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_qm6op"]
+[ext_resource type="Script" uid="uid://cxqji3shqsio3" path="res://场景与代码/主程序/主体类/人物相关/状态机/PlayerStateMachine.gd" id="8_4d7tj"]
 [ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="8_5j28d"]
 [ext_resource type="Texture2D" uid="uid://bmcum23oobn3w" path="res://素材/人物素材/早苗/人物/dashFront004.png" id="9_3lohy"]
+[ext_resource type="Script" uid="uid://ddw4arnigtdw1" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/IdleState.gd" id="9_jubhk"]
 [ext_resource type="Texture2D" uid="uid://d3em13ljvmxsb" path="res://素材/人物素材/早苗/人物/dashFront005.png" id="10_blmw3"]
+[ext_resource type="Script" uid="uid://i6fkjnf0gjej" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/MoveState.gd" id="10_jsv6j"]
 [ext_resource type="Texture2D" uid="uid://c23qdjiju3xi5" path="res://素材/人物素材/早苗/人物/dashFront006.png" id="11_0b0t2"]
+[ext_resource type="Script" uid="uid://cadgf7s6e27sl" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DashState.gd" id="11_1ck23"]
+[ext_resource type="Script" uid="uid://lbb5vplekxnp" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/SkillState.gd" id="12_bd7oe"]
+[ext_resource type="Script" uid="uid://cwmph5kjp5eo7" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/UltimateState.gd" id="13_4av3t"]
 [ext_resource type="Texture2D" uid="uid://bttx8518h4m05" path="res://素材/人物素材/早苗/人物/dashBack002.png" id="13_pdw0e"]
+[ext_resource type="Script" uid="uid://cupen48kq8hvc" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DeadState.gd" id="14_cceum"]
 [ext_resource type="Texture2D" uid="uid://dgpr6s5shucf8" path="res://素材/人物素材/早苗/人物/dashBack003.png" id="14_r0h74"]
 [ext_resource type="Texture2D" uid="uid://dcycls8cpycfu" path="res://素材/人物素材/早苗/人物/dashBack004.png" id="15_q075i"]
 [ext_resource type="Texture2D" uid="uid://b18lmnlp6dr6f" path="res://素材/人物素材/早苗/人物/dashBack000.png" id="16_4n542"]
@@ -623,6 +630,34 @@ damage_number = ExtResource("4_ygw1d")
 attack_bullet = ExtResource("6_r0h74")
 attack_effect = ExtResource("6_htwvp")
 metadata/_custom_type_script = "uid://jclrroyodlts"
+
+[node name="PlayerStateMachine" type="Node" parent="class/Character_Main" unique_id=1286912903]
+script = ExtResource("8_4d7tj")
+metadata/_custom_type_script = "uid://cxqji3shqsio3"
+
+[node name="IdleState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=446506748]
+script = ExtResource("9_jubhk")
+metadata/_custom_type_script = "uid://ddw4arnigtdw1"
+
+[node name="MoveState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=173101452]
+script = ExtResource("10_jsv6j")
+metadata/_custom_type_script = "uid://i6fkjnf0gjej"
+
+[node name="DashState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1508342981]
+script = ExtResource("11_1ck23")
+metadata/_custom_type_script = "uid://cadgf7s6e27sl"
+
+[node name="SkillState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1970895043]
+script = ExtResource("12_bd7oe")
+metadata/_custom_type_script = "uid://lbb5vplekxnp"
+
+[node name="UltimateState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1830273051]
+script = ExtResource("13_4av3t")
+metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
+
+[node name="DeadState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1356169295]
+script = ExtResource("14_cceum")
+metadata/_custom_type_script = "uid://cupen48kq8hvc"
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1734290524]
 script = ExtResource("7_qm6op")
