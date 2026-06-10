@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://i6fkjnf0gjej" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/MoveState.gd" id="19_bjp0m"]
 [ext_resource type="Script" uid="uid://lbb5vplekxnp" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/SkillState.gd" id="20_u2ynm"]
 [ext_resource type="Script" uid="uid://cwmph5kjp5eo7" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/UltimateState.gd" id="21_6b1qv"]
+[ext_resource type="Script" uid="uid://8rcaxnpk4f5r" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DefenseState.gd" id="21_xsknn"]
 [ext_resource type="Texture2D" uid="uid://1g0g5p1l2uky" path="res://素材/人物素材/灵梦/人物/attackS000.png" id="24_ktvnh"]
 [ext_resource type="Texture2D" uid="uid://b1e1rgppsr2ik" path="res://素材/人物素材/灵梦/人物/attackS001.png" id="25_xn1ji"]
 [ext_resource type="Texture2D" uid="uid://bfp53vlvy1dx2" path="res://素材/人物素材/灵梦/人物/attackS002.png" id="26_b0bj7"]
@@ -1187,6 +1188,35 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_pyxit"]
+resource_name = "防御"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"后退"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
 [sub_resource type="Animation" id="Animation_lt2rg"]
 resource_name = "必杀2"
 length = 3.2333333
@@ -1282,6 +1312,7 @@ _data = {
 &"明珠暗投": SubResource("Animation_h1ood"),
 &"梦想封印": SubResource("Animation_wpml1"),
 &"死亡": SubResource("Animation_4a6ux"),
+&"防御": SubResource("Animation_pyxit"),
 &"阴阳鬼神玉": SubResource("Animation_lt2rg")
 }
 
@@ -1366,6 +1397,9 @@ metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
 [node name="DeadState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=306251019]
 script = ExtResource("17_pyxit")
 metadata/_custom_type_script = "uid://cupen48kq8hvc"
+
+[node name="DefenseState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=895630700]
+script = ExtResource("21_xsknn")
 
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
 script = ExtResource("35_rluf1")

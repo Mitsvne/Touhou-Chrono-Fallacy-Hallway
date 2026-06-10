@@ -114,6 +114,27 @@ func check_special_inputs() -> String:
 	return ""
 
 
+## 受击时修改伤害 —— 委托给当前状态
+func process_incoming_damage(hitbox, attack_data: AttackData) -> float:
+	if current_state:
+		return current_state.modify_incoming_damage(hitbox, attack_data)
+	return attack_data.damage
+
+
+## 当前状态是否允许自由移动
+func is_movement_allowed() -> bool:
+	if current_state:
+		return current_state.is_movement_allowed()
+	return true
+
+
+## 当前状态的移速倍率
+func get_move_speed_multiplier() -> float:
+	if current_state:
+		return current_state.get_move_speed_multiplier()
+	return 1.0
+
+
 ## 返回当前状态名
 func get_current_state_name() -> String:
 	if current_state:

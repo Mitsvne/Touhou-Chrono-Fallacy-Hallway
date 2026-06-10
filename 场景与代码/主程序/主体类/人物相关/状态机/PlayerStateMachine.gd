@@ -12,6 +12,7 @@ func init_states() -> void:
 	_register_state("SkillState", SkillState.new())
 	# 必杀状态 —— 不设 ultimate_animation，自动从 GameData 读取装备必杀
 	_register_state("UltimateState", UltimateState.new())
+	_register_state("DefenseState", DefenseState.new())
 	_register_state("DeadState", DeadState.new())
 
 
@@ -20,6 +21,10 @@ func check_special_inputs() -> String:
 	if not character_main or not character_main.has_method("fire_bullet"):
 		return ""
 	var cd: Character_Data = character_data
+	# 防御
+	if InputManager.is_action_just_pressed("defense"):
+		return "DefenseState"
+
 	# 技能
 	if InputManager.is_action_just_pressed("skill") and cd.is_skill_ready():
 		cd.start_skill_cooldown()

@@ -57,8 +57,9 @@ func _physics_process(delta: float) -> void:
 		current_velocity.y += gravity * delta
 
 	is_allow_key_move=character_ctrler.get_is_key_moving()
-	if is_allow_key_move and not is_dead() and not character_ctrler.get_is_moving():
-		move(character_data.move_speed,delta)
+	if is_allow_key_move and not is_dead() and not character_ctrler.get_is_moving() and state_machine.is_movement_allowed():
+		var speed_mult := state_machine.get_move_speed_multiplier()
+		move(character_data.move_speed * speed_mult, delta)
 
 ## 查找编辑器中放置的状态机，没有则程序化创建
 func _find_or_create_state_machine() -> CharacterStateMachine:
@@ -156,7 +157,8 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	if not character_ctrler.get_is_allow_behit():
 		print("不可受击状态")
 		return
-	var damage:float = attack_data.damage
+	# 通过状态机修改伤害（防御状态减伤等）
+	var damage:float = state_machine.process_incoming_damage(hitbox, attack_data) if state_machine else attack_data.damage
 	var attack_type:int =  attack_data.attack_type
 	var hitstop:float =  attack_data.hitstop
 	var attack_effect_node = attack_effect.instantiate()

@@ -21,6 +21,19 @@ func physics_update(_delta: float) -> void:
 func get_next_state() -> String:
 	return ""
 
+## 受击时修改伤害 —— 子类覆写以实现减伤/反伤等
+## 返回修改后的伤害值；默认原样返回
+func modify_incoming_damage(_hitbox, _attack_data: AttackData) -> float:
+	return _attack_data.damage
+
+## 是否允许自由移动 —— 子类覆写返回 false 阻止移动
+func is_movement_allowed() -> bool:
+	return true
+
+## 移速倍率 —— 子类覆写实现减速/加速（1.0 = 原速）
+func get_move_speed_multiplier() -> float:
+	return 1.0
+
 ## 便捷方法：在角色 AnimationPlayer 上播放动画
 func play_animation(anim_name: String) -> void:
 	if not machine or not machine.anplayer:
