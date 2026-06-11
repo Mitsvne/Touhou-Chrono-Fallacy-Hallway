@@ -1,0 +1,404 @@
+[gd_scene format=3 uid="uid://oj6mu4extvut"]
+
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="1_tqrq7"]
+[ext_resource type="Script" uid="uid://becdnyhwspyai" path="res://场景与代码/人物/早苗/弹幕/早苗必杀1弹幕.gd" id="1_vlrbu"]
+[ext_resource type="AudioStream" uid="uid://b57ahwgfaansu" path="res://素材/人物素材/早苗/音效/弹幕发射1.wav" id="2_3j1ma"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_vlrbu"]
+[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="3_3j1ma"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="4_sx00y"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_v7s3v"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="6_i0nor"]
+[ext_resource type="Texture2D" uid="uid://irdre3j5gdwq" path="res://素材/人物素材/早苗/特效/bulletAb000.png" id="7_oqypc"]
+[ext_resource type="Texture2D" uid="uid://s8eqsuj6q82e" path="res://素材/人物素材/早苗/特效/bulletAa000.png" id="8_ba5ag"]
+[ext_resource type="Texture2D" uid="uid://rpthgdjjcgac" path="res://素材/人物素材/早苗/特效/bulletAb002.png" id="9_amy83"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="10_pmowo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh56k"]
+size = Vector2(22, 10)
+
+[sub_resource type="Resource" id="Resource_3j1ma"]
+script = ExtResource("2_vlrbu")
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmhdo"]
+size = Vector2(22, 10)
+
+[sub_resource type="Animation" id="Animation_gxu3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材/Sprite2D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材/Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材/Sprite2D3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材/Sprite2D2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材/Sprite2D1:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材/Sprite2D1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材/Sprite2D3:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("素材/Sprite2D3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("素材/Sprite2D2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hvhwh"]
+resource_name = "hit"
+length = 0.50000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材/Sprite2D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材/Sprite2D1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.8, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材/Sprite2D1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材/Sprite2D3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材/Sprite2D3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.5, 1.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材/Sprite2D3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材/Sprite2D2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("素材/Sprite2D2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.8, 0.8)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("素材/Sprite2D2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m1vsq"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材/Sprite2D1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材/Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材/Sprite2D2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材/Sprite2D1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("素材/Sprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材/Sprite2D1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eedp2"]
+_data = {
+&"RESET": SubResource("Animation_gxu3o"),
+&"hit": SubResource("Animation_hvhwh"),
+&"loop": SubResource("Animation_m1vsq")
+}
+
+[sub_resource type="Curve" id="Curve_77vfl"]
+_data = [Vector2(0, 0), 0.0, 0.8963751, 0, 0, Vector2(0.9900851, 0.9944303), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9197241, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_i5t43"]
+offsets = PackedFloat32Array(0, 0.9906977, 1)
+colors = PackedColorArray(0.5921569, 0.17254902, 0.59607846, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
+
+[node name="早苗必杀1弹幕" type="Area2D" unique_id=361183538]
+script = ExtResource("1_vlrbu")
+audio = ExtResource("2_3j1ma")
+
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1130200403]
+shape = SubResource("RectangleShape2D_fh56k")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=272740187]
+script = ExtResource("1_tqrq7")
+attack_data = SubResource("Resource_3j1ma")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1469445120]
+shape = SubResource("RectangleShape2D_fmhdo")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1726127660]
+script = ExtResource("3_3j1ma")
+metadata/_custom_type_script = "uid://wjwd1qtqs14e"
+
+[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1153289147]
+
+[node name="class" type="Node" parent="." unique_id=865374016]
+
+[node name="Bullet_Data" type="Node" parent="class" unique_id=251749842]
+script = ExtResource("4_sx00y")
+metadata/_custom_type_script = "uid://df5xa5fby1rqi"
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=879691156 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+script = ExtResource("5_v7s3v")
+anplayer = NodePath("../../动画")
+bullet_data = NodePath("../Bullet_Data")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=363449140]
+script = ExtResource("6_i0nor")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=403819996]
+libraries/ = SubResource("AnimationLibrary_eedp2")
+
+[node name="素材" type="Node2D" parent="." unique_id=515293417]
+
+[node name="Sprite2D2" type="Sprite2D" parent="素材" unique_id=1164968573]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_oqypc")
+
+[node name="Sprite2D1" type="Sprite2D" parent="素材" unique_id=256443694]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ba5ag")
+
+[node name="Sprite2D3" type="Sprite2D" parent="素材" unique_id=182564002]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_amy83")
+
+[node name="拖尾" type="Node2D" parent="." unique_id=149242285 node_paths=PackedStringArray("line2d")]
+z_index = -1
+script = ExtResource("10_pmowo")
+line2d = NodePath("线")
+max_points = 10
+
+[node name="线" type="Line2D" parent="拖尾" unique_id=211975834]
+top_level = true
+width_curve = SubResource("Curve_77vfl")
+gradient = SubResource("Gradient_i5t43")

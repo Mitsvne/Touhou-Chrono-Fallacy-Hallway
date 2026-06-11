@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dmv2vk5fak55w" path="res://场景与代码/人物/早苗/本体/技能1.tres" id="2_jcer5"]
 [ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_xr31t"]
 [ext_resource type="Resource" uid="uid://kiuxmqlx4ijp" path="res://场景与代码/人物/早苗/本体/技能2.tres" id="3_gr3qn"]
-[ext_resource type="Resource" uid="uid://b337luntahqm4" path="res://场景与代码/人物/早苗/本体/必杀1.tres" id="4_kbb5n"]
+[ext_resource type="Resource" uid="uid://b337luntahqm4" path="res://场景与代码/人物/早苗/本体/必杀1守护商业繁荣.tres" id="4_kbb5n"]
 [ext_resource type="Resource" uid="uid://dpx1x3q2ljfa6" path="res://场景与代码/人物/早苗/本体/必杀2.tres" id="5_qj8if"]
 
 [resource]
@@ -18,4 +18,6 @@ base_power = 8.0
 base_energy = 80.0
 available_skills = Array[ExtResource("1_5d004")]([ExtResource("2_jcer5"), ExtResource("3_gr3qn")])
 available_ultimates = Array[ExtResource("1_5d004")]([ExtResource("4_kbb5n"), ExtResource("5_qj8if")])
+equipped_skill = ExtResource("2_jcer5")
+equipped_ultimate = ExtResource("4_kbb5n")
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

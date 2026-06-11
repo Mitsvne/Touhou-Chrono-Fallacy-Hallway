@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var character_ctrler: Character_Ctrler
 @export var effect_ctrler: Effect_Ctrler
 @export var attack_bullet:PackedScene
-@export var skill1_bullet:PackedScene
+@export var ultimate1_bullet:PackedScene
 @export var skill2_bullet:PackedScene
 
 var character_name:String="东风谷早苗"
@@ -18,3 +18,10 @@ func _physics_process(_delta: float) -> void:
 
 func normal_attack():
 	character_ctrler.shoot(attack_bullet,Vector2(50,0))
+
+func ultimate1():
+	var skill_hits=character_data.current_ultimate.hits
+	for i in range(0,5):
+		character_ctrler.shoot(ultimate1_bullet,Vector2(50,i*10),i*1,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(ultimate1_bullet,Vector2(50,-i*10),-i*1,Vector2(0,0),skill_hits)
+		await get_tree().create_timer(0.1, false).timeout

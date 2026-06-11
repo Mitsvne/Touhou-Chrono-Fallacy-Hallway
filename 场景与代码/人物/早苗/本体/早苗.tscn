@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="1_vaafk"]
 [ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/主程序/主体类/人物相关/人物控制.gd" id="2_28r0m"]
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="3_5fpa4"]
+[ext_resource type="PackedScene" uid="uid://oj6mu4extvut" path="res://场景与代码/人物/早苗/弹幕/早苗必杀1弹幕.tscn" id="3_yltyl"]
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="4_ygw1d"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="6_htwvp"]
 [ext_resource type="PackedScene" uid="uid://dh1hidu0qei23" path="res://场景与代码/人物/早苗/弹幕/早苗普攻弹幕.tscn" id="6_r0h74"]
@@ -34,11 +35,24 @@
 [ext_resource type="Texture2D" uid="uid://mfie5sr1cywy" path="res://素材/人物素材/早苗/人物/hitAir006.png" id="24_ioyu8"]
 [ext_resource type="Texture2D" uid="uid://2g1x12orwpuo" path="res://素材/人物素材/早苗/人物/hitAir007.png" id="25_vr54m"]
 [ext_resource type="Texture2D" uid="uid://pyxod5e7h7l6" path="res://素材/人物素材/早苗/人物/hitAir008.png" id="26_chrgk"]
+[ext_resource type="Texture2D" uid="uid://du1o6v8i73pma" path="res://素材/人物素材/早苗/人物/attackCc000.png" id="26_w153p"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="27_r0h74"]
+[ext_resource type="Texture2D" uid="uid://p42727sl484m" path="res://素材/人物素材/早苗/人物/attackCc001.png" id="27_yltyl"]
+[ext_resource type="Texture2D" uid="uid://cy3icf2swq04e" path="res://素材/人物素材/早苗/人物/attackCc002.png" id="28_xi025"]
+[ext_resource type="Texture2D" uid="uid://d3cyl7eswjr6v" path="res://素材/人物素材/早苗/人物/attackCc003.png" id="29_tae1u"]
+[ext_resource type="Texture2D" uid="uid://cldcukk4oqrm2" path="res://素材/人物素材/早苗/人物/attackCc004.png" id="30_v02kx"]
+[ext_resource type="Texture2D" uid="uid://chdeco30bry8g" path="res://素材/人物素材/早苗/人物/attackCc005.png" id="31_6ys4h"]
+[ext_resource type="Texture2D" uid="uid://c0f27bke16lwa" path="res://素材/人物素材/早苗/人物/attackCc006.png" id="32_pqm73"]
+[ext_resource type="Texture2D" uid="uid://ck6c0of6lwh2f" path="res://素材/人物素材/早苗/人物/attackCc007.png" id="33_3qp8a"]
+[ext_resource type="Texture2D" uid="uid://c7uw7052bvpdw" path="res://素材/人物素材/早苗/人物/attackCc008.png" id="34_0w1jm"]
 [ext_resource type="Texture2D" uid="uid://cg361x7h7mtvc" path="res://素材/人物素材/早苗/特效/guardObject.png" id="35_1ck23"]
+[ext_resource type="Texture2D" uid="uid://cl8kurj4g4sb8" path="res://素材/人物素材/早苗/人物/attackCc009.png" id="35_80uy4"]
 [ext_resource type="Script" uid="uid://dydvsh6m3ovpo" path="res://场景与代码/人物/通用效果/防御法阵.gd" id="36_4av3t"]
 [ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/通用效果/图片旋转.gd" id="36_bd7oe"]
+[ext_resource type="Texture2D" uid="uid://dh3s55oqlj3so" path="res://素材/人物素材/早苗/人物/dashFront001.png" id="36_j1cm3"]
 [ext_resource type="Texture2D" uid="uid://os6tih0b5bnk" path="res://素材/人物素材/早苗/特效/guardObjectB.png" id="37_4av3t"]
+[ext_resource type="Texture2D" uid="uid://cw7ydro0ghw7f" path="res://素材/人物素材/早苗/人物/dashFront002.png" id="37_ukif3"]
+[ext_resource type="Texture2D" uid="uid://6njbjqd4a8f5" path="res://素材/人物素材/早苗/人物/dashFront003.png" id="38_n3nxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtacy"]
 
@@ -114,6 +128,50 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("26_w153p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_yltyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_xi025")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_tae1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_v02kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_6ys4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_pqm73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_3qp8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_0w1jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_80uy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_j1cm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ukif3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_n3nxm")
+}],
+"loop": true,
+"name": &"必杀1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("18_ojg1b")
 }, {
 "duration": 1.0,
@@ -150,50 +208,50 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"常态"]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("素材库:frame")
+tracks/1/path = NodePath("素材库:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(14, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:position")
+tracks/2/path = NodePath("素材库:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, 0)]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("素材库:modulate")
+tracks/3/path = NodePath("素材库:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [&"常态"]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -214,14 +272,14 @@ length = 0.40000334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"常态"]
+"update": 0,
+"values": [Vector2(14, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -232,20 +290,20 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1, 2, 0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:position")
+tracks/2/path = NodePath("素材库:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, 0)]
+"values": [&"常态"]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -302,14 +360,14 @@ length = 0.40000334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"冲刺后"]
+"update": 0,
+"values": [Vector2(14, -8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -320,20 +378,20 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.06666666, 0.13333334, 0.20000002, 0.26666668, 0.33333337),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1, 2, 0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:position")
+tracks/2/path = NodePath("素材库:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, -8)]
+"values": [&"冲刺后"]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -390,14 +448,14 @@ length = 0.30000335
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"常态"]
+"update": 0,
+"values": [Vector2(14, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -408,25 +466,79 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.10000001, 0.20000002),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:position")
+tracks/2/path = NodePath("素材库:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, 0)]
+"values": [&"常态"]
 }
 
 [sub_resource type="Animation" id="Animation_ojg1b"]
 resource_name = "后退"
 length = 0.43333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.23333335, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, -6), Vector2(13, -6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"后退"]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("class/Character_Ctrler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["后退", 4, 30.0, true],
+"method": &"jump_to_frame"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_m55cm"]
+resource_name = "必杀1"
+length = 1.4333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -436,8 +548,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"后退"]
+"update": 0,
+"values": [&"必杀1"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -446,36 +558,39 @@ tracks/1/path = NodePath("素材库:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.23333335, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.2, 0.26666665, 0.33333334, 0.4, 0.4666667, 0.5333334, 0.6, 0.6666667, 0.73333335, 0.8000001, 0.86666673, 0.9333334, 1.0000001, 1.0666668, 1.1333334, 1.2, 1.2666667, 1.3333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 4, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 8, 9, 10, 11, 12]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("class/Character_Ctrler")
+tracks/2/path = NodePath("素材库:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.43333334),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["后退", 4, 30.0, true],
-"method": &"jump_to_frame"
-}]
+"times": PackedFloat32Array(1.1333334, 1.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(19, 0), Vector2(14, 0)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("素材库:position")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667),
+"times": PackedFloat32Array(0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(4, -6), Vector2(13, -6)]
+"values": [{
+"args": [],
+"method": &"ultimate1"
+}, {
+"args": [],
+"method": &"ultimate1"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_r0h74"]
@@ -485,14 +600,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"常态"]
+"update": 0,
+"values": [Vector2(14, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -503,20 +618,20 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:position")
+tracks/2/path = NodePath("素材库:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(14, 0)]
+"values": [&"常态"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -536,50 +651,50 @@ resource_name = "死亡"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"死亡"]
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(7, -1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("素材库:frame")
+tracks/1/path = NodePath("素材库:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.2666667, 0.33333334, 0.4, 0.4666667, 0.5333333, 0.6, 0.6666667, 0.73333335, 0.79999995, 0.86666673, 0.9333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 4, 5, 6, 7, 8, 6, 7, 8, 6, 7, 8, 6, 7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.26666668, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.2666667, 0.33333334, 0.4, 0.4666667, 0.5333333, 0.6, 0.6666667, 0.73333335, 0.79999995, 0.86666673, 0.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 4, 5, 6, 7, 8, 6, 7, 8, 6, 7, 8, 6, 7]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("素材库:position")
+tracks/3/path = NodePath("素材库:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.20000002),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(0, -1), Vector2(7, -1)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"死亡"]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -621,52 +736,52 @@ resource_name = "防御"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("素材库:animation")
+tracks/0/path = NodePath("素材库:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"后退"]
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.23333335, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("素材库:frame")
+tracks/1/path = NodePath("素材库:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.23333335, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, -6), Vector2(13, -6)]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("class/Character_Ctrler")
+tracks/2/path = NodePath("素材库:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"后退"]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("class/Character_Ctrler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.43333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["防御", 4, 30.0, true],
 "method": &"jump_to_frame"
 }]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("素材库:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(4, -6), Vector2(13, -6)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -688,6 +803,7 @@ _data = {
 &"冲刺后": SubResource("Animation_4n542"),
 &"前进": SubResource("Animation_w4eoe"),
 &"后退": SubResource("Animation_ojg1b"),
+&"守护商业繁荣": SubResource("Animation_m55cm"),
 &"常态": SubResource("Animation_r0h74"),
 &"死亡": SubResource("Animation_ufynr"),
 &"防御": SubResource("Animation_1ck23")
@@ -705,6 +821,7 @@ character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
 attack_bullet = ExtResource("6_r0h74")
+ultimate1_bullet = ExtResource("3_yltyl")
 
 [node name="class" type="Node" parent="." unique_id=2083214994]
 
@@ -771,7 +888,6 @@ script = ExtResource("7_qm6op")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1273717447]
-visible = false
 shape = SubResource("RectangleShape2D_rtacy")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=282119914]

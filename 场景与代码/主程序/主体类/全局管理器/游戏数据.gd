@@ -43,7 +43,7 @@ func _ready() -> void:
 	# 加载初始人物数据
 	unlocked_characters.append(all_characters[0])
 	unlocked_characters.append(all_characters[1])
-	current_deploy_character_data=unlocked_characters[0]
+	current_deploy_character_data=unlocked_characters[1]
 	current_character_data=unlocked_characters[0]
 	load_data()
 

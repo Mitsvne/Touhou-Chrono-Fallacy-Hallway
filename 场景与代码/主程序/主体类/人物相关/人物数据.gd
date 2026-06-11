@@ -43,6 +43,7 @@ var active_effects: Array[CardEffect] = []
 		if hp==v:
 			return
 		hp=v
+		print(hp)
 		hp_changed.emit(hp,hp_max)
 
 @onready var energy:float=energy_max:#耐力

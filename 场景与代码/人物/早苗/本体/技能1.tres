@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqq5kv21xysw6" path="res://素材/人物素材/早苗/符卡/技能1.png" id="1_8oge7"]
 [ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_qjfle"]
+[ext_resource type="Script" uid="uid://c57h6d4kdob4" path="res://场景与代码/主程序/主体类/人物相关/技能攻击数据基类.gd" id="1_s0ufl"]
 
 [resource]
 script = ExtResource("1_qjfle")
@@ -10,4 +11,5 @@ skill_name = "星落"
 icon = ExtResource("1_8oge7")
 description = "在上方出现闪耀的群星，广范围向下方落下。"
 cd = 7.0
+hits = Array[ExtResource("1_s0ufl")]([null])
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

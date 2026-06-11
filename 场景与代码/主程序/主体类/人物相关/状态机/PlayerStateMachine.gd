@@ -32,11 +32,12 @@ func check_special_inputs() -> String:
 		cd.start_skill_cooldown()
 		return "SkillState"
 	# 必杀
-	var mp_cost: float = cd.current_ultimate.mp_cost
-	if InputManager.is_action_just_pressed("ultimate") and cd.mp >= mp_cost and cd.is_ultimate_ready():
-		cd.mp -= mp_cost
-		cd.start_ultimate_cooldown()
-		return "UltimateState"
+	if cd.current_ultimate:
+		var mp_cost: float = cd.current_ultimate.mp_cost
+		if InputManager.is_action_just_pressed("ultimate") and cd.mp >= mp_cost and cd.is_ultimate_ready():
+			cd.mp -= mp_cost
+			cd.start_ultimate_cooldown()
+			return "UltimateState"
 	# 冲刺
 	if InputManager.is_action_just_pressed("dash") and cd.energy >= 25:
 		cd.energy -= 25
