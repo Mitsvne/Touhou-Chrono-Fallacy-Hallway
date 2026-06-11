@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bttx8518h4m05" path="res://素材/人物素材/早苗/人物/dashBack002.png" id="13_pdw0e"]
 [ext_resource type="Script" uid="uid://cupen48kq8hvc" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DeadState.gd" id="14_cceum"]
 [ext_resource type="Texture2D" uid="uid://dgpr6s5shucf8" path="res://素材/人物素材/早苗/人物/dashBack003.png" id="14_r0h74"]
+[ext_resource type="Script" uid="uid://8rcaxnpk4f5r" path="res://场景与代码/主程序/主体类/人物相关/状态机/states/DefenseState.gd" id="15_bd7oe"]
 [ext_resource type="Texture2D" uid="uid://dcycls8cpycfu" path="res://素材/人物素材/早苗/人物/dashBack004.png" id="15_q075i"]
 [ext_resource type="Texture2D" uid="uid://b18lmnlp6dr6f" path="res://素材/人物素材/早苗/人物/dashBack000.png" id="16_4n542"]
 [ext_resource type="Texture2D" uid="uid://cplvit2c2bdb8" path="res://素材/人物素材/早苗/人物/dashBack001.png" id="17_w4eoe"]
@@ -34,11 +35,18 @@
 [ext_resource type="Texture2D" uid="uid://2g1x12orwpuo" path="res://素材/人物素材/早苗/人物/hitAir007.png" id="25_vr54m"]
 [ext_resource type="Texture2D" uid="uid://pyxod5e7h7l6" path="res://素材/人物素材/早苗/人物/hitAir008.png" id="26_chrgk"]
 [ext_resource type="AudioStream" uid="uid://dd3365bpydxml" path="res://素材/人物素材/灵梦/音效/冲刺.wav" id="27_r0h74"]
+[ext_resource type="Texture2D" uid="uid://cg361x7h7mtvc" path="res://素材/人物素材/早苗/特效/guardObject.png" id="35_1ck23"]
+[ext_resource type="Script" uid="uid://dydvsh6m3ovpo" path="res://场景与代码/人物/通用效果/防御法阵.gd" id="36_4av3t"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/通用效果/图片旋转.gd" id="36_bd7oe"]
+[ext_resource type="Texture2D" uid="uid://os6tih0b5bnk" path="res://素材/人物素材/早苗/特效/guardObjectB.png" id="37_4av3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtacy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4p7h"]
 size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd7oe"]
+size = Vector2(40, 97)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66xmf"]
 animations = [{
@@ -186,6 +194,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("防御法阵:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_q075i"]
@@ -498,6 +518,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(14, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("防御法阵:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ufynr"]
 resource_name = "死亡"
@@ -584,6 +616,71 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_1ck23"]
+resource_name = "防御"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"后退"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.23333335, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("class/Character_Ctrler")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["防御", 4, 30.0, true],
+"method": &"jump_to_frame"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("素材库:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(4, -6), Vector2(13, -6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("防御法阵:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q075i"]
 _data = {
 &"RESET": SubResource("Animation_pdw0e"),
@@ -592,8 +689,12 @@ _data = {
 &"前进": SubResource("Animation_w4eoe"),
 &"后退": SubResource("Animation_ojg1b"),
 &"常态": SubResource("Animation_r0h74"),
-&"死亡": SubResource("Animation_ufynr")
+&"死亡": SubResource("Animation_ufynr"),
+&"防御": SubResource("Animation_1ck23")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cceum"]
+blend_mode = 1
 
 [node name="早苗" type="CharacterBody2D" unique_id=348153419 node_paths=PackedStringArray("character_main", "character_data", "character_ctrler", "effect_ctrler") groups=["characters", "players"]]
 collision_layer = 2
@@ -659,6 +760,12 @@ metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
 script = ExtResource("14_cceum")
 metadata/_custom_type_script = "uid://cupen48kq8hvc"
 
+[node name="DefenseState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1737251234 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
+script = ExtResource("15_bd7oe")
+defense_effect = NodePath("../../../../防御法阵")
+hurbox_shape2 = NodePath("../../../../Hurtbox/受击面2")
+metadata/_custom_type_script = "uid://8rcaxnpk4f5r"
+
 [node name="Effect_Ctrler" type="Node" parent="class" unique_id=1734290524]
 script = ExtResource("7_qm6op")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
@@ -675,6 +782,11 @@ metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 
 [node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=470333514]
 shape = SubResource("RectangleShape2D_q4p7h")
+
+[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=1292916843]
+position = Vector2(50, -0.5)
+shape = SubResource("RectangleShape2D_bd7oe")
+disabled = true
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=387398179]
 position = Vector2(14, 0)
@@ -700,5 +812,26 @@ bus = &"SFX"
 stream = ExtResource("27_r0h74")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="防御法阵" type="Node2D" parent="." unique_id=2146378244]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(51, 0)
+rotation = 2.0071287
+scale = Vector2(0.4, 0.4)
+skew = 0.7853982
+script = ExtResource("36_4av3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="防御法阵" unique_id=839111474]
+material = SubResource("CanvasItemMaterial_cceum")
+texture = ExtResource("35_1ck23")
+script = ExtResource("36_bd7oe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="防御法阵" unique_id=1310756679]
+material = SubResource("CanvasItemMaterial_cceum")
+rotation = 0.62831855
+texture = ExtResource("37_4av3t")
+script = ExtResource("36_bd7oe")
+rotation_direction = false
 
 [connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]

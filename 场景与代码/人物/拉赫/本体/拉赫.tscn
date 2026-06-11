@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dm0gs5fli6grc" path="res://场景与代码/人物/拉赫/弹幕/法阵特效.tscn" id="7_w1t4i"]
 [ext_resource type="PackedScene" uid="uid://gdvis0ara2ny" path="res://场景与代码/人物/拉赫/弹幕/拉赫火焰弹幕.tscn" id="8_chhjm"]
 [ext_resource type="PackedScene" uid="uid://c1jpxmd2q1ab6" path="res://场景与代码/人物/拉赫/弹幕/法阵特效2.tscn" id="8_ixnr7"]
-[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="8_r3d67"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/通用效果/图片旋转.gd" id="8_r3d67"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="9_6estm"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="9_bgnr4"]
 [ext_resource type="Script" uid="uid://dtiqmbrkt75kr" path="res://场景与代码/主程序/主体类/效果相关/视觉类.gd" id="10_da1ql"]

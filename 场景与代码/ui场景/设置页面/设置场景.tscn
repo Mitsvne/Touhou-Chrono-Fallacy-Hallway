@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/书特效/110.png" id="17_arc4q"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/书特效/112.png" id="18_xkfx2"]
 [ext_resource type="Texture2D" uid="uid://bp4s2rnqd0rc2" path="res://素材/人物素材/拉赫/人物/常态/xem_1700-5.png" id="19_qnscx"]
-[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="20_o37mb"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/通用效果/图片旋转.gd" id="20_o37mb"]
 [ext_resource type="Texture2D" uid="uid://j6h5tgbfptgt" path="res://素材/人物素材/拉赫/特效/光环/149.png" id="21_gnoxw"]
 [ext_resource type="AudioStream" uid="uid://bl85q3rspsoqr" path="res://素材/音频素材/bgm/04 - Silent Forest.mp3" id="22_bp3fm"]
 [ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="23_rnapa"]

@@ -161,6 +161,10 @@ func _on_hurtbox_hurt(hitbox: Variant, attack_data: AttackData) -> void:
 	var damage:float = state_machine.process_incoming_damage(hitbox, attack_data) if state_machine else attack_data.damage
 	var attack_type:int =  attack_data.attack_type
 	var hitstop:float =  attack_data.hitstop
+	if character_data.just_broke_guard:
+		attack_type = 3  # 破防攻击类型
+		hitstop=0.1
+		character_data.just_broke_guard = false
 	var attack_effect_node = attack_effect.instantiate()
 	var damage_node = damage_number.instantiate()
 	var attack_effect_position:Vector2=attack_effect_node.get_random_point_in_overlap(hitbox,hurtbox)

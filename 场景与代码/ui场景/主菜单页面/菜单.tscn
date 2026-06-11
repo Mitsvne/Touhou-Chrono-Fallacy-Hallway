@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dwsr6o5rxripk" path="res://素材/人物素材/拉赫/特效/书特效/106.png" id="36_nnsn4"]
 [ext_resource type="Texture2D" uid="uid://byxuf5w0sl80e" path="res://素材/人物素材/拉赫/特效/书特效/108.png" id="37_emcid"]
 [ext_resource type="Texture2D" uid="uid://3mvxytg3u2mm" path="res://素材/人物素材/拉赫/特效/书特效/110.png" id="38_e5alu"]
-[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/拉赫/本体/光环旋转.gd" id="38_mby1k"]
+[ext_resource type="Script" uid="uid://ccx1l0vkb85jx" path="res://场景与代码/人物/通用效果/图片旋转.gd" id="38_mby1k"]
 [ext_resource type="Texture2D" uid="uid://dnloehc48uors" path="res://素材/人物素材/拉赫/特效/书特效/112.png" id="39_qjmqn"]
 [ext_resource type="AudioStream" uid="uid://cobtqke016shm" path="res://素材/ui素材/音效/按钮按下1.wav" id="40_uxrj1"]
 [ext_resource type="AudioStream" uid="uid://bhavc13vk4hhp" path="res://素材/ui素材/音效/按钮选择1.wav" id="41_135dm"]

@@ -23,6 +23,8 @@ func check_special_inputs() -> String:
 	var cd: Character_Data = character_data
 	# 防御
 	if InputManager.is_action_just_pressed("defense"):
+		if cd.defense_broken and cd.energy < cd.energy_max * 0.6:
+			return ""  # 防御崩溃后耐力不足60%，禁止进入防御
 		return "DefenseState"
 
 	# 技能

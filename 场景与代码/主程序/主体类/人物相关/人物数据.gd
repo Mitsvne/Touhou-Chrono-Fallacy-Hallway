@@ -11,6 +11,9 @@ signal ultimate_ready
 
 @export var character_name:String="未命名"    #角色名称
 var team:String="1P"                 #队伍
+var defense_broken: bool = false       #防御崩溃后需耐力恢复至60%才能重新防御
+var energy_regen_locked: bool = false  #防御期间暂停耐力恢复
+var just_broke_guard: bool = false     #本帧刚破防，用于标记破防攻击的attack_type
 var power:float=10                   #攻击力
 var move_speed:int=400               #移动速度
 var acceleration: float = 1600.0     #加速度（像素/秒²）
@@ -105,7 +108,10 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	energy+=energy_regen*delta #时刻恢复耐力
+	if not energy_regen_locked:
+		energy+=energy_regen*delta #时刻恢复耐力（防御期间暂停）
+	if defense_broken and energy >= energy_max * 0.6:
+		defense_broken = false  # 耐力恢复至60%，允许重新进入防御
 	if skill_cd_timer > 0.0:
 		skill_cd_timer = maxf(skill_cd_timer - delta, 0.0)
 		if skill_cd_timer == 0.0:
