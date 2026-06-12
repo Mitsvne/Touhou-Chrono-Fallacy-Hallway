@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://becdnyhwspyai" path="res://场景与代码/人物/早苗/弹幕/早苗必杀1弹幕.gd" id="1_vlrbu"]
 [ext_resource type="AudioStream" uid="uid://b57ahwgfaansu" path="res://素材/人物素材/早苗/音效/弹幕发射1.wav" id="2_3j1ma"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_vlrbu"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="3_3j1ma"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="4_sx00y"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_v7s3v"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="6_i0nor"]
@@ -350,12 +349,6 @@ metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1469445120]
 shape = SubResource("RectangleShape2D_fmhdo")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1726127660]
-script = ExtResource("3_3j1ma")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1153289147]
 
 [node name="class" type="Node" parent="." unique_id=865374016]
 

@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="2_1l44d"]
 [ext_resource type="AudioStream" uid="uid://dx0s41wwigrv1" path="res://素材/人物素材/灵梦/音效/弹幕发射4.wav" id="2_da24w"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="3_da24w"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="4_hmv5y"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="5_ojbqg"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="6_42bqx"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_6kgb3"]
@@ -282,14 +281,6 @@ attack_data = SubResource("Resource_qp8lg")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1023649249]
-position = Vector2(-3, -0.5)
-shape = SubResource("RectangleShape2D_2p22j")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1602797729]
-script = ExtResource("4_hmv5y")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1850645724]
 position = Vector2(-3, -0.5)
 shape = SubResource("RectangleShape2D_2p22j")
 

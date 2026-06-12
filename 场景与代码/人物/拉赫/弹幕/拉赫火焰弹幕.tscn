@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://i16efq2a0i6g" path="res://素材/特效素材/纹理图/园地圆柱.jpg" id="8_8rqkx"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="8_bgfok"]
 [ext_resource type="AudioStream" uid="uid://ciu2nx33u4n08" path="res://素材/人物素材/拉赫/音效/火焰.wav" id="8_grlph"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="8_l2ty5"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="9_l2ty5"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="11_akm0r"]
 
@@ -140,15 +139,6 @@ attack_data = SubResource("Resource_grlph")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=407456941]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_bgfok")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=688669162]
-visible = false
-script = ExtResource("8_l2ty5")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1551612333]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_bgfok")
 

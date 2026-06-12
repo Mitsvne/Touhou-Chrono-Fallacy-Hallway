@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="8_08j7y"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="9_ika7d"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="9_ocnon"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="9_tl8t1"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="10_k06hx"]
 [ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="13_6cdl8"]
 
@@ -295,13 +294,6 @@ attack_data = SubResource("Resource_wymrs")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=1627393161]
-shape = SubResource("CircleShape2D_2v2es")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=228085960]
-script = ExtResource("9_tl8t1")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="碰撞面" type="CollisionShape2D" parent="Hurtbox" unique_id=1940661227]
 shape = SubResource("CircleShape2D_2v2es")
 
 [node name="素材库" type="AnimatedSprite2D" parent="." unique_id=1401489138]

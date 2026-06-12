@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://d2o0sqx2eyxwb" path="res://素材/人物素材/拉赫/特效/弹幕1/4.png" id="10_6g1aq"]
 [ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="11_cgjrj"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="12_vbuqm"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="13_xqgto"]
 [ext_resource type="AudioStream" uid="uid://cx5vyyq5mh486" path="res://素材/人物素材/拉赫/音效/弹幕发射1.wav" id="14_igcdk"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="15_dd8u2"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="16_bjd1s"]
@@ -29,9 +28,6 @@ damage = 20.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6kci"]
-size = Vector2(55, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cejsq"]
 size = Vector2(55, 14)
 
 [sub_resource type="Curve" id="Curve_212li"]
@@ -215,14 +211,6 @@ attack_data = SubResource("Resource_gwtpk")
 [node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=1912168038]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_p6kci")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=2066311497]
-script = ExtResource("13_xqgto")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=865302257]
-position = Vector2(1.5, 1)
-shape = SubResource("RectangleShape2D_cejsq")
 
 [node name="拖尾" type="Node2D" parent="." unique_id=1031476512 node_paths=PackedStringArray("line2d")]
 z_index = -1

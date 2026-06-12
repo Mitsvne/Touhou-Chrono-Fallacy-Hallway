@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://5dy6xt178q5x" path="res://场景与代码/人物/拉赫/弹幕/拉赫冰锥弹幕.gd" id="1_gt874"]
 [ext_resource type="Texture2D" uid="uid://08ouiydtv3js" path="res://素材/人物素材/拉赫/特效/冰/bulletBd000.png" id="2_4hp10"]
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="2_by3mt"]
-[ext_resource type="Script" uid="uid://wjwd1qtqs14e" path="res://场景与代码/主程序/主体类/攻击相关/受击面.gd" id="4_e1pa8"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="5_qgj4k"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="6_e1pa8"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_sn4fp"]
@@ -57,6 +56,7 @@ _data = {
 [sub_resource type="Resource" id="Resource_462vn"]
 script = ExtResource("2_by3mt")
 damage = 20.0
+attack_interval = 5.0
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Curve" id="Curve_qgj4k"]
@@ -100,14 +100,6 @@ attack_data = SubResource("Resource_462vn")
 metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="攻击面" type="CollisionShape2D" parent="Hitbox" unique_id=48703510]
-shape = SubResource("RectangleShape2D_by3mt")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=36954914]
-script = ExtResource("4_e1pa8")
-metadata/_custom_type_script = "uid://wjwd1qtqs14e"
-
-[node name="受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1202467182]
-visible = false
 shape = SubResource("RectangleShape2D_by3mt")
 
 [node name="图片" type="Sprite2D" parent="." unique_id=1801586337]
