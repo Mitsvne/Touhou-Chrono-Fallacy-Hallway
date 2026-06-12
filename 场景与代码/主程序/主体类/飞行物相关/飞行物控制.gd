@@ -12,7 +12,7 @@ var is_moving: bool = false:                   # 是否移动
 	set(v):
 		is_moving = v
 		set_physics_process(v)
-var bullet_owner: CharacterBody2D              # 弹幕主人 
+var bullet_owner: CharacterBody2D              # 弹幕主人
 var tracking_target: Node2D                    # 追踪目标
 var is_gravity: bool = false                   # 是否受重力
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
@@ -194,9 +194,14 @@ func start_move_towards(target_pos: Vector2, speed: float, drag: float = 0.0,
 	var target_angle = to_target.angle()
 	var angle_diff = angle_difference(base_angle, target_angle)
 	# 4. 限制角度
-	# 注意：当朝向为左(-1)时，angle_difference 的正负号逻辑依然适用，
-	# 向上依然是负角度差（在 Godot 坐标系中），向下依然是正。
-	angle_diff = clamp(angle_diff, deg_to_rad(min_angle), deg_to_rad(max_angle))
+	# 面朝右时正角度=向下，面朝左时正角度=向上（顺时针方向相反）
+	# 因此面朝左时需交换并取反角度限制，保持屏幕空间对称
+	var eff_min = min_angle
+	var eff_max = max_angle
+	if face_dir == -1:
+		eff_min = -max_angle
+		eff_max = -min_angle
+	angle_diff = clamp(angle_diff, deg_to_rad(eff_min), deg_to_rad(eff_max))
 	# 5. 生成最终世界坐标系下的发射速度
 	var final_angle = base_angle + angle_diff
 	var final_vel = Vector2.RIGHT.rotated(final_angle) * speed
@@ -248,7 +253,7 @@ func start_move_parabola(target_pos: Vector2, speed: float = 0.0, arc_height: fl
 			velocity = Vector2(cos(angle), -sin(angle)) * s
 		else:
 			var root = sqrt(discriminant)
-			# 取较高的弧线（正切值较小的解），更接近“抛物线感”
+			# 取较高的弧线（正切值较小的解），更接近"抛物线感"
 			var tan_theta = (s * s - root) / (g * x)   # 高弧解
 			var angle = atan(tan_theta)
 			if x < 0: angle += PI
@@ -275,7 +280,7 @@ func stop_move() -> void:
 ## 直线模式：设置矢量阻力/加速度
 func set_drag_vec(value:Vector2):
 	drag_vec=value
-	
+
 ## 追踪/自由飞行模式：设置标量阻力/加速度
 func set_drag_scalar(value:float):
 	drag_scalar=value
@@ -319,9 +324,9 @@ func initialize_mirror(dir: int):
 	var sprites=get_all_visual_nodes(bullet)
 	check_collision_negative_scale(bullet)
 	# 1. 贴图镜像
-	if sprites: 
+	if sprites:
 		for sprite in sprites:
-			#sprite.position *= -1 
+			#sprite.position *= -1
 			sprite.flip_v = true
 	# 2. 物理碰撞体局部位置镜像
 	if collisions:
@@ -394,4 +399,3 @@ func play_audio(audio_path: NodePath, type: String = "SFX"):
 		AudioManager.play_sfx(stream)
 	elif type == "Voice":
 		AudioManager.play_voice(stream)
-	
