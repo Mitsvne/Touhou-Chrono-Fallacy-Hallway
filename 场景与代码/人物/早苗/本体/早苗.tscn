@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cevyll1q67gg6" path="res://场景与代码/主程序/主体类/人物相关/人物数据.gd" id="1_vaafk"]
 [ext_resource type="Script" uid="uid://cabbi4kg28hpl" path="res://场景与代码/主程序/主体类/人物相关/人物控制.gd" id="2_28r0m"]
 [ext_resource type="Script" uid="uid://jclrroyodlts" path="res://场景与代码/主程序/主体类/人物相关/人物主体.gd" id="3_5fpa4"]
+[ext_resource type="PackedScene" uid="uid://bjxanco2yemvu" path="res://场景与代码/人物/早苗/弹幕/早苗技能1弹幕.tscn" id="3_n3nxm"]
 [ext_resource type="PackedScene" uid="uid://oj6mu4extvut" path="res://场景与代码/人物/早苗/弹幕/早苗必杀1弹幕.tscn" id="3_yltyl"]
 [ext_resource type="PackedScene" uid="uid://belk2vh03n6kd" path="res://场景与代码/主程序/主体类/效果相关/攻击数字.tscn" id="4_ygw1d"]
 [ext_resource type="PackedScene" uid="uid://bqlqtdnxufhrh" path="res://场景与代码/主程序/主体类/效果相关/攻击命中特效.tscn" id="6_htwvp"]
@@ -53,6 +54,41 @@
 [ext_resource type="Texture2D" uid="uid://os6tih0b5bnk" path="res://素材/人物素材/早苗/特效/guardObjectB.png" id="37_4av3t"]
 [ext_resource type="Texture2D" uid="uid://cw7ydro0ghw7f" path="res://素材/人物素材/早苗/人物/dashFront002.png" id="37_ukif3"]
 [ext_resource type="Texture2D" uid="uid://6njbjqd4a8f5" path="res://素材/人物素材/早苗/人物/dashFront003.png" id="38_n3nxm"]
+[ext_resource type="Texture2D" uid="uid://b6lh64dgemt82" path="res://素材/人物素材/早苗/人物/shotBa000.png" id="40_ukif3"]
+[ext_resource type="Texture2D" uid="uid://c8kqcmx11ayax" path="res://素材/人物素材/早苗/人物/spellDa000.png" id="41_ie4a0"]
+[ext_resource type="Texture2D" uid="uid://dafa83tc5yt8v" path="res://素材/人物素材/早苗/人物/shotBa001.png" id="41_n3nxm"]
+[ext_resource type="Texture2D" uid="uid://damwg4jrnphva" path="res://素材/人物素材/早苗/人物/shotBa002.png" id="42_m55cm"]
+[ext_resource type="Texture2D" uid="uid://xj268slq5myh" path="res://素材/人物素材/早苗/人物/spellDa001.png" id="42_yntm4"]
+[ext_resource type="Texture2D" uid="uid://bcxyle71eq2ts" path="res://素材/人物素材/早苗/人物/shotBa003.png" id="43_0qket"]
+[ext_resource type="Texture2D" uid="uid://c42a5u8m3m5po" path="res://素材/人物素材/早苗/人物/spellDa002.png" id="43_pvd27"]
+[ext_resource type="Texture2D" uid="uid://bmmgg6ny7o2pu" path="res://素材/人物素材/早苗/人物/shotBa004.png" id="44_tsbm6"]
+[ext_resource type="Texture2D" uid="uid://bv5susl4kfgio" path="res://素材/人物素材/早苗/人物/spellDa003.png" id="44_uab20"]
+[ext_resource type="Texture2D" uid="uid://bvue037g8on7c" path="res://素材/人物素材/早苗/人物/shotBa005.png" id="45_17hi1"]
+[ext_resource type="Texture2D" uid="uid://shafvgtalx7v" path="res://素材/人物素材/早苗/人物/spellDa004.png" id="45_h64xf"]
+[ext_resource type="Texture2D" uid="uid://e2wmtiq3j3j3" path="res://素材/人物素材/早苗/人物/spellDa005.png" id="46_45uqy"]
+[ext_resource type="Texture2D" uid="uid://l86pl61iw717" path="res://素材/人物素材/早苗/人物/shotBa006.png" id="46_uxput"]
+[ext_resource type="Texture2D" uid="uid://c1yekwsgy23xo" path="res://素材/人物素材/早苗/人物/spellDa006.png" id="47_03s61"]
+[ext_resource type="Texture2D" uid="uid://dps8w53xawd1f" path="res://素材/人物素材/早苗/人物/shotBa007.png" id="47_dha0u"]
+[ext_resource type="Texture2D" uid="uid://cqm5txidhrspu" path="res://素材/人物素材/早苗/人物/shotBa008.png" id="48_7iiv6"]
+[ext_resource type="Texture2D" uid="uid://cej7xhr2xtfx6" path="res://素材/人物素材/早苗/人物/spellDa007.png" id="48_rujl3"]
+[ext_resource type="Texture2D" uid="uid://cwepf76xsxtst" path="res://素材/人物素材/早苗/人物/spellDa008.png" id="49_e5264"]
+[ext_resource type="Texture2D" uid="uid://bwdtsq8ouw584" path="res://素材/人物素材/早苗/人物/shotBa009.png" id="49_lkjmg"]
+[ext_resource type="Texture2D" uid="uid://c7fgptdidkmek" path="res://素材/人物素材/早苗/人物/spellDa009.png" id="50_rilxl"]
+[ext_resource type="Texture2D" uid="uid://bhhthu5kvn5n" path="res://素材/人物素材/早苗/人物/spellDa010.png" id="51_euctx"]
+[ext_resource type="Texture2D" uid="uid://ctfula1ug7lcd" path="res://素材/人物素材/早苗/人物/spellDa011.png" id="52_d2mhn"]
+[ext_resource type="Texture2D" uid="uid://b6u71a17o21we" path="res://素材/人物素材/早苗/人物/spellDa012.png" id="53_teqhk"]
+[ext_resource type="Texture2D" uid="uid://cgg7xw7aset3" path="res://素材/人物素材/早苗/人物/spellDa013.png" id="54_ym81y"]
+[ext_resource type="Texture2D" uid="uid://4t0v8hn3lk4e" path="res://素材/人物素材/早苗/人物/spellDa014.png" id="55_k3xdo"]
+[ext_resource type="Texture2D" uid="uid://cb68id6gasprx" path="res://素材/人物素材/早苗/人物/spellDa015.png" id="56_wv0g5"]
+[ext_resource type="Texture2D" uid="uid://byrmkjfbg40wc" path="res://素材/人物素材/早苗/人物/spellDa016.png" id="57_pt7bt"]
+[ext_resource type="Texture2D" uid="uid://csxlfy5qr57k8" path="res://素材/人物素材/早苗/人物/spellDa017.png" id="58_0h451"]
+[ext_resource type="Texture2D" uid="uid://0euhmjbi4oc5" path="res://素材/人物素材/早苗/人物/spellDa018.png" id="59_tayaj"]
+[ext_resource type="Texture2D" uid="uid://dcjuo1belgkbw" path="res://素材/人物素材/早苗/人物/spellDa019.png" id="60_xvf0v"]
+[ext_resource type="Texture2D" uid="uid://chbcjxgcaedp3" path="res://素材/人物素材/早苗/人物/spellDa020.png" id="61_ynpen"]
+[ext_resource type="Texture2D" uid="uid://sstfllu8c8ih" path="res://素材/人物素材/早苗/人物/spellDa021.png" id="62_p2d7v"]
+[ext_resource type="Texture2D" uid="uid://3ntxkx8rgl8f" path="res://素材/人物素材/早苗/人物/spellDa022.png" id="63_xfwuy"]
+[ext_resource type="Texture2D" uid="uid://ba2ocbmrnlgbf" path="res://素材/人物素材/早苗/人物/spellDa023.png" id="64_gb6yv"]
+[ext_resource type="Texture2D" uid="uid://tp4o141j32l4" path="res://素材/人物素材/早苗/人物/spellDa024.png" id="65_7qmxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtacy"]
 
@@ -166,9 +202,142 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("38_n3nxm")
 }],
-"loop": true,
+"loop": false,
 "name": &"必杀1",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_ie4a0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_yntm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_pvd27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_uab20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_h64xf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_45uqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_03s61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_rujl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_e5264")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_rilxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_euctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_d2mhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_teqhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_ym81y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_k3xdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_wv0g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_pt7bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_0h451")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_tayaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_xvf0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_ynpen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_p2d7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_xfwuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_gb6yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_7qmxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_j1cm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ukif3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_n3nxm")
+}],
+"loop": false,
+"name": &"必杀2",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_ukif3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_n3nxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_m55cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_0qket")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_tsbm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_17hi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_uxput")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_dha0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_7iiv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_lkjmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_j1cm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ukif3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_n3nxm")
+}],
+"loop": false,
+"name": &"技能1",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -198,7 +367,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("26_chrgk")
 }],
-"loop": true,
+"loop": false,
 "name": &"死亡",
 "speed": 5.0
 }]
@@ -646,6 +815,78 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_gdh64"]
+resource_name = "星落"
+length = 1.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("素材库:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"技能1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("素材库:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.2, 0.26666668, 0.33333337, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666666, 0.73333335, 0.8000001, 0.86666673, 0.9333334, 1, 1.0666667, 1.1333333, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("素材库:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(2, -22), Vector2(2, -22), Vector2(14, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}, {
+"args": [],
+"method": &"skill1"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ufynr"]
 resource_name = "死亡"
 tracks/0/type = "value"
@@ -805,6 +1046,7 @@ _data = {
 &"后退": SubResource("Animation_ojg1b"),
 &"守护商业繁荣": SubResource("Animation_m55cm"),
 &"常态": SubResource("Animation_r0h74"),
+&"星落": SubResource("Animation_gdh64"),
 &"死亡": SubResource("Animation_ufynr"),
 &"防御": SubResource("Animation_1ck23")
 }
@@ -821,6 +1063,7 @@ character_data = NodePath("class/Character_Data")
 character_ctrler = NodePath("class/Character_Ctrler")
 effect_ctrler = NodePath("class/Effect_Ctrler")
 attack_bullet = ExtResource("6_r0h74")
+skill1_bullet = ExtResource("3_n3nxm")
 ultimate1_bullet = ExtResource("3_yltyl")
 
 [node name="class" type="Node" parent="." unique_id=2083214994]

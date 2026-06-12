@@ -15,5 +15,6 @@ skill_id = "封魔亚空穴"
 skill_name = "封魔亚空穴"
 icon = ExtResource("1_4qajw")
 description = "转移后乱射出12枚高速的封魔针，造成12*5%伤害。"
+cd = 5.0
 hits = Array[ExtResource("1_e0h8b")]([SubResource("Resource_pp10p")])
 metadata/_custom_type_script = "uid://cf6hh8wjk18uk"

@@ -1,0 +1,400 @@
+[gd_scene format=3 uid="uid://bjxanco2yemvu"]
+
+[ext_resource type="Texture2D" uid="uid://bcfspmmledngj" path="res://素材/人物素材/早苗/特效/bulletKa000.png" id="1_u2wia"]
+[ext_resource type="Script" uid="uid://d2wey7wqltn2q" path="res://场景与代码/人物/早苗/弹幕/早苗技能1弹幕.gd" id="1_ygsno"]
+[ext_resource type="Texture2D" uid="uid://3sr8uymywnu4" path="res://素材/人物素材/早苗/特效/bulletKa001.png" id="2_bi0sq"]
+[ext_resource type="AudioStream" uid="uid://bcu7uugfj35tk" path="res://素材/人物素材/早苗/音效/星星闪耀.wav" id="2_pl0hd"]
+[ext_resource type="AudioStream" uid="uid://dsksc8vc62xnr" path="res://素材/人物素材/早苗/音效/星星坠落.wav" id="3_fi2uo"]
+[ext_resource type="Texture2D" uid="uid://cvxd2ah6mq6l8" path="res://素材/人物素材/早苗/特效/bulletKa011.png" id="3_hc6d0"]
+[ext_resource type="Texture2D" uid="uid://clext83mt015w" path="res://素材/人物素材/早苗/特效/bulletKa002.png" id="3_la3y4"]
+[ext_resource type="Texture2D" uid="uid://ds7rerqemy4jb" path="res://素材/人物素材/早苗/特效/bulletKc000.png" id="4_fi2uo"]
+[ext_resource type="Texture2D" uid="uid://dfrq1amsn6b5g" path="res://素材/人物素材/早苗/特效/bulletKa003.png" id="4_giptv"]
+[ext_resource type="Texture2D" uid="uid://degn7diya1hes" path="res://素材/人物素材/早苗/特效/bulletKa004.png" id="5_ea2qr"]
+[ext_resource type="Texture2D" uid="uid://q8uwmnytwis2" path="res://素材/人物素材/早苗/特效/bulletKd000.png" id="5_mqkrd"]
+[ext_resource type="Texture2D" uid="uid://5lg7xlco765w" path="res://素材/人物素材/早苗/特效/bulletKa005.png" id="6_ygsno"]
+[ext_resource type="Texture2D" uid="uid://cmbgfsv0s2msb" path="res://素材/人物素材/早苗/特效/bulletKa006.png" id="7_pl0hd"]
+[ext_resource type="Texture2D" uid="uid://sc4godb8vcev" path="res://素材/人物素材/早苗/特效/bulletKa007.png" id="8_hy2oy"]
+[ext_resource type="Texture2D" uid="uid://dwma7krxumivn" path="res://素材/人物素材/早苗/特效/bulletKa008.png" id="9_j26s7"]
+[ext_resource type="Texture2D" uid="uid://dl4k12mjwyus6" path="res://素材/人物素材/早苗/特效/bulletKa009.png" id="10_hc6d0"]
+[ext_resource type="Texture2D" uid="uid://cjt1xm6kv051i" path="res://素材/人物素材/早苗/特效/bulletKa010.png" id="11_fi2uo"]
+[ext_resource type="Script" uid="uid://dtwddbmde8lh" path="res://场景与代码/主程序/主体类/攻击相关/攻击面.gd" id="12_mqkrd"]
+[ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="13_hdbo4"]
+[ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="14_ea2qr"]
+[ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="15_ygsno"]
+[ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="16_pl0hd"]
+[ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="17_hy2oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77vj3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hc6d0"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilaie"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hc6d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fi2uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mqkrd")
+}],
+"loop": true,
+"name": &"loop_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u2wia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bi0sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_la3y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_giptv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ea2qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ygsno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pl0hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hy2oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j26s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hc6d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fi2uo")
+}],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_setas"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ffe6j"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loop_hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.100000024, 0.100000024), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h6u1c"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"loop_hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t3px2"]
+resource_name = "new_animation"
+length = 0.73333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"start"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.2, 0.26666665, 0.33333334, 0.40000004, 0.46666667, 0.53333336, 0.59999996, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kadh7"]
+_data = {
+&"RESET": SubResource("Animation_setas"),
+&"hit": SubResource("Animation_ffe6j"),
+&"loop": SubResource("Animation_h6u1c"),
+&"start": SubResource("Animation_t3px2")
+}
+
+[sub_resource type="Resource" id="Resource_r5q6o"]
+script = ExtResource("13_hdbo4")
+metadata/_custom_type_script = "uid://dng1kpmjhakhe"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fi2uo"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_j26s7"]
+_data = [Vector2(0, 0), 0.0, 0.8963751, 0, 0, Vector2(0.55761313, 0.6381709), 1.0922292, 1.0922292, 0, 0, Vector2(0.9900851, 0.9944303), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_hc6d0"]
+offsets = PackedFloat32Array(0, 0.774359, 1)
+colors = PackedColorArray(1, 1, 1, 0.78431374, 0.4509804, 0.6156863, 0.7137255, 0.78431374, 0.4509804, 0.6156863, 0.7137255, 0)
+
+[node name="早苗技能1弹幕" type="Area2D" unique_id=2081262375]
+script = ExtResource("1_ygsno")
+audio = ExtResource("2_pl0hd")
+audio2 = ExtResource("3_fi2uo")
+
+[node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1395178624]
+visible = false
+shape = SubResource("RectangleShape2D_77vj3")
+
+[node name="素材库" type="AnimatedSprite2D" parent="." unique_id=352462450]
+material = SubResource("CanvasItemMaterial_hc6d0")
+sprite_frames = SubResource("SpriteFrames_ilaie")
+
+[node name="动画" type="AnimationPlayer" parent="." unique_id=1489335141]
+root_node = NodePath("../素材库")
+libraries/ = SubResource("AnimationLibrary_kadh7")
+autoplay = &"start"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=622326564]
+visible = false
+script = ExtResource("12_mqkrd")
+attack_data = SubResource("Resource_r5q6o")
+metadata/_custom_type_script = "uid://dtwddbmde8lh"
+
+[node name="碰撞面" type="CollisionShape2D" parent="Hitbox" unique_id=357227295]
+shape = SubResource("RectangleShape2D_77vj3")
+
+[node name="拖尾" type="Node2D" parent="." unique_id=884414959 node_paths=PackedStringArray("line2d")]
+z_index = -1
+script = ExtResource("14_ea2qr")
+line2d = NodePath("线")
+max_points = 10
+trail_lifetime = 0.3
+
+[node name="线" type="Line2D" parent="拖尾" unique_id=728124870]
+top_level = true
+material = SubResource("CanvasItemMaterial_fi2uo")
+width_curve = SubResource("Curve_j26s7")
+gradient = SubResource("Gradient_hc6d0")
+
+[node name="class" type="Node" parent="." unique_id=1062302533]
+
+[node name="Bullet_Data" type="Node" parent="class" unique_id=1745189154]
+script = ExtResource("15_ygsno")
+metadata/_custom_type_script = "uid://df5xa5fby1rqi"
+
+[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=963514650 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+script = ExtResource("16_pl0hd")
+anplayer = NodePath("../../动画")
+bullet_data = NodePath("../Bullet_Data")
+bullet = NodePath("../..")
+metadata/_custom_type_script = "uid://45lrg0bnpcrv"
+
+[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1962473040]
+script = ExtResource("17_hy2oy")
+metadata/_custom_type_script = "uid://cdreu0ksv31ve"

@@ -399,5 +399,6 @@ max_points = 10
 
 [node name="线" type="Line2D" parent="拖尾" unique_id=1652234748]
 top_level = true
+width = 8.0
 width_curve = SubResource("Curve_vt2mh")
 gradient = SubResource("Gradient_7yaou")

@@ -6,7 +6,7 @@ class_name DefenseState
 @export var damage_reduction: float = 0.8
 
 ## 每点伤害消耗的耐力比例
-@export var energy_cost_ratio: float = 1.5
+@export var energy_cost_ratio: float = 1.0
 
 ## 耐力耗尽后是否强制退出防御
 @export var break_on_energy_depleted: bool = true
