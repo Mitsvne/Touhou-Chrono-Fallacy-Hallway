@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do4vla6wati0b"]
 
-[ext_resource type="PackedScene" uid="uid://cxearuql1yg4q" path="res://场景与代码/主程序/关卡/关卡1.tscn" id="1_h2jev"]
+[ext_resource type="PackedScene" uid="uid://cgc4odp24r0aj" path="res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn" id="1_h2jev"]
 
 [node name="Main" type="Node" unique_id=676586633]
 
-[node name="关卡1" parent="." unique_id=1178706691 instance=ExtResource("1_h2jev")]
+[node name="关卡选择" parent="." unique_id=1910587026 instance=ExtResource("1_h2jev")]

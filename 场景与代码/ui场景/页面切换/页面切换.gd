@@ -12,6 +12,7 @@ var previous_scene_path: String = ""
 
 func _ready() -> void:
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE   # 避免遮罩阻挡鼠标点击
+	animation_player.process_mode = Node.PROCESS_MODE_ALWAYS  # 防止被暂停中断淡入
 
 ## 执行完整的场景切换流程：淡出 → 切换场景 → 淡入
 func change_scene_with_fade(target_scene_path: String) -> void:

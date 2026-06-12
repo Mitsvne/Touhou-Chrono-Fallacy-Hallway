@@ -8,7 +8,7 @@ var states: Dictionary = {}
 # 历史栈（存储字典，格式如：{"state": "mainmenu", "scene": "res://..."}）
 var history_stack: Array[Dictionary] = []
 # 黑名单：这些状态属于临时或过渡状态，绝不计入历史
-const BLACKLIST_STATES = ["切换"]
+const BLACKLIST_STATES = ["切换", "开场"]
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

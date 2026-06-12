@@ -1,9 +1,10 @@
 extends GameState
 
-@export var pause_ui_scene: PackedScene 
+@export var pause_ui_scene: PackedScene
 
 # 常驻内存的 UI 实例缓存
 var _pause_ui_instance: Node = null
+var _return_state: String = "正常"  # 暂停恢复时返回的状态
 
 func enter() -> void:
 	InputManager.is_gameplay_locked = true
@@ -24,4 +25,4 @@ func exit() -> void:
 func update(_delta: float) -> void:
 	# 局内随时监听暂停键
 	if InputManager.is_action_just_pressed("pause"):
-		manager.change_state("正常")
+		manager.change_state(_return_state)

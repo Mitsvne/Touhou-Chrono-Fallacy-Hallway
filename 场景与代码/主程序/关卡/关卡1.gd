@@ -27,7 +27,9 @@ var character2_instance:Node2D
 var custom_time: float = 0.0        # 存储的时间
 
 func _ready():
-	GameStateManager.change_state("正常")            # 强制设为正常
+	# 进入开场状态（开场结束后自动切为正常）
+	EventBus.opening_started.connect(_on_opening_started)
+	# 状态切换由 切换状态 在淡入后自动执行，此处仅连接信号
 	AudioManager.stop_bgm(0)                        # 关bgm
 	# 添加人物
 	var pos1=_1p_pos.global_position
@@ -50,6 +52,17 @@ func _ready():
 	# 角色死亡信号连接
 	EventBus.character_dead.connect(game_over)
 	print("main初始化完成")
+
+## 开场开始回调 —— 在此驱动入场动画、对话等，完成后调用 end_opening()
+func _on_opening_started() -> void:
+	# TODO: 替换为实际的入场动画/对话逻辑
+	# 示例：等待2秒后结束开场
+	print("关卡1：开场序列开始")
+	await get_tree().create_timer(2.0, false).timeout
+	# 通过状态管理器结束开场
+	if GameStateManager.states.has("开场"):
+		GameStateManager.states["开场"].end_opening()
+
 
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:

@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bp4blb762pfl4" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/主菜单.gd" id="9_xom2u"]
 [ext_resource type="Script" uid="uid://vwkhjs3uc4ok" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/关卡选择.gd" id="10_pisut"]
 [ext_resource type="Script" uid="uid://680got4gh32r" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/人物面板.gd" id="11_ll0kd"]
+[ext_resource type="Script" uid="uid://dfq4iab8brbcd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/开场.gd" id="12_7vaf2"]
 
 [node name="游戏状态管理器" type="Node" unique_id=278945586]
 script = ExtResource("1_awbx1")
@@ -40,3 +41,6 @@ script = ExtResource("10_pisut")
 
 [node name="人物面板" type="Node" parent="." unique_id=706266811]
 script = ExtResource("11_ll0kd")
+
+[node name="开场" type="Node" parent="." unique_id=1155160496]
+script = ExtResource("12_7vaf2")

@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 		move(character_data.move_speed,delta)
 	if not GameStateManager.is_current_state("正常"):
 		bt_player.active=false
-
+	else:
+		bt_player.active=true
 
 
 ## 状态每帧的效果函数
