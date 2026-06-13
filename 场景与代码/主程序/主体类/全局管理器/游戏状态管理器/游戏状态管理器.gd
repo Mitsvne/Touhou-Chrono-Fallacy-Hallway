@@ -8,7 +8,18 @@ var states: Dictionary = {}
 # 历史栈（存储字典，格式如：{"state": "mainmenu", "scene": "res://..."}）
 var history_stack: Array[Dictionary] = []
 # 黑名单：这些状态属于临时或过渡状态，绝不计入历史
-const BLACKLIST_STATES = ["切换", "局内开场"]
+const BLACKLIST_STATES = [STATE_TRANSITION, STATE_OPENING]
+
+# 状态名常量 —— 统一引用，避免硬编码字符串
+const STATE_OPENING    = "局内开场"
+const STATE_PLAYING    = "局内正常"
+const STATE_PAUSED     = "局内暂停"
+const STATE_SETTLE     = "局内结算"
+const STATE_TRANSITION = "切换"
+const STATE_MAIN_MENU  = "主菜单"
+const STATE_LEVEL_SEL  = "关卡选择"
+const STATE_CHARACTER  = "人物面板"
+const STATE_SETTINGS   = "设置"
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -17,14 +28,20 @@ func _ready() -> void:
 			states[child.name.to_lower()] = child
 			child.manager = self
 	# 确保开场状态已注册（兜底：若 tscn 中未放置则自动创建）
-	if not states.has("局内开场"):
-		var opening_state = load("res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/开场.gd").new()
-		opening_state.name = "局内开场"
+	if not states.has(STATE_OPENING):
+		var opening_state = load("res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/局内开场.gd").new()
+		opening_state.name = STATE_OPENING
 		opening_state.manager = self
 		add_child(opening_state)
-		states["局内开场"] = opening_state
+		states[STATE_OPENING] = opening_state
 	if initial_state:
 		change_state(initial_state.name.to_lower())
+	elif not states.is_empty():
+		# 兜底：未设置初始状态时，优先进主菜单，否则取第一个
+		var fallback = states.get(STATE_MAIN_MENU)
+		if not fallback:
+			fallback = states.values()[0]
+		change_state(fallback.name.to_lower())
 
 
 func _process(delta: float) -> void:
@@ -34,15 +51,15 @@ func _process(delta: float) -> void:
 	if current_state and current_state.is_in_game:
 		if InputManager.is_action_just_pressed("pause"):
 			var current_name = current_state.name.to_lower()
-			if current_name == "局内暂停":
+			if current_name == STATE_PAUSED:
 				# 已在暂停 → 返回之前的状态
-				var ps = states.get("局内暂停")
-				change_state(ps._return_state if ps else "局内正常")
+				var ps = states.get(STATE_PAUSED)
+				change_state(ps.get_return_state() if ps else STATE_PLAYING)
 			else:
 				# 进入暂停，告诉暂停返回到哪个状态
-				var ps = states.get("局内暂停")
-				if ps: ps._return_state = current_name
-				change_state("局内暂停")
+				var ps = states.get(STATE_PAUSED)
+				if ps: ps.set_return_state(current_name)
+				change_state(STATE_PAUSED)
 
 
 ## 切换至下一个状态
@@ -70,6 +87,13 @@ func change_state(state_name: String, record_history: bool = true) -> void:
 	print("状态切换：%s -> %s | 当前历史栈深度: %d" % [old_state.name if old_state else "None", current_state.name, history_stack.size()])
 
 
+## 结束开场序列（由关卡脚本在开场逻辑完成后调用）
+func end_opening() -> void:
+	var s = states.get(STATE_OPENING)
+	if s and s.has_method("end_opening"):
+		s.end_opening()
+
+
 ## 清理历史栈中的局内条目（离开游戏时显式调用）
 func purge_in_game_history() -> void:
 	var filtered: Array[Dictionary] = []
@@ -83,14 +107,14 @@ func purge_in_game_history() -> void:
 
 
 ## 切换至下一个状态和场景
-func transition_to(target_state: String, scene_path: String = "") -> void:
-	var transition_state = get_node_or_null("切换")
+func transition_to(target_state: String, scene_path: String = "", record_history: bool = true) -> void:
+	var transition_state = get_node_or_null(STATE_TRANSITION)
 	if not transition_state:
 		push_error("错误：未在 GameStateManager 下找到名为 '切换' 的子节点！")
 		return
 	transition_state.next_scene_path = scene_path
 	transition_state.next_state_name = target_state
-	change_state("切换")
+	change_state(STATE_TRANSITION, record_history)
 
 
 ## 返回上一个状态和场景
@@ -105,11 +129,11 @@ func go_back(allowed_states: Array[String] = []) -> void:
 		var target_scene = previous["scene"]
 		var current_scene = get_tree().current_scene.scene_file_path if get_tree().current_scene else ""
 		if target_scene != "" and target_scene != current_scene:
-			var transition_node = states.get("切换")
+			var transition_node = states.get(STATE_TRANSITION)
 			if transition_node:
 				transition_node.next_scene_path = target_scene
 				transition_node.next_state_name = target_state
-				change_state("切换", false)
+				change_state(STATE_TRANSITION, false)
 		else:
 			change_state(target_state, false)
 		return

@@ -40,15 +40,10 @@ func animate_stars() -> void:
 
 ## 重置关卡按钮
 func _on_reset_pressed() -> void:
-	# 先退出结算状态（触发 exit 清理 UI），再重载场景
-	var tree = get_tree()
-	GameStateManager.change_state("局内正常")
-	tree.reload_current_scene()
+	# 通过 transition_to 重载场景并进入开场→正常流程
+	GameStateManager.transition_to(GameStateManager.STATE_OPENING, get_tree().current_scene.scene_file_path)
 
 ## 返回选关
 func _on_back_pressed() -> void:
 	GameStateManager.purge_in_game_history()
-	var transition_state = GameStateManager.get_node("切换")
-	transition_state.next_scene_path = "res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn"
-	transition_state.next_state_name = "关卡选择"
-	GameStateManager.change_state("切换")
+	GameStateManager.transition_to(GameStateManager.STATE_LEVEL_SEL, "res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")

@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_iug7k"]
 [ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="5_purw1"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="7_lqw3y"]
+[ext_resource type="Script" uid="uid://dfe3hh0h7mlw6" path="res://场景与代码/ui场景/血条ui/cd显示容器.gd" id="8_purw1"]
+[ext_resource type="PackedScene" uid="uid://cvs815biemnfx" path="res://场景与代码/ui场景/血条ui/ui技能cd.tscn" id="9_qpplv"]
 
 [sub_resource type="Gradient" id="Gradient_073jx"]
 colors = PackedColorArray(1, 1, 1, 1, 0.32767138, 0.32767066, 0.3276708, 1)
@@ -60,6 +62,25 @@ offset_top = 10.0
 offset_right = -10.0
 offset_bottom = 70.0
 grow_horizontal = 0
+
+[node name="cd显示容器" type="HBoxContainer" parent="ui" unique_id=637709203]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = -10.0
+grow_vertical = 0
+script = ExtResource("8_purw1")
+
+[node name="技能cd显示" parent="ui/cd显示容器" unique_id=1753971355 instance=ExtResource("9_qpplv")]
+custom_minimum_size = Vector2(41, 0)
+layout_mode = 2
+
+[node name="必杀cd显示" parent="ui/cd显示容器" unique_id=1503050355 instance=ExtResource("9_qpplv")]
+custom_minimum_size = Vector2(41, 0)
+layout_mode = 2
 
 [node name="平原" parent="." unique_id=336795962 instance=ExtResource("5_purw1")]
 position = Vector2(0, 2)

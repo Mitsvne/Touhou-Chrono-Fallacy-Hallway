@@ -29,4 +29,4 @@ func control_entered():
 
 func _on_back_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.go_back(["主菜单", "局内正常", "局内开场"])
+	GameStateManager.go_back([GameStateManager.STATE_MAIN_MENU, GameStateManager.STATE_PLAYING, GameStateManager.STATE_OPENING])

@@ -60,8 +60,8 @@ func _on_opening_started() -> void:
 	print("关卡1：开场序列开始")
 	await get_tree().create_timer(0.5, false).timeout
 	# 通过状态管理器结束开场
-	if GameStateManager.states.has("局内开场"):
-		GameStateManager.states["局内开场"].end_opening()
+	if GameStateManager.states.has(GameStateManager.STATE_OPENING):
+		GameStateManager.end_opening()
 
 
 func _physics_process(delta: float) -> void:
@@ -95,9 +95,9 @@ func game_over(team):
 	else:
 		print("信号游戏胜利，%s死亡"%[team])
 	var current_stars :int = calculate_stars()
-	GameStateManager.change_state("局内结算")
+	GameStateManager.change_state(GameStateManager.STATE_SETTLE)
 	EventBus.level_complete.emit(level_id,current_stars)
-	GameData.set_stars(level_id,current_stars)
+	# GameData.set_stars 由结算页面信号处理，此处不重复调用
 
 ## 计算获得的星级
 func calculate_stars() -> int:

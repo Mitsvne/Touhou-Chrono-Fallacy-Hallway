@@ -83,12 +83,12 @@ func button_entered():
 ## 开始按钮
 func _on_start_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to("关卡选择","res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
+	GameStateManager.transition_to(GameStateManager.STATE_LEVEL_SEL,"res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
 ## 设置按钮
 func _on_settings_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to("设置","res://场景与代码/ui场景/设置页面/设置场景.tscn")
+	GameStateManager.transition_to(GameStateManager.STATE_SETTINGS,"res://场景与代码/ui场景/设置页面/设置场景.tscn")
 
 ## 退出按钮
 func _on_exit_pressed() -> void:

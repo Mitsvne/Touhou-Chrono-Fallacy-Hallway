@@ -1,13 +1,19 @@
 extends GameState
 
-func _init() -> void:
-	is_in_game = true
+func _ready() -> void:
+	is_in_game = true  # _ready 设，防止 tscn 反序列化覆盖
 
 @export var pause_ui_scene: PackedScene
 
 # 常驻内存的 UI 实例缓存
 var _pause_ui_instance: Node = null
 var _return_state: String = "局内正常"  # 暂停恢复时返回的状态
+
+func get_return_state() -> String:
+	return _return_state
+
+func set_return_state(s: String) -> void:
+	_return_state = s
 
 func enter() -> void:
 	InputManager.is_gameplay_locked = true

@@ -6,4 +6,4 @@ func _ready() -> void:
 	back_button.grab_focus()
 
 func _on_back_pressed() -> void:
-	GameStateManager.go_back(["关卡选择", "局内正常", "局内开场"])
+	GameStateManager.go_back([GameStateManager.STATE_LEVEL_SEL, GameStateManager.STATE_PLAYING, GameStateManager.STATE_OPENING])

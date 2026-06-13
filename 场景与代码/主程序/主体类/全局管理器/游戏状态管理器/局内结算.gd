@@ -1,7 +1,7 @@
 extends GameState
 
-func _init() -> void:
-	is_in_game = true
+func _ready() -> void:
+	is_in_game = true  # _ready 设，防止 tscn 反序列化覆盖
 
 @export var settlement_ui_scene: PackedScene 
 
