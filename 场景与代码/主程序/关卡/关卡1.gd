@@ -60,8 +60,8 @@ func _on_opening_started() -> void:
 	print("关卡1：开场序列开始")
 	await get_tree().create_timer(0.5, false).timeout
 	# 通过状态管理器结束开场
-	if GameStateManager.states.has("开场"):
-		GameStateManager.states["开场"].end_opening()
+	if GameStateManager.states.has("局内开场"):
+		GameStateManager.states["局内开场"].end_opening()
 
 
 func _physics_process(delta: float) -> void:
@@ -95,7 +95,7 @@ func game_over(team):
 	else:
 		print("信号游戏胜利，%s死亡"%[team])
 	var current_stars :int = calculate_stars()
-	GameStateManager.change_state("结算")
+	GameStateManager.change_state("局内结算")
 	EventBus.level_complete.emit(level_id,current_stars)
 	GameData.set_stars(level_id,current_stars)
 

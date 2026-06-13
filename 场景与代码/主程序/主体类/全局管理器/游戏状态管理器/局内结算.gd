@@ -1,5 +1,8 @@
 extends GameState
 
+func _init() -> void:
+	is_in_game = true
+
 @export var settlement_ui_scene: PackedScene 
 
 var _settlement_ui_instance: Node = null

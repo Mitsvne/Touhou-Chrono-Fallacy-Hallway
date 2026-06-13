@@ -1,5 +1,8 @@
 extends GameState
-## 关卡开场状态 —— 锁定玩家操作，播放入场动画/对话，完成后进入正常
+## 关卡开场状态 —— 锁定玩家操作，播放动画/对话，完成后进入正常
+
+func _init() -> void:
+	is_in_game = true #锁定玩家操作，播放入场动画/对话，完成后进入正常
 
 ## 开场持续时间（秒），设为 0 或负数则需手动调用 end_opening()
 @export var duration: float = 0.0
@@ -25,11 +28,7 @@ func update(delta: float) -> void:
 		_timer += delta
 		if _timer >= duration:
 			end_opening()
-	# 开场期间允许暂停
-	if InputManager.is_action_just_pressed("pause"):
-		var ps = manager.states.get("暂停")
-		if ps: ps._return_state = "开场"
-		manager.change_state("暂停")
+	# 暂停键由 GameStateManager._process 统一接管
 
 
 ## 手动结束开场，切换到正常状态
@@ -39,7 +38,7 @@ func end_opening() -> void:
 	_active = false
 	print("开场状态：开场结束，切换到正常")
 	EventBus.opening_ended.emit()
-	manager.change_state("正常")
+	manager.change_state("局内正常")
 
 
 func exit() -> void:

@@ -1,32 +1,29 @@
 [gd_scene format=3 uid="uid://dbu0jpoche07p"]
 
 [ext_resource type="Script" uid="uid://dkpdyvo0quskl" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/游戏状态管理器.gd" id="1_awbx1"]
-[ext_resource type="Script" uid="uid://ogxku87df2wv" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/局内正常.gd" id="2_7vaf2"]
-[ext_resource type="Script" uid="uid://dt8cuhgduirsd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/局内暂停.gd" id="3_1jcco"]
+[ext_resource type="Script" uid="uid://ogxku87df2wv" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/正常.gd" id="2_7vaf2"]
+[ext_resource type="Script" uid="uid://dt8cuhgduirsd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/暂停.gd" id="3_1jcco"]
 [ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="4_kvtju"]
-[ext_resource type="Script" uid="uid://d2clutm2rh3d" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/局内结算.gd" id="5_5pqyp"]
+[ext_resource type="Script" uid="uid://d2clutm2rh3d" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/结算.gd" id="5_5pqyp"]
 [ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="6_0f4sg"]
 [ext_resource type="Script" uid="uid://dssy30ltklewd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/切换.gd" id="7_qhtba"]
 [ext_resource type="Script" uid="uid://kp8k2jsiq56q" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/设置.gd" id="8_77fe4"]
 [ext_resource type="Script" uid="uid://bp4blb762pfl4" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/主菜单.gd" id="9_xom2u"]
 [ext_resource type="Script" uid="uid://vwkhjs3uc4ok" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/关卡选择.gd" id="10_pisut"]
 [ext_resource type="Script" uid="uid://680got4gh32r" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/人物面板.gd" id="11_ll0kd"]
-[ext_resource type="Script" uid="uid://dfq4iab8brbcd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/局内开场.gd" id="12_7vaf2"]
+[ext_resource type="Script" uid="uid://dfq4iab8brbcd" path="res://场景与代码/主程序/主体类/全局管理器/游戏状态管理器/开场.gd" id="12_7vaf2"]
 
 [node name="游戏状态管理器" type="Node" unique_id=278945586]
 script = ExtResource("1_awbx1")
 
-[node name="局内开场" type="Node" parent="." unique_id=1155160496]
-script = ExtResource("12_7vaf2")
-
-[node name="局内正常" type="Node" parent="." unique_id=1308134994]
+[node name="正常" type="Node" parent="." unique_id=1308134994]
 script = ExtResource("2_7vaf2")
 
-[node name="局内暂停" type="Node" parent="." unique_id=609961547]
+[node name="暂停" type="Node" parent="." unique_id=609961547]
 script = ExtResource("3_1jcco")
 pause_ui_scene = ExtResource("4_kvtju")
 
-[node name="局内结算" type="Node" parent="." unique_id=1625489725]
+[node name="结算" type="Node" parent="." unique_id=1625489725]
 script = ExtResource("5_5pqyp")
 settlement_ui_scene = ExtResource("6_0f4sg")
 
@@ -44,3 +41,7 @@ script = ExtResource("10_pisut")
 
 [node name="人物面板" type="Node" parent="." unique_id=706266811]
 script = ExtResource("11_ll0kd")
+
+[node name="开场" type="Node" parent="." unique_id=1155160496]
+script = ExtResource("12_7vaf2")
+duration = null

@@ -17,7 +17,7 @@ func control_entered():
 
 func _on_back_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.go_back()
+	GameStateManager.go_back(["主菜单"])
 
 func _on_character_pressed() -> void:
 	audio_pressed.play()
@@ -25,8 +25,8 @@ func _on_character_pressed() -> void:
 
 func _on_level1_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to("开场","res://场景与代码/主程序/关卡/关卡1.tscn")
+	GameStateManager.transition_to("局内开场","res://场景与代码/主程序/关卡/关卡1.tscn")
 
 func _on_level2_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to("正常","res://场景与代码/主程序/关卡/关卡2.tscn")
+	GameStateManager.transition_to("局内开场","res://场景与代码/主程序/关卡/关卡2.tscn")
