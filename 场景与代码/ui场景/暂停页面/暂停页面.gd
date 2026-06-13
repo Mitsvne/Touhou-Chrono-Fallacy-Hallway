@@ -19,10 +19,14 @@ func _on_reset_pressed() -> void:
 	GameStateManager.transition_to(GameStateManager.STATE_OPENING, tree.current_scene.scene_file_path)
 
 func _on_back_to_level_pressed() -> void:
+	var ps = GameStateManager.states.get(GameStateManager.STATE_PAUSED)
+	if ps: ps.destroy_ui()
 	GameStateManager.purge_in_game_history()
 	GameStateManager.transition_to(GameStateManager.STATE_LEVEL_SEL,"res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
 
 func _on_back_to_menu_pressed() -> void:
+	var ps = GameStateManager.states.get(GameStateManager.STATE_PAUSED)
+	if ps: ps.destroy_ui()
 	GameStateManager.purge_in_game_history()
 	GameStateManager.transition_to(GameStateManager.STATE_MAIN_MENU,"res://场景与代码/ui场景/主菜单页面/菜单.tscn")
 

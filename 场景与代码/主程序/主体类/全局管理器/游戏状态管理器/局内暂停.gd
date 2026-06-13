@@ -28,7 +28,14 @@ func enter() -> void:
 			_pause_ui_instance.init()
 
 func exit() -> void:
+	# 局内暂停/恢复期间仅隐藏，不销毁（避免频繁重建）
 	if is_instance_valid(_pause_ui_instance):
 		_pause_ui_instance.hide()
+
+## 退出局内时彻底销毁暂停 UI
+func destroy_ui() -> void:
+	if is_instance_valid(_pause_ui_instance):
+		_pause_ui_instance.queue_free()
+	_pause_ui_instance = null
 
 # update 移除 —— 暂停键由 GameStateManager._process 统一接管

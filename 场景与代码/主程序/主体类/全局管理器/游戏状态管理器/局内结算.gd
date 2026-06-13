@@ -12,7 +12,7 @@ func enter() -> void:
 	if settlement_ui_scene:
 		_settlement_ui_instance = settlement_ui_scene.instantiate()
 		_settlement_ui_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-		get_tree().root.add_child(_settlement_ui_instance)
+		add_child(_settlement_ui_instance)
 
 func exit() -> void:
 	if is_instance_valid(_settlement_ui_instance):
