@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dng1kpmjhakhe" path="res://场景与代码/主程序/主体类/攻击相关/攻击数据.gd" id="4_px5yt"]
 [ext_resource type="Script" uid="uid://45lrg0bnpcrv" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物控制.gd" id="5_75a73"]
 [ext_resource type="Script" uid="uid://df5xa5fby1rqi" path="res://场景与代码/主程序/主体类/飞行物相关/飞行物数据.gd" id="6_5wat7"]
-[ext_resource type="Resource" uid="uid://dv1xunr1ko5b1" path="res://场景与代码/人物/灵梦/本体/必杀1梦想封印.tres" id="6_mgs2t"]
 [ext_resource type="Script" uid="uid://cdreu0ksv31ve" path="res://场景与代码/主程序/主体类/效果相关/特效控制.gd" id="7_2rc5h"]
 [ext_resource type="Script" uid="uid://mke6pvs3gg8x" path="res://场景与代码/人物/模板/气流拖尾.gd" id="8_6ur1o"]
 [ext_resource type="AudioStream" uid="uid://rxnd45x7xxh2" path="res://素材/人物素材/灵梦/音效/弹幕发射3.wav" id="9_76r6k"]
@@ -205,7 +204,6 @@ _data = {
 script = ExtResource("4_px5yt")
 damage = 30.0
 attack_type = 3
-skill_data = ExtResource("6_mgs2t")
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [sub_resource type="Curve" id="Curve_5xo2j"]
@@ -216,9 +214,15 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.26666668, 0.5897436, 0.8974359, 1)
 colors = PackedColorArray(9.62615e-08, 0.88357574, 0.44747853, 0, 0.53366125, 0.9099579, 0.57926273, 0.78431374, 0.34345433, 0.64511395, 0.43511724, 0.78431374, 1, 0.94509804, 0.95686275, 0.5882353, 0, 0, 0, 0)
 
-[node name="灵梦必杀弹幕红" type="Area2D" unique_id=564191474]
+[node name="灵梦必杀弹幕红" type="Area2D" unique_id=564191474 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox")]
 script = ExtResource("1_1pres")
 audio = ExtResource("9_76r6k")
+mp = 0.0
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=428463632]
 visible = false

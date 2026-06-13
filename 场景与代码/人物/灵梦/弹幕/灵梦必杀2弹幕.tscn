@@ -597,8 +597,14 @@ metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 [sub_resource type="CircleShape2D" id="CircleShape2D_o35pi"]
 radius = 100.0
 
-[node name="灵梦必杀2弹幕" type="Area2D" unique_id=1429948142]
+[node name="灵梦必杀2弹幕" type="Area2D" unique_id=1429948142 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox")]
 script = ExtResource("1_o35pi")
+mp = 0.0
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1002934648]
 visible = false
@@ -628,6 +634,9 @@ rotation = 12.566371
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_uoicc")
 
+[node name="图像" type="Sprite2D" parent="." unique_id=1138726291]
+texture = ExtResource("65_o35pi")
+
 [node name="动画" type="AnimationPlayer" parent="." unique_id=1445027199]
 libraries/ = SubResource("AnimationLibrary_lv1sj")
 autoplay = &"new_animation"
@@ -640,9 +649,6 @@ metadata/_custom_type_script = "uid://dtwddbmde8lh"
 
 [node name="攻击面1" type="CollisionShape2D" parent="Hitbox" unique_id=1987588889]
 shape = SubResource("CircleShape2D_1gfgl")
-
-[node name="图像" type="Sprite2D" parent="." unique_id=1138726291]
-texture = ExtResource("65_o35pi")
 
 [node name="Hitbox2" type="Area2D" parent="." unique_id=522845537]
 visible = false

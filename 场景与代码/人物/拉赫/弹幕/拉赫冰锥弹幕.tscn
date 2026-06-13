@@ -26,6 +26,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1.1668241, 1.5720325, 1.5720325, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("图片:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4hp10")]
+}
 
 [sub_resource type="Animation" id="Animation_x1g0k"]
 resource_name = "hit"
@@ -45,6 +57,30 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_3hvye"]
 resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("图片:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4hp10")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("图片:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.1668241, 1.5720325, 1.5720325, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0jny0"]
 _data = {
@@ -83,8 +119,14 @@ color = Color(1.2756859, 1.5720325, 1.5720325, 1)
 alpha_curve = SubResource("CurveTexture_e1pa8")
 emission_curve = SubResource("CurveTexture_sn4fp")
 
-[node name="拉赫冰锥弹幕" type="Area2D" unique_id=1879851532 groups=["bullets"]]
+[node name="拉赫冰锥弹幕" type="Area2D" unique_id=1879851532 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox") groups=["bullets"]]
 script = ExtResource("1_gt874")
+mp = 5.0
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1675493029]
 visible = false

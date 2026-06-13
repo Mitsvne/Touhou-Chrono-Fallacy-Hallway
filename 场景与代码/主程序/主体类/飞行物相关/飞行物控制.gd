@@ -336,26 +336,28 @@ func initialize_mirror(dir: int):
 			#print(collision)
 
 ## 发射弹幕
-func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0)):
-	if not Bullet:
+func shoot(bullet1,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0),skill_hits: Array[SkillHitData] = []):
+	if not bullet1:
 		return
-	var bullet_instance = Bullet.instantiate()
+	var bullet_instance = bullet1.instantiate()
 	get_parent().add_child(bullet_instance)
 	bullet_instance.add_to_group("bullets")
 	bullet_instance.add_to_group(bullet_data.team)
-	bullet_instance.bullet_data.bullet_team=bullet_data.team
 	bullet_instance.bullet_data.bullet_owner=bullet
+	bullet_instance.bullet_data.team=bullet_data.team
 	bullet_instance.bullet_data.direction=bullet_data.direction
+	bullet_instance.bullet_data.power=bullet_data.power
+	bullet_instance.bullet_data.skill_hits = skill_hits
+	if bullet_instance.has_method("init_damage"):
+		bullet_instance.init_damage()
 	#位置偏移
 	var origin = generate_position if generate_position.length() != 0 else bullet.global_position
 	bullet_instance.global_position.x = origin.x + offset.x * bullet_data.direction
 	bullet_instance.global_position.y = origin.y + offset.y
-	#飞行物根据朝向镜像
-	bullet_instance.bullet_ctrler.initialize_mirror(bullet_data.direction)
 	if bullet_data.direction == 1:
-		bullet_instance.rotation = deg_to_rad(offset_rotation)
+		bullet_instance.rotation += deg_to_rad(offset_rotation)
 	else:
-		bullet_instance.rotation = PI - deg_to_rad(offset_rotation)
+		bullet_instance.rotation += PI - deg_to_rad(offset_rotation)
 
 ## 获取敌人节点
 func get_target():

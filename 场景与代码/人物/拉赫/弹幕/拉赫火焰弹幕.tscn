@@ -122,9 +122,14 @@ _data = {
 &"loop": SubResource("Animation_pl1q7")
 }
 
-[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 groups=["bullets"]]
+[node name="拉赫火焰弹幕" type="Area2D" unique_id=22746658 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox") groups=["bullets"]]
 script = ExtResource("1_yc4gq")
 audio = ExtResource("8_grlph")
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 metadata/_edit_vertical_guides_ = [-70.0]
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=655721601]

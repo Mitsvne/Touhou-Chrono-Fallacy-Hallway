@@ -58,7 +58,7 @@ func _on_opening_started() -> void:
 	# TODO: 替换为实际的入场动画/对话逻辑
 	# 示例：等待2秒后结束开场
 	print("关卡1：开场序列开始")
-	await get_tree().create_timer(2.0, false).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	# 通过状态管理器结束开场
 	if GameStateManager.states.has("开场"):
 		GameStateManager.states["开场"].end_opening()

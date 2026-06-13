@@ -202,10 +202,10 @@ func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after:
 	jump_to_time(anim_name, time, play_after)
 
 ## 发射弹幕
-func shoot(Bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0),skill_hits: Array[SkillHitData] = []):
-	if not Bullet:
+func shoot(bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0),skill_hits: Array[SkillHitData] = []):
+	if not bullet:
 		return
-	var bullet_instance = Bullet.instantiate()
+	var bullet_instance = bullet.instantiate()
 	get_parent().add_child(bullet_instance)
 	bullet_instance.add_to_group("bullets")
 	bullet_instance.add_to_group(character_data.team)

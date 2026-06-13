@@ -333,9 +333,14 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.9906977, 1)
 colors = PackedColorArray(0.5921569, 0.17254902, 0.59607846, 0.5882353, 1, 1, 1, 0.5882353, 0, 0, 0, 0)
 
-[node name="早苗普攻弹幕" type="Area2D" unique_id=199028768 groups=["bullets"]]
+[node name="早苗普攻弹幕" type="Area2D" unique_id=199028768 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox") groups=["bullets"]]
 script = ExtResource("1_46byg")
 audio = ExtResource("11_vt2mh")
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1671648316]
 shape = SubResource("RectangleShape2D_vdwh2")

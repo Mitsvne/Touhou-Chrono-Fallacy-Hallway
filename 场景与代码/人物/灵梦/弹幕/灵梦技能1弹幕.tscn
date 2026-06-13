@@ -280,10 +280,16 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.1704918, 0.41967213, 0.6786885, 0.852459, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.98039216, 1, 1, 0.5882353, 0.76862746, 0.9764706, 0.9843137, 0.5882353, 0.1764706, 0.33333334, 0.79607844, 0.5882353, 0.09803922, 0.1254902, 0.6392157, 0.5882353, 0, 0, 0, 0)
 
-[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 groups=["bullets"]]
+[node name="灵梦技能弹幕" type="Area2D" unique_id=1884470296 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox") groups=["bullets"]]
 script = ExtResource("1_ej0t6")
 add_audio = ExtResource("7_c10u1")
 hit_audio = ExtResource("6_yt1m0")
+mp = 10.0
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=2044055847]
 shape = SubResource("CircleShape2D_2v2es")

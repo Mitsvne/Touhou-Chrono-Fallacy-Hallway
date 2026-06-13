@@ -263,9 +263,15 @@ script = ExtResource("3_da24w")
 damage_multiplier = 0.5
 metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
-[node name="灵梦技能2弹幕" type="Area2D" unique_id=1601646039]
+[node name="灵梦技能2弹幕" type="Area2D" unique_id=1601646039 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet_ctrler", "effect_ctrler", "hitbox")]
 script = ExtResource("1_1l44d")
 audio = ExtResource("2_da24w")
+mp = 3.0
+anplayer = NodePath("动画")
+bullet_data = NodePath("class/Bullet_Data")
+bullet_ctrler = NodePath("class/Bullet_Ctrler")
+effect_ctrler = NodePath("class/Effect_Ctrler")
+hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=440689294]
 position = Vector2(-3, -0.5)
