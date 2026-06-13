@@ -202,7 +202,7 @@ func jump_to_frame(anim_name: String, frame: int, fps: float = 30.0, play_after:
 	jump_to_time(anim_name, time, play_after)
 
 ## 发射弹幕
-func shoot(bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0),skill_hits: Array[SkillHitData] = []):
+func shoot(bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vector2=Vector2(0,0),skill_data: SkillData=null):
 	if not bullet:
 		return
 	var bullet_instance = bullet.instantiate()
@@ -213,7 +213,7 @@ func shoot(bullet,offset:Vector2,offset_rotation:float=0.0,generate_position:Vec
 	bullet_instance.bullet_data.team=character_data.team
 	bullet_instance.bullet_data.direction=character_data.direction
 	bullet_instance.bullet_data.power=character_data.power
-	bullet_instance.bullet_data.skill_hits = skill_hits
+	bullet_instance.bullet_data.skill_data = skill_data
 	if bullet_instance.has_method("init_damage"):
 		bullet_instance.init_damage()
 	#位置偏移

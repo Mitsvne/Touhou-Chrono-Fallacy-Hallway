@@ -21,15 +21,14 @@ func normal_attack():
 	character_ctrler.shoot(attack_bullet,Vector2(50,0))
 
 func skill1():
-	var skill_hits=character_data.current_skill.hits
+	var skill_data=character_data.current_skill
 	var x=randf_range(-50, 50)
 	var y=randf_range(-50, -100)
-	character_ctrler.shoot(skill1_bullet,Vector2(x,y),0,Vector2(0,0),skill_hits)
-	pass
+	character_ctrler.shoot(skill1_bullet,Vector2(x,y),0,Vector2(0,0),skill_data)
 
 func ultimate1():
-	var skill_hits=character_data.current_ultimate.hits
+	var skill_data=character_data.current_ultimate
 	for i in range(0,5):
-		character_ctrler.shoot(ultimate1_bullet,Vector2(50,i*10),i*1,Vector2(0,0),skill_hits)
-		character_ctrler.shoot(ultimate1_bullet,Vector2(50,-i*10),-i*1,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(ultimate1_bullet,Vector2(50,i*10),i*1,Vector2(0,0),skill_data)
+		character_ctrler.shoot(ultimate1_bullet,Vector2(50,-i*10),-i*1,Vector2(0,0),skill_data)
 		await get_tree().create_timer(0.1, false).timeout

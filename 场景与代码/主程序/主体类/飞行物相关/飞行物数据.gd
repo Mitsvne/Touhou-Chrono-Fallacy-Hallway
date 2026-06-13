@@ -5,7 +5,7 @@ class_name Bullet_Data
 var team: String
 var bullet_owner: CharacterBody2D
 var power:float
-
+var skill_data:SkillData
 var skill_hits: Array[SkillHitData] = []
 @export var bullet_name: String
 @export var hp_max:float=10

@@ -3,7 +3,6 @@ extends Bullet
 @onready var hitbox2: Hitbox = $Hitbox2
 
 func init() -> void:
-	mp=0
 	await anplayer.animation_finished
 	queue_free()
 

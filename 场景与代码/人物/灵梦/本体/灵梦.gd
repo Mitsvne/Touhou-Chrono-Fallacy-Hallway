@@ -27,27 +27,27 @@ func normal_attack():
 	character_ctrler.shoot(attack_bullet,Vector2(50,0))
 
 func skill1(offset:Vector2=Vector2(0,0)):
-	var skill_hits=character_data.current_skill.hits
-	character_ctrler.shoot(skill1_bullet,offset,0,Vector2(0,0),skill_hits)
+	var skill_data=character_data.current_skill
+	character_ctrler.shoot(skill1_bullet,offset,0,Vector2(0,0),skill_data)
 	
 func skill2(start_angle:int=30):
-	var skill_hits=character_data.current_skill.hits
+	var skill_data=character_data.current_skill
 	for i in range(6):
 		var current_angle_deg = start_angle + i * 5
 		var current_angle_rad = deg_to_rad(current_angle_deg)
 		var x = 100 * cos(current_angle_rad)
 		var y = 100 * sin(current_angle_rad)
-		character_ctrler.shoot(skill2_bullet,Vector2(x,y),current_angle_deg,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(skill2_bullet,Vector2(x,y),current_angle_deg,Vector2(0,0),skill_data)
 
 func ultimate1(type:int=1,offset_rotation:float=0):
-	var skill_hits=character_data.current_ultimate.hits
+	var skill_data=character_data.current_ultimate
 	if type==1:
-		character_ctrler.shoot(ultimate1_bullet1,Vector2(0,0),offset_rotation,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(ultimate1_bullet1,Vector2(0,0),offset_rotation,Vector2(0,0),skill_data)
 	elif type==2:
-		character_ctrler.shoot(ultimate1_bullet2,Vector2(0,0),offset_rotation,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(ultimate1_bullet2,Vector2(0,0),offset_rotation,Vector2(0,0),skill_data)
 	elif type==3:
-		character_ctrler.shoot(ultimate1_bullet3,Vector2(0,0),offset_rotation,Vector2(0,0),skill_hits)
+		character_ctrler.shoot(ultimate1_bullet3,Vector2(0,0),offset_rotation,Vector2(0,0),skill_data)
 
 func ultimate2():
-	var skill_hits=character_data.current_ultimate.hits
-	character_ctrler.shoot(ultimate2_bullet,Vector2(80,60),0,Vector2(0,0),skill_hits)
+	var skill_data=character_data.current_ultimate
+	character_ctrler.shoot(ultimate2_bullet,Vector2(80,60),0,Vector2(0,0),skill_data)

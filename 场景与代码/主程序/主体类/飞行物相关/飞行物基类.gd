@@ -1,7 +1,7 @@
 extends Area2D
 class_name Bullet
 
-@export var mp:float=2
+@export var mp:float=0.0
 
 @export_group("节点配置", "")
 @export var anplayer: AnimationPlayer
@@ -19,6 +19,10 @@ func _ready() -> void:
 	if hurtbox:
 		hurtbox.hurt.connect(_on_hurtbox_hurt)
 	await get_tree().process_frame
+	if bullet_data.skill_data:
+		mp=bullet_data.skill_data.mp_add
+	else:
+		mp=2
 	init()
 	pass
 
@@ -61,8 +65,8 @@ func _on_hurtbox_hurt(box: Hitbox, attack_data: AttackData) -> void:
 
 func _calculate_damage(box:Hitbox) -> float:
 	var final_damage:float
-	if bullet_data.skill_hits:
-		var hits_array = bullet_data.skill_hits
+	if bullet_data.skill_data:
+		var hits_array = bullet_data.skill_data.hits
 		var current_hit_data: SkillHitData = hits_array[box.hit_index]
 		final_damage=bullet_data.power*current_hit_data.damage_multiplier
 	elif box.attack_data.damage_multiplier!=0:
@@ -84,7 +88,8 @@ func init_damage() -> void:
 ## 碰撞效果
 func hit() -> void:
 	bullet_ctrler.stop_move()
-	anplayer.play(&"hit")
+	if anplayer.has_animation(&"hit"):
+		anplayer.play(&"hit")
 	await anplayer.animation_finished
 	queue_free()
 

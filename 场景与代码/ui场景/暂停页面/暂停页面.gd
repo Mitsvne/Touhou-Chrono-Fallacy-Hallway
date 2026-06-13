@@ -15,8 +15,10 @@ func _on_continue_pressed() -> void:
 	GameStateManager.change_state(ps._return_state if ps else "正常")
 
 func _on_reset_pressed() -> void:
-	await get_tree().process_frame
-	get_tree().reload_current_scene()
+	var ps = GameStateManager.states.get("暂停")
+	var tree = get_tree()
+	GameStateManager.change_state(ps._return_state if ps else "正常")
+	tree.reload_current_scene()
 
 func _on_back_to_level_pressed() -> void:
 	GameStateManager.transition_to("关卡选择","res://场景与代码/ui场景/关卡选择页面/关卡选择.tscn")
