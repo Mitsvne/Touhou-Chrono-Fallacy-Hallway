@@ -126,9 +126,9 @@ _data = {
 script = ExtResource("1_yc4gq")
 audio = ExtResource("8_grlph")
 anplayer = NodePath("动画")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+bullet_data = NodePath("classes/Bullet_Data")
+bullet_ctrler = NodePath("classes/Bullet_Ctrler")
+effect_ctrler = NodePath("classes/Effect_Ctrler")
 hitbox = NodePath("Hitbox")
 metadata/_edit_vertical_guides_ = [-70.0]
 
@@ -157,19 +157,19 @@ offset = Vector2(0.014131367, -0.27995527)
 [node name="动画" type="AnimationPlayer" parent="." unique_id=1749077408]
 libraries/ = SubResource("AnimationLibrary_6iiro")
 
-[node name="class" type="Node" parent="." unique_id=298435156]
+[node name="classes" type="Node" parent="." unique_id=298435156]
 
-[node name="Bullet_Data" type="Node" parent="class" unique_id=490906364]
+[node name="Bullet_Data" type="Node" parent="classes" unique_id=490906364]
 script = ExtResource("8_bgfok")
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=500749183 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+[node name="Bullet_Ctrler" type="Node" parent="classes" unique_id=500749183 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("9_l2ty5")
 anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1332674033]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=1332674033]
 script = ExtResource("11_akm0r")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"

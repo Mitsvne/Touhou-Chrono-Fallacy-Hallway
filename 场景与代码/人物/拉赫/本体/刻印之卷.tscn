@@ -657,7 +657,7 @@ tracks/14/keys = {
 tracks/15/type = "method"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("class/Prop_Ctrler")
+tracks/15/path = NodePath("classes/Prop_Ctrler")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -709,7 +709,7 @@ tracks/18/keys = {
 tracks/19/type = "method"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("class/Effect_Ctrler")
+tracks/19/path = NodePath("classes/Effect_Ctrler")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -767,26 +767,26 @@ metadata/_custom_type_script = "uid://dng1kpmjhakhe"
 
 [node name="刻印之卷" type="Area2D" unique_id=1194706561 node_paths=PackedStringArray("prop_data", "prop_ctrler", "anplayer", "audio") groups=["props"]]
 script = ExtResource("1_rn5ax")
-prop_data = NodePath("class/Prop_Data")
-prop_ctrler = NodePath("class/Prop_Ctrler")
+prop_data = NodePath("classes/Prop_Data")
+prop_ctrler = NodePath("classes/Prop_Ctrler")
 anplayer = NodePath("动画")
 audio = NodePath("音效")
 
-[node name="class" type="Node" parent="." unique_id=1263035583]
+[node name="classes" type="Node" parent="." unique_id=1263035583]
 
-[node name="Prop_Data" type="Node" parent="class" unique_id=602318771]
+[node name="Prop_Data" type="Node" parent="classes" unique_id=602318771]
 script = ExtResource("4_enmuj")
 prop_name = "刻印之卷"
 metadata/_custom_type_script = "uid://dwbij1a12ixg4"
 
-[node name="Prop_Ctrler" type="Node" parent="class" unique_id=1950980972 node_paths=PackedStringArray("anplayer", "prop_data", "prop")]
+[node name="Prop_Ctrler" type="Node" parent="classes" unique_id=1950980972 node_paths=PackedStringArray("anplayer", "prop_data", "prop")]
 script = ExtResource("3_wyqjl")
 anplayer = NodePath("../../动画")
 prop_data = NodePath("../Prop_Data")
 prop = NodePath("../..")
 metadata/_custom_type_script = "uid://cpwddaunx5ft8"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=972958063]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=972958063]
 script = ExtResource("4_twclx")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 

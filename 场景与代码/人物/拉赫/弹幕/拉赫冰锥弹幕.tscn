@@ -123,9 +123,9 @@ emission_curve = SubResource("CurveTexture_sn4fp")
 script = ExtResource("1_gt874")
 mp = 5.0
 anplayer = NodePath("动画")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+bullet_data = NodePath("classes/Bullet_Data")
+bullet_ctrler = NodePath("classes/Bullet_Ctrler")
+effect_ctrler = NodePath("classes/Effect_Ctrler")
 hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1675493029]
@@ -149,20 +149,20 @@ modulate = Color(1.1668241, 1.5720325, 1.5720325, 1)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_4hp10")
 
-[node name="class" type="Node" parent="." unique_id=395536807]
+[node name="classes" type="Node" parent="." unique_id=395536807]
 
-[node name="Bullet_Data" type="Node" parent="class" unique_id=1602069365]
+[node name="Bullet_Data" type="Node" parent="classes" unique_id=1602069365]
 script = ExtResource("5_qgj4k")
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=218810365 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+[node name="Bullet_Ctrler" type="Node" parent="classes" unique_id=218810365 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("6_e1pa8")
 anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1163580916]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=1163580916]
 script = ExtResource("7_sn4fp")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 

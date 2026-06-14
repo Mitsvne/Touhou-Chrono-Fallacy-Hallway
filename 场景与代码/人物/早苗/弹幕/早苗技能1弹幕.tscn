@@ -347,9 +347,9 @@ script = ExtResource("1_ygsno")
 audio = ExtResource("2_pl0hd")
 audio2 = ExtResource("3_fi2uo")
 anplayer = NodePath("动画")
-bullet_data = NodePath("class/Bullet_Data")
-bullet_ctrler = NodePath("class/Bullet_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+bullet_data = NodePath("classes/Bullet_Data")
+bullet_ctrler = NodePath("classes/Bullet_Ctrler")
+effect_ctrler = NodePath("classes/Effect_Ctrler")
 hitbox = NodePath("Hitbox")
 
 [node name="碰撞面" type="CollisionShape2D" parent="." unique_id=1395178624]
@@ -387,19 +387,19 @@ material = SubResource("CanvasItemMaterial_fi2uo")
 width_curve = SubResource("Curve_j26s7")
 gradient = SubResource("Gradient_hc6d0")
 
-[node name="class" type="Node" parent="." unique_id=1062302533]
+[node name="classes" type="Node" parent="." unique_id=1062302533]
 
-[node name="Bullet_Data" type="Node" parent="class" unique_id=1745189154]
+[node name="Bullet_Data" type="Node" parent="classes" unique_id=1745189154]
 script = ExtResource("15_ygsno")
 metadata/_custom_type_script = "uid://df5xa5fby1rqi"
 
-[node name="Bullet_Ctrler" type="Node" parent="class" unique_id=963514650 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
+[node name="Bullet_Ctrler" type="Node" parent="classes" unique_id=963514650 node_paths=PackedStringArray("anplayer", "bullet_data", "bullet")]
 script = ExtResource("16_pl0hd")
 anplayer = NodePath("../../动画")
 bullet_data = NodePath("../Bullet_Data")
 bullet = NodePath("../..")
 metadata/_custom_type_script = "uid://45lrg0bnpcrv"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1962473040]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=1962473040]
 script = ExtResource("17_hy2oy")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"

@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_0b0t2")
 }],
-"loop": true,
+"loop": false,
 "name": &"冲刺前",
 "speed": 5.0
 }, {
@@ -124,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_q075i")
 }],
-"loop": true,
+"loop": false,
 "name": &"冲刺后",
 "speed": 5.0
 }, {
@@ -434,6 +434,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库:sprite_frames")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_66xmf")]
+}
 
 [sub_resource type="Animation" id="Animation_q075i"]
 resource_name = "冲刺前"
@@ -462,25 +474,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [0, 1, 2, 0, 1, 2]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:animation")
+tracks/2/path = NodePath("classes/Character_Ctrler")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"常态"]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("class/Character_Ctrler")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -491,13 +491,13 @@ tracks/3/keys = {
 "method": &"stop_dash"
 }]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("class/Effect_Ctrler")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("classes/Effect_Ctrler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -508,19 +508,43 @@ tracks/4/keys = {
 "method": &"stop_shadow"
 }]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("class/Character_Ctrler")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("classes/Character_Ctrler")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [NodePath("../../音效/冲刺音效")],
 "method": &"play_audio"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库:sprite_frames")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_66xmf")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材库:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"冲刺前"]
 }
 
 [sub_resource type="Animation" id="Animation_4n542"]
@@ -550,25 +574,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [0, 1, 2, 0, 1, 2]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("素材库:animation")
+tracks/2/path = NodePath("classes/Character_Ctrler")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"冲刺后"]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("class/Character_Ctrler")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -579,13 +591,13 @@ tracks/3/keys = {
 "method": &"stop_dash"
 }]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("class/Effect_Ctrler")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("classes/Effect_Ctrler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -596,19 +608,43 @@ tracks/4/keys = {
 "method": &"stop_shadow"
 }]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("class/Character_Ctrler")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("classes/Character_Ctrler")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [NodePath("../../音效/冲刺音效")],
 "method": &"play_audio"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("素材库:sprite_frames")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_66xmf")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("素材库:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"冲刺后"]
 }
 
 [sub_resource type="Animation" id="Animation_w4eoe"]
@@ -693,7 +729,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("class/Character_Ctrler")
+tracks/3/path = NodePath("classes/Character_Ctrler")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -940,7 +976,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("class/Character_Ctrler")
+tracks/4/path = NodePath("classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -960,7 +996,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("class/Character_Ctrler")
+tracks/5/path = NodePath("classes/Character_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1013,7 +1049,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("class/Character_Ctrler")
+tracks/3/path = NodePath("classes/Character_Ctrler")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1058,29 +1094,29 @@ blend_mode = 1
 collision_layer = 2
 collision_mask = 240
 script = ExtResource("1_28r0m")
-character_main = NodePath("class/Character_Main")
-character_data = NodePath("class/Character_Data")
-character_ctrler = NodePath("class/Character_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+character_main = NodePath("classes/Character_Main")
+character_data = NodePath("classes/Character_Data")
+character_ctrler = NodePath("classes/Character_Ctrler")
+effect_ctrler = NodePath("classes/Effect_Ctrler")
 attack_bullet = ExtResource("6_r0h74")
 skill1_bullet = ExtResource("3_n3nxm")
 ultimate1_bullet = ExtResource("3_yltyl")
 
-[node name="class" type="Node" parent="." unique_id=2083214994]
+[node name="classes" type="Node" parent="." unique_id=2083214994]
 
-[node name="Character_Data" type="Node" parent="class" unique_id=599572917]
+[node name="Character_Data" type="Node" parent="classes" unique_id=599572917]
 script = ExtResource("1_vaafk")
 character_name = "东风谷早苗"
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=1798524882 node_paths=PackedStringArray("character", "character_data", "anplayer")]
+[node name="Character_Ctrler" type="Node" parent="classes" unique_id=1798524882 node_paths=PackedStringArray("character", "character_data", "anplayer")]
 script = ExtResource("2_28r0m")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=1860754055 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer", "hurtbox")]
+[node name="Character_Main" type="Node" parent="classes" unique_id=1860754055 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer", "hurtbox")]
 script = ExtResource("3_5fpa4")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
@@ -1092,41 +1128,41 @@ attack_bullet = ExtResource("6_r0h74")
 attack_effect = ExtResource("6_htwvp")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
-[node name="PlayerStateMachine" type="Node" parent="class/Character_Main" unique_id=1286912903]
+[node name="PlayerStateMachine" type="Node" parent="classes/Character_Main" unique_id=1286912903]
 script = ExtResource("8_4d7tj")
 metadata/_custom_type_script = "uid://cxqji3shqsio3"
 
-[node name="IdleState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=446506748]
+[node name="IdleState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=446506748]
 script = ExtResource("9_jubhk")
 metadata/_custom_type_script = "uid://ddw4arnigtdw1"
 
-[node name="MoveState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=173101452]
+[node name="MoveState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=173101452]
 script = ExtResource("10_jsv6j")
 metadata/_custom_type_script = "uid://i6fkjnf0gjej"
 
-[node name="DashState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1508342981]
+[node name="DashState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1508342981]
 script = ExtResource("11_1ck23")
 metadata/_custom_type_script = "uid://cadgf7s6e27sl"
 
-[node name="SkillState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1970895043]
+[node name="SkillState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1970895043]
 script = ExtResource("12_bd7oe")
 metadata/_custom_type_script = "uid://lbb5vplekxnp"
 
-[node name="UltimateState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1830273051]
+[node name="UltimateState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1830273051]
 script = ExtResource("13_4av3t")
 metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
 
-[node name="DeadState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1356169295]
+[node name="DeadState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1356169295]
 script = ExtResource("14_cceum")
 metadata/_custom_type_script = "uid://cupen48kq8hvc"
 
-[node name="DefenseState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1737251234 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
+[node name="DefenseState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1737251234 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
 script = ExtResource("15_bd7oe")
 defense_effect = NodePath("../../../../防御法阵")
 hurbox_shape2 = NodePath("../../../../Hurtbox/受击面2")
 metadata/_custom_type_script = "uid://8rcaxnpk4f5r"
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=1734290524]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=1734290524]
 script = ExtResource("7_qm6op")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
@@ -1193,4 +1229,4 @@ texture = ExtResource("37_4av3t")
 script = ExtResource("36_bd7oe")
 rotation_direction = false
 
-[connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]
+[connection signal="hurt" from="Hurtbox" to="classes/Character_Main" method="_on_hurtbox_hurt"]

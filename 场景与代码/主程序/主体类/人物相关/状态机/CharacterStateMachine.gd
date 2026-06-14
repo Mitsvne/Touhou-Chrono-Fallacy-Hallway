@@ -81,8 +81,8 @@ func change_state(state_name: String) -> void:
 	current_state = new_state
 	current_state.enter(prev_state)
 
-	var from_name = prev_state.name if prev_state else "None"
-	print("状态转换: %s → %s" % [from_name, state_name])
+	#var from_name = prev_state.name if prev_state else "None"
+	#print("状态转换: %s → %s" % [from_name, state_name])
 
 
 ## 每物理帧由 Character_Main 调用

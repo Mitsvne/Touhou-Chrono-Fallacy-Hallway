@@ -458,7 +458,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../class/Character_Ctrler")
+tracks/3/path = NodePath("../classes/Character_Ctrler")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -487,7 +487,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../class/Effect_Ctrler")
+tracks/5/path = NodePath("../classes/Effect_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -504,7 +504,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../class/Character_Ctrler")
+tracks/6/path = NodePath("../classes/Character_Ctrler")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -558,7 +558,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../class/Character_Ctrler")
+tracks/3/path = NodePath("../classes/Character_Ctrler")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -575,7 +575,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -589,7 +589,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../class/Effect_Ctrler")
+tracks/5/path = NodePath("../classes/Effect_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -724,7 +724,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -777,7 +777,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../class/Character_Ctrler")
+tracks/3/path = NodePath("../classes/Character_Ctrler")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -797,7 +797,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Effect_Ctrler")
+tracks/4/path = NodePath("../classes/Effect_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1135,7 +1135,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1155,7 +1155,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../class/Character_Ctrler")
+tracks/5/path = NodePath("../classes/Character_Ctrler")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1246,7 +1246,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1312,7 +1312,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../class/Character_Ctrler")
+tracks/4/path = NodePath("../classes/Character_Ctrler")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1379,10 +1379,10 @@ collision_layer = 2
 collision_mask = 240
 motion_mode = 1
 script = ExtResource("1_ig6o6")
-character_main = NodePath("class/Character_Main")
-character_data = NodePath("class/Character_Data")
-character_ctrler = NodePath("class/Character_Ctrler")
-effect_ctrler = NodePath("class/Effect_Ctrler")
+character_main = NodePath("classes/Character_Main")
+character_data = NodePath("classes/Character_Data")
+character_ctrler = NodePath("classes/Character_Ctrler")
+effect_ctrler = NodePath("classes/Effect_Ctrler")
 attack_bullet = ExtResource("2_g1kd8")
 skill1_bullet = ExtResource("3_8vesq")
 skill2_bullet = ExtResource("56_12oeg")
@@ -1391,21 +1391,21 @@ ultimate1_bullet2 = ExtResource("50_kgnp6")
 ultimate1_bullet3 = ExtResource("57_kgnp6")
 ultimate2_bullet = ExtResource("76_x4f1o")
 
-[node name="class" type="Node" parent="." unique_id=213625171]
+[node name="classes" type="Node" parent="." unique_id=213625171]
 
-[node name="Character_Data" type="Node" parent="class" unique_id=1126898524]
+[node name="Character_Data" type="Node" parent="classes" unique_id=1126898524]
 script = ExtResource("5_v3c6i")
 character_name = "博丽灵梦"
 metadata/_custom_type_script = "uid://cevyll1q67gg6"
 
-[node name="Character_Ctrler" type="Node" parent="class" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "anplayer")]
+[node name="Character_Ctrler" type="Node" parent="classes" unique_id=147134082 node_paths=PackedStringArray("character", "character_data", "anplayer")]
 script = ExtResource("32_tg32o")
 character = NodePath("../..")
 character_data = NodePath("../Character_Data")
 anplayer = NodePath("../../动画")
 metadata/_custom_type_script = "uid://cabbi4kg28hpl"
 
-[node name="Character_Main" type="Node" parent="class" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer", "hurtbox")]
+[node name="Character_Main" type="Node" parent="classes" unique_id=536123270 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer", "hurtbox")]
 script = ExtResource("10_23xpx")
 character_data = NodePath("../Character_Data")
 character_ctrler = NodePath("../Character_Ctrler")
@@ -1417,40 +1417,40 @@ attack_bullet = ExtResource("2_g1kd8")
 attack_effect = ExtResource("10_wmq54")
 metadata/_custom_type_script = "uid://jclrroyodlts"
 
-[node name="PlayerStateMachine" type="Node" parent="class/Character_Main" unique_id=275546673]
+[node name="PlayerStateMachine" type="Node" parent="classes/Character_Main" unique_id=275546673]
 script = ExtResource("14_h3cg4")
 metadata/_custom_type_script = "uid://cxqji3shqsio3"
 
-[node name="IdleState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=592735723]
+[node name="IdleState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=592735723]
 script = ExtResource("18_gt33o")
 metadata/_custom_type_script = "uid://ddw4arnigtdw1"
 
-[node name="MoveState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=968620624]
+[node name="MoveState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=968620624]
 script = ExtResource("19_bjp0m")
 metadata/_custom_type_script = "uid://i6fkjnf0gjej"
 
-[node name="DashState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1229238208]
+[node name="DashState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1229238208]
 script = ExtResource("16_xsknn")
 metadata/_custom_type_script = "uid://cadgf7s6e27sl"
 
-[node name="SkillState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=98850910]
+[node name="SkillState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=98850910]
 script = ExtResource("20_u2ynm")
 metadata/_custom_type_script = "uid://lbb5vplekxnp"
 
-[node name="UltimateState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=1930724810]
+[node name="UltimateState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1930724810]
 script = ExtResource("21_6b1qv")
 metadata/_custom_type_script = "uid://cwmph5kjp5eo7"
 
-[node name="DeadState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=306251019]
+[node name="DeadState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=306251019]
 script = ExtResource("17_pyxit")
 metadata/_custom_type_script = "uid://cupen48kq8hvc"
 
-[node name="DefenseState" type="Node" parent="class/Character_Main/PlayerStateMachine" unique_id=895630700 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
+[node name="DefenseState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=895630700 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
 script = ExtResource("21_xsknn")
 defense_effect = NodePath("../../../../防御法阵")
 hurbox_shape2 = NodePath("../../../../Hurtbox/受击面2")
 
-[node name="Effect_Ctrler" type="Node" parent="class" unique_id=702969427]
+[node name="Effect_Ctrler" type="Node" parent="classes" unique_id=702969427]
 script = ExtResource("35_rluf1")
 metadata/_custom_type_script = "uid://cdreu0ksv31ve"
 
@@ -1514,4 +1514,4 @@ material = SubResource("CanvasItemMaterial_gt33o")
 texture = ExtResource("75_gt33o")
 script = ExtResource("76_bjp0m")
 
-[connection signal="hurt" from="Hurtbox" to="class/Character_Main" method="_on_hurtbox_hurt"]
+[connection signal="hurt" from="Hurtbox" to="classes/Character_Main" method="_on_hurtbox_hurt"]
