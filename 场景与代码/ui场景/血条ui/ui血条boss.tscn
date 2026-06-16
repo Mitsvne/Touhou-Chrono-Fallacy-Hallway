@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bw2ag06pxfptb"]
 
 [ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/ui场景/血条ui/ui血条.gd" id="1_2i6ve"]
-[ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui素材/GUI.png" id="1_mo0oq"]
-[ext_resource type="Texture2D" uid="uid://br4iv8rxw6ssy" path="res://素材/ui素材/ui素材/血量魔力耐力条.png" id="6_dsdyf"]
+[ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui/GUI.png" id="1_mo0oq"]
+[ext_resource type="Texture2D" uid="uid://br4iv8rxw6ssy" path="res://素材/ui素材/ui/血量魔力耐力条.png" id="6_dsdyf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6fg8"]
 content_margin_left = 5.0

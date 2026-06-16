@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://b337luntahqm4"]
 
-[ext_resource type="Script" uid="uid://c57h6d4kdob4" path="res://场景与代码/主程序/主体类/人物相关/技能攻击数据基类.gd" id="1_572fw"]
+[ext_resource type="Script" uid="uid://c57h6d4kdob4" path="res://场景与代码/主程序/主体类/角色核心/技能攻击数据基类.gd" id="1_572fw"]
 [ext_resource type="Texture2D" uid="uid://cyohdpi51rpe" path="res://素材/人物素材/早苗/符卡/必杀1.png" id="2_o13w7"]
-[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="3_3k655"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/角色核心/技能数据基类.gd" id="3_3k655"]
 
 [sub_resource type="Resource" id="Resource_n76ri"]
 script = ExtResource("1_572fw")

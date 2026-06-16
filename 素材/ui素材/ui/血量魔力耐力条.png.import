@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cofrmrilut0ud"
-path="res://.godot/imported/星星1.png-0cd1eb784fd00dbdf2bb034ec664a0a1.ctex"
+uid="uid://br4iv8rxw6ssy"
+path="res://.godot/imported/血量魔力耐力条.png-f6e4ebf765f20f937a46bf9b15e5ca5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/ui素材/ui素材/星星1.png"
-dest_files=["res://.godot/imported/星星1.png-0cd1eb784fd00dbdf2bb034ec664a0a1.ctex"]
+source_file="res://素材/ui素材/ui/血量魔力耐力条.png"
+dest_files=["res://.godot/imported/血量魔力耐力条.png-f6e4ebf765f20f937a46bf9b15e5ca5a.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

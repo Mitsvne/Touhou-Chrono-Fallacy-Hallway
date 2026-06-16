@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxearuql1yg4q"]
 
-[ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_x7ath"]
+[ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/关卡/关卡1.gd" id="1_x7ath"]
 [ext_resource type="Script" uid="uid://dfe3hh0h7mlw6" path="res://场景与代码/ui场景/血条ui/cd显示容器.gd" id="4_ko1x6"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="4_po811"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="5_ko1x6"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3hsrjlyntn80"]
 
-[ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
+[ext_resource type="Texture2D" uid="uid://ccxmx800841uw" path="res://素材/ui素材/ui/Folding & Cutout Paper UI SpriteSheet.png" id="1_gepx4"]
 [ext_resource type="Script" uid="uid://brnn8y1ssrusk" path="res://场景与代码/ui场景/人物界面/人物界面.gd" id="1_h7faq"]
 [ext_resource type="Script" uid="uid://cd3y2fw016sqr" path="res://场景与代码/ui场景/人物界面/人物选择.gd" id="4_yyjmi"]
 [ext_resource type="Texture2D" uid="uid://b0b2j5uiwmwr5" path="res://素材/人物素材/早苗/人物/stand001.png" id="17_gafpj"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://by11ph7on2qjp" path="res://素材/人物素材/灵梦/人物/stand003.png" id="27_48gml"]
 [ext_resource type="Script" uid="uid://xyhykvswl1f7" path="res://场景与代码/ui场景/人物界面/道具卡选择.gd" id="28_cyw8p"]
 [ext_resource type="Texture2D" uid="uid://ceqvmib5nusjk" path="res://素材/人物素材/灵梦/人物/stand004.png" id="28_fcjc1"]
-[ext_resource type="Texture2D" uid="uid://c07oo3kgcrkg5" path="res://素材/ui素材/ui素材/箭头2.png" id="28_ny3ie"]
+[ext_resource type="Texture2D" uid="uid://c07oo3kgcrkg5" path="res://素材/ui素材/ui/箭头2.png" id="28_ny3ie"]
 [ext_resource type="Texture2D" uid="uid://bcw6vq1qqbpns" path="res://素材/人物素材/灵梦/人物/stand005.png" id="29_tx8m0"]
 [ext_resource type="Texture2D" uid="uid://csnaneetaftq2" path="res://素材/人物素材/灵梦/人物/stand006.png" id="30_g7hsp"]
 [ext_resource type="Texture2D" uid="uid://biuy0nqiijgef" path="res://素材/人物素材/灵梦/人物/stand007.png" id="31_3s75x"]

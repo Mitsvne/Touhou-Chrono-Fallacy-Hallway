@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dxmcr0wtpybpd"]
 
-[ext_resource type="Texture2D" uid="uid://cewrsdlwbnuhu" path="res://素材/ui素材/ui素材/子按钮框.png" id="2_rspoc"]
+[ext_resource type="Texture2D" uid="uid://cewrsdlwbnuhu" path="res://素材/ui素材/ui/子按钮框.png" id="2_rspoc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq6yw"]
 texture = ExtResource("2_rspoc")

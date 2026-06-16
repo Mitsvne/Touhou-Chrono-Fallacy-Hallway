@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://chbioif4vj8c0"]
 
 [ext_resource type="Texture2D" uid="uid://dfy1yd73h4tto" path="res://素材/人物素材/灵梦/符卡/技能2.png" id="1_4qajw"]
-[ext_resource type="Script" uid="uid://c57h6d4kdob4" path="res://场景与代码/主程序/主体类/人物相关/技能攻击数据基类.gd" id="1_e0h8b"]
-[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="2_e0h8b"]
+[ext_resource type="Script" uid="uid://c57h6d4kdob4" path="res://场景与代码/主程序/主体类/角色核心/技能攻击数据基类.gd" id="1_e0h8b"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/角色核心/技能数据基类.gd" id="2_e0h8b"]
 
 [sub_resource type="Resource" id="Resource_pp10p"]
 script = ExtResource("1_e0h8b")

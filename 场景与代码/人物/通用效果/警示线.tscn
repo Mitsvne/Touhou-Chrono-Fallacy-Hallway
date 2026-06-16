@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ylatubhbuc4m"]
 
-[ext_resource type="Script" uid="uid://bkayl2acmh506" path="res://场景与代码/主程序/主体类/效果相关/警示线.gd" id="1_2y004"]
+[ext_resource type="Script" uid="uid://bkayl2acmh506" path="res://场景与代码/人物/通用效果/警示线.gd" id="1_2y004"]
 
 [node name="警示线" type="Node2D" unique_id=360980111 node_paths=PackedStringArray("line") groups=["props"]]
 script = ExtResource("1_2y004")

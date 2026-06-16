@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://l41whiw04qvf"]
 
-[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_1hp7q"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/角色核心/技能数据基类.gd" id="1_1hp7q"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_2nf7d"]
-[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_1hp7q"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/角色核心/人物数据基类.gd" id="2_1hp7q"]
 [ext_resource type="Resource" uid="uid://dv1xunr1ko5b1" path="res://场景与代码/人物/灵梦/本体/必杀1梦想封印.tres" id="2_kxqde"]
 [ext_resource type="Resource" uid="uid://3x0u8a3a4upl" path="res://场景与代码/人物/灵梦/本体/技能1明珠暗投.tres" id="2_m7ufo"]
 [ext_resource type="Resource" uid="uid://chbioif4vj8c0" path="res://场景与代码/人物/灵梦/本体/技能2封魔亚空穴.tres" id="3_qgh4v"]

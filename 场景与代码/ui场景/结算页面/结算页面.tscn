@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqpbskbb408mh" path="res://场景与代码/ui场景/结算页面/结算页面.gd" id="1_yp4sk"]
 [ext_resource type="Shader" uid="uid://bsh7cvmiy8r42" path="res://场景与代码/着色器/彩虹流效果.gdshader" id="2_aqhvt"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="2_lvraq"]
-[ext_resource type="Texture2D" uid="uid://cofrmrilut0ud" path="res://素材/ui素材/ui素材/星星1.png" id="3_gm5th"]
+[ext_resource type="Texture2D" uid="uid://cofrmrilut0ud" path="res://素材/ui素材/ui/星星1.png" id="3_gm5th"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqhvt"]
 shader = ExtResource("2_aqhvt")

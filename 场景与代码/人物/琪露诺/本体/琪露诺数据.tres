@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://bk1t4bppmsen5"]
 
-[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_42fyy"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/角色核心/技能数据基类.gd" id="1_42fyy"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="2_keba0"]
 [ext_resource type="Texture2D" uid="uid://byf1hul81s0ky" path="res://素材/ui素材/人物头像/琪露诺.png" id="2_vcuxt"]
-[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="3_vcuxt"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/角色核心/人物数据基类.gd" id="3_vcuxt"]
 
 [resource]
 script = ExtResource("3_vcuxt")

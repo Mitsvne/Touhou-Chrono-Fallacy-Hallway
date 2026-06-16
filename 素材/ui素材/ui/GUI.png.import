@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvxuume5awqse"
-path="res://.godot/imported/耐力条.png-c925bd8e4e67a714465a524365a289d8.ctex"
+uid="uid://c52qfmjd4yho5"
+path="res://.godot/imported/GUI.png-d0d91806814984dee60f471541d144b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/ui素材/ui素材/耐力条.png"
-dest_files=["res://.godot/imported/耐力条.png-c925bd8e4e67a714465a524365a289d8.ctex"]
+source_file="res://素材/ui素材/ui/GUI.png"
+dest_files=["res://.godot/imported/GUI.png-d0d91806814984dee60f471541d144b8.ctex"]
 
 [params]
 

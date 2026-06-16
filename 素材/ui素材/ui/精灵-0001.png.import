@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccxmx800841uw"
-path="res://.godot/imported/Folding & Cutout Paper UI SpriteSheet.png-a78636d7419de8f65f467839bd9a424f.ctex"
+uid="uid://dyffvvjd7x0cg"
+path="res://.godot/imported/精灵-0001.png-d58f2b0be6fa10f21c3136ab7a3c8b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/ui素材/ui素材/Folding & Cutout Paper UI SpriteSheet.png"
-dest_files=["res://.godot/imported/Folding & Cutout Paper UI SpriteSheet.png-a78636d7419de8f65f467839bd9a424f.ctex"]
+source_file="res://素材/ui素材/ui/精灵-0001.png"
+dest_files=["res://.godot/imported/精灵-0001.png-d58f2b0be6fa10f21c3136ab7a3c8b9f.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://565h26jt54n7"]
 
-[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_5d004"]
+[ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/角色核心/技能数据基类.gd" id="1_5d004"]
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_ijgsh"]
 [ext_resource type="Resource" uid="uid://dmv2vk5fak55w" path="res://场景与代码/人物/早苗/本体/技能1星落.tres" id="2_81msx"]
-[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_xr31t"]
+[ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/角色核心/人物数据基类.gd" id="2_xr31t"]
 [ext_resource type="Resource" uid="uid://b337luntahqm4" path="res://场景与代码/人物/早苗/本体/必杀1守护商业繁荣.tres" id="4_kbb5n"]
 [ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="4_who5p"]
 

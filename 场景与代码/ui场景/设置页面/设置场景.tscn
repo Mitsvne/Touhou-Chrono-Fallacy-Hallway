@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dpb6sdten8lh0" path="res://场景与代码/ui场景/设置页面/设置场景.gd" id="1_vp8b4"]
 [ext_resource type="Texture2D" uid="uid://bnag8jbpsdno7" path="res://素材/地图素材/图书馆/Full Asset 1.png" id="2_ai2fj"]
 [ext_resource type="Texture2D" uid="uid://bq1aabtxs1f4k" path="res://素材/地图素材/图书馆/Full Asset 2.png" id="3_y4ilh"]
-[ext_resource type="Texture2D" uid="uid://dyffvvjd7x0cg" path="res://素材/ui素材/ui素材/精灵-0001.png" id="4_j1gwd"]
+[ext_resource type="Texture2D" uid="uid://dyffvvjd7x0cg" path="res://素材/ui素材/ui/精灵-0001.png" id="4_j1gwd"]
 [ext_resource type="PackedScene" uid="uid://cce4pj0chhgsk" path="res://场景与代码/ui场景/设置页面/设置页面.tscn" id="5_vp8b4"]
 [ext_resource type="FontFile" uid="uid://7mhoi7j3oidc" path="res://场景与代码/ui场景/字体模板/优设标题黑.ttf" id="5_xjv5l"]
 [ext_resource type="Shader" uid="uid://c38fs1dinr3eb" path="res://场景与代码/着色器/浮动效果非全局.gdshader" id="7_pvjp5"]

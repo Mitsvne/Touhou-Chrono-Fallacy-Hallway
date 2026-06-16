@@ -26,8 +26,8 @@ func _on_character_pressed() -> void:
 
 func _on_level1_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to(GameStateManager.STATE_OPENING,"res://场景与代码/主程序/关卡/关卡1.tscn")
+	GameStateManager.transition_to(GameStateManager.STATE_OPENING,"res://场景与代码/关卡/关卡1.tscn")
 
 func _on_level2_pressed() -> void:
 	audio_pressed.play()
-	GameStateManager.transition_to(GameStateManager.STATE_OPENING,"res://场景与代码/主程序/关卡/关卡2.tscn")
+	GameStateManager.transition_to(GameStateManager.STATE_OPENING,"res://场景与代码/关卡/关卡2.tscn")
