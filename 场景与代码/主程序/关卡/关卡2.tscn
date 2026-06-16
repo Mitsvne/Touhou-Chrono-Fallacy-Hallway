@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://c0qrts5vm4oqx"]
 
-[ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_purw1"]
+[ext_resource type="Script" uid="uid://c30sgvdv0c2m2" path="res://场景与代码/主程序/关卡/关卡2.gd" id="1_132w0"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="3_8cpe1"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="4_b6lvy"]
-[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_puq4c"]
-[ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_iug7k"]
 [ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="5_purw1"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="7_lqw3y"]
 [ext_resource type="PackedScene" uid="uid://c3gi447kc7f6y" path="res://场景与代码/ui场景/血条ui/boss指向箭头.tscn" id="8_b6lvy"]
@@ -30,13 +28,19 @@ glow_intensity = 1.0
 glow_bloom = 0.15
 glow_blend_mode = 0
 
-[node name="关卡2" type="Node" unique_id=1278968647 node_paths=PackedStringArray("map")]
-script = ExtResource("1_purw1")
+[node name="关卡2" type="Node" unique_id=1278968647 node_paths=PackedStringArray("map", "pos_1p", "pos_2p", "camera", "arrow", "bar_1p", "bar_2p", "skill_slot", "ultimate_slot")]
+script = ExtResource("1_132w0")
 level_id = "关卡2"
 boss_id = "琪露诺"
 map = NodePath("平原")
-result_scene = ExtResource("4_puq4c")
-pause_scene = ExtResource("5_iug7k")
+pos_1p = NodePath("1P位置")
+pos_2p = NodePath("2P位置")
+camera = NodePath("镜头")
+arrow = NodePath("ui/boss指向箭头")
+bar_1p = NodePath("ui/ui血条人物")
+bar_2p = NodePath("ui/ui血条boss")
+skill_slot = NodePath("ui/cd显示容器/技能cd显示")
+ultimate_slot = NodePath("ui/cd显示容器/必杀cd显示")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1856976602]
 
@@ -78,7 +82,6 @@ custom_minimum_size = Vector2(41, 0)
 layout_mode = 2
 
 [node name="boss指向箭头" parent="ui" unique_id=1791958163 instance=ExtResource("8_b6lvy")]
-visible = true
 
 [node name="平原" parent="." unique_id=336795962 instance=ExtResource("5_purw1")]
 position = Vector2(0, 2)

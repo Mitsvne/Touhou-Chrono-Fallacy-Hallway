@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_x7ath"]
 [ext_resource type="Script" uid="uid://dfe3hh0h7mlw6" path="res://场景与代码/ui场景/血条ui/cd显示容器.gd" id="4_ko1x6"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="4_po811"]
-[ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_w5sji"]
-[ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_3df55"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="5_ko1x6"]
 [ext_resource type="PackedScene" uid="uid://bj4poyfjuw0rg" path="res://场景与代码/地图/山脉.tscn" id="6_67h1u"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="8_3df55"]
@@ -30,13 +28,19 @@ glow_intensity = 1.0
 glow_bloom = 0.15
 glow_blend_mode = 0
 
-[node name="关卡1" type="Node" unique_id=1178706691 node_paths=PackedStringArray("map")]
+[node name="关卡1" type="Node" unique_id=1178706691 node_paths=PackedStringArray("map", "pos_1p", "pos_2p", "camera", "arrow", "bar_1p", "bar_2p", "skill_slot", "ultimate_slot")]
 script = ExtResource("1_x7ath")
 level_id = "关卡1"
 boss_id = "拉赫莱蒂"
 map = NodePath("山脉")
-result_scene = ExtResource("4_w5sji")
-pause_scene = ExtResource("5_3df55")
+pos_1p = NodePath("1P位置")
+pos_2p = NodePath("2P位置")
+camera = NodePath("镜头")
+arrow = NodePath("ui/boss指向箭头")
+bar_1p = NodePath("ui/ui血条人物")
+bar_2p = NodePath("ui/ui血条boss")
+skill_slot = NodePath("ui/cd显示容器/技能cd显示")
+ultimate_slot = NodePath("ui/cd显示容器/必杀cd显示")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1292044908]
 

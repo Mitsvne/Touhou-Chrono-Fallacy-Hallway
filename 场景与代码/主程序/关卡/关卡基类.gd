@@ -1,0 +1,133 @@
+extends Node
+class_name Level
+
+@export var level_id:String
+@export var boss_id: String
+@export var map:Node2D
+@export var pos_1p: Node2D
+@export var pos_2p: Node2D
+@export var camera: Camera2D
+@export var arrow: Node2D
+@export var bar_1p: Control
+@export var bar_2p: Control
+@export var skill_slot: Control
+@export var ultimate_slot: Control
+
+
+var character1:PackedScene
+var character2:PackedScene
+var character1_instance:Node2D
+var character2_instance:Node2D
+var custom_time: float = 0.0        # 存储的时间
+
+
+func _ready() -> void:
+	EventBus.opening_started.connect(_on_opening_started)
+	EventBus.character_dead.connect(_game_over)
+	AudioManager.stop_bgm(0)                        # 关bgm
+	character_setup()
+	camera_setup()
+	map_setup()
+	ui_setup()
+	setup()
+	print("关卡初始化完成")
+
+func _physics_process(delta: float) -> void:
+	if not get_tree().paused:
+		custom_time += delta # 将累积的时间赋值给全局着色器参数
+		RenderingServer.global_shader_parameter_set("CUSTOM_TIME", custom_time)
+
+
+## 开场开始回调 —— 在此驱动入场动画、对话等，完成后调用 end_opening()
+func _on_opening_started() -> void:
+	opening()
+	if GameStateManager.states.has(GameStateManager.STATE_OPENING):
+		GameStateManager.end_opening()
+
+
+## 人物死亡回调，游戏结束，进入结算
+func _game_over(team):
+	character1_instance.character_ctrler.set_is_allow_losehp(false)
+	character2_instance.character_ctrler.set_is_allow_losehp(false)
+	if team=="1P":
+		print("信号游戏失败，%s死亡"%[team])
+	else:
+		print("信号游戏胜利，%s死亡"%[team])
+	var current_stars :int = calculate_stars()
+	GameStateManager.change_state(GameStateManager.STATE_SETTLE)
+	EventBus.level_complete.emit(level_id,current_stars)
+
+
+##------------------------可重写函数---------------------##
+
+
+## 关卡初始化
+func setup():
+	pass
+
+
+## 人物加载初始化
+func character_setup():
+	var pos1=pos_1p.global_position
+	var pos2=pos_2p.global_position
+	var player_path=GameData.current_deploy_character_data.character_scene_path
+	var boss_path=GameData.get_character_data(boss_id).character_scene_path
+	character1_instance=add_character(player_path,"1P",pos1)
+	character2_instance=add_character(boss_path,"2P",pos2)
+
+## 相机跟随初始化
+func camera_setup():
+	camera.reparent(character1_instance)
+	camera.position = Vector2.ZERO
+
+
+## 地图设置初始化
+func map_setup():
+	map.z_index = -1
+
+
+## ui初始化
+func ui_setup():
+	arrow.setup(character1_instance,character2_instance)
+	bar_1p.setup(character1_instance.character_data)
+	bar_2p.setup(character2_instance.character_data)
+	skill_slot.setup(character1_instance.character_data,false)
+	ultimate_slot.setup(character1_instance.character_data,true)
+
+
+## 开场内容
+func opening():
+	print("关卡1：开场序列开始")
+	await get_tree().create_timer(0.5, false).timeout
+
+
+## 添加角色
+func add_character(path:String,team:String="1P",pos:Vector2=Vector2.ZERO):
+	var character:PackedScene
+	var character_instance:Node2D
+	if path != "":
+		character = load(path)
+	else:
+		push_error("加载失败：角色资源中未配置场景路径！")
+		return
+	character_instance = character.instantiate()
+	character_instance.add_to_group(team)
+	character_instance.character_data.team=team
+	print("%s加入:%s"%[character_instance.character_data.character_name,character_instance.character_data.team])
+	character_instance.global_position=pos
+	add_child(character_instance)
+	return character_instance
+
+
+## 计算获得的星级
+func calculate_stars() -> int:
+	var hp:float=character1_instance.character_data.hp
+	var hp_max:float=character1_instance.character_data.hp_max
+	print(hp/hp_max)
+	if hp/hp_max>=0.9:
+		return 3
+	elif hp/hp_max>=0.6:
+		return 2
+	elif hp/hp_max>=0.3:
+		return 1
+	return 0
