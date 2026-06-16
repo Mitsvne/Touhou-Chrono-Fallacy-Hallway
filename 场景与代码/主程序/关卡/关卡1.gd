@@ -81,7 +81,7 @@ func add_character(path:String,team:String="1P",pos:Vector2=Vector2.ZERO):
 	character_instance = character.instantiate()
 	character_instance.add_to_group(team)
 	character_instance.character_data.team=team
-	print("%s加入:%s"%[character_instance.character_name,character_instance.character_data.team])
+	print("%s加入:%s"%[character_instance.character_data.character_name,character_instance.character_data.team])
 	character_instance.global_position=pos
 	add_child(character_instance)
 	return character_instance

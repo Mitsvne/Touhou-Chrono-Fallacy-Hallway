@@ -38,6 +38,7 @@ const SKILL_STATES = [State.技能1, State.技能2, State.技能3, State.技能4
 
 func _ready() -> void:
 	await character.ready
+	hurtbox.hurt.connect(_on_hurtbox_hurt)
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction
 	target = character_ctrler.get_target()

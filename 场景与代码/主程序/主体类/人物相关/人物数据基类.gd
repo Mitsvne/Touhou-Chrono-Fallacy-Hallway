@@ -4,6 +4,7 @@ extends Resource
 @export_file("*.tscn") var character_scene_path: String
 @export var character_id: String = ""
 @export var character_name: String = ""
+@export var icon: Texture2D
 
 @export_group("基础属性", "")
 @export var base_hp: float = 200.0

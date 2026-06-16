@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="5_463i5"]
 [ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="6_qqc8a"]
 [ext_resource type="Texture2D" uid="uid://br4iv8rxw6ssy" path="res://素材/ui素材/ui素材/血量魔力耐力条.png" id="7_bd5yo"]
+[ext_resource type="Texture2D" uid="uid://byf1hul81s0ky" path="res://素材/ui素材/人物头像/琪露诺.png" id="7_n3m67"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4w3d"]
 content_margin_left = 5.0
@@ -96,6 +97,11 @@ stretch_mode = 5
 [node name="拉赫莱蒂" type="TextureRect" parent="头像框" unique_id=777818063]
 layout_mode = 2
 texture = ExtResource("6_qqc8a")
+stretch_mode = 5
+
+[node name="琪露诺" type="TextureRect" parent="头像框" unique_id=20539922]
+layout_mode = 2
+texture = ExtResource("7_n3m67")
 stretch_mode = 5
 
 [node name="血量条" type="TextureProgressBar" parent="." unique_id=1045250746]

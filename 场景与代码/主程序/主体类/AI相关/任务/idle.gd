@@ -6,7 +6,11 @@ var time: float = 0.0
 
 func _enter() -> void:
 	time = 0.0
-	agent.velocity=Vector2.ZERO
+	var body := agent as CharacterBody2D
+	if not body and agent.has_method("character"):
+		body = agent.character as CharacterBody2D
+	if body:
+		body.velocity = Vector2.ZERO
 	agent.character_ai_main.set_current_state(State.常态)
 
 func _tick(delta: float) -> Status:

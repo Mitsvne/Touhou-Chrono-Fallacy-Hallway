@@ -1,0 +1,15 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://cviqbmxtca8uq"]
+
+[ext_resource type="Script" uid="uid://cnt5wax5vito0" path="res://场景与代码/主程序/主体类/AI相关/任务/idle.gd" id="1_s3y0r"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_c16qr"]
+
+[sub_resource type="BTAction" id="BTAction_4p47e"]
+script = ExtResource("1_s3y0r")
+
+[sub_resource type="BTSelector" id="BTSelector_sli06"]
+children = [SubResource("BTAction_4p47e")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_c16qr")
+root_task = SubResource("BTSelector_sli06")

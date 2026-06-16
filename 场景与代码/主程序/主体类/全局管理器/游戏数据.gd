@@ -13,7 +13,8 @@ var current_level_id: String = "关卡1"
 var all_characters: Array[CharacterData] = [
 	preload("res://场景与代码/人物/灵梦/本体/灵梦数据.tres"),
 	preload("res://场景与代码/人物/早苗/本体/早苗数据.tres"),
-	preload("res://场景与代码/人物/拉赫/本体/拉赫数据.tres")
+	preload("res://场景与代码/人物/拉赫/本体/拉赫数据.tres"),
+	preload("res://场景与代码/人物/琪露诺/本体/琪露诺数据.tres")
 ]
 #当前确认出战的角色
 var current_deploy_character_data:CharacterData:
