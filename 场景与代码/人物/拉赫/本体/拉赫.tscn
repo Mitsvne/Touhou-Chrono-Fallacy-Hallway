@@ -1606,6 +1606,12 @@ bt_player = NodePath("BTPlayer")
 skill_host = NodePath("classes/SkillHost")
 book = ExtResource("3_wrct2")
 
+[node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
+visible = false
+visibility_layer = 2
+position = Vector2(-3, -1.5)
+shape = SubResource("RectangleShape2D_3vjy5")
+
 [node name="classes" type="Node" parent="." unique_id=519233685]
 
 [node name="Character_AI_Main" type="Node" parent="classes" unique_id=1803098692 node_paths=PackedStringArray("character_data", "character_ctrler", "character", "anplayer", "hurtbox", "bt_player", "skill_host")]
@@ -1665,13 +1671,6 @@ script = ExtResource("17_ffxxw")
 bullet = ExtResource("6_jggr4")
 magic_array = ExtResource("8_ixnr7")
 anim_name = "技能4"
-
-[node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=1771351187]
-visible = false
-visibility_layer = 2
-position = Vector2(-3, -1.5)
-shape = SubResource("RectangleShape2D_3vjy5")
-disabled = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=748957042]
 collision_layer = 4

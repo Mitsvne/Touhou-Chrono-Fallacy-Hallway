@@ -2,22 +2,21 @@ extends Node2D
 
 @export var player: CharacterBody2D
 @export var enemy: CharacterBody2D
+@export var avatar: TextureRect
 @export var buffer_zone: float = 30.0 # 缓冲区大小，根据你敌人模型的大小来定
 @export var icon_margin: float = 30.0  # 图标贴在屏幕边缘时的留白
-@onready var avatar: TextureRect = $背景/boss头像
 
 
-var _avatar_set: bool = false
+func setup(p:CharacterBody2D,e:CharacterBody2D) -> void:
+	player=p
+	enemy=e
+
 
 func _process(_delta: float) -> void:
 	if not player or not enemy:
 		return
-	if not _avatar_set and is_instance_valid(enemy):
-		
-		if enemy.character_data and enemy.character_data.avatar:
-			avatar.texture = enemy.character_data.avatar
-			print(enemy)
-		_avatar_set = true
+	if enemy.character_data and enemy.character_data.avatar and avatar.texture != enemy.character_data.avatar:
+		avatar.texture = enemy.character_data.avatar
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var screen_size = get_viewport_rect().size
 	var enemy_screen_pos = canvas_transform * enemy.global_position

@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://wwj2fdpge705" path="res://素材/ui素材/人物头像/箭头头像框.png" id="3_e7vw6"]
 [ext_resource type="Texture2D" uid="uid://bb6riiyq3ms6f" path="res://素材/ui素材/人物头像/指向箭头.png" id="4_q0gxo"]
 
-[node name="boss指向箭头" type="Node2D" unique_id=1791958163]
+[node name="boss指向箭头" type="Node2D" unique_id=1791958163 node_paths=PackedStringArray("avatar")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_o3h7o")
+avatar = NodePath("背景/boss头像")
 
 [node name="背景" type="Sprite2D" parent="." unique_id=338651585]
 clip_children = 2

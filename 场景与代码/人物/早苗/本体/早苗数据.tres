@@ -5,12 +5,14 @@
 [ext_resource type="Resource" uid="uid://dmv2vk5fak55w" path="res://场景与代码/人物/早苗/本体/技能1星落.tres" id="2_81msx"]
 [ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_xr31t"]
 [ext_resource type="Resource" uid="uid://b337luntahqm4" path="res://场景与代码/人物/早苗/本体/必杀1守护商业繁荣.tres" id="4_kbb5n"]
+[ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="4_who5p"]
 
 [resource]
 script = ExtResource("2_xr31t")
 character_scene_path = "uid://bwbev3uuivmkw"
 character_id = "东风谷早苗"
 character_name = "东风谷早苗"
+avatar = ExtResource("4_who5p")
 base_speed = 500.0
 base_power = 8.0
 base_energy = 80.0

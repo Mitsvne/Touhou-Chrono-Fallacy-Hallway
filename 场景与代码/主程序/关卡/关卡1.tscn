@@ -78,7 +78,6 @@ offset_bottom = 70.0
 grow_horizontal = 0
 
 [node name="boss指向箭头" parent="ui" unique_id=1791958163 instance=ExtResource("8_jsljd")]
-visible = true
 
 [node name="山脉" parent="." unique_id=160434654 instance=ExtResource("6_67h1u")]
 position = Vector2(0, 2)

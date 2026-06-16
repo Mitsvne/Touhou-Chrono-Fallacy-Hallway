@@ -43,10 +43,9 @@ func _ready():
 	camera.position = Vector2.ZERO
 	map.z_index = -1
 	# 指向箭头与血条
-	arrow.player=character1_instance
-	arrow.enemy=character2_instance
-	bar1.character_data=character1_instance.character_data
-	bar2.character_data=character2_instance.character_data
+	arrow.setup(character1_instance,character2_instance)
+	bar1.setup(character1_instance.character_data)
+	bar2.setup(character2_instance.character_data)
 	skill_slot.setup(character1_instance.character_data,false)
 	ultimate_slot.setup(character1_instance.character_data,true)
 	# 角色死亡信号连接

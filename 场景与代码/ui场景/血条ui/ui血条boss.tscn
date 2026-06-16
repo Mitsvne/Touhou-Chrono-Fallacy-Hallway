@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chq2bdoxgfnxc" path="res://场景与代码/ui场景/血条ui/ui血条.gd" id="1_2i6ve"]
 [ext_resource type="Texture2D" uid="uid://c52qfmjd4yho5" path="res://素材/ui素材/ui素材/GUI.png" id="1_mo0oq"]
-[ext_resource type="Texture2D" uid="uid://gucfe1n82dom" path="res://素材/ui素材/人物头像/灵梦.png" id="2_2i6ve"]
-[ext_resource type="Texture2D" uid="uid://b5suax6mv8yr7" path="res://素材/ui素材/人物头像/魔理沙.png" id="3_5mqsu"]
-[ext_resource type="Texture2D" uid="uid://bxxuhmepybupi" path="res://素材/ui素材/人物头像/早苗.png" id="4_x1olp"]
-[ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="5_nwqpd"]
 [ext_resource type="Texture2D" uid="uid://br4iv8rxw6ssy" path="res://素材/ui素材/ui素材/血量魔力耐力条.png" id="6_dsdyf"]
-[ext_resource type="Texture2D" uid="uid://byf1hul81s0ky" path="res://素材/ui素材/人物头像/琪露诺.png" id="7_5mqsu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6fg8"]
 content_margin_left = 5.0
@@ -53,7 +48,7 @@ region = Rect2(51, 34, 42, 3)
 atlas = ExtResource("6_dsdyf")
 region = Rect2(51, 39, 42, 3)
 
-[node name="ui血条boss" type="Control" unique_id=446108919 node_paths=PackedStringArray("bar", "hp_bar", "delay_hp_bar", "mp_bar", "delay_mp_bar", "energy_bar", "delay_energy_bar", "avatars")]
+[node name="ui血条boss" type="Control" unique_id=446108919 node_paths=PackedStringArray("bar", "hp_bar", "delay_hp_bar", "mp_bar", "delay_mp_bar", "energy_bar", "delay_energy_bar", "avatar")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2i6ve")
@@ -64,7 +59,7 @@ mp_bar = NodePath("魔力条/魔力条")
 delay_mp_bar = NodePath("魔力条/延迟魔力")
 energy_bar = NodePath("耐力条/耐力条")
 delay_energy_bar = NodePath("耐力条/延迟耐力")
-avatars = NodePath("头像框")
+avatar = NodePath("头像")
 
 [node name="头像框" type="PanelContainer" parent="." unique_id=1048235019]
 custom_minimum_size = Vector2(20, 20)
@@ -77,30 +72,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_s6fg8")
 
-[node name="博丽灵梦" type="TextureRect" parent="头像框" unique_id=15146851]
-layout_mode = 2
-texture = ExtResource("2_2i6ve")
-stretch_mode = 5
-
-[node name="雾雨魔理沙" type="TextureRect" parent="头像框" unique_id=204996792]
-layout_mode = 2
-texture = ExtResource("3_5mqsu")
-stretch_mode = 5
-
-[node name="东风谷早苗" type="TextureRect" parent="头像框" unique_id=1525025231]
-layout_mode = 2
-texture = ExtResource("4_x1olp")
-stretch_mode = 5
-
-[node name="拉赫莱蒂" type="TextureRect" parent="头像框" unique_id=1658261280]
-layout_mode = 2
-texture = ExtResource("5_nwqpd")
-stretch_mode = 5
-
-[node name="琪露诺" type="TextureRect" parent="头像框" unique_id=761187376]
-layout_mode = 2
-texture = ExtResource("7_5mqsu")
-stretch_mode = 5
+[node name="头像" type="TextureRect" parent="." unique_id=5479512]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 5.0
+offset_right = 291.0
+offset_bottom = 55.0
+scale = Vector2(-1, 1)
 
 [node name="血量条" type="TextureProgressBar" parent="." unique_id=1184366975]
 layout_mode = 0
