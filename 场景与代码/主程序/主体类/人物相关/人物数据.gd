@@ -10,6 +10,7 @@ signal skill_ready
 signal ultimate_ready
 
 @export var character_name:String="未命名"    #角色名称
+var avatar:Texture2D=null            #头像
 var team:String="1P"                 #队伍
 var defense_broken: bool = false       #防御崩溃后需耐力恢复至60%才能重新防御
 var energy_regen_locked: bool = false  #防御期间暂停耐力恢复
@@ -65,6 +66,7 @@ func _ready() -> void:
 	if GameData and GameData.get_character_data(character_name):
 		var blueprint = GameData.get_character_data(character_name)
 		character_name=blueprint.character_name
+		avatar=blueprint.avatar
 		power=blueprint.base_power
 		move_speed=blueprint.base_speed
 		acceleration=blueprint.base_acceleration

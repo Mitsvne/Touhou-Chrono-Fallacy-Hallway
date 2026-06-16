@@ -1191,5 +1191,3 @@ rotation = 0.62831855
 texture = ExtResource("37_4av3t")
 script = ExtResource("36_bd7oe")
 rotation_direction = false
-
-[connection signal="hurt" from="Hurtbox" to="classes/Character_Main" method="_on_hurtbox_hurt"]

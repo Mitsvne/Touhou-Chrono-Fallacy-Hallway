@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://donfkw40y1usn" path="res://场景与代码/主程序/主体类/道具卡相关/道具卡数据基类.gd" id="1_wk0fg"]
 [ext_resource type="Script" uid="uid://cf6hh8wjk18uk" path="res://场景与代码/主程序/主体类/人物相关/技能数据基类.gd" id="1_y2ld2"]
+[ext_resource type="Texture2D" uid="uid://bjwc16talrl3h" path="res://素材/ui素材/人物头像/拉赫莱蒂.png" id="2_cgcct"]
 [ext_resource type="Script" uid="uid://ca3irylcnbh3j" path="res://场景与代码/主程序/主体类/人物相关/人物数据基类.gd" id="2_y2ld2"]
 
 [resource]
@@ -9,5 +10,6 @@ script = ExtResource("2_y2ld2")
 character_scene_path = "uid://dhem3wxpj02v8"
 character_id = "拉赫莱蒂"
 character_name = "拉赫莱蒂"
+avatar = ExtResource("2_cgcct")
 base_hp = 1000.0
 metadata/_custom_type_script = "uid://ca3irylcnbh3j"

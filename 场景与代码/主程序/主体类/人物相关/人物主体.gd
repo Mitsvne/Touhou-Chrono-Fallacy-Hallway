@@ -25,6 +25,7 @@ var final_hit:bool=false
 ## 初始化函数
 func _ready() -> void:
 	await character.ready                          #等人物先加载
+	hurtbox.hurt.connect(_on_hurtbox_hurt)
 	character_data.direction_changed.connect(set_direction)
 	character.scale.x = character_data.direction   #赋予初始朝向
 	#普攻和技能cd计时器

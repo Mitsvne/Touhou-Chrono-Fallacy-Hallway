@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c3gi447kc7f6y"]
+
+[ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/ui场景/血条ui/boss指向箭头.gd" id="1_o3h7o"]
+[ext_resource type="Texture2D" uid="uid://bso1f1fyn0sjs" path="res://素材/ui素材/人物头像/箭头头像框背景.png" id="2_bba2v"]
+[ext_resource type="Texture2D" uid="uid://wwj2fdpge705" path="res://素材/ui素材/人物头像/箭头头像框.png" id="3_e7vw6"]
+[ext_resource type="Texture2D" uid="uid://bb6riiyq3ms6f" path="res://素材/ui素材/人物头像/指向箭头.png" id="4_q0gxo"]
+
+[node name="boss指向箭头" type="Node2D" unique_id=1791958163]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_o3h7o")
+
+[node name="背景" type="Sprite2D" parent="." unique_id=338651585]
+clip_children = 2
+position = Vector2(-27, 0)
+texture = ExtResource("2_bba2v")
+
+[node name="boss头像" type="TextureRect" parent="背景" unique_id=2102036064]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+
+[node name="框" type="Sprite2D" parent="." unique_id=1432468751]
+position = Vector2(-27, 0)
+texture = ExtResource("3_e7vw6")
+
+[node name="箭头" type="Sprite2D" parent="." unique_id=1676423599]
+position = Vector2(21, 0)
+texture = ExtResource("4_q0gxo")

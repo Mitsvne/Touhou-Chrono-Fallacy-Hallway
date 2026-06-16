@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1e51jre1lp1p"
-path="res://.godot/imported/箭头.png-285272ede1ade7326194ab7b3d712fdf.ctex"
+uid="uid://wwj2fdpge705"
+path="res://.godot/imported/箭头头像框.png-c3feb6aa655dba203efa9b0531f53c66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/ui素材/人物头像/箭头.png"
-dest_files=["res://.godot/imported/箭头.png-285272ede1ade7326194ab7b3d712fdf.ctex"]
+source_file="res://素材/ui素材/人物头像/箭头头像框.png"
+dest_files=["res://.godot/imported/箭头头像框.png-c3feb6aa655dba203efa9b0531f53c66.ctex"]
 
 [params]
 

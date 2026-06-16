@@ -1671,6 +1671,7 @@ visible = false
 visibility_layer = 2
 position = Vector2(-3, -1.5)
 shape = SubResource("RectangleShape2D_3vjy5")
+disabled = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=748957042]
 collision_layer = 4
@@ -1767,5 +1768,3 @@ bus = &"SFX"
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=344541768]
 behavior_tree = ExtResource("66_pxu2m")
 blackboard_plan = SubResource("BlackboardPlan_1asjr")
-
-[connection signal="hurt" from="Hurtbox" to="classes/Character_AI_Main" method="_on_hurtbox_hurt"]

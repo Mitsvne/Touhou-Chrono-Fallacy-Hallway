@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://c0qrts5vm4oqx"]
 
 [ext_resource type="Script" uid="uid://bkoviaypu5hmw" path="res://场景与代码/主程序/关卡/关卡1.gd" id="1_purw1"]
-[ext_resource type="Texture2D" uid="uid://c1e51jre1lp1p" path="res://素材/ui素材/人物头像/箭头.png" id="1_y801o"]
-[ext_resource type="Script" uid="uid://es8hrh8i6f1c" path="res://场景与代码/主程序/主体类/效果相关/指向箭头.gd" id="2_132w0"]
 [ext_resource type="PackedScene" uid="uid://lmo1rknygdh6" path="res://场景与代码/ui场景/血条ui/ui血条人物.tscn" id="3_8cpe1"]
 [ext_resource type="PackedScene" uid="uid://bw2ag06pxfptb" path="res://场景与代码/ui场景/血条ui/ui血条boss.tscn" id="4_b6lvy"]
 [ext_resource type="PackedScene" uid="uid://dptewmma7hr2j" path="res://场景与代码/ui场景/结算页面/结算页面.tscn" id="4_puq4c"]
 [ext_resource type="PackedScene" uid="uid://gv05gegcytup" path="res://场景与代码/ui场景/暂停页面/暂停页面.tscn" id="5_iug7k"]
 [ext_resource type="PackedScene" uid="uid://clf8r3s5kgf3k" path="res://场景与代码/地图/平原.tscn" id="5_purw1"]
 [ext_resource type="AudioStream" uid="uid://dvx5j26k2evfv" path="res://素材/音频素材/bgm/16 - The Calm Before The Storm.mp3" id="7_lqw3y"]
+[ext_resource type="PackedScene" uid="uid://c3gi447kc7f6y" path="res://场景与代码/ui场景/血条ui/boss指向箭头.tscn" id="8_b6lvy"]
 [ext_resource type="Script" uid="uid://dfe3hh0h7mlw6" path="res://场景与代码/ui场景/血条ui/cd显示容器.gd" id="8_purw1"]
 [ext_resource type="PackedScene" uid="uid://cvs815biemnfx" path="res://场景与代码/ui场景/血条ui/ui技能cd.tscn" id="9_qpplv"]
 
@@ -40,10 +39,6 @@ result_scene = ExtResource("4_puq4c")
 pause_scene = ExtResource("5_iug7k")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=1856976602]
-
-[node name="箭头" type="Sprite2D" parent="ui" unique_id=4241746]
-texture = ExtResource("1_y801o")
-script = ExtResource("2_132w0")
 
 [node name="ui血条人物" parent="ui" unique_id=1116684798 instance=ExtResource("3_8cpe1")]
 anchor_right = 0.4
@@ -81,6 +76,9 @@ layout_mode = 2
 [node name="必杀cd显示" parent="ui/cd显示容器" unique_id=1503050355 instance=ExtResource("9_qpplv")]
 custom_minimum_size = Vector2(41, 0)
 layout_mode = 2
+
+[node name="boss指向箭头" parent="ui" unique_id=1791958163 instance=ExtResource("8_b6lvy")]
+visible = true
 
 [node name="平原" parent="." unique_id=336795962 instance=ExtResource("5_purw1")]
 position = Vector2(0, 2)
