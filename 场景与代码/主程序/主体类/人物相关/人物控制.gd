@@ -169,7 +169,8 @@ func _get_hurtbox_collisionshapes() -> Array[CollisionShape2D]:
 func set_invincible(value:bool):
 	is_invincible=value
 	for shape in _get_hurtbox_collisionshapes():
-		shape.set_deferred("disabled", value)
+		if not shape.is_in_group("defense_only"):
+			shape.set_deferred("disabled", value)
 
 ## 获取是否无敌
 func get_invincible():

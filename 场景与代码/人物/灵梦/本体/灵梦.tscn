@@ -1448,7 +1448,7 @@ metadata/_custom_type_script = "uid://cupen48kq8hvc"
 [node name="DefenseState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=895630700 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
 script = ExtResource("21_xsknn")
 defense_effect = NodePath("../../../../防御法阵")
-hurbox_shape2 = NodePath("../../../../Hurtbox/受击面2")
+hurbox_shape2 = NodePath("../../../../Hurtbox/防御法阵受击面")
 
 [node name="Effect_Ctrler" type="Node" parent="classes" unique_id=702969427]
 script = ExtResource("35_rluf1")
@@ -1479,7 +1479,7 @@ metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 [node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=141437388]
 shape = SubResource("RectangleShape2D_k3vqu")
 
-[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=1120094328]
+[node name="防御法阵受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1120094328 groups=["defense_only"]]
 position = Vector2(37, -1.5)
 shape = SubResource("RectangleShape2D_bjp0m")
 disabled = true

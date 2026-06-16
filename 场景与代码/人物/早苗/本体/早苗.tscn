@@ -425,22 +425,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("防御法阵:visible")
+tracks/4/path = NodePath("素材库:sprite_frames")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("素材库:sprite_frames")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -838,18 +826,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [&"常态"]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("防御法阵:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_gdh64"]
 resource_name = "星落"
@@ -1060,18 +1036,6 @@ tracks/3/keys = {
 "method": &"jump_to_frame"
 }]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("防御法阵:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q075i"]
 _data = {
@@ -1159,7 +1123,7 @@ metadata/_custom_type_script = "uid://cupen48kq8hvc"
 [node name="DefenseState" type="Node" parent="classes/Character_Main/PlayerStateMachine" unique_id=1737251234 node_paths=PackedStringArray("defense_effect", "hurbox_shape2")]
 script = ExtResource("15_bd7oe")
 defense_effect = NodePath("../../../../防御法阵")
-hurbox_shape2 = NodePath("../../../../Hurtbox/受击面2")
+hurbox_shape2 = NodePath("../../../../Hurtbox/防御法阵受击面")
 metadata/_custom_type_script = "uid://8rcaxnpk4f5r"
 
 [node name="Effect_Ctrler" type="Node" parent="classes" unique_id=1734290524]
@@ -1178,7 +1142,7 @@ metadata/_custom_type_script = "uid://wjwd1qtqs14e"
 [node name="受击面1" type="CollisionShape2D" parent="Hurtbox" unique_id=470333514]
 shape = SubResource("RectangleShape2D_q4p7h")
 
-[node name="受击面2" type="CollisionShape2D" parent="Hurtbox" unique_id=1292916843]
+[node name="防御法阵受击面" type="CollisionShape2D" parent="Hurtbox" unique_id=1292916843 groups=["defense_only"]]
 position = Vector2(50, -0.5)
 shape = SubResource("RectangleShape2D_bd7oe")
 disabled = true
@@ -1209,7 +1173,6 @@ volume_db = -5.0
 bus = &"SFX"
 
 [node name="防御法阵" type="Node2D" parent="." unique_id=2146378244]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(51, 0)
 rotation = 2.0071287

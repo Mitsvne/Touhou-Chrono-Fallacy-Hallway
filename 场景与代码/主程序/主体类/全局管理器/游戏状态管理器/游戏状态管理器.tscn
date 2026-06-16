@@ -15,7 +15,7 @@
 
 [node name="游戏状态管理器" type="Node" unique_id=278945586 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_awbx1")
-initial_state = NodePath("关卡选择")
+initial_state = NodePath("主菜单")
 
 [node name="局内开场" type="Node" parent="." unique_id=1155160496]
 script = ExtResource("12_7vaf2")
