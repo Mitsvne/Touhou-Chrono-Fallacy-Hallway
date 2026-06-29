@@ -1,4 +1,4 @@
-幻想时谬回廊
+# 幻想时谬回廊  
 一款融入了动作游戏元素的弹幕游戏  
 内容演示图片  
 <img width="1922" height="1126" alt="image" src="https://github.com/user-attachments/assets/c63d7358-3fdb-433b-8fcf-d066a5cdf59b" />
